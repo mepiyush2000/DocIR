@@ -17,6 +17,8 @@ class Block(BaseModel):
     label: str
     content: str
     bbox: tuple[float, float, float, float]  # (x1, y1, x2, y2), source-image pixels
+    polygon: list[tuple[float, float]] | None = None  # raw detected quad, if any;
+                                                       # None for legacy/hand-built layouts
 
 
 class PageLayout(BaseModel):
@@ -41,6 +43,8 @@ class PageLayout(BaseModel):
                 label=b.get("block_label") or "text",
                 content=(b.get("block_content") or "").strip(),
                 bbox=tuple(b["block_bbox"]),
+                polygon=[tuple(p) for p in b["block_polygon_points"]]
+                if b.get("block_polygon_points") else None,
             )
             for i, b in enumerate(raw_blocks)
         ]

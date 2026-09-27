@@ -1,0 +1,7 @@
+# DocIR runtime configuration.
+# Edit and save -- picked up on the next run (no restart/reinstall needed).
+
+[logging]
+# Turn on verbose debug logging (e.g. which standard page ratio a canvas
+# snapped to, or that its ratio was too distinctive to snap).
+debug = false

@@ -25,6 +25,7 @@ class PaddleOcrVlEngine:
     def __init__(self, pipeline_version: str = "v1.6"):
         self._pipeline_version = pipeline_version
         self._pipeline = None
+        self.last_raw: dict | None = None  # raw dict from the most recent analyze() call
 
     def _pipeline_instance(self):
         if self._pipeline is None:
@@ -39,7 +40,8 @@ class PaddleOcrVlEngine:
         if not results:
             raise RuntimeError(f"PaddleOCR-VL returned no result for '{image_path}'")
         # res.json == {"res": <same payload as the saved *_res.json file>}
-        return PageLayout.from_paddle_dict(results[0].json["res"])
+        self.last_raw = results[0].json["res"]
+        return PageLayout.from_paddle_dict(self.last_raw)
 
 
 class FakeOcrEngine:

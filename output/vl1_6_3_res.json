@@ -1,0 +1,1490 @@
+{
+  "input_path": "vl1_6_3.jpeg",
+  "page_index": null,
+  "page_count": null,
+  "width": 693,
+  "height": 1121,
+  "model_settings": {
+    "use_doc_preprocessor": false,
+    "use_layout_detection": true,
+    "use_chart_recognition": false,
+    "use_seal_recognition": false,
+    "use_ocr_for_image_block": false,
+    "format_block_content": false,
+    "merge_layout_blocks": true,
+    "markdown_ignore_labels": [
+      "number",
+      "footnote",
+      "header",
+      "header_image",
+      "footer",
+      "footer_image",
+      "aside_text"
+    ],
+    "return_layout_polygon_points": true
+  },
+  "parsing_res_list": [
+    {
+      "block_label": "paragraph_title",
+      "block_content": "[PDF] No Safe Place",
+      "block_bbox": [
+        30,
+        39,
+        171,
+        113
+      ],
+      "block_id": 0,
+      "block_order": 1,
+      "group_id": 0,
+      "block_polygon_points": [
+        [
+          31.227012634277344,
+          35.719051361083984
+        ],
+        [
+          177.9996337890625,
+          90.609619140625
+        ],
+        [
+          167.71932983398438,
+          118.09828186035156
+        ],
+        [
+          20.94670867919922,
+          63.20771408081055
+        ]
+      ]
+    },
+    {
+      "block_label": "image",
+      "block_content": "",
+      "block_bbox": [
+        30,
+        65,
+        88,
+        193
+      ],
+      "block_id": 1,
+      "block_order": null,
+      "group_id": 1,
+      "block_polygon_points": [
+        [
+          30.0,
+          65.0
+        ],
+        [
+          88.0,
+          65.0
+        ],
+        [
+          88.0,
+          193.0
+        ],
+        [
+          30.0,
+          193.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "There's nothing more dangerous than a familiar face... As funeral mourners stand in silence at Ragmullin cemetery, a deafening cry cuts through the air. Lying crumpled at the bottom of an open grave is the bloodied body of a young woman, and Detective Lottie Parker is called in to investi... Read More...",
+      "block_bbox": [
+        84,
+        65,
+        649,
+        214
+      ],
+      "block_id": 2,
+      "block_order": 2,
+      "group_id": 2,
+      "block_polygon_points": [
+        [
+          645.0,
+          65.0
+        ],
+        [
+          608.0,
+          65.0
+        ],
+        [
+          569.0,
+          83.0
+        ],
+        [
+          347.0,
+          134.0
+        ],
+        [
+          223.0,
+          134.0
+        ],
+        [
+          91.0,
+          100.0
+        ],
+        [
+          91.0,
+          179.0
+        ],
+        [
+          161.0,
+          202.0
+        ],
+        [
+          234.0,
+          213.0
+        ],
+        [
+          392.0,
+          208.0
+        ],
+        [
+          552.0,
+          162.0
+        ],
+        [
+          645.0,
+          145.0
+        ]
+      ]
+    },
+    {
+      "block_label": "paragraph_title",
+      "block_content": "[PDF] Portrait of an Unknown Woman",
+      "block_bbox": [
+        27,
+        223,
+        317,
+        297
+      ],
+      "block_id": 3,
+      "block_order": 3,
+      "group_id": 3,
+      "block_polygon_points": [
+        [
+          27.0,
+          223.0
+        ],
+        [
+          27.0,
+          245.0
+        ],
+        [
+          41.0,
+          251.0
+        ],
+        [
+          55.0,
+          257.0
+        ],
+        [
+          73.0,
+          262.0
+        ],
+        [
+          90.0,
+          268.0
+        ],
+        [
+          108.0,
+          274.0
+        ],
+        [
+          153.0,
+          285.0
+        ],
+        [
+          188.0,
+          291.0
+        ],
+        [
+          316.0,
+          296.0
+        ],
+        [
+          316.0,
+          269.0
+        ],
+        [
+          304.0,
+          269.0
+        ],
+        [
+          292.0,
+          269.0
+        ],
+        [
+          279.0,
+          269.0
+        ],
+        [
+          275.0,
+          269.0
+        ],
+        [
+          271.0,
+          275.0
+        ],
+        [
+          264.0,
+          269.0
+        ],
+        [
+          194.0,
+          263.0
+        ],
+        [
+          138.0,
+          252.0
+        ],
+        [
+          114.0,
+          246.0
+        ],
+        [
+          96.0,
+          241.0
+        ],
+        [
+          79.0,
+          235.0
+        ],
+        [
+          61.0,
+          229.0
+        ],
+        [
+          44.0,
+          223.0
+        ]
+      ]
+    },
+    {
+      "block_label": "image",
+      "block_content": "",
+      "block_bbox": [
+        30,
+        255,
+        84,
+        377
+      ],
+      "block_id": 4,
+      "block_order": null,
+      "group_id": 4,
+      "block_polygon_points": [
+        [
+          30.0,
+          255.0
+        ],
+        [
+          84.0,
+          255.0
+        ],
+        [
+          84.0,
+          377.0
+        ],
+        [
+          30.0,
+          377.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "In a spellbinding new masterpiece by #1 New York Times bestselling author Daniel Silva, Gabriel Allon undertakes a high-stakes search for the greatest art forger who ever lived legendary spy and art restorer Gabriel Allon has at long last severed ties with Israeli intelligence and settled quietly in... Read More...",
+      "block_bbox": [
+        86,
+        259,
+        640,
+        387
+      ],
+      "block_id": 5,
+      "block_order": 4,
+      "group_id": 5,
+      "block_polygon_points": [
+        [
+          636.0,
+          259.0
+        ],
+        [
+          467.0,
+          287.0
+        ],
+        [
+          398.0,
+          298.0
+        ],
+        [
+          346.0,
+          304.0
+        ],
+        [
+          227.0,
+          304.0
+        ],
+        [
+          179.0,
+          298.0
+        ],
+        [
+          86.0,
+          282.0
+        ],
+        [
+          86.0,
+          359.0
+        ],
+        [
+          156.0,
+          375.0
+        ],
+        [
+          197.0,
+          381.0
+        ],
+        [
+          401.0,
+          381.0
+        ],
+        [
+          477.0,
+          370.0
+        ],
+        [
+          549.0,
+          359.0
+        ],
+        [
+          629.0,
+          348.0
+        ],
+        [
+          639.0,
+          336.0
+        ]
+      ]
+    },
+    {
+      "block_label": "paragraph_title",
+      "block_content": "[PDF] The 6:20 Man",
+      "block_bbox": [
+        29,
+        413,
+        164,
+        458
+      ],
+      "block_id": 6,
+      "block_order": 5,
+      "group_id": 6,
+      "block_polygon_points": [
+        [
+          29.822067260742188,
+          408.0191650390625
+        ],
+        [
+          167.33811950683594,
+          430.71600341796875
+        ],
+        [
+          162.6630401611328,
+          459.04150390625
+        ],
+        [
+          25.146987915039062,
+          436.34466552734375
+        ]
+      ]
+    },
+    {
+      "block_label": "image",
+      "block_content": "",
+      "block_bbox": [
+        30,
+        444,
+        84,
+        561
+      ],
+      "block_id": 7,
+      "block_order": null,
+      "group_id": 7,
+      "block_polygon_points": [
+        [
+          30.0,
+          444.0
+        ],
+        [
+          84.0,
+          444.0
+        ],
+        [
+          84.0,
+          561.0
+        ],
+        [
+          30.0,
+          561.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "A cryptic murder pulls a former soldier turned financial analyst deep into the corruption and menace that prowl beneath the opulent world of finance, in this #1 New York Times bestselling thriller from David Baldacci. Every day without fail, Travis Devine puts on a cheap suit, grabs his faux-leather... Read More...",
+      "block_bbox": [
+        83,
+        459,
+        631,
+        555
+      ],
+      "block_id": 8,
+      "block_order": 6,
+      "group_id": 8,
+      "block_polygon_points": [
+        [
+          630.0,
+          459.0
+        ],
+        [
+          409.0,
+          476.0
+        ],
+        [
+          226.0,
+          476.0
+        ],
+        [
+          87.0,
+          465.0
+        ],
+        [
+          87.0,
+          538.0
+        ],
+        [
+          146.0,
+          549.0
+        ],
+        [
+          285.0,
+          554.0
+        ],
+        [
+          613.0,
+          549.0
+        ],
+        [
+          630.0,
+          543.0
+        ]
+      ]
+    },
+    {
+      "block_label": "paragraph_title",
+      "block_content": "[PDF] It Ends with Us",
+      "block_bbox": [
+        28,
+        604,
+        173,
+        631
+      ],
+      "block_id": 9,
+      "block_order": 7,
+      "group_id": 9,
+      "block_polygon_points": [
+        [
+          28.0,
+          604.0
+        ],
+        [
+          172.0,
+          604.0
+        ],
+        [
+          172.0,
+          625.0
+        ],
+        [
+          28.0,
+          625.0
+        ]
+      ]
+    },
+    {
+      "block_label": "image",
+      "block_content": "",
+      "block_bbox": [
+        29,
+        636,
+        82,
+        753
+      ],
+      "block_id": 10,
+      "block_order": null,
+      "group_id": 10,
+      "block_polygon_points": [
+        [
+          29.0,
+          641.9999389648438
+        ],
+        [
+          80.99999237060547,
+          641.9999389648438
+        ],
+        [
+          80.99999237060547,
+          751.9999389648438
+        ],
+        [
+          29.0,
+          751.9999389648438
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "In this \u201cbrave and heartbreaking novel that digs its claws into you and doesn\u2019t let go, long after you\u2019ve finished it\u201d (Anna Todd, New York Times bestselling author) from the #1 New York Times bestselling author of All Your Perfects, a workaholic with a too-good-to-be-true romance can\u2019t stop th... Read More...",
+      "block_bbox": [
+        82,
+        640,
+        627,
+        749
+      ],
+      "block_id": 11,
+      "block_order": 8,
+      "group_id": 11,
+      "block_polygon_points": [
+        [
+          82.41949462890625,
+          631.6885375976562
+        ],
+        [
+          630.222412109375,
+          659.3346557617188
+        ],
+        [
+          625.7254638671875,
+          748.4403686523438
+        ],
+        [
+          77.92254638671875,
+          720.7942504882812
+        ]
+      ]
+    },
+    {
+      "block_label": "paragraph_title",
+      "block_content": "[PDF] Thunder Bay",
+      "block_bbox": [
+        25,
+        784,
+        151,
+        826
+      ],
+      "block_id": 12,
+      "block_order": 9,
+      "group_id": 12,
+      "block_polygon_points": [
+        [
+          21.230493545532227,
+          796.1004028320312
+        ],
+        [
+          147.0892333984375,
+          779.6840209960938
+        ],
+        [
+          151.24349975585938,
+          811.5335083007812
+        ],
+        [
+          25.384765625,
+          827.9498901367188
+        ]
+      ]
+    },
+    {
+      "block_label": "image",
+      "block_content": "",
+      "block_bbox": [
+        23,
+        823,
+        79,
+        949
+      ],
+      "block_id": 13,
+      "block_order": null,
+      "group_id": 13,
+      "block_polygon_points": [
+        [
+          23.0,
+          823.0
+        ],
+        [
+          79.0,
+          823.0
+        ],
+        [
+          79.0,
+          949.0
+        ],
+        [
+          23.0,
+          949.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Stoirm Island's secrets are worth killing for in this immersive, unrelenting thriller for readers of All the Missing Girls and Neon Prey \u2014\"this crime novel has it all\" ( Publishers Weekly, starred review). When reporter Rebecca Connolly gets a tip that suspected murderer Roddie Drummond... Read More...",
+      "block_bbox": [
+        77,
+        811,
+        632,
+        956
+      ],
+      "block_id": 14,
+      "block_order": 10,
+      "group_id": 14,
+      "block_polygon_points": [
+        [
+          81.0,
+          828.0
+        ],
+        [
+          81.0,
+          911.0
+        ],
+        [
+          230.0,
+          889.0
+        ],
+        [
+          347.0,
+          894.0
+        ],
+        [
+          598.0,
+          950.0
+        ],
+        [
+          628.0,
+          950.0
+        ],
+        [
+          631.0,
+          867.0
+        ],
+        [
+          607.0,
+          856.0
+        ],
+        [
+          500.0,
+          839.0
+        ],
+        [
+          354.0,
+          817.0
+        ],
+        [
+          274.0,
+          811.0
+        ],
+        [
+          140.0,
+          817.0
+        ]
+      ]
+    },
+    {
+      "block_label": "footer",
+      "block_content": "file: Eating Purely",
+      "block_bbox": [
+        26,
+        1085,
+        115,
+        1121
+      ],
+      "block_id": 15,
+      "block_order": null,
+      "group_id": 15,
+      "block_polygon_points": [
+        [
+          114.0,
+          1085.0
+        ],
+        [
+          98.0,
+          1085.0
+        ],
+        [
+          83.0,
+          1091.0
+        ],
+        [
+          69.0,
+          1097.0
+        ],
+        [
+          55.0,
+          1103.0
+        ],
+        [
+          41.0,
+          1109.0
+        ],
+        [
+          30.0,
+          1115.0
+        ],
+        [
+          30.0,
+          1120.0
+        ],
+        [
+          65.0,
+          1120.0
+        ],
+        [
+          82.0,
+          1114.0
+        ],
+        [
+          100.0,
+          1108.0
+        ],
+        [
+          114.0,
+          1102.0
+        ]
+      ]
+    }
+  ],
+  "layout_det_res": {
+    "input_path": null,
+    "page_index": null,
+    "boxes": [
+      {
+        "cls_id": 17,
+        "label": "paragraph_title",
+        "score": 0.9034188389778137,
+        "coordinate": [
+          30,
+          39,
+          171,
+          113
+        ],
+        "order": 1,
+        "polygon_points": [
+          [
+            31.227012634277344,
+            35.719051361083984
+          ],
+          [
+            177.9996337890625,
+            90.609619140625
+          ],
+          [
+            167.71932983398438,
+            118.09828186035156
+          ],
+          [
+            20.94670867919922,
+            63.20771408081055
+          ]
+        ]
+      },
+      {
+        "cls_id": 14,
+        "label": "image",
+        "score": 0.8662248253822327,
+        "coordinate": [
+          30,
+          65,
+          88,
+          193
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            30.0,
+            65.0
+          ],
+          [
+            88.0,
+            65.0
+          ],
+          [
+            88.0,
+            193.0
+          ],
+          [
+            30.0,
+            193.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.8997299671173096,
+        "coordinate": [
+          84,
+          65,
+          649,
+          214
+        ],
+        "order": 2,
+        "polygon_points": [
+          [
+            645.0,
+            65.0
+          ],
+          [
+            608.0,
+            65.0
+          ],
+          [
+            569.0,
+            83.0
+          ],
+          [
+            347.0,
+            134.0
+          ],
+          [
+            223.0,
+            134.0
+          ],
+          [
+            91.0,
+            100.0
+          ],
+          [
+            91.0,
+            179.0
+          ],
+          [
+            161.0,
+            202.0
+          ],
+          [
+            234.0,
+            213.0
+          ],
+          [
+            392.0,
+            208.0
+          ],
+          [
+            552.0,
+            162.0
+          ],
+          [
+            645.0,
+            145.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 17,
+        "label": "paragraph_title",
+        "score": 0.90682053565979,
+        "coordinate": [
+          27,
+          223,
+          317,
+          297
+        ],
+        "order": 3,
+        "polygon_points": [
+          [
+            27.0,
+            223.0
+          ],
+          [
+            27.0,
+            245.0
+          ],
+          [
+            41.0,
+            251.0
+          ],
+          [
+            55.0,
+            257.0
+          ],
+          [
+            73.0,
+            262.0
+          ],
+          [
+            90.0,
+            268.0
+          ],
+          [
+            108.0,
+            274.0
+          ],
+          [
+            153.0,
+            285.0
+          ],
+          [
+            188.0,
+            291.0
+          ],
+          [
+            316.0,
+            296.0
+          ],
+          [
+            316.0,
+            269.0
+          ],
+          [
+            304.0,
+            269.0
+          ],
+          [
+            292.0,
+            269.0
+          ],
+          [
+            279.0,
+            269.0
+          ],
+          [
+            275.0,
+            269.0
+          ],
+          [
+            271.0,
+            275.0
+          ],
+          [
+            264.0,
+            269.0
+          ],
+          [
+            194.0,
+            263.0
+          ],
+          [
+            138.0,
+            252.0
+          ],
+          [
+            114.0,
+            246.0
+          ],
+          [
+            96.0,
+            241.0
+          ],
+          [
+            79.0,
+            235.0
+          ],
+          [
+            61.0,
+            229.0
+          ],
+          [
+            44.0,
+            223.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 14,
+        "label": "image",
+        "score": 0.8897132277488708,
+        "coordinate": [
+          30,
+          255,
+          84,
+          377
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            30.0,
+            255.0
+          ],
+          [
+            84.0,
+            255.0
+          ],
+          [
+            84.0,
+            377.0
+          ],
+          [
+            30.0,
+            377.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.9007139801979065,
+        "coordinate": [
+          86,
+          259,
+          640,
+          387
+        ],
+        "order": 4,
+        "polygon_points": [
+          [
+            636.0,
+            259.0
+          ],
+          [
+            467.0,
+            287.0
+          ],
+          [
+            398.0,
+            298.0
+          ],
+          [
+            346.0,
+            304.0
+          ],
+          [
+            227.0,
+            304.0
+          ],
+          [
+            179.0,
+            298.0
+          ],
+          [
+            86.0,
+            282.0
+          ],
+          [
+            86.0,
+            359.0
+          ],
+          [
+            156.0,
+            375.0
+          ],
+          [
+            197.0,
+            381.0
+          ],
+          [
+            401.0,
+            381.0
+          ],
+          [
+            477.0,
+            370.0
+          ],
+          [
+            549.0,
+            359.0
+          ],
+          [
+            629.0,
+            348.0
+          ],
+          [
+            639.0,
+            336.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 17,
+        "label": "paragraph_title",
+        "score": 0.8866714835166931,
+        "coordinate": [
+          29,
+          413,
+          164,
+          458
+        ],
+        "order": 5,
+        "polygon_points": [
+          [
+            29.822067260742188,
+            408.0191650390625
+          ],
+          [
+            167.33811950683594,
+            430.71600341796875
+          ],
+          [
+            162.6630401611328,
+            459.04150390625
+          ],
+          [
+            25.146987915039062,
+            436.34466552734375
+          ]
+        ]
+      },
+      {
+        "cls_id": 14,
+        "label": "image",
+        "score": 0.8845270872116089,
+        "coordinate": [
+          30,
+          444,
+          84,
+          561
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            30.0,
+            444.0
+          ],
+          [
+            84.0,
+            444.0
+          ],
+          [
+            84.0,
+            561.0
+          ],
+          [
+            30.0,
+            561.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.893502950668335,
+        "coordinate": [
+          83,
+          459,
+          631,
+          555
+        ],
+        "order": 6,
+        "polygon_points": [
+          [
+            630.0,
+            459.0
+          ],
+          [
+            409.0,
+            476.0
+          ],
+          [
+            226.0,
+            476.0
+          ],
+          [
+            87.0,
+            465.0
+          ],
+          [
+            87.0,
+            538.0
+          ],
+          [
+            146.0,
+            549.0
+          ],
+          [
+            285.0,
+            554.0
+          ],
+          [
+            613.0,
+            549.0
+          ],
+          [
+            630.0,
+            543.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 17,
+        "label": "paragraph_title",
+        "score": 0.8356516361236572,
+        "coordinate": [
+          28,
+          604,
+          173,
+          631
+        ],
+        "order": 7,
+        "polygon_points": [
+          [
+            28.0,
+            604.0
+          ],
+          [
+            172.0,
+            604.0
+          ],
+          [
+            172.0,
+            625.0
+          ],
+          [
+            28.0,
+            625.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 14,
+        "label": "image",
+        "score": 0.8445651531219482,
+        "coordinate": [
+          29,
+          636,
+          82,
+          753
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            29.0,
+            641.9999389648438
+          ],
+          [
+            80.99999237060547,
+            641.9999389648438
+          ],
+          [
+            80.99999237060547,
+            751.9999389648438
+          ],
+          [
+            29.0,
+            751.9999389648438
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.907867431640625,
+        "coordinate": [
+          82,
+          640,
+          627,
+          749
+        ],
+        "order": 8,
+        "polygon_points": [
+          [
+            82.41949462890625,
+            631.6885375976562
+          ],
+          [
+            630.222412109375,
+            659.3346557617188
+          ],
+          [
+            625.7254638671875,
+            748.4403686523438
+          ],
+          [
+            77.92254638671875,
+            720.7942504882812
+          ]
+        ]
+      },
+      {
+        "cls_id": 17,
+        "label": "paragraph_title",
+        "score": 0.8898508548736572,
+        "coordinate": [
+          25,
+          784,
+          151,
+          826
+        ],
+        "order": 9,
+        "polygon_points": [
+          [
+            21.230493545532227,
+            796.1004028320312
+          ],
+          [
+            147.0892333984375,
+            779.6840209960938
+          ],
+          [
+            151.24349975585938,
+            811.5335083007812
+          ],
+          [
+            25.384765625,
+            827.9498901367188
+          ]
+        ]
+      },
+      {
+        "cls_id": 14,
+        "label": "image",
+        "score": 0.6304777264595032,
+        "coordinate": [
+          23,
+          823,
+          79,
+          949
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            23.0,
+            823.0
+          ],
+          [
+            79.0,
+            823.0
+          ],
+          [
+            79.0,
+            949.0
+          ],
+          [
+            23.0,
+            949.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.8978890776634216,
+        "coordinate": [
+          77,
+          811,
+          632,
+          956
+        ],
+        "order": 10,
+        "polygon_points": [
+          [
+            81.0,
+            828.0
+          ],
+          [
+            81.0,
+            911.0
+          ],
+          [
+            230.0,
+            889.0
+          ],
+          [
+            347.0,
+            894.0
+          ],
+          [
+            598.0,
+            950.0
+          ],
+          [
+            628.0,
+            950.0
+          ],
+          [
+            631.0,
+            867.0
+          ],
+          [
+            607.0,
+            856.0
+          ],
+          [
+            500.0,
+            839.0
+          ],
+          [
+            354.0,
+            817.0
+          ],
+          [
+            274.0,
+            811.0
+          ],
+          [
+            140.0,
+            817.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 8,
+        "label": "footer",
+        "score": 0.7725555896759033,
+        "coordinate": [
+          26,
+          1085,
+          115,
+          1121
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            114.0,
+            1085.0
+          ],
+          [
+            98.0,
+            1085.0
+          ],
+          [
+            83.0,
+            1091.0
+          ],
+          [
+            69.0,
+            1097.0
+          ],
+          [
+            55.0,
+            1103.0
+          ],
+          [
+            41.0,
+            1109.0
+          ],
+          [
+            30.0,
+            1115.0
+          ],
+          [
+            30.0,
+            1120.0
+          ],
+          [
+            65.0,
+            1120.0
+          ],
+          [
+            82.0,
+            1114.0
+          ],
+          [
+            100.0,
+            1108.0
+          ],
+          [
+            114.0,
+            1102.0
+          ]
+        ]
+      }
+    ]
+  }
+}

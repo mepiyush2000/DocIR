@@ -44,17 +44,41 @@ def render_pdf_from_layout(
     return render_page_to_pdf(layout, output_path, source_image=source_image)
 
 
+def _schema_json_path(output_json: str) -> str:
+    """Where our own versioned PageLayout schema is saved, kept separate
+    from `output_json` -- which holds PaddleOCR-VL's own raw result, in its
+    own native "_res.json" naming convention (never overwritten)."""
+    stem, ext = os.path.splitext(output_json)
+    if stem.endswith("_res"):
+        stem = stem[: -len("_res")]
+    return f"{stem}_schema{ext}"
+
+
 def process_image(
     image_path: str,
     output_pdf: str | None = None,
     output_json: str | None = None,
     engine: OcrEngine | None = None,
 ) -> str:
-    """End-to-end: raw image -> layout (+ optional JSON) -> PDF."""
-    layout = analyze_image(image_path, engine=engine)
+    """End-to-end: raw image -> layout (+ optional JSON) -> PDF.
+
+    When `output_json` is given and the engine exposes the raw PaddleOCR-VL
+    result (`last_raw`), it's saved there as-is -- so it never needs to be
+    re-run just to get the raw data again -- and our own schema is saved to
+    a separate, automatically-derived path instead of overwriting it.
+    """
+    engine = engine or PaddleOcrVlEngine()
+    layout = engine.analyze(image_path)
     if output_json:
-        with open(output_json, "w") as f:
-            f.write(layout.model_dump_json(indent=2))
+        raw = getattr(engine, "last_raw", None)
+        if raw is not None:
+            with open(output_json, "w") as f:
+                json.dump(raw, f, indent=2)
+            with open(_schema_json_path(output_json), "w") as f:
+                f.write(layout.model_dump_json(indent=2))
+        else:
+            with open(output_json, "w") as f:
+                f.write(layout.model_dump_json(indent=2))
     output_pdf = output_pdf or _default_output_path(image_path, ".pdf")
     return render_pdf_from_layout(layout, output_pdf, source_image_path=image_path)
 

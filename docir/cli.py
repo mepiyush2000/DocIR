@@ -10,6 +10,7 @@ import argparse
 import logging
 import sys
 
+from .config import is_debug_logging_enabled
 from .pipeline import process_image, render_json_file
 
 
@@ -51,7 +52,8 @@ def _build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> int:
-    logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
+    level = logging.DEBUG if is_debug_logging_enabled() else logging.INFO
+    logging.basicConfig(level=level, format="%(levelname)s: %(message)s")
     args = _build_parser().parse_args(argv)
 
     if args.command == "analyze":

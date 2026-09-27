@@ -28,6 +28,7 @@ Design notes (what makes this "general" vs. a hardcoded per-document script):
 from __future__ import annotations
 
 import html
+import logging
 import statistics
 
 from PIL import Image
@@ -43,6 +44,8 @@ from .fonts import match_style_category
 from .italic import classify_italic_by_label, measure_slant_angle
 from .page_ratios import closest_standard_ratio
 from .schemas import PageLayout
+
+logger = logging.getLogger(__name__)
 
 # ---------- tunables (safe defaults, override per-call if needed) ----------
 TARGET_PAGE_WIDTH_PT = 612.0     # scale output to a standard 8.5in-wide page
@@ -192,6 +195,42 @@ def _draw_pil_image(c, pil_image, x, y, w, h):
     c.drawImage(ImageReader(pil_image), draw_x, draw_y, width=draw_w, height=draw_h, mask="auto")
 
 
+def _polygon_extent(polygon: list[tuple[float, float]]) -> tuple[float, float] | None:
+    """For a simple 4-point quad ordered [top-left, top-right, bottom-right,
+    bottom-left] (PaddleOCR-VL's convention), return its true (width,
+    height) measured along its own edges -- not the axis-aligned bbox
+    around it, which is inflated whenever the quad is rotated/slanted."""
+    if len(polygon) != 4:
+        return None
+    p0, p1, p2, p3 = polygon
+
+    def dist(a, b):
+        return ((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2) ** 0.5
+
+    width = (dist(p0, p1) + dist(p2, p3)) / 2
+    height = (dist(p1, p2) + dist(p3, p0)) / 2
+    return width, height
+
+
+def _deskew_bbox_height(bbox: list[float], polygon: list[tuple[float, float]] | None) -> list[float]:
+    """Shrink `bbox`'s height to the polygon's true (rotated) height when
+    the block is a rotated single quad -- an axis-aligned box around a
+    rotated rectangle is always taller than the rectangle itself, and that
+    inflation is what makes e.g. a slightly slanted title's bbox reach down
+    into whatever is below it. Left untouched for non-quad (multi-line/
+    legacy) blocks, or when the polygon doesn't reveal any inflation."""
+    if not polygon:
+        return bbox
+    extent = _polygon_extent(polygon)
+    if extent is None:
+        return bbox
+    _, true_height = extent
+    x1, y1, x2, y2 = bbox
+    if true_height <= 0 or true_height >= (y2 - y1):
+        return bbox
+    return [x1, y1, x2, y1 + true_height]
+
+
 def _cluster_columns(blocks, page_width, gap_frac):
     """Assign each block a column_key via 1D gap clustering on x1."""
     threshold = gap_frac * page_width
@@ -243,7 +282,10 @@ def render_page_to_pdf(
     img_w, img_h = layout.width, layout.height
 
     blocks = [
-        {"id": b.id, "label": b.label, "content": b.content, "bbox": list(b.bbox)}
+        {
+            "id": b.id, "label": b.label, "content": b.content,
+            "bbox": _deskew_bbox_height(list(b.bbox), b.polygon),
+        }
         for b in layout.blocks
     ]
 
@@ -260,6 +302,16 @@ def render_page_to_pdf(
     matched_ratio = closest_standard_ratio(img_w, img_h, STANDARD_RATIO_TOLERANCE)
     standard_h = page_w / matched_ratio.ratio if matched_ratio else content_h
     page_h = max(content_h, standard_h)
+    if matched_ratio:
+        logger.debug(
+            "page ratio %.4f snapped to standard %r (%.4f)",
+            img_w / img_h, matched_ratio.name, matched_ratio.ratio,
+        )
+    else:
+        logger.debug(
+            "page ratio %.4f is distinctive (no standard match within tolerance %.2f); keeping raw ratio",
+            img_w / img_h, STANDARD_RATIO_TOLERANCE,
+        )
 
     def px(v):
         return v * scale

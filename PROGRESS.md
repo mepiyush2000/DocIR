@@ -178,7 +178,79 @@ standard ratios) but may NOT be the actual root cause of any real text
 overlap -- that would need separate diagnosis with real bbox data (e.g. for
 `vl1_6_3.jpeg`, which has no saved layout JSON yet).
 
+## Config-driven debug logging + real overlap root cause (this session)
+
+Added `docir/config.py` (`load_config()`, `is_debug_logging_enabled()`) and
+`docir_config.toml` at repo root (`[logging] debug = true|false`), read via
+stdlib `tomllib` (no new dependency). `cli.py`'s `logging.basicConfig` now
+uses `DEBUG` when the config flag is on, `INFO` otherwise. First debug log
+added: `render_pdf.py` logs which standard ratio a page snapped to (or that
+it was distinctive and kept raw).
+
+This led to actually diagnosing the "overlapping text" complaint on
+`vl1_6_3.jpeg` (previously unconfirmed) by re-running OCR and inspecting
+the **raw** PaddleOCR-VL output (before our schema discards
+`block_polygon_points`). Two distinct causes found:
+
+1. **Rotated-title bbox inflation (FIXED)**: some `paragraph_title` blocks
+   are detected as slightly rotated quads (e.g. `poly=[[31,36],[178,91],
+   [168,118],[21,63]]`), but `block_bbox` is just the axis-aligned min/max
+   rectangle around that rotated quad -- which is always taller than the
+   rotated rectangle itself. That inflated height was pushing titles down
+   into the image/text block below them. Fixed by:
+   - `schemas.py`: `Block` now has an optional `polygon` field, populated
+     from `block_polygon_points` when present (`None` for legacy JSON).
+   - `render_pdf.py`: new `_polygon_extent()` (true width/height of a
+     4-point quad, measured along its own edges) and
+     `_deskew_bbox_height()` (shrinks bbox height to the polygon's true
+     height, keeping the top edge fixed, only when the polygon reveals
+     genuine inflation). Applied once when blocks are built in
+     `render_page_to_pdf()`, so everything downstream (columns, font
+     fitting, positioning) sees the corrected bbox. Multi-point polygons
+     (legitimate multi-line titles, e.g. a 24-point wrapped-title hull) are
+     left untouched -- only simple 4-point rotated quads are affected.
+     Verified on `vl1_6_3.jpeg`'s raw OCR output: rotated titles shrank
+     from e.g. 74px -> 29px; the genuinely 2-line "Portrait of an Unknown
+     Woman" title (24-point polygon) was correctly left at its original
+     74px. Visual overlay confirms titles no longer balloon into the block
+     below.
+   - `output/vl1_6_3_deskewed.pdf` is a verification render with this fix.
+
+Note (FIXED, see below): `output/vl1_6_3_res.json` (produced via `docir
+analyze --json`) previously used our own clean `PageLayout` schema
+(`blocks`/`bbox`), which was *not* the same shape as
+`output/demo_img_res.json`/`output/vl1_6_10_res.json` in this repo (those
+were saved directly from Paddle's raw `res.json`, with
+`parsing_res_list`/`block_bbox`/`block_polygon_points`). `PageLayout.from_paddle_dict()`
+only understands the raw `parsing_res_list` shape -- feeding it our own
+clean-schema JSON silently produced zero blocks.
+
+**Fix:** `docir analyze --json <path>` now saves PaddleOCR-VL's own raw
+result to `<path>` unchanged (matching Paddle's own native `_res.json`
+convention -- the same shape as the pre-existing `vl1_6_10_res.json`/
+`demo_img_res.json` fixtures), so it's always loadable via
+`from_paddle_dict()` and never needs OCR to be re-run just to get the raw
+data again. Our own `PageLayout` schema is now saved to a separate,
+automatically-derived path instead (`_res` suffix swapped for `_schema`,
+e.g. `vl1_6_3_res.json` -> `vl1_6_3_schema.json`), so neither file
+overwrites the other. Implemented via `PaddleOcrVlEngine.last_raw` (the raw
+dict from the most recent `analyze()` call) and
+`pipeline._schema_json_path()`; falls back to the old single-file/schema-
+only behavior for engines that don't expose `last_raw` (e.g. `FakeOcrEngine`
+in tests).
+
+Also added `docir/tools/` (`overlay_bbox.py`, `overlay_polygon.py`, shared
+`_overlay_common.py`) -- standalone read-only diagnostics that draw either
+just `bbox` (red) or just `polygon` (blue, with a gray fallback outline for
+blocks that have no polygon) over the source image, for visually comparing
+what the detector actually reported. Usage:
+```bash
+.docir_env/bin/python -m docir.tools.overlay_bbox <json> <source_image> <out.png>
+.docir_env/bin/python -m docir.tools.overlay_polygon <json> <source_image> <out.png>
+```
+
 ## Font catalog: curated list -> full-directory scan (this session)
+
 
 **Ask:** "include all whatever we can render" -- broaden the font catalog
 beyond the original curated 11-font list.
