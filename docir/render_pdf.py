@@ -30,17 +30,21 @@ from __future__ import annotations
 import html
 import logging
 import statistics
+from functools import lru_cache
 
-from PIL import Image
+import numpy as np
+from PIL import Image, ImageDraw, ImageFont
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_CENTER, TA_LEFT
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.utils import ImageReader
+from reportlab.pdfbase.pdfmetrics import stringWidth
 from reportlab.pdfgen import canvas
 from reportlab.platypus import Frame, Paragraph
 
 from .bold import classify_bold_by_label, measure_stroke_ratio
-from .fonts import match_style_category
+from .fonts import classify_word_samples, collect_word_samples, discover_catalog
+from .ink import TextLineStats, binarize_region, measure_text_lines
 from .italic import classify_italic_by_label, measure_slant_angle
 from .page_ratios import closest_standard_ratio
 from .schemas import PageLayout
@@ -54,11 +58,31 @@ FULL_WIDTH_FRAC = 0.6            # a block this wide (as a fraction of page widt
 FONT_FIT_ITERATIONS = 18         # binary-search steps; 18 halvings easily beats 0.1pt precision
 SIZE_CLUSTER_GAP_RATIO = 1.5      # per-label fitted sizes more than this multiplicative
                                   # gap apart are treated as separate visual roles
-MIN_FONT_CATEGORY_SAMPLES = 3     # a label with fewer matches than this defers to the
+MIN_LABEL_FONT_WORDS = 8          # a label with fewer matched words than this defers to the
                                   # document-wide category instead of its own noisy signal
 STANDARD_RATIO_TOLERANCE = 0.05  # snap the page canvas to a known paper/photo ratio
                                   # within this relative difference; further off keeps
                                   # the source image's own raw ratio
+FONT_POOL_WORDS_PER_LABEL = 24    # matched words pooled per label for its font-family call
+LABEL_FONT_OVERRIDE_MARGIN = 0.05  # margin a label needs to differ from the document's family
+SIZE_SEARCH_MIN_PT = 2.0
+SIZE_SEARCH_MAX_PT = 200.0
+# a substitute font's x-height can differ from the original's, so a size
+# matched on x-height may exceed the measured line pitch; lines may then sit
+# a little tighter than the size, but never so tight that they collide
+MIN_LEADING_RATIO = 0.85
+CLUSTER_SIZE_SLACK = 1.2  # a role's shared size may move this far from its median to fit more blocks
+MIN_HSCALE, MAX_HSCALE = 0.6, 1.25  # horizontal glyph scaling allowed to mimic narrow/wide fonts
+
+# x-height as a fraction of the em, straight from the standard-14 AFM metrics
+X_HEIGHT_EM = {
+    "Helvetica": 0.523, "Helvetica-Oblique": 0.523,
+    "Helvetica-Bold": 0.532, "Helvetica-BoldOblique": 0.532,
+    "Times-Roman": 0.448, "Times-Italic": 0.441,
+    "Times-Bold": 0.461, "Times-BoldItalic": 0.462,
+    "Courier": 0.426, "Courier-Oblique": 0.426,
+    "Courier-Bold": 0.439, "Courier-BoldOblique": 0.439,
+}
 
 # fontSize/leading below are only fallbacks (used if auto-fit can't find a
 # size within bounds); leading-to-size ratio is preserved per label when
@@ -114,9 +138,10 @@ def _resolve_font_name(font_category, bold, italic):
     return variants["regular"]
 
 
-def _build_style(label, font_size=None, bold=False, italic=False, font_category=None):
+def _build_style(label, font_size=None, bold=False, italic=False, font_category=None, leading=None):
     """Build a ParagraphStyle for a label, optionally overriding the font size
-    (leading scales with it, preserving the label's original leading/size ratio)."""
+    (leading scales with it, preserving the label's original leading/size
+    ratio, unless an explicit measured `leading` is given)."""
     spec = DEFAULT_STYLES.get(label, FALLBACK_STYLE)
     align = TA_CENTER if spec.get("align") == "center" else TA_LEFT
     size = font_size if font_size is not None else spec["fontSize"]
@@ -124,7 +149,8 @@ def _build_style(label, font_size=None, bold=False, italic=False, font_category=
     font_name = _resolve_font_name(font_category or DEFAULT_FONT_CATEGORY, bold, italic)
     return ParagraphStyle(
         label, fontName=font_name, fontSize=size,
-        leading=size * leading_ratio, textColor=colors.HexColor(spec["color"]),
+        leading=leading if leading is not None else size * leading_ratio,
+        textColor=colors.HexColor(spec["color"]),
         alignment=align,
     )
 
@@ -147,6 +173,81 @@ def _fit_font_size(label, content, width_pt, height_pt, bold=False, italic=False
         else:
             hi = mid
     return round(best, 1)
+
+
+def _wrapped_line_count(label, content, width_pt, size, bold, italic, font_category):
+    style = _build_style(label, font_size=size, bold=bold, italic=italic, font_category=font_category)
+    para = Paragraph(_sanitize(content), style)
+    para.wrap(max(width_pt, 1), 1e6)
+    return len(para.blPara.lines)
+
+
+def _line_count_size_range(label, content, width_pt, n_lines, bold, italic, font_category):
+    """(smallest, largest) font size at which `content` wraps into exactly
+    `n_lines` lines at `width_pt` -- line count only grows with size, so
+    both ends are found by bisection. None for an end that doesn't exist."""
+    def count(s):
+        return _wrapped_line_count(label, content, width_pt, s, bold, italic, font_category)
+
+    # explicit line breaks in the OCR text can make fewer lines impossible
+    n_lines = max(n_lines, count(SIZE_SEARCH_MIN_PT))
+
+    def bisect(pred):  # largest size in range where pred(count) holds
+        lo, hi = SIZE_SEARCH_MIN_PT, SIZE_SEARCH_MAX_PT
+        if not pred(count(lo)):
+            return None
+        if pred(count(hi)):
+            return hi
+        for _ in range(FONT_FIT_ITERATIONS):
+            mid = (lo + hi) / 2
+            if pred(count(mid)):
+                lo = mid
+            else:
+                hi = mid
+        return lo
+
+    largest = bisect(lambda c: c <= n_lines)
+    below = bisect(lambda c: c < n_lines)  # the size where it's still too few lines
+    smallest = SIZE_SEARCH_MIN_PT if below is None else below
+    if largest is None or smallest > largest:
+        return None
+    return smallest, largest
+
+
+@lru_cache(maxsize=1)
+def _x_band_bias() -> float:
+    """How `measure_text_lines`' x-height (a dense-row band) relates to a
+    font's true x-height, calibrated once by measuring a rendered sample in
+    any local font -- so measured sizes aren't systematically off."""
+    catalog = discover_catalog()
+    face = next((f for f in catalog if f.style_category == "sans_serif"), None)
+    if face is None:
+        return 1.0
+    px_size = 40
+    font = ImageFont.truetype(face.path, px_size)
+    sample = ["the quick brown fox jumps over", "a lazy dog while seven zebras", "quietly wander home again"]
+    img = Image.new("L", (px_size * 20, px_size * 5), 255)
+    draw = ImageDraw.Draw(img)
+    for i, line in enumerate(sample):
+        draw.text((10, 10 + i * px_size * 1.3), line, font=font, fill=0)
+    stats = measure_text_lines(np.asarray(img) < 128)
+    x_img = Image.new("L", (px_size * 2, px_size * 2), 255)
+    ImageDraw.Draw(x_img).text((10, 10), "x", font=font, fill=0)
+    rows = np.where((np.asarray(x_img) < 128).any(axis=1))[0]
+    if stats is None or rows.size == 0:
+        return 1.0
+    return stats.x_height / (rows[-1] - rows[0] + 1)
+
+
+def _measured_font_size(label, content, width_pt, stats: TextLineStats, scale, bold, italic, font_category):
+    """(size, size_range) from real pixels: the size whose x-height matches
+    the block's measured x-height, and the range of sizes that reproduce
+    the block's measured line count at its width (None if impossible)."""
+    font_name = _resolve_font_name(font_category, bold, italic)
+    x_height_pt = stats.x_height * scale / _x_band_bias()
+    size = x_height_pt / X_HEIGHT_EM.get(font_name, 0.5)
+    size_range = _line_count_size_range(label, content, width_pt, stats.n_lines, bold, italic, font_category)
+    return size, size_range
 
 
 def _draw_fitted_placeholder(c, x, y, w, h):
@@ -246,6 +347,35 @@ def _cluster_columns(blocks, page_width, gap_frac):
     return blocks
 
 
+def _consensus_cluster_size(cluster, size_ranges) -> float:
+    """One size for a visual-role cluster: near its median measured size,
+    but chosen so as many of its blocks as possible keep their measured
+    line count at that exact size -- so same-role blocks don't each get
+    squeezed to a slightly different size."""
+    median = statistics.median(size for _, size in cluster)
+    ranges = [size_ranges[block_id] for block_id, _ in cluster if size_ranges.get(block_id)]
+    lo, hi = median / CLUSTER_SIZE_SLACK, median * CLUSTER_SIZE_SLACK
+    candidates = [median] + [v for r in ranges for v in r if lo <= v <= hi]
+
+    def coverage(s):
+        return sum(1 for r in ranges if r[0] <= s <= r[1])
+
+    return max(candidates, key=lambda s: (coverage(s), -abs(s - median)))
+
+
+def _best_shared_scale(intervals, prefer: float) -> float:
+    """The value inside the most (lo, hi) intervals, ties broken by closeness
+    to `prefer`; `prefer` itself when there are no intervals."""
+    if not intervals:
+        return prefer
+    candidates = [prefer] + [v for iv in intervals for v in iv]
+
+    def coverage(s):
+        return sum(1 for lo, hi in intervals if lo <= s <= hi)
+
+    return max(candidates, key=lambda s: (coverage(s), -abs(s - prefer)))
+
+
 def _cluster_label_sizes(id_size_pairs):
     """Split one label's per-block fitted sizes into groups via relative-gap
     clustering (same idea as `_cluster_columns`) -- a label can be reused for
@@ -285,6 +415,7 @@ def render_page_to_pdf(
         {
             "id": b.id, "label": b.label, "content": b.content,
             "bbox": _deskew_bbox_height(list(b.bbox), b.polygon),
+            "src_bbox": list(b.bbox),
         }
         for b in layout.blocks
     ]
@@ -327,9 +458,8 @@ def render_page_to_pdf(
     # "paragraph_title" is either bold/italic/serif or not throughout the doc.
     label_stroke_ratios: dict[str, list[float]] = {}
     label_slant_angles: dict[str, list[float]] = {}
-    label_font_category_scores: dict[str, dict[str, float]] = {}
-    label_font_category_counts: dict[str, int] = {}
-    global_font_category_scores: dict[str, float] = {}
+    label_word_samples: dict[str, list] = {}
+    line_stats: dict[int, TextLineStats | None] = {}
     for block in blocks:
         label, content = block["label"], block["content"]
         if label in IMAGE_LABELS or label in SKIP_LABELS or not content:
@@ -342,35 +472,47 @@ def render_page_to_pdf(
         angle = measure_slant_angle(source_image, bbox)
         if angle is not None:
             label_slant_angles.setdefault(fit_label, []).append(angle)
-        category, score = match_style_category(source_image, bbox, content)
-        if category != "unknown":
-            scores = label_font_category_scores.setdefault(fit_label, {})
-            scores[category] = scores.get(category, 0.0) + score
-            label_font_category_counts[fit_label] = label_font_category_counts.get(fit_label, 0) + 1
-            global_font_category_scores[category] = global_font_category_scores.get(category, 0.0) + score
+        # pixel measurements use the detector's own box: the deskewed one
+        # is shorter than a rotated block's actual ink
+        pool = label_word_samples.setdefault(fit_label, [])
+        if len(pool) < FONT_POOL_WORDS_PER_LABEL:
+            pool += collect_word_samples(source_image, block["src_bbox"], content, max_words=4)
+        binary = binarize_region(source_image, block["src_bbox"])
+        line_stats[block["id"]] = measure_text_lines(binary) if binary is not None else None
     consensus_bold = classify_bold_by_label(label_stroke_ratios)
     consensus_italic = classify_italic_by_label(label_slant_angles)
-    # A label with too few of its own matches (titles/footers are often 1-2
-    # blocks) is noisy -- defer to the document-wide winner instead, since
-    # headings usually share body text's font family anyway.
-    global_font_category = (
-        max(global_font_category_scores, key=global_font_category_scores.get)
-        if global_font_category_scores else DEFAULT_FONT_CATEGORY
+    # A label with too few matched words of its own (titles/footers are
+    # often 1-2 blocks) is noisy -- defer to the whole document's pooled
+    # words instead, since headings usually share body text's family.
+    global_font_category, global_margin = classify_word_samples(
+        [s for samples in label_word_samples.values() for s in samples]
     )
-    consensus_font_category = {
-        label: (
-            max(scores, key=scores.get)
-            if label_font_category_counts[label] >= MIN_FONT_CATEGORY_SAMPLES
-            else global_font_category
-        )
-        for label, scores in label_font_category_scores.items()
-    }
+    if global_font_category == "unknown":
+        global_font_category = DEFAULT_FONT_CATEGORY
+    consensus_font_category = {}
+    label_margins = {}
+    for label, samples in label_word_samples.items():
+        category, margin = "unknown", 0.0
+        if len(samples) >= MIN_LABEL_FONT_WORDS:
+            category, margin = classify_word_samples(samples)
+        label_margins[label] = (category, round(margin, 3), len(samples))
+        # a role only departs from the document's family on clear evidence
+        if category == "unknown" or (category != global_font_category and margin < LABEL_FONT_OVERRIDE_MARGIN):
+            category = global_font_category
+        consensus_font_category[label] = category
+    logger.debug("font family: document=%s (margin %.3f) per-label=%s evidence=%s",
+                 global_font_category, global_margin, consensus_font_category, label_margins)
 
-    # Fit each block individually first, then collapse per-label to one
-    # size per visual-role cluster (real documents use one size per role,
-    # not a size tailored to each block's box) -- a label can still cover
-    # more than one cluster if it's reused for genuinely different roles.
+    # Size each block from its own pixels -- the size whose x-height matches
+    # the measured one, kept within the range that reproduces the block's
+    # measured line count at its width -- then collapse per label to one
+    # size per visual-role cluster (real documents use one size per role),
+    # still honoring each block's own line-count range. Blocks that can't
+    # be measured fall back to fitting the text into the box.
     label_fit_sizes: dict[str, list[tuple[int, float]]] = {}
+    block_size_range: dict[int, tuple[float, float] | None] = {}
+    block_leading: dict[int, float] = {}
+    block_text_width: dict[int, tuple[str, str, float]] = {}  # content, font, box width (pt)
     for block in blocks:
         label, content = block["label"], block["content"]
         if label in IMAGE_LABELS or label in SKIP_LABELS or not content:
@@ -380,16 +522,71 @@ def render_page_to_pdf(
         bold = consensus_bold.get(fit_label, False)
         italic = consensus_italic.get(fit_label, False)
         font_category = consensus_font_category.get(fit_label, DEFAULT_FONT_CATEGORY)
-        size = _fit_font_size(fit_label, content, px(x2 - x1), px(y2 - y1),
-                               bold=bold, italic=italic, font_category=font_category)
+        stats = line_stats.get(block["id"])
+        if stats is not None:
+            size, size_range = _measured_font_size(fit_label, content, px(x2 - x1), stats, scale,
+                                                   bold, italic, font_category)
+            block_size_range[block["id"]] = size_range
+            if stats.n_lines == 1 and "\n" not in content:
+                block_text_width[block["id"]] = (
+                    content, _resolve_font_name(font_category, bold, italic), px(x2 - x1))
+            if stats.n_lines >= 2 and stats.pitch:
+                block_leading[block["id"]] = stats.pitch * scale
+            else:
+                # one line: its box is its line height, so don't let the
+                # label's default leading make it taller than the original
+                spec = styles_spec.get(fit_label, FALLBACK_STYLE)
+                block_leading[block["id"]] = min(size * spec["leading"] / spec["fontSize"],
+                                                 max(px(y2 - y1), size))
+        else:
+            size = _fit_font_size(fit_label, content, px(x2 - x1), px(y2 - y1),
+                                  bold=bold, italic=italic, font_category=font_category)
         label_fit_sizes.setdefault(fit_label, []).append((block["id"], size))
 
+    # A block's size that reproduces its measured line breaks can differ a
+    # lot from the size that matches its measured x-height whenever the
+    # original font is narrower/wider than the standard-14 substitute (e.g. a
+    # condensed sans). Rather than trading one for the other, draw at the
+    # x-height size and scale glyphs horizontally so the same words land on
+    # each line: wrapping at size s in width W is identical to size s/k in
+    # width W/k, drawn k-times wider.
     block_resolved_size: dict[int, float] = {}
+    block_hscale: dict[int, float] = {}
+    cluster_plans = []
     for pairs in label_fit_sizes.values():
         for cluster in _cluster_label_sizes(pairs):
-            cluster_size = statistics.median(size for _, size in cluster)
-            for block_id, _ in cluster:
-                block_resolved_size[block_id] = cluster_size
+            # single-line x-height readings are noisy; prefer multi-line blocks
+            reliable = [s for bid, s in cluster
+                        if (st := line_stats.get(bid)) is not None and st.n_lines >= 2]
+            visual_size = statistics.median(reliable or [s for _, s in cluster])
+            ideal_hscales = []  # per block: (lowest, highest) width keeping its line breaks
+            for bid, _ in cluster:
+                if bid in block_text_width:
+                    # one line: the detector's box is the line's own width
+                    text, font_name, box_w = block_text_width[bid]
+                    natural_w = stringWidth(text, font_name, visual_size)
+                    if natural_w > 0:
+                        v = box_w / natural_w
+                        ideal_hscales.append((v * 0.97, v * 1.03))
+                elif (r := block_size_range.get(bid)):
+                    ideal_hscales.append((r[0] / visual_size, r[1] / visual_size))
+            cluster_plans.append((cluster, visual_size, ideal_hscales))
+    # the original typeface's width is a document-wide trait: pick the width
+    # that keeps the most blocks' line breaks overall, then let each role
+    # deviate only as far as its own blocks require
+    doc_hscale = _best_shared_scale([iv for _, _, ivs in cluster_plans for iv in ivs], 1.0)
+    for cluster, visual_size, ideal_hscales in cluster_plans:
+        hscale = _best_shared_scale(ideal_hscales, doc_hscale)
+        hscale = min(max(hscale, MIN_HSCALE), MAX_HSCALE)
+        # one size per role; a block that would wrap onto extra lines at
+        # the role's width only condenses a bit more (never a new size)
+        for block_id, _ in cluster:
+            block_resolved_size[block_id] = visual_size
+            r = block_size_range.get(block_id)
+            block_hscale[block_id] = (hscale if r is None or r[1] / visual_size >= hscale
+                                      else max(r[1] / visual_size, MIN_HSCALE))
+        logger.debug("size cluster %s: %.2fpt x%.2f wide",
+                     [bid for bid, _ in cluster], visual_size, hscale)
 
     col_cursor_px: dict[int, float] = {}  # column_key -> lowest y used so far (image-pixel space)
     global_cursor_px = 0.0  # advanced by full-width spanning blocks
@@ -429,15 +626,28 @@ def render_page_to_pdf(
             bold = consensus_bold.get(fit_label, False)
             italic = consensus_italic.get(fit_label, False)
             font_category = consensus_font_category.get(fit_label, DEFAULT_FONT_CATEGORY)
+            leading = block_leading.get(block["id"])
             style = _build_style(fit_label, font_size=font_size, bold=bold,
-                                  italic=italic, font_category=font_category)
+                                  italic=italic, font_category=font_category,
+                                  leading=None if leading is None else max(leading, MIN_LEADING_RATIO * font_size))
             para = Paragraph(_sanitize(content), style)
-            _, needed_h = para.wrap(max(w, 1), 20000)
+            hscale = block_hscale.get(block["id"], 1.0)
+            _, needed_h = para.wrap(max(w / hscale, 1), 20000)
+            stats = line_stats.get(block["id"])
+            logger.debug(
+                "block %d (%s): %s %.2fpt x%.2f wide, leading %.2fpt, lines rendered %d / measured %s, "
+                "height %.1f / box %.1f",
+                block["id"], label, style.fontName, font_size, hscale, style.leading, len(para.blPara.lines),
+                stats.n_lines if stats else "?", needed_h, bbox_h,
+            )
             h = max(bbox_h, needed_h + 2)
             y = top_y_pdf - h
-            frame = Frame(x, y, w, h, leftPadding=0, rightPadding=0,
+            c.saveState()
+            c.scale(hscale, 1)
+            frame = Frame(x / hscale, y, w / hscale, h, leftPadding=0, rightPadding=0,
                            topPadding=0, bottomPadding=0, showBoundary=0)
             frame.addFromList([para], c)
+            c.restoreState()
             new_bottom_px = eff_y1 + (h / scale)
 
         if width_frac >= FULL_WIDTH_FRAC:

@@ -28,10 +28,12 @@ Entry points:
 
 - **`docir/ink.py`** -- shared binarization. `binarize_region(source_image,
   bbox)` crops + Otsu-thresholds a region into a boolean ink mask (minority
-  class = ink), returns `None` if there's no clear ink signal. Also has
-  `_row_ink_bands()` (density-threshold line-band detection -- good for
-  line-height/bold estimation, **not** for font-shape matching since it
-  clips ascenders/descenders).
+  class = ink), returns `None` if there's no clear ink signal;
+  `ink_maps()` also returns a soft (anti-aliased) ink map. Also has
+  `_row_ink_bands()` (used by `bold.py`), numpy-only geometry helpers
+  (`estimate_skew`, `rotate_mask`, `close_horizontal`, `component_boxes`),
+  and `measure_text_lines()` -> `TextLineStats(n_lines, x_height, pitch)`
+  (see "Font type + size rewrite" below).
 - **`docir/bold.py`** -- `measure_stroke_ratio()` (stroke-width / line-height
   from pixels) + `classify_bold_by_label()` (per-label median vs.
   document-wide median * `BOLD_RELATIVE_FACTOR = 1.15`).
@@ -40,28 +42,21 @@ Entry points:
   the angle that maximizes column-density "peakiness". `measure_slant_angle()`
   + `classify_italic_by_label()` (threshold `ITALIC_ANGLE_THRESHOLD_DEG = 6.0`
   on `abs(angle)`).
-- **`docir/fonts.py`** -- local font-catalog discovery (`discover_catalog()`)
-  + render-and-compare style-category matching (`match_style_category()` ->
-  `(category, score)` where category is `serif` / `sans_serif` / `monospace`
-  / `unknown`). Discovery is now a full-directory scan, not just a fixed
-  curated list -- see "Font catalog: curated list -> full-directory scan"
-  below. Key calibration constants: `MIN_MATCH_TEXT_LEN = 3`,
-  `MIN_MATCH_SCORE = 0.12` (pixel IoU matching is inherently noisy -- even a
-  perfect same-font match rarely exceeds ~0.2 IoU, so this only filters
-  near-zero signal and otherwise relies on relative best-of-catalog ranking,
-  not absolute confidence). Candidates are rendered at the **same pixel
-  height as the observed text** (matching hinting behavior) and compared
-  only on the first physical text line via `_first_line_mask()` (any-ink-row
-  + gap-run merge, preserves full ascender-to-descender extent --
-  deliberately different from `ink._row_ink_bands()`).
+- **`docir/fonts.py`** -- local font catalog (`discover_catalog()`, every
+  font file categorized by rendering its own glyphs) + word-level
+  render-and-compare matching: `collect_word_samples()` (aligned
+  observed-word/OCR-word pairs from one block), `classify_word_samples()`
+  (pooled -> `(category, margin)`), and `match_style_category()` (one-block
+  wrapper). See "Font type + size rewrite" below.
 - **`docir/render_pdf.py`** -- the actual PDF renderer. Column detection via
   gap-clustering on x1 (`_cluster_columns`, reused pattern for
   `_cluster_label_sizes`), full-width header detection, XML-escaping,
   per-column downward-growing cursors so text never overlaps/gets dropped,
   cropping image/figure/chart/seal blocks directly from the source image.
-  Per block, bold/italic/font-category are measured from pixels and
-  aggregated per-label (see "Font-style consensus" below), then a font size
-  is fit per block and collapsed to per-visual-role clusters.
+  Per block, bold/italic are measured from pixels and aggregated per-label;
+  font family is decided from pooled matched words per label/document, and
+  font size from measured x-height + line count (see "Font type + size
+  rewrite" below).
 - **`docir/schemas.py`** -- `PageLayout` / block dataclasses,
   `PageLayout.from_paddle_dict()` loader.
 - **`docir/cli.py`** -- argparse entry point (`analyze` / `render`).
@@ -251,6 +246,9 @@ what the detector actually reported. Usage:
 
 ## Font catalog: curated list -> full-directory scan (this session)
 
+> Superseded: filename-based category guessing described here was replaced
+> by rendered-glyph categorization -- see "Font type + size rewrite".
+
 
 **Ask:** "include all whatever we can render" -- broaden the font catalog
 beyond the original curated 11-font list.
@@ -308,9 +306,92 @@ render times were judged acceptable for a batch/CLI tool.
 
 ## Test status
 
-`26/26` passing as of the last change (`.docir_env/bin/python -m pytest -q`).
-Covers `test_bold.py`, `test_fonts.py`, `test_italic.py`, `test_pipeline.py`,
-`test_schemas.py`.
+`48/48` passing as of the last change (`.docir_env/bin/python -m pytest -q`).
+Covers `test_bold.py`, `test_fonts.py`, `test_font_size.py`, `test_ink.py`,
+`test_italic.py`, `test_page_ratios.py`, `test_pipeline.py`, `test_schemas.py`.
+
+## Font type + size rewrite (this session)
+
+**Ask:** "check and correct both font type and font size -- make it almost
+perfect". Baseline: every block on every fixture was classified
+`sans_serif` (2 of 4 fixtures wrong), and sizes came from squeezing text
+into (often inflated) bboxes, so body text was visibly too large and
+wrapped differently from the source.
+
+**Why font type was wrong (root causes found):**
+1. Catalog pollution -- ~60 of 120 fonts were miscategorized by filename
+   guessing (script/handwriting faces like Zapfino/Chalkduster/Marker Felt
+   as sans, "Microsoft Sans Serif" as serif, real serifs like Iowan Old
+   Style/Rockwell/New York as sans). These dominated the "best single
+   match" ranking.
+2. The whole block's text was rendered as one line and compared to only
+   the observed first line -- different glyphs, different
+   ascender/descender extent -- with strict pixel IoU.
+3. Crisp high-res renders were compared to blurry low-res scans, which
+   penalizes serif fonts (their detail doesn't survive the scan).
+
+**Font type now (`fonts.py`):**
+- `_classify_font_file()` renders I/l/x/H/a/A: serif if "I" has top+bottom
+  feet and "l" has a foot; monospace from i/m/W advances; rejected if
+  x/H ratio is atypical (caps/script), "a" looks like "A" (small caps),
+  stems slant (script/italic) or are rough (distressed). Bold-only files
+  are skipped (weight is handled separately).
+- Per block: deskew, cut into word blobs (`close_horizontal` +
+  `component_boxes`, chained into curved lines), align blobs to OCR words
+  with a monotonic DP scored against 4 reference fonts, then compare each
+  word to every catalog font -- renders degraded through the observed
+  word's native pixel size and estimated blur -- by band-pass NCC with a
+  stroke-weight search.
+- `render_pdf.py` pools matched words per label (up to
+  `FONT_POOL_WORDS_PER_LABEL`) and document-wide; a category scores the
+  mean of its best 3 fonts. A label departs from the document's family only
+  with `>= MIN_LABEL_FONT_WORDS` words and margin `>= 0.05`.
+- Verified: vl1_6_10 sans (margin 0.27), demo_img sans (0.35), vl1_6_3
+  serif (0.02 -- weakest; its DejaVu-Serif-like face has no close serif on
+  macOS, Verdana-like sans compete), vl1_6_4 serif (0.04).
+
+**Font size now (`render_pdf.py`):**
+- `measure_text_lines()` measures line count, x-height and line pitch per
+  block, using fixed-width vertical strips each deskewed independently
+  (handles tilted *and* curved/warped pages; a short last line only needs
+  to reach the left strips); robust-peak thresholds ignore underlines and
+  decorative glyphs; slivers of neighboring text and drop caps are filtered.
+- Size = measured x-height / the substitute font's AFM x-height
+  (`X_HEIGHT_EM`), plus the size range that reproduces the measured line
+  count at the block's width (`_line_count_size_range`, bisection; hard
+  line breaks raise the minimum achievable count).
+- Per label, sizes are clustered per visual role and one shared size is
+  picked that keeps the most blocks' line counts (`_consensus_cluster_size`).
+- The original font is often narrower/wider than Helvetica/Times, so
+  instead of trading x-height for line breaks, text is drawn at the
+  x-height size with horizontal glyph scaling (`MIN_HSCALE..MAX_HSCALE`,
+  canvas `scale(hscale, 1)`), which keeps identical line breaks.
+  Leading = measured pitch (floored at `MIN_LEADING_RATIO * size`);
+  single-line blocks cap leading at their box height.
+- Verified (rendered vs measured line counts): vl1_6_10 15/17, demo_img
+  30/32, vl1_6_3 9/11, vl1_6_4 61/62, visually checked against sources.
+
+**Follow-up fix: inconsistent sizes within a role (demo_img).** Per-block
+horizontal scales and per-block size clamping made same-role paragraphs
+look different sizes. Now every visual-role cluster gets exactly one point
+size (median x-height size of its multi-line blocks) and one glyph width:
+each block contributes the width interval that keeps its line breaks
+(single-line blocks: box width / natural text width), the document-wide
+width is the value inside the most intervals (`_best_shared_scale`), and
+each role picks the value inside most of *its* intervals, tie-broken toward
+the document's. A block that would wrap onto extra lines only condenses a
+little more -- never a different size. `measure_text_lines()` also levels
+the whole block before the per-strip pass (strongly rotated titles) and
+anchors line height on the whole-block profile (a picture fragment clipped
+into a title's bbox no longer inflates its x-height). demo_img: all body
+text 11.89pt x0.73, footnote x0.74, section title x0.73; line matches
+27/32 (vl1_6_10 16/17, vl1_6_3 9/11, vl1_6_4 61/62).
+- Debug logging (config flag) prints per-block font, size, hscale, leading,
+  rendered/measured lines, and the per-label font evidence.
+
+**Known remaining gaps:** superscript prefixes like "[PDF]" can count as an
+extra title line; very narrow/condensed sources hit `MIN_HSCALE` and fall
+back to a smaller size; references render without hanging indents.
 
 ## Real fixtures used for empirical validation
 

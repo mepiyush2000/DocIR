@@ -1,0 +1,1854 @@
+{
+  "schema_version": "1.0",
+  "input_path": "vl1_6_4.png",
+  "width": 1191.0,
+  "height": 1684.0,
+  "blocks": [
+    {
+      "id": 0,
+      "label": "number",
+      "content": "366",
+      "bbox": [
+        67.0,
+        140.0,
+        96.0,
+        155.0
+      ],
+      "polygon": [
+        [
+          67.0,
+          140.0
+        ],
+        [
+          95.0,
+          140.0
+        ],
+        [
+          95.0,
+          154.0
+        ],
+        [
+          67.0,
+          154.0
+        ]
+      ]
+    },
+    {
+      "id": 1,
+      "label": "header",
+      "content": "J.A. Schafer et al. / Journal of Criminal Justice 38 (2010) 359–367",
+      "bbox": [
+        393.0,
+        138.0,
+        773.0,
+        157.0
+      ],
+      "polygon": [
+        [
+          393.0,
+          138.0
+        ],
+        [
+          772.0,
+          138.0
+        ],
+        [
+          772.0,
+          156.0
+        ],
+        [
+          393.0,
+          156.0
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "label": "text",
+      "content": "volume of crime) would be necessary in an effort to examine the contours of any possible relationship between the quality of crimes reported and lunar cycles. Only then could this question of the lunar lore and crime be more fully answered.",
+      "bbox": [
+        64.0,
+        178.0,
+        571.0,
+        264.0
+      ],
+      "polygon": [
+        [
+          64.0,
+          178.0
+        ],
+        [
+          571.0,
+          178.0
+        ],
+        [
+          571.0,
+          264.0
+        ],
+        [
+          64.0,
+          264.0
+        ]
+      ]
+    },
+    {
+      "id": 3,
+      "label": "paragraph_title",
+      "content": "Notes",
+      "bbox": [
+        66.0,
+        287.0,
+        116.0,
+        306.0
+      ],
+      "polygon": [
+        [
+          66.0,
+          287.0
+        ],
+        [
+          115.0,
+          287.0
+        ],
+        [
+          115.0,
+          305.0
+        ],
+        [
+          66.0,
+          305.0
+        ]
+      ]
+    },
+    {
+      "id": 4,
+      "label": "text",
+      "content": "1. See Rotton and Cohn (2000) and Cohn (1990b), among others, for a discussion of theoretical and empirical relationships between weather, temporal variables, social contact variables, and crime.",
+      "bbox": [
+        65.0,
+        326.0,
+        569.0,
+        379.0
+      ],
+      "polygon": [
+        [
+          65.0,
+          326.0
+        ],
+        [
+          569.0,
+          326.0
+        ],
+        [
+          569.0,
+          379.0
+        ],
+        [
+          65.0,
+          379.0
+        ]
+      ]
+    },
+    {
+      "id": 5,
+      "label": "text",
+      "content": "2. Block (1984) wrote that although some general seasonal trends could be noted, they tended to be offense-specific and were not evident in all jurisdictions. Her comprehensive review of data she analyzed, as well as various published and unpublished research done by others, found ample variation in seasonal trends. Some of this might have been attributed to variable data, operational definitions, and analytical plans.",
+      "bbox": [
+        65.0,
+        379.0,
+        571.0,
+        484.0
+      ],
+      "polygon": [
+        [
+          65.0,
+          379.0
+        ],
+        [
+          571.0,
+          379.0
+        ],
+        [
+          571.0,
+          484.0
+        ],
+        [
+          65.0,
+          484.0
+        ]
+      ]
+    },
+    {
+      "id": 6,
+      "label": "text",
+      "content": "3. Researchers have employed myriad methods of structuring the timing and intensity of full moons relative to other periods of the lunar cycle. For example: contrasting the day of the full moon with all other days in the cycle (Frey et al., 1979); creating seemingly-capricious \"windows\" of time (i.e., three days) around the full moon for contrast with the rest of the cycle (sometimes separating out windows of time around the new moon) (Walters et al., 1975); breaking cycles into equal (Frey et al., 1979; Quinsey & Varney, 1977; Taylor & Diespecker, 1972) and unequal (Frey et al., 1979; Lester et al., 1969) periods of times; and, allowing lunar phase to vary from day to day throughout the lunar cycle (Simon, 1998). The lunar lore is ambiguous regarding whether the influence of the moon is truly restricted to full-moon periods and whether a heightened full moon influence might be offset by a converse effect during the new moon.",
+      "bbox": [
+        67.0,
+        483.0,
+        571.0,
+        690.0
+      ],
+      "polygon": [
+        [
+          67.0,
+          483.0
+        ],
+        [
+          571.0,
+          483.0
+        ],
+        [
+          571.0,
+          690.0
+        ],
+        [
+          67.0,
+          690.0
+        ]
+      ]
+    },
+    {
+      "id": 7,
+      "label": "text",
+      "content": "4. This consideration was another complexity created by the vague nature of the lunar lore. Was the effect of the full moon mediated by its visibility due to daylight and/or weather patterns? If the effect was thought to result from the actual intensity of the moon's illumination, the answer may have been \"yes.\" If the effect was thought to result from the moons 'pull' on water in the human body, the answer might have been \"no.\"",
+      "bbox": [
+        66.0,
+        690.0,
+        571.0,
+        793.0
+      ],
+      "polygon": [
+        [
+          66.0,
+          690.0
+        ],
+        [
+          571.0,
+          690.0
+        ],
+        [
+          571.0,
+          793.0
+        ],
+        [
+          66.0,
+          793.0
+        ]
+      ]
+    },
+    {
+      "id": 8,
+      "label": "text",
+      "content": "5. An anonymous reviewer pointed out the U.S.N.O. also reports moon rise and setting times within archival data. It was noted using a sliding window of analysis based on whether the moon was above the horizon might have been an alternative approach within the analysis. Additional analyses not reported here, but available from the lead author upon request, suggest the results were not substantively different with the use of such a variable window of analysis. The original models (fixed 8:00 pm – 3:00 am window of analysis) were retained for the analysis reported in this article, though the alternative scheme was included in later portions of the discussion.",
+      "bbox": [
+        66.0,
+        795.0,
+        572.0,
+        932.0
+      ],
+      "polygon": [
+        [
+          66.0,
+          795.0
+        ],
+        [
+          572.0,
+          795.0
+        ],
+        [
+          572.0,
+          932.0
+        ],
+        [
+          66.0,
+          932.0
+        ]
+      ]
+    },
+    {
+      "id": 9,
+      "label": "text",
+      "content": "6. The analysis was also conducted using a measure of the moon's actual visibility above the horizon net of atmospheric conditions that might preclude such visibility. These models yielded no significant differences in parameter magnitudes or significance levels. Since the same pattern of significant and non-significant results was obtained, the initial results were retained and presented in this article. Those seeking further information pertaining to these alternative modeling efforts can direct inquires to the second author.",
+      "bbox": [
+        67.0,
+        932.0,
+        572.0,
+        1053.0
+      ],
+      "polygon": [
+        [
+          67.0,
+          932.0
+        ],
+        [
+          572.0,
+          932.0
+        ],
+        [
+          572.0,
+          1053.0
+        ],
+        [
+          67.0,
+          1053.0
+        ]
+      ]
+    },
+    {
+      "id": 10,
+      "label": "paragraph_title",
+      "content": "References",
+      "bbox": [
+        70.0,
+        1094.0,
+        156.0,
+        1114.0
+      ],
+      "polygon": [
+        [
+          70.0,
+          1094.0
+        ],
+        [
+          155.0,
+          1094.0
+        ],
+        [
+          155.0,
+          1113.0
+        ],
+        [
+          70.0,
+          1113.0
+        ]
+      ]
+    },
+    {
+      "id": 11,
+      "label": "reference_content",
+      "content": "Atlas, R. (1984). Violence in prison: Environmental influences. Environment and Behavior, 16, 275–306.",
+      "bbox": [
+        69.0,
+        1130.0,
+        572.0,
+        1163.0
+      ],
+      "polygon": [
+        [
+          69.0,
+          1130.0
+        ],
+        [
+          572.0,
+          1130.0
+        ],
+        [
+          572.0,
+          1163.0
+        ],
+        [
+          69.0,
+          1163.0
+        ]
+      ]
+    },
+    {
+      "id": 12,
+      "label": "reference_content",
+      "content": "Bauer, S. F., & Hornick, E. J. (1968). Lunar effect on mental illness: The relationship of moon phase to psychiatric emergencies. American Journal of Psychiatry, 125, 696–697.",
+      "bbox": [
+        70.0,
+        1163.0,
+        572.0,
+        1211.0
+      ],
+      "polygon": [
+        [
+          70.0,
+          1163.0
+        ],
+        [
+          572.0,
+          1163.0
+        ],
+        [
+          572.0,
+          1211.0
+        ],
+        [
+          70.0,
+          1211.0
+        ]
+      ]
+    },
+    {
+      "id": 13,
+      "label": "reference_content",
+      "content": "Bickis, M., Kelly, L. W., & Byrnes, G. F. (1995). Crisis calls and temporal and lunar variables: A comprehensive examination. Journal of Psychology, 129, 701–711.",
+      "bbox": [
+        71.0,
+        1209.0,
+        570.0,
+        1244.0
+      ],
+      "polygon": [
+        [
+          71.0,
+          1209.0
+        ],
+        [
+          570.0,
+          1209.0
+        ],
+        [
+          570.0,
+          1244.0
+        ],
+        [
+          71.0,
+          1244.0
+        ]
+      ]
+    },
+    {
+      "id": 14,
+      "label": "reference_content",
+      "content": "Biermann, T., Estel, D., Sperling, W., Bleich, S., Kornhuber, J., & Reulbach, U. (2005). Influence of lunar phase on suicide: The end of a myth? A population-based study. Chronobiology International, 22, 1137–1143.",
+      "bbox": [
+        71.0,
+        1242.0,
+        570.0,
+        1293.0
+      ],
+      "polygon": [
+        [
+          71.0,
+          1242.0
+        ],
+        [
+          570.0,
+          1242.0
+        ],
+        [
+          570.0,
+          1293.0
+        ],
+        [
+          71.0,
+          1293.0
+        ]
+      ]
+    },
+    {
+      "id": 15,
+      "label": "reference_content",
+      "content": "Blackmon, S., & Catalina, D. (1973). The moon and the emergency room. Perceptual and Motor Skills, 37, 624–626.",
+      "bbox": [
+        71.0,
+        1289.0,
+        571.0,
+        1324.0
+      ],
+      "polygon": [
+        [
+          71.0,
+          1289.0
+        ],
+        [
+          571.0,
+          1289.0
+        ],
+        [
+          571.0,
+          1324.0
+        ],
+        [
+          71.0,
+          1324.0
+        ]
+      ]
+    },
+    {
+      "id": 16,
+      "label": "reference_content",
+      "content": "Block, C. R. (1983). How to handle seasonality: Introduction to the detection and analysis of seasonal fluctuation in criminal justice time series. Chicago: Illinois Criminal Justice Information Authority.",
+      "bbox": [
+        70.0,
+        1322.0,
+        571.0,
+        1370.0
+      ],
+      "polygon": [
+        [
+          70.0,
+          1322.0
+        ],
+        [
+          571.0,
+          1322.0
+        ],
+        [
+          571.0,
+          1370.0
+        ],
+        [
+          70.0,
+          1370.0
+        ]
+      ]
+    },
+    {
+      "id": 17,
+      "label": "reference_content",
+      "content": "Block, C. R. (1984). Is crime seasonal? Chicago: Illinois Criminal Justice Information Authority.",
+      "bbox": [
+        69.0,
+        1369.0,
+        571.0,
+        1404.0
+      ],
+      "polygon": [
+        [
+          69.0,
+          1369.0
+        ],
+        [
+          571.0,
+          1369.0
+        ],
+        [
+          571.0,
+          1404.0
+        ],
+        [
+          69.0,
+          1404.0
+        ]
+      ]
+    },
+    {
+      "id": 18,
+      "label": "reference_content",
+      "content": "Box, G. E. P., & Jenkins, G. M. (1970). Time series analysis: Forecasting and control (Rev. ed.). San Francisco: Holden-Day.",
+      "bbox": [
+        69.0,
+        1401.0,
+        572.0,
+        1437.0
+      ],
+      "polygon": [
+        [
+          69.0,
+          1401.0
+        ],
+        [
+          69.0,
+          1429.0
+        ],
+        [
+          571.0,
+          1436.0
+        ],
+        [
+          571.0,
+          1409.0
+        ],
+        [
+          273.0,
+          1409.0
+        ],
+        [
+          272.0,
+          1401.0
+        ]
+      ]
+    },
+    {
+      "id": 19,
+      "label": "reference_content",
+      "content": "Brantingham, P., & Brantingham, P. (1995). Criminality of place: Crime generators and crime attractors. European Journal on Criminal Policy and Research, 3(3), 5–26.",
+      "bbox": [
+        69.0,
+        1434.0,
+        571.0,
+        1469.0
+      ],
+      "polygon": [
+        [
+          69.0,
+          1434.0
+        ],
+        [
+          571.0,
+          1434.0
+        ],
+        [
+          571.0,
+          1469.0
+        ],
+        [
+          69.0,
+          1469.0
+        ]
+      ]
+    },
+    {
+      "id": 20,
+      "label": "reference_content",
+      "content": "Bushway, S. D., & McDowall, D. (2006). Here we go again- Can we learn anything from aggregate-level studies of policy interventions? Criminology & Public Policy, 5, 461–470.",
+      "bbox": [
+        69.0,
+        1467.0,
+        571.0,
+        1515.0
+      ],
+      "polygon": [
+        [
+          69.0,
+          1467.0
+        ],
+        [
+          571.0,
+          1467.0
+        ],
+        [
+          571.0,
+          1515.0
+        ],
+        [
+          69.0,
+          1515.0
+        ]
+      ]
+    },
+    {
+      "id": 21,
+      "label": "reference_content",
+      "content": "Campbell, D. E., & Beets, J. L. (1978). Lunacy and the moon. Psychological Bulletin, 85, 1123–1129.",
+      "bbox": [
+        68.0,
+        1514.0,
+        571.0,
+        1547.0
+      ],
+      "polygon": [
+        [
+          68.0,
+          1514.0
+        ],
+        [
+          571.0,
+          1514.0
+        ],
+        [
+          571.0,
+          1547.0
+        ],
+        [
+          68.0,
+          1547.0
+        ]
+      ]
+    },
+    {
+      "id": 22,
+      "label": "reference_content",
+      "content": "Chapman, S., & Morrell, S. (2000). Barking mad? Another lunatic hypothesis bites the dust. British Medical Journal, 321, 1561–1563.",
+      "bbox": [
+        596.0,
+        175.0,
+        1102.0,
+        208.0
+      ],
+      "polygon": [
+        [
+          596.0,
+          175.0
+        ],
+        [
+          1102.0,
+          175.0
+        ],
+        [
+          1102.0,
+          208.0
+        ],
+        [
+          596.0,
+          208.0
+        ]
+      ]
+    },
+    {
+      "id": 23,
+      "label": "reference_content",
+      "content": "Creatwood, D. (1988). Is there a season for homicide? Criminology, 26, 287–306.",
+      "bbox": [
+        596.0,
+        206.0,
+        1079.0,
+        222.0
+      ],
+      "polygon": [
+        [
+          596.0,
+          214.0
+        ],
+        [
+          596.0,
+          221.0
+        ],
+        [
+          1078.0,
+          221.0
+        ],
+        [
+          1078.0,
+          206.0
+        ],
+        [
+          877.0,
+          206.0
+        ],
+        [
+          727.0,
+          206.0
+        ],
+        [
+          710.0,
+          206.0
+        ],
+        [
+          608.0,
+          214.0
+        ],
+        [
+          602.0,
+          206.0
+        ]
+      ]
+    },
+    {
+      "id": 24,
+      "label": "reference_content",
+      "content": "Cheatwood, D. (1995). The effects of weather on homicide. Journal of Quantitative Criminology, 11, 51–70.",
+      "bbox": [
+        597.0,
+        221.0,
+        1104.0,
+        253.0
+      ],
+      "polygon": [
+        [
+          597.0,
+          221.0
+        ],
+        [
+          1104.0,
+          221.0
+        ],
+        [
+          1104.0,
+          253.0
+        ],
+        [
+          597.0,
+          253.0
+        ]
+      ]
+    },
+    {
+      "id": 25,
+      "label": "reference_content",
+      "content": "Cohen, L. E., & Felson, M. (1979). Social change and crime rate trends: A routine activity approach. American Sociological Review, 44, 588–608.",
+      "bbox": [
+        597.0,
+        254.0,
+        1102.0,
+        287.0
+      ],
+      "polygon": [
+        [
+          597.0,
+          254.0
+        ],
+        [
+          1102.0,
+          254.0
+        ],
+        [
+          1102.0,
+          287.0
+        ],
+        [
+          597.0,
+          287.0
+        ]
+      ]
+    },
+    {
+      "id": 26,
+      "label": "reference_content",
+      "content": "Cohn, E. G. (1990a). Weather and crime. British Journal of Criminology, 30, 51–64.",
+      "bbox": [
+        597.0,
+        286.0,
+        1080.0,
+        302.0
+      ],
+      "polygon": [
+        [
+          597.0,
+          286.0
+        ],
+        [
+          597.0,
+          301.0
+        ],
+        [
+          1079.0,
+          301.0
+        ],
+        [
+          1079.0,
+          286.0
+        ]
+      ]
+    },
+    {
+      "id": 27,
+      "label": "reference_content",
+      "content": "Cohn, E. G. (1990b). Weather and violent crime: A reply to Perry and Simpson, 1987. Environment and Behavior, 22, 280–294.",
+      "bbox": [
+        598.0,
+        302.0,
+        1103.0,
+        334.0
+      ],
+      "polygon": [
+        [
+          598.0,
+          302.0
+        ],
+        [
+          1103.0,
+          302.0
+        ],
+        [
+          1103.0,
+          334.0
+        ],
+        [
+          598.0,
+          334.0
+        ]
+      ]
+    },
+    {
+      "id": 28,
+      "label": "reference_content",
+      "content": "Cohn, E. G. (1993). The prediction of police calls for service: The influence of weather and temporal variables on rape and domestic violence. Journal of Environmental Psychology, 13, 71–83.",
+      "bbox": [
+        599.0,
+        334.0,
+        1103.0,
+        381.0
+      ],
+      "polygon": [
+        [
+          599.0,
+          334.0
+        ],
+        [
+          1103.0,
+          334.0
+        ],
+        [
+          1103.0,
+          381.0
+        ],
+        [
+          599.0,
+          381.0
+        ]
+      ]
+    },
+    {
+      "id": 29,
+      "label": "reference_content",
+      "content": "Cohn, E. G. (1996). The effect of weather and temporal variations on calls for police service. American Journal of Police, 15(1), 23–43.",
+      "bbox": [
+        599.0,
+        381.0,
+        1103.0,
+        414.0
+      ],
+      "polygon": [
+        [
+          599.0,
+          381.0
+        ],
+        [
+          1103.0,
+          381.0
+        ],
+        [
+          1103.0,
+          414.0
+        ],
+        [
+          599.0,
+          414.0
+        ]
+      ]
+    },
+    {
+      "id": 30,
+      "label": "reference_content",
+      "content": "Cohn, E. G., & Rotton, J. (2000). Weather, seasonal trends and property crimes in Minneapolis, 1987-1988: A moderator-variable time-series analysis of routine activities. Journal of Environmental Psychology, 20, 257–272.",
+      "bbox": [
+        599.0,
+        415.0,
+        1103.0,
+        461.0
+      ],
+      "polygon": [
+        [
+          599.0,
+          415.0
+        ],
+        [
+          1103.0,
+          415.0
+        ],
+        [
+          1103.0,
+          461.0
+        ],
+        [
+          599.0,
+          461.0
+        ]
+      ]
+    },
+    {
+      "id": 31,
+      "label": "reference_content",
+      "content": "Culver, R., Rotton, J., & Kelly, I. W. (1988). Geophysical variables and behavior: XLIX. Moon mechanisms and myths: A critical appraisal of explanations of purported lunar effects on human behavior. Psychological Reports, 62, 683–710.",
+      "bbox": [
+        601.0,
+        461.0,
+        1105.0,
+        509.0
+      ],
+      "polygon": [
+        [
+          601.0,
+          461.0
+        ],
+        [
+          1105.0,
+          461.0
+        ],
+        [
+          1105.0,
+          509.0
+        ],
+        [
+          601.0,
+          509.0
+        ]
+      ]
+    },
+    {
+      "id": 32,
+      "label": "reference_content",
+      "content": "Cyr, J. J., & Kaplan, R. A. (1987). Geophysical variables and behavior: XLVI. The lunar-lunacy relationship: A poorly evaluated hypothesis. Psychological Reports, 61, 391–400.",
+      "bbox": [
+        598.0,
+        510.0,
+        1104.0,
+        542.0
+      ],
+      "polygon": [
+        [
+          598.0,
+          510.0
+        ],
+        [
+          1104.0,
+          510.0
+        ],
+        [
+          1104.0,
+          542.0
+        ],
+        [
+          598.0,
+          542.0
+        ]
+      ]
+    },
+    {
+      "id": 33,
+      "label": "reference_content",
+      "content": "Cyr. J. J., & Kaplan, R. A. (1988). Investigating the lunar-lunacy relationship: A reply to Rotton and Kelly. Psychological Reports, 62, 319–322.",
+      "bbox": [
+        597.0,
+        542.0,
+        1104.0,
+        574.0
+      ],
+      "polygon": [
+        [
+          597.0,
+          542.0
+        ],
+        [
+          1104.0,
+          542.0
+        ],
+        [
+          1104.0,
+          574.0
+        ],
+        [
+          597.0,
+          574.0
+        ]
+      ]
+    },
+    {
+      "id": 34,
+      "label": "reference_content",
+      "content": "Durm, M. W., Terry, C. L., & Hammonds, C. R. (1986). Lunar phase and acting-out behavior. Psychological Reports, 59, 987–990.",
+      "bbox": [
+        598.0,
+        573.0,
+        1104.0,
+        605.0
+      ],
+      "polygon": [
+        [
+          598.0,
+          573.0
+        ],
+        [
+          1104.0,
+          573.0
+        ],
+        [
+          1104.0,
+          605.0
+        ],
+        [
+          598.0,
+          605.0
+        ]
+      ]
+    },
+    {
+      "id": 35,
+      "label": "reference_content",
+      "content": "Frey, J., Rotton, J., & Barry, T. (1979). The effects of the full moon on human behavior: Yet another failure to replicate. The Journal of Psychology, 103, 159–162.",
+      "bbox": [
+        597.0,
+        606.0,
+        1104.0,
+        638.0
+      ],
+      "polygon": [
+        [
+          597.0,
+          606.0
+        ],
+        [
+          1104.0,
+          606.0
+        ],
+        [
+          1104.0,
+          638.0
+        ],
+        [
+          597.0,
+          638.0
+        ]
+      ]
+    },
+    {
+      "id": 36,
+      "label": "reference_content",
+      "content": "Heller, N. B., & Markland, R. E. (1970). A climatological model for forecasting the demand for police service. Journal of Research in Crime & Delinquency, 7, 167–176.",
+      "bbox": [
+        598.0,
+        637.0,
+        1104.0,
+        684.0
+      ],
+      "polygon": [
+        [
+          598.0,
+          637.0
+        ],
+        [
+          1104.0,
+          637.0
+        ],
+        [
+          1104.0,
+          684.0
+        ],
+        [
+          598.0,
+          684.0
+        ]
+      ]
+    },
+    {
+      "id": 37,
+      "label": "reference_content",
+      "content": "Hipp, J. R., Bauer, D. J., Curran, P. J., & Bollen, K. A. (2004). Crimes of opportunity or crimes of emotion? Testing two explanations of seasonal change in crime. Social Forces, 82, 1333–1372.",
+      "bbox": [
+        598.0,
+        685.0,
+        1104.0,
+        732.0
+      ],
+      "polygon": [
+        [
+          598.0,
+          685.0
+        ],
+        [
+          1104.0,
+          685.0
+        ],
+        [
+          1104.0,
+          732.0
+        ],
+        [
+          598.0,
+          732.0
+        ]
+      ]
+    },
+    {
+      "id": 38,
+      "label": "reference_content",
+      "content": "Kelly, I. W., & Rotton, J. (1983). Geophysical variables and behavior: XIII. Comment on \"lunar phase and accident injuries\": The dark side of the moon and lunar research. Perceptual and Motor Skills, 57, 919–921.",
+      "bbox": [
+        599.0,
+        733.0,
+        1105.0,
+        780.0
+      ],
+      "polygon": [
+        [
+          599.0,
+          733.0
+        ],
+        [
+          1105.0,
+          733.0
+        ],
+        [
+          1105.0,
+          780.0
+        ],
+        [
+          599.0,
+          780.0
+        ]
+      ]
+    },
+    {
+      "id": 39,
+      "label": "reference_content",
+      "content": "Laverty, W. H., & Kelly, I. W. (1998). Cyclical calendar and lunar patterns in automobile property accidents and injury accidents. Perceptual and Motor Skills, 86, 299–302.",
+      "bbox": [
+        598.0,
+        780.0,
+        1105.0,
+        814.0
+      ],
+      "polygon": [
+        [
+          598.0,
+          780.0
+        ],
+        [
+          1105.0,
+          780.0
+        ],
+        [
+          1105.0,
+          814.0
+        ],
+        [
+          598.0,
+          814.0
+        ]
+      ]
+    },
+    {
+      "id": 40,
+      "label": "reference_content",
+      "content": "LeBeau, J. L., & Corcoran, W. T. (1990). Changes in calls for police service with changes in routine activities and the arrival and passage of weather fronts. Journal of Quantitative Criminology, 6, 269–291.",
+      "bbox": [
+        599.0,
+        814.0,
+        1105.0,
+        860.0
+      ],
+      "polygon": [
+        [
+          599.0,
+          814.0
+        ],
+        [
+          1105.0,
+          814.0
+        ],
+        [
+          1105.0,
+          860.0
+        ],
+        [
+          599.0,
+          860.0
+        ]
+      ]
+    },
+    {
+      "id": 41,
+      "label": "reference_content",
+      "content": "LeBeau, J. L. & Langworthy, R. H. (1986). The linkages between routine activities, weather, and calls for police services. Journal of Police Science and Administration, 14, 137–145.",
+      "bbox": [
+        598.0,
+        861.0,
+        1105.0,
+        894.0
+      ],
+      "polygon": [
+        [
+          598.0,
+          861.0
+        ],
+        [
+          1105.0,
+          861.0
+        ],
+        [
+          1105.0,
+          894.0
+        ],
+        [
+          598.0,
+          894.0
+        ]
+      ]
+    },
+    {
+      "id": 42,
+      "label": "reference_content",
+      "content": "Lester, D., Brockopp, G. W., & Priebe, K. (1969). Association between a full moon and completed suicide. Psychological Reports, 25, 598.",
+      "bbox": [
+        598.0,
+        893.0,
+        1105.0,
+        925.0
+      ],
+      "polygon": [
+        [
+          598.0,
+          893.0
+        ],
+        [
+          1105.0,
+          893.0
+        ],
+        [
+          1105.0,
+          925.0
+        ],
+        [
+          598.0,
+          925.0
+        ]
+      ]
+    },
+    {
+      "id": 43,
+      "label": "reference_content",
+      "content": "Lieber, A. L. (1978a). Human aggression and the lunar synodic cycle. Journal of Clinical Psychiatry, 39, 385–393.",
+      "bbox": [
+        599.0,
+        925.0,
+        1105.0,
+        957.0
+      ],
+      "polygon": [
+        [
+          599.0,
+          925.0
+        ],
+        [
+          1105.0,
+          925.0
+        ],
+        [
+          1105.0,
+          957.0
+        ],
+        [
+          599.0,
+          957.0
+        ]
+      ]
+    },
+    {
+      "id": 44,
+      "label": "reference_content",
+      "content": "Lieber, A. L. (1978b). The lunar effect: Biological tides and human emotions. Garden City, NY: Anchor Press.",
+      "bbox": [
+        599.0,
+        957.0,
+        1105.0,
+        989.0
+      ],
+      "polygon": [
+        [
+          599.0,
+          957.0
+        ],
+        [
+          1105.0,
+          957.0
+        ],
+        [
+          1105.0,
+          989.0
+        ],
+        [
+          599.0,
+          989.0
+        ]
+      ]
+    },
+    {
+      "id": 45,
+      "label": "reference_content",
+      "content": "Lieber, A. L (1996). How the moon affects you. Mamaroneck, NY: Hastings House.",
+      "bbox": [
+        599.0,
+        989.0,
+        1079.0,
+        1005.0
+      ],
+      "polygon": [
+        [
+          599.0,
+          989.0
+        ],
+        [
+          1078.0,
+          989.0
+        ],
+        [
+          1078.0,
+          1004.0
+        ],
+        [
+          599.0,
+          1004.0
+        ]
+      ]
+    },
+    {
+      "id": 46,
+      "label": "reference_content",
+      "content": "Lieber, A. L., & Sherin, C. R. (1972). Homicides and lunar cycle: Toward a theory of lunar influence on human emotional disturbance. American Journal of Psychiatry, 129, 69–74.",
+      "bbox": [
+        600.0,
+        1005.0,
+        1105.0,
+        1053.0
+      ],
+      "polygon": [
+        [
+          600.0,
+          1005.0
+        ],
+        [
+          1105.0,
+          1005.0
+        ],
+        [
+          1105.0,
+          1053.0
+        ],
+        [
+          600.0,
+          1053.0
+        ]
+      ]
+    },
+    {
+      "id": 47,
+      "label": "reference_content",
+      "content": "McDowall, E., McCleary, R., Meidinger, E. E., & Hay, R. A., Jr. (1980). Interrupted time series analysis: Vol. 2.1 Quantitative applications in the social sciences. Newbury Park, CA: Sage.",
+      "bbox": [
+        599.0,
+        1053.0,
+        1105.0,
+        1100.0
+      ],
+      "polygon": [
+        [
+          599.0,
+          1053.0
+        ],
+        [
+          1105.0,
+          1053.0
+        ],
+        [
+          1105.0,
+          1100.0
+        ],
+        [
+          599.0,
+          1100.0
+        ]
+      ]
+    },
+    {
+      "id": 48,
+      "label": "reference_content",
+      "content": "Merriam-Webster online dictionary. (2008). Retrieved from http://www.m-w.com",
+      "bbox": [
+        600.0,
+        1102.0,
+        1088.0,
+        1116.0
+      ],
+      "polygon": [
+        [
+          600.0,
+          1102.0
+        ],
+        [
+          1076.0,
+          1102.0
+        ],
+        [
+          1076.0,
+          1115.0
+        ],
+        [
+          600.0,
+          1115.0
+        ]
+      ]
+    },
+    {
+      "id": 49,
+      "label": "reference_content",
+      "content": "Pettigrew, C. G. (1985). Seasonality and lunacy of inmate behavior. The Southern Psychologist, 2(3), 41–46.",
+      "bbox": [
+        600.0,
+        1115.0,
+        1105.0,
+        1149.0
+      ],
+      "polygon": [
+        [
+          600.0,
+          1115.0
+        ],
+        [
+          1105.0,
+          1115.0
+        ],
+        [
+          1105.0,
+          1149.0
+        ],
+        [
+          600.0,
+          1149.0
+        ]
+      ]
+    },
+    {
+      "id": 50,
+      "label": "reference_content",
+      "content": "Pokorny, A. D., & Jachimczyk, J. (1974). The questionable relationship between homicides and the lunar cycle. American Journal of Psychiatry, 131, 827–829.",
+      "bbox": [
+        600.0,
+        1148.0,
+        1104.0,
+        1182.0
+      ],
+      "polygon": [
+        [
+          600.0,
+          1148.0
+        ],
+        [
+          1104.0,
+          1148.0
+        ],
+        [
+          1104.0,
+          1182.0
+        ],
+        [
+          600.0,
+          1182.0
+        ]
+      ]
+    },
+    {
+      "id": 51,
+      "label": "reference_content",
+      "content": "Purpura, P. P. (1979). Police activity and the full moon. Journal of Police Science and Administration, 7, 350–353.",
+      "bbox": [
+        600.0,
+        1181.0,
+        1105.0,
+        1212.0
+      ],
+      "polygon": [
+        [
+          600.0,
+          1181.0
+        ],
+        [
+          1105.0,
+          1181.0
+        ],
+        [
+          1105.0,
+          1212.0
+        ],
+        [
+          600.0,
+          1212.0
+        ]
+      ]
+    },
+    {
+      "id": 52,
+      "label": "reference_content",
+      "content": "Quételet, L. A. J. (1969). A treatise on man and the development of his faculties. Gainesville, FL: Scholar's Facsimiles and Reprints. (Original work published 1842).",
+      "bbox": [
+        601.0,
+        1213.0,
+        1105.0,
+        1245.0
+      ],
+      "polygon": [
+        [
+          601.0,
+          1213.0
+        ],
+        [
+          1105.0,
+          1213.0
+        ],
+        [
+          1105.0,
+          1245.0
+        ],
+        [
+          601.0,
+          1245.0
+        ]
+      ]
+    },
+    {
+      "id": 53,
+      "label": "reference_content",
+      "content": "Quinsey, V. L. & Varney, G. W. (1977). Characteristics of assaults and assaulters in a maximum security psychiatric unit. Crime and Justice, 5, 212–220.",
+      "bbox": [
+        600.0,
+        1245.0,
+        1106.0,
+        1277.0
+      ],
+      "polygon": [
+        [
+          600.0,
+          1245.0
+        ],
+        [
+          1106.0,
+          1245.0
+        ],
+        [
+          1106.0,
+          1277.0
+        ],
+        [
+          600.0,
+          1277.0
+        ]
+      ]
+    },
+    {
+      "id": 54,
+      "label": "reference_content",
+      "content": "Robinson, J. B., & Rengert, G. F. (2006). Illegal drug markets: The geographic perspective and crime propensity. Western Criminology Review, 7(1), 20–32.",
+      "bbox": [
+        600.0,
+        1278.0,
+        1106.0,
+        1309.0
+      ],
+      "polygon": [
+        [
+          600.0,
+          1278.0
+        ],
+        [
+          1106.0,
+          1278.0
+        ],
+        [
+          1106.0,
+          1309.0
+        ],
+        [
+          600.0,
+          1309.0
+        ]
+      ]
+    },
+    {
+      "id": 55,
+      "label": "reference_content",
+      "content": "Rotton, J., & Cohn, E. G. (2000). Weather, disorderly conduct, and assault: From social contact to social avoidance. Environment and Behavior, 32, 651–673.",
+      "bbox": [
+        600.0,
+        1309.0,
+        1106.0,
+        1341.0
+      ],
+      "polygon": [
+        [
+          600.0,
+          1309.0
+        ],
+        [
+          1106.0,
+          1309.0
+        ],
+        [
+          1106.0,
+          1341.0
+        ],
+        [
+          600.0,
+          1341.0
+        ]
+      ]
+    },
+    {
+      "id": 56,
+      "label": "reference_content",
+      "content": "Rotton, J., & Cohn, E. G. (2003). Global warming and U.S. crime rates: An application of routine activity theory. Environment and Behavior, 35, 802–825.",
+      "bbox": [
+        600.0,
+        1340.0,
+        1106.0,
+        1373.0
+      ],
+      "polygon": [
+        [
+          600.0,
+          1340.0
+        ],
+        [
+          1106.0,
+          1340.0
+        ],
+        [
+          1106.0,
+          1373.0
+        ],
+        [
+          600.0,
+          1373.0
+        ]
+      ]
+    },
+    {
+      "id": 57,
+      "label": "reference_content",
+      "content": "In J., & Kelly, I. W. (1985). A scale for assessing belief in lunar effects: Reliability and concurrent validity. Psychological Reports, 57, 239–245.",
+      "bbox": [
+        601.0,
+        1372.0,
+        1105.0,
+        1404.0
+      ],
+      "polygon": [
+        [
+          631.0,
+          1380.0
+        ],
+        [
+          631.0,
+          1387.0
+        ],
+        [
+          631.0,
+          1396.0
+        ],
+        [
+          631.0,
+          1403.0
+        ],
+        [
+          684.0,
+          1403.0
+        ],
+        [
+          702.0,
+          1403.0
+        ],
+        [
+          1104.0,
+          1403.0
+        ],
+        [
+          1104.0,
+          1372.0
+        ],
+        [
+          643.0,
+          1372.0
+        ]
+      ]
+    },
+    {
+      "id": 58,
+      "label": "reference_content",
+      "content": "on, J., Kelly, I. W., & Elortegui, P. (1986). Assessing belief in lunar effects: Known-group validation. Psychological Reports, 59, 171–174.",
+      "bbox": [
+        600.0,
+        1404.0,
+        1105.0,
+        1436.0
+      ],
+      "polygon": [
+        [
+          629.9998779296875,
+          1403.9998779296875
+        ],
+        [
+          1103.9998779296875,
+          1403.9998779296875
+        ],
+        [
+          1103.9998779296875,
+          1434.9998779296875
+        ],
+        [
+          629.9998779296875,
+          1434.9998779296875
+        ]
+      ]
+    },
+    {
+      "id": 59,
+      "label": "reference_content",
+      "content": "Rotton, J., Kelly, I. W., & Frey, J. (1983). Geophysical variables and behavior: X. Detecting lunar periodicities: Something old, new, borrowed, and true. Psychological Reports, 52, 111–116.",
+      "bbox": [
+        600.0,
+        1438.0,
+        1106.0,
+        1483.0
+      ],
+      "polygon": [
+        [
+          600.0,
+          1438.0
+        ],
+        [
+          1106.0,
+          1438.0
+        ],
+        [
+          1106.0,
+          1483.0
+        ],
+        [
+          600.0,
+          1483.0
+        ]
+      ]
+    },
+    {
+      "id": 60,
+      "label": "reference_content",
+      "content": "Russell, G. W., & de Graaf, J. P. (1985). Lunar cycles and human aggression: A replication. Social Behavior and Personality, 13, 143–146.",
+      "bbox": [
+        600.0,
+        1485.0,
+        1105.0,
+        1516.0
+      ],
+      "polygon": [
+        [
+          600.0,
+          1485.0
+        ],
+        [
+          1105.0,
+          1485.0
+        ],
+        [
+          1105.0,
+          1516.0
+        ],
+        [
+          600.0,
+          1516.0
+        ]
+      ]
+    },
+    {
+      "id": 61,
+      "label": "reference_content",
+      "content": "Russell, G. W., & Dua, M. (1983). Lunar influences on human aggression. Social Behavior and Personality, 11, 41–44.",
+      "bbox": [
+        599.0,
+        1517.0,
+        1107.0,
+        1548.0
+      ],
+      "polygon": [
+        [
+          599.0,
+          1517.0
+        ],
+        [
+          1107.0,
+          1517.0
+        ],
+        [
+          1107.0,
+          1548.0
+        ],
+        [
+          599.0,
+          1548.0
+        ]
+      ]
+    }
+  ]
+}
