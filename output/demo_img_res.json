@@ -1,0 +1,2778 @@
+{
+    "input_path": "demo_img.jpeg",
+    "page_index": null,
+    "page_count": null,
+    "width": 984,
+    "height": 1280,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "doc_title",
+            "block_content": "Joy and Togetherness at Teej Sakhi Celebration",
+            "block_bbox": [
+                70,
+                28,
+                876,
+                80
+            ],
+            "block_id": 0,
+            "block_order": 1,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    875.0,
+                    35.0
+                ],
+                [
+                    798.0,
+                    28.0
+                ],
+                [
+                    649.0,
+                    48.0
+                ],
+                [
+                    487.0,
+                    54.0
+                ],
+                [
+                    70.0,
+                    35.0
+                ],
+                [
+                    70.0,
+                    66.0
+                ],
+                [
+                    203.0,
+                    79.0
+                ],
+                [
+                    635.0,
+                    79.0
+                ],
+                [
+                    875.0,
+                    66.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "by Dr Manu Bedi (Alexandra C 003, Grand Omaxe, Sector 93B)",
+            "block_bbox": [
+                284,
+                79,
+                672,
+                103
+            ],
+            "block_id": 1,
+            "block_order": 2,
+            "group_id": 1,
+            "block_polygon_points": [
+                [
+                    671.0,
+                    79.0
+                ],
+                [
+                    623.0,
+                    79.0
+                ],
+                [
+                    622.0,
+                    85.0
+                ],
+                [
+                    284.0,
+                    85.0
+                ],
+                [
+                    284.0,
+                    102.0
+                ],
+                [
+                    622.0,
+                    102.0
+                ],
+                [
+                    667.0,
+                    96.0
+                ]
+            ]
+        },
+        {
+            "block_label": "image",
+            "block_content": "",
+            "block_bbox": [
+                39,
+                96,
+                144,
+                220
+            ],
+            "block_id": 2,
+            "block_order": null,
+            "group_id": 2,
+            "block_polygon_points": [
+                [
+                    39.0,
+                    96.0
+                ],
+                [
+                    144.0,
+                    96.0
+                ],
+                [
+                    144.0,
+                    220.0
+                ],
+                [
+                    39.0,
+                    220.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "The Teej Sakhi Celebration at Grand Omaxe was a vibrant and heartwarming event that brought residents, families, and friends together to celebrate the spirit of Teej. The occasion was filled with cultural charm, festive shopping, delicious food, and exciting entertainment, creating beautiful memories for everyone who attended.",
+            "block_bbox": [
+                145,
+                98,
+                329,
+                226
+            ],
+            "block_id": 3,
+            "block_order": 3,
+            "group_id": 3,
+            "block_polygon_points": [
+                [
+                    145.0,
+                    98.0
+                ],
+                [
+                    329.0,
+                    98.0
+                ],
+                [
+                    329.0,
+                    226.0
+                ],
+                [
+                    145.0,
+                    226.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "",
+            "block_bbox": [
+                38,
+                223,
+                330,
+                309
+            ],
+            "block_id": 4,
+            "block_order": 4,
+            "group_id": 3,
+            "block_polygon_points": [
+                [
+                    38.0,
+                    223.0
+                ],
+                [
+                    330.0,
+                    223.0
+                ],
+                [
+                    330.0,
+                    309.0
+                ],
+                [
+                    38.0,
+                    309.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "The event featured attractive stalls showcasing a stunning collection of green bangles, a traditional symbol of Teej. Visitors enthusiastically explored the various designs and styles, adding a festive touch to their celebrations. Alongside these, festive clothing stalls displayed elegant ethnic wear, including sareens, lehengas, kurtis, and accessories, giving attendees an opportunity to shop for traditional outfits and festive essentials.",
+            "block_bbox": [
+                40,
+                308,
+                337,
+                519
+            ],
+            "block_id": 5,
+            "block_order": 5,
+            "group_id": 5,
+            "block_polygon_points": [
+                [
+                    40.0,
+                    308.0
+                ],
+                [
+                    337.0,
+                    308.0
+                ],
+                [
+                    337.0,
+                    519.0
+                ],
+                [
+                    40.0,
+                    519.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "A variety of food stalls served delicious snacks and refreshments, delighting guests with flavors that added to the festive atmosphere. Children enjoyed themselves in the",
+            "block_bbox": [
+                46,
+                518,
+                340,
+                606
+            ],
+            "block_id": 6,
+            "block_order": 6,
+            "group_id": 6,
+            "block_polygon_points": [
+                [
+                    46.0,
+                    518.0
+                ],
+                [
+                    340.0,
+                    518.0
+                ],
+                [
+                    340.0,
+                    606.0
+                ],
+                [
+                    46.0,
+                    606.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "dedicated gaming zone, participating in fun activities and games throughout the evening.",
+            "block_bbox": [
+                338,
+                103,
+                619,
+                147
+            ],
+            "block_id": 7,
+            "block_order": 7,
+            "group_id": 7,
+            "block_polygon_points": [
+                [
+                    338.0,
+                    103.0
+                ],
+                [
+                    619.0,
+                    103.0
+                ],
+                [
+                    619.0,
+                    147.0
+                ],
+                [
+                    338.0,
+                    147.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "One of the highlights of the celebration was the captivating Radha-Krishna dance",
+            "block_bbox": [
+                340,
+                143,
+                620,
+                187
+            ],
+            "block_id": 8,
+            "block_order": 8,
+            "group_id": 8,
+            "block_polygon_points": [
+                [
+                    619.0,
+                    143.0
+                ],
+                [
+                    591.0,
+                    143.0
+                ],
+                [
+                    340.0,
+                    150.0
+                ],
+                [
+                    340.0,
+                    186.0
+                ],
+                [
+                    580.0,
+                    186.0
+                ],
+                [
+                    619.0,
+                    180.0
+                ]
+            ]
+        },
+        {
+            "block_label": "image",
+            "block_content": "",
+            "block_bbox": [
+                345,
+                184,
+                623,
+                402
+            ],
+            "block_id": 9,
+            "block_order": null,
+            "group_id": 9,
+            "block_polygon_points": [
+                [
+                    345.0,
+                    184.0
+                ],
+                [
+                    623.0,
+                    184.0
+                ],
+                [
+                    623.0,
+                    402.0
+                ],
+                [
+                    345.0,
+                    402.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "performance, which beautifully reflected Indian culture, devotion, and artistic expression. The event also encouraged community participation through group performances, allowing residents to showcase their talents and celebrate together.",
+            "block_bbox": [
+                347,
+                405,
+                631,
+                537
+            ],
+            "block_id": 10,
+            "block_order": 9,
+            "group_id": 10,
+            "block_polygon_points": [
+                [
+                    344.3340148925781,
+                    410.2509460449219
+                ],
+                [
+                    629.9829711914062,
+                    404.1947326660156
+                ],
+                [
+                    632.6490478515625,
+                    529.94384765625
+                ],
+                [
+                    347.00006103515625,
+                    536.0001220703125
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Adding to the excitement, complimentary mehndi and glitter art were offered to selected participants, making the occasion even more",
+            "block_bbox": [
+                350,
+                530,
+                633,
+                601
+            ],
+            "block_id": 11,
+            "block_order": 10,
+            "group_id": 11,
+            "block_polygon_points": [
+                [
+                    350.0,
+                    537.0
+                ],
+                [
+                    350.0,
+                    600.0
+                ],
+                [
+                    457.0,
+                    600.0
+                ],
+                [
+                    628.0,
+                    594.0
+                ],
+                [
+                    632.0,
+                    588.0
+                ],
+                [
+                    632.0,
+                    543.0
+                ],
+                [
+                    632.0,
+                    530.0
+                ],
+                [
+                    487.0,
+                    530.0
+                ]
+            ]
+        },
+        {
+            "block_label": "doc_title",
+            "block_content": "Beautiful Teej Evening\nIn The Forest Spa",
+            "block_bbox": [
+                156,
+                623,
+                536,
+                693
+            ],
+            "block_id": 12,
+            "block_order": 11,
+            "group_id": 12,
+            "block_polygon_points": [
+                [
+                    156.0,
+                    623.0
+                ],
+                [
+                    536.0,
+                    623.0
+                ],
+                [
+                    536.0,
+                    693.0
+                ],
+                [
+                    156.0,
+                    693.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "by Cultural Committee and TFSAOA",
+            "block_bbox": [
+                234,
+                689,
+                463,
+                716
+            ],
+            "block_id": 13,
+            "block_order": 12,
+            "group_id": 13,
+            "block_polygon_points": [
+                [
+                    234.0,
+                    689.0
+                ],
+                [
+                    463.0,
+                    689.0
+                ],
+                [
+                    463.0,
+                    716.0
+                ],
+                [
+                    234.0,
+                    716.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Teeji was celebrated in style with a beautiful and vibrant evening filled with colour, music, laughter and togetherness, at The Forest Spa. The graceful Ghoomar dancers added a magical touch, bringing the traditional spirit of Teeji alive with their elegant movements and colourful attire.",
+            "block_bbox": [
+                64,
+                717,
+                344,
+                835
+            ],
+            "block_id": 14,
+            "block_order": 13,
+            "group_id": 14,
+            "block_polygon_points": [
+                [
+                    64.0,
+                    717.0
+                ],
+                [
+                    344.0,
+                    717.0
+                ],
+                [
+                    344.0,
+                    835.0
+                ],
+                [
+                    64.0,
+                    835.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "",
+            "block_bbox": [
+                51,
+                829,
+                345,
+                900
+            ],
+            "block_id": 15,
+            "block_order": 14,
+            "group_id": 14,
+            "block_polygon_points": [
+                [
+                    51.0,
+                    855.0
+                ],
+                [
+                    51.0,
+                    861.0
+                ],
+                [
+                    56.0,
+                    899.0
+                ],
+                [
+                    100.0,
+                    899.0
+                ],
+                [
+                    237.0,
+                    893.0
+                ],
+                [
+                    344.0,
+                    887.0
+                ],
+                [
+                    344.0,
+                    829.0
+                ],
+                [
+                    189.0,
+                    829.0
+                ],
+                [
+                    173.0,
+                    829.0
+                ],
+                [
+                    169.0,
+                    829.0
+                ],
+                [
+                    56.0,
+                    836.0
+                ]
+            ]
+        },
+        {
+            "block_label": "image",
+            "block_content": "",
+            "block_bbox": [
+                56,
+                891,
+                347,
+                1109
+            ],
+            "block_id": 16,
+            "block_order": null,
+            "group_id": 16,
+            "block_polygon_points": [
+                [
+                    56.0,
+                    891.0
+                ],
+                [
+                    347.0,
+                    891.0
+                ],
+                [
+                    347.0,
+                    1109.0
+                ],
+                [
+                    56.0,
+                    1109.0
+                ]
+            ]
+        },
+        {
+            "block_label": "vision_footnote",
+            "block_content": "The evening was made even more exciting with fun-filled events that created an atmosphere of anticipation and cheerful moments:",
+            "block_bbox": [
+                55,
+                1105,
+                351,
+                1179
+            ],
+            "block_id": 17,
+            "block_order": null,
+            "group_id": 17,
+            "block_polygon_points": [
+                [
+                    350.0,
+                    1105.0
+                ],
+                [
+                    218.0,
+                    1105.0
+                ],
+                [
+                    70.0,
+                    1112.0
+                ],
+                [
+                    55.0,
+                    1119.0
+                ],
+                [
+                    55.0,
+                    1165.0
+                ],
+                [
+                    60.0,
+                    1178.0
+                ],
+                [
+                    168.0,
+                    1178.0
+                ],
+                [
+                    277.0,
+                    1172.0
+                ],
+                [
+                    350.0,
+                    1165.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Teej Tambola: A fun Teej-themed Tambo-\nla was organized, where everyone participated\nenthusiastically and enjoyed the game.",
+            "block_bbox": [
+                80,
+                1164,
+                351,
+                1199
+            ],
+            "block_id": 18,
+            "block_order": 15,
+            "group_id": 18,
+            "block_polygon_points": [
+                [
+                    350.0,
+                    1164.0
+                ],
+                [
+                    258.0,
+                    1164.0
+                ],
+                [
+                    145.0,
+                    1171.0
+                ],
+                [
+                    80.0,
+                    1178.0
+                ],
+                [
+                    80.0,
+                    1198.0
+                ],
+                [
+                    183.0,
+                    1198.0
+                ],
+                [
+                    296.0,
+                    1191.0
+                ],
+                [
+                    350.0,
+                    1184.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "",
+            "block_bbox": [
+                355,
+                706,
+                638,
+                752
+            ],
+            "block_id": 19,
+            "block_order": 16,
+            "group_id": 18,
+            "block_polygon_points": [
+                [
+                    355.0,
+                    706.0
+                ],
+                [
+                    637.0,
+                    706.0
+                ],
+                [
+                    637.0,
+                    746.0
+                ],
+                [
+                    355.0,
+                    746.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Teej Song Game: Each team was given a Teej-related word, and they had to sing a song containing that word. It was a fun and entertaining activity enjoyed by all.",
+            "block_bbox": [
+                356,
+                746,
+                641,
+                827
+            ],
+            "block_id": 20,
+            "block_order": 17,
+            "group_id": 20,
+            "block_polygon_points": [
+                [
+                    356.0,
+                    746.0
+                ],
+                [
+                    641.0,
+                    746.0
+                ],
+                [
+                    641.0,
+                    827.0
+                ],
+                [
+                    356.0,
+                    827.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "No Teej Queen this time as we wanted all of them to feel special.",
+            "block_bbox": [
+                359,
+                880,
+                644,
+                924
+            ],
+            "block_id": 21,
+            "block_order": 18,
+            "group_id": 21,
+            "block_polygon_points": [
+                [
+                    359.0,
+                    880.0
+                ],
+                [
+                    644.0,
+                    880.0
+                ],
+                [
+                    644.0,
+                    924.0
+                ],
+                [
+                    359.0,
+                    924.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Teej Picture Game: A picture-based game related to Teej was also organized, in which everyone took part and had lots of fun.",
+            "block_bbox": [
+                358,
+                822,
+                643,
+                886
+            ],
+            "block_id": 22,
+            "block_order": 19,
+            "group_id": 22,
+            "block_polygon_points": [
+                [
+                    358.0,
+                    822.0
+                ],
+                [
+                    643.0,
+                    822.0
+                ],
+                [
+                    643.0,
+                    886.0
+                ],
+                [
+                    358.0,
+                    886.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "At the end there were 5 lucky dips; and that was an exciting moment for all the ladies. On their arrival, all were welcomed with rose petals, teeka, roli and ittar; each one of them was given slips of their names that were put in a bowl at the entrance, which were the lucky draws.",
+            "block_bbox": [
+                358,
+                919,
+                649,
+                1044
+            ],
+            "block_id": 23,
+            "block_order": 20,
+            "group_id": 23,
+            "block_polygon_points": [
+                [
+                    358.0,
+                    919.0
+                ],
+                [
+                    649.0,
+                    919.0
+                ],
+                [
+                    649.0,
+                    1044.0
+                ],
+                [
+                    358.0,
+                    1044.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Guests enjoyed a sumptuous spread of Dilli chaat and delicious snacks, followed by lively music, dance and entertaining games.",
+            "block_bbox": [
+                361,
+                1037,
+                652,
+                1103
+            ],
+            "block_id": 24,
+            "block_order": 21,
+            "group_id": 24,
+            "block_polygon_points": [
+                [
+                    361.0,
+                    1037.0
+                ],
+                [
+                    652.0,
+                    1037.0
+                ],
+                [
+                    652.0,
+                    1103.0
+                ],
+                [
+                    361.0,
+                    1103.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "It was a wonderful celebration of tradition, friendship and community — a truly memorable Teej evening filled with joy, laughter and festive spirit!",
+            "block_bbox": [
+                363,
+                1097,
+                654,
+                1184
+            ],
+            "block_id": 25,
+            "block_order": 22,
+            "group_id": 25,
+            "block_polygon_points": [
+                [
+                    363.0,
+                    1097.0
+                ],
+                [
+                    654.0,
+                    1097.0
+                ],
+                [
+                    654.0,
+                    1184.0
+                ],
+                [
+                    363.0,
+                    1184.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "special and colorful. The mascot entertainment attracted children and families, creating cheerful moments and memorable photo opportunities.",
+            "block_bbox": [
+                630,
+                86,
+                915,
+                180
+            ],
+            "block_id": 26,
+            "block_order": 23,
+            "group_id": 26,
+            "block_polygon_points": [
+                [
+                    626.1439208984375,
+                    97.48628234863281
+                ],
+                [
+                    913.479736328125,
+                    82.81376647949219
+                ],
+                [
+                    917.768798828125,
+                    166.80751037597656
+                ],
+                [
+                    630.4329833984375,
+                    181.4800262451172
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "The Teej Sakhi Celebration successfully fostered a sense of community, tradition, and togetherness among all attendees. The evening was filled with music, laughter, cultural performances, shopping, and festive enjoyment, making it a truly memorable occasion for everyone present at Grand Omaxe.",
+            "block_bbox": [
+                633,
+                166,
+                923,
+                323
+            ],
+            "block_id": 27,
+            "block_order": 24,
+            "group_id": 27,
+            "block_polygon_points": [
+                [
+                    633.0,
+                    166.0
+                ],
+                [
+                    923.0,
+                    166.0
+                ],
+                [
+                    923.0,
+                    323.0
+                ],
+                [
+                    633.0,
+                    323.0
+                ]
+            ]
+        },
+        {
+            "block_label": "paragraph_title",
+            "block_content": "Teej Celebration in Sector 92",
+            "block_bbox": [
+                641,
+                332,
+                926,
+                405
+            ],
+            "block_id": 28,
+            "block_order": 25,
+            "group_id": 28,
+            "block_polygon_points": [
+                [
+                    640.7142333984375,
+                    339.95050048828125
+                ],
+                [
+                    924.74169921875,
+                    326.53192138671875
+                ],
+                [
+                    928.1112060546875,
+                    397.85302734375
+                ],
+                [
+                    644.083740234375,
+                    411.2716064453125
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "by Dr. Shraddha Vashisth (Executive Member; B-394, Sector 92)",
+            "block_bbox": [
+                648,
+                397,
+                925,
+                450
+            ],
+            "block_id": 29,
+            "block_order": 26,
+            "group_id": 29,
+            "block_polygon_points": [
+                [
+                    924.0,
+                    397.0
+                ],
+                [
+                    866.0,
+                    397.0
+                ],
+                [
+                    747.0,
+                    404.0
+                ],
+                [
+                    648.0,
+                    411.0
+                ],
+                [
+                    648.0,
+                    449.0
+                ],
+                [
+                    766.0,
+                    449.0
+                ],
+                [
+                    924.0,
+                    443.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "The Teeji festival was celebrated with great enthusiasm, joy, and traditional spirit in Sector 92, Noida. The event was beautifully organised by the Mahila",
+            "block_bbox": [
+                659,
+                442,
+                937,
+                561
+            ],
+            "block_id": 30,
+            "block_order": 27,
+            "group_id": 30,
+            "block_polygon_points": [
+                [
+                    659.0,
+                    442.0
+                ],
+                [
+                    937.0,
+                    442.0
+                ],
+                [
+                    937.0,
+                    561.0
+                ],
+                [
+                    659.0,
+                    561.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Samiti, Sector 92, with the support and cooperation of RWA Sector 92.",
+            "block_bbox": [
+                646,
+                558,
+                938,
+                604
+            ],
+            "block_id": 31,
+            "block_order": 28,
+            "group_id": 31,
+            "block_polygon_points": [
+                [
+                    937.0,
+                    558.0
+                ],
+                [
+                    851.0,
+                    558.0
+                ],
+                [
+                    646.0,
+                    565.0
+                ],
+                [
+                    646.0,
+                    603.0
+                ],
+                [
+                    830.0,
+                    603.0
+                ],
+                [
+                    937.0,
+                    597.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "The celebration brought together women residents in a vibrant atmosphere filled with",
+            "block_bbox": [
+                648,
+                597,
+                941,
+                642
+            ],
+            "block_id": 32,
+            "block_order": 29,
+            "group_id": 32,
+            "block_polygon_points": [
+                [
+                    648.0,
+                    597.0
+                ],
+                [
+                    941.0,
+                    597.0
+                ],
+                [
+                    941.0,
+                    642.0
+                ],
+                [
+                    648.0,
+                    642.0
+                ]
+            ]
+        },
+        {
+            "block_label": "image",
+            "block_content": "",
+            "block_bbox": [
+                652,
+                639,
+                943,
+                774
+            ],
+            "block_id": 33,
+            "block_order": null,
+            "group_id": 33,
+            "block_polygon_points": [
+                [
+                    652.0,
+                    639.0
+                ],
+                [
+                    943.0,
+                    639.0
+                ],
+                [
+                    943.0,
+                    774.0
+                ],
+                [
+                    652.0,
+                    774.0
+                ]
+            ]
+        },
+        {
+            "block_label": "image",
+            "block_content": "",
+            "block_bbox": [
+                659,
+                776,
+                949,
+                925
+            ],
+            "block_id": 34,
+            "block_order": null,
+            "group_id": 34,
+            "block_polygon_points": [
+                [
+                    655.6307983398438,
+                    777.6168212890625
+                ],
+                [
+                    944.4644165039062,
+                    770.684814453125
+                ],
+                [
+                    947.9999389648438,
+                    918.0
+                ],
+                [
+                    659.1663208007812,
+                    924.9320068359375
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "traditional rituals, cultural activities, music, dance, and festive cheer. The beautifully decorated venue and active participation of the residents made the occasion truly memorable.",
+            "block_bbox": [
+                659,
+                928,
+                954,
+                1011
+            ],
+            "block_id": 35,
+            "block_order": 30,
+            "group_id": 35,
+            "block_polygon_points": [
+                [
+                    659.0,
+                    928.0
+                ],
+                [
+                    954.0,
+                    928.0
+                ],
+                [
+                    954.0,
+                    1011.0
+                ],
+                [
+                    659.0,
+                    1011.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "The valuable guidance and encouragement of our respected RWA President, Rahul Sharma Ji, added to the success and grandeur of the celebration. His continued support for community activities and women's participation is highly appreciated.",
+            "block_bbox": [
+                662,
+                1006,
+                960,
+                1132
+            ],
+            "block_id": 36,
+            "block_order": 31,
+            "group_id": 36,
+            "block_polygon_points": [
+                [
+                    955.0,
+                    1006.0
+                ],
+                [
+                    876.0,
+                    1006.0
+                ],
+                [
+                    870.0,
+                    1006.0
+                ],
+                [
+                    856.0,
+                    1006.0
+                ],
+                [
+                    662.0,
+                    1013.0
+                ],
+                [
+                    662.0,
+                    1131.0
+                ],
+                [
+                    959.0,
+                    1125.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "The event was a wonderful celebration of our rich traditions, culture, and the spirit of togetherness among the residents of Sector 92.",
+            "block_bbox": [
+                667,
+                1127,
+                965,
+                1193
+            ],
+            "block_id": 37,
+            "block_order": 32,
+            "group_id": 37,
+            "block_polygon_points": [
+                [
+                    667.0,
+                    1127.0
+                ],
+                [
+                    965.0,
+                    1127.0
+                ],
+                [
+                    965.0,
+                    1193.0
+                ],
+                [
+                    667.0,
+                    1193.0
+                ]
+            ]
+        },
+        {
+            "block_label": "footer",
+            "block_content": "Community Samvada · Sector 92+93B Noida · September 2026",
+            "block_bbox": [
+                58,
+                1203,
+                398,
+                1238
+            ],
+            "block_id": 38,
+            "block_order": null,
+            "group_id": 38,
+            "block_polygon_points": [
+                [
+                    56.776058197021484,
+                    1218.1163330078125
+                ],
+                [
+                    396.5523681640625,
+                    1196.0938720703125
+                ],
+                [
+                    398.2908630371094,
+                    1222.9163818359375
+                ],
+                [
+                    58.514556884765625,
+                    1244.9388427734375
+                ]
+            ]
+        },
+        {
+            "block_label": "footer",
+            "block_content": "For Advertising Call: 98103 81848, 99902 74969",
+            "block_bbox": [
+                700,
+                1196,
+                966,
+                1216
+            ],
+            "block_id": 39,
+            "block_order": null,
+            "group_id": 39,
+            "block_polygon_points": [
+                [
+                    700.0,
+                    1196.0
+                ],
+                [
+                    965.0,
+                    1196.0
+                ],
+                [
+                    965.0,
+                    1215.0
+                ],
+                [
+                    700.0,
+                    1215.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 6,
+                "label": "doc_title",
+                "score": 0.8707615733146667,
+                "coordinate": [
+                    70,
+                    28,
+                    876,
+                    80
+                ],
+                "order": 1,
+                "polygon_points": [
+                    [
+                        875.0,
+                        35.0
+                    ],
+                    [
+                        798.0,
+                        28.0
+                    ],
+                    [
+                        649.0,
+                        48.0
+                    ],
+                    [
+                        487.0,
+                        54.0
+                    ],
+                    [
+                        70.0,
+                        35.0
+                    ],
+                    [
+                        70.0,
+                        66.0
+                    ],
+                    [
+                        203.0,
+                        79.0
+                    ],
+                    [
+                        635.0,
+                        79.0
+                    ],
+                    [
+                        875.0,
+                        66.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8032267093658447,
+                "coordinate": [
+                    284,
+                    79,
+                    672,
+                    103
+                ],
+                "order": 2,
+                "polygon_points": [
+                    [
+                        671.0,
+                        79.0
+                    ],
+                    [
+                        623.0,
+                        79.0
+                    ],
+                    [
+                        622.0,
+                        85.0
+                    ],
+                    [
+                        284.0,
+                        85.0
+                    ],
+                    [
+                        284.0,
+                        102.0
+                    ],
+                    [
+                        622.0,
+                        102.0
+                    ],
+                    [
+                        667.0,
+                        96.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 14,
+                "label": "image",
+                "score": 0.9025728702545166,
+                "coordinate": [
+                    39,
+                    96,
+                    144,
+                    220
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        39.0,
+                        96.0
+                    ],
+                    [
+                        144.0,
+                        96.0
+                    ],
+                    [
+                        144.0,
+                        220.0
+                    ],
+                    [
+                        39.0,
+                        220.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9251942038536072,
+                "coordinate": [
+                    145,
+                    98,
+                    329,
+                    226
+                ],
+                "order": 3,
+                "polygon_points": [
+                    [
+                        145.0,
+                        98.0
+                    ],
+                    [
+                        329.0,
+                        98.0
+                    ],
+                    [
+                        329.0,
+                        226.0
+                    ],
+                    [
+                        145.0,
+                        226.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9355941414833069,
+                "coordinate": [
+                    38,
+                    223,
+                    330,
+                    309
+                ],
+                "order": 4,
+                "polygon_points": [
+                    [
+                        38.0,
+                        223.0
+                    ],
+                    [
+                        330.0,
+                        223.0
+                    ],
+                    [
+                        330.0,
+                        309.0
+                    ],
+                    [
+                        38.0,
+                        309.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.957568347454071,
+                "coordinate": [
+                    40,
+                    308,
+                    337,
+                    519
+                ],
+                "order": 5,
+                "polygon_points": [
+                    [
+                        40.0,
+                        308.0
+                    ],
+                    [
+                        337.0,
+                        308.0
+                    ],
+                    [
+                        337.0,
+                        519.0
+                    ],
+                    [
+                        40.0,
+                        519.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9386552572250366,
+                "coordinate": [
+                    46,
+                    518,
+                    340,
+                    606
+                ],
+                "order": 6,
+                "polygon_points": [
+                    [
+                        46.0,
+                        518.0
+                    ],
+                    [
+                        340.0,
+                        518.0
+                    ],
+                    [
+                        340.0,
+                        606.0
+                    ],
+                    [
+                        46.0,
+                        606.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8786245584487915,
+                "coordinate": [
+                    338,
+                    103,
+                    619,
+                    147
+                ],
+                "order": 7,
+                "polygon_points": [
+                    [
+                        338.0,
+                        103.0
+                    ],
+                    [
+                        619.0,
+                        103.0
+                    ],
+                    [
+                        619.0,
+                        147.0
+                    ],
+                    [
+                        338.0,
+                        147.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8852434158325195,
+                "coordinate": [
+                    340,
+                    143,
+                    620,
+                    187
+                ],
+                "order": 8,
+                "polygon_points": [
+                    [
+                        619.0,
+                        143.0
+                    ],
+                    [
+                        591.0,
+                        143.0
+                    ],
+                    [
+                        340.0,
+                        150.0
+                    ],
+                    [
+                        340.0,
+                        186.0
+                    ],
+                    [
+                        580.0,
+                        186.0
+                    ],
+                    [
+                        619.0,
+                        180.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 14,
+                "label": "image",
+                "score": 0.957266092300415,
+                "coordinate": [
+                    345,
+                    184,
+                    623,
+                    402
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        345.0,
+                        184.0
+                    ],
+                    [
+                        623.0,
+                        184.0
+                    ],
+                    [
+                        623.0,
+                        402.0
+                    ],
+                    [
+                        345.0,
+                        402.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9464454054832458,
+                "coordinate": [
+                    347,
+                    405,
+                    631,
+                    537
+                ],
+                "order": 9,
+                "polygon_points": [
+                    [
+                        344.3340148925781,
+                        410.2509460449219
+                    ],
+                    [
+                        629.9829711914062,
+                        404.1947326660156
+                    ],
+                    [
+                        632.6490478515625,
+                        529.94384765625
+                    ],
+                    [
+                        347.00006103515625,
+                        536.0001220703125
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9192466139793396,
+                "coordinate": [
+                    350,
+                    530,
+                    633,
+                    601
+                ],
+                "order": 10,
+                "polygon_points": [
+                    [
+                        350.0,
+                        537.0
+                    ],
+                    [
+                        350.0,
+                        600.0
+                    ],
+                    [
+                        457.0,
+                        600.0
+                    ],
+                    [
+                        628.0,
+                        594.0
+                    ],
+                    [
+                        632.0,
+                        588.0
+                    ],
+                    [
+                        632.0,
+                        543.0
+                    ],
+                    [
+                        632.0,
+                        530.0
+                    ],
+                    [
+                        487.0,
+                        530.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 6,
+                "label": "doc_title",
+                "score": 0.791415810585022,
+                "coordinate": [
+                    156,
+                    623,
+                    536,
+                    693
+                ],
+                "order": 11,
+                "polygon_points": [
+                    [
+                        156.0,
+                        623.0
+                    ],
+                    [
+                        536.0,
+                        623.0
+                    ],
+                    [
+                        536.0,
+                        693.0
+                    ],
+                    [
+                        156.0,
+                        693.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.7783913612365723,
+                "coordinate": [
+                    234,
+                    689,
+                    463,
+                    716
+                ],
+                "order": 12,
+                "polygon_points": [
+                    [
+                        234.0,
+                        689.0
+                    ],
+                    [
+                        463.0,
+                        689.0
+                    ],
+                    [
+                        463.0,
+                        716.0
+                    ],
+                    [
+                        234.0,
+                        716.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8894777894020081,
+                "coordinate": [
+                    64,
+                    717,
+                    344,
+                    835
+                ],
+                "order": 13,
+                "polygon_points": [
+                    [
+                        64.0,
+                        717.0
+                    ],
+                    [
+                        344.0,
+                        717.0
+                    ],
+                    [
+                        344.0,
+                        835.0
+                    ],
+                    [
+                        64.0,
+                        835.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9188082218170166,
+                "coordinate": [
+                    51,
+                    829,
+                    345,
+                    900
+                ],
+                "order": 14,
+                "polygon_points": [
+                    [
+                        51.0,
+                        855.0
+                    ],
+                    [
+                        51.0,
+                        861.0
+                    ],
+                    [
+                        56.0,
+                        899.0
+                    ],
+                    [
+                        100.0,
+                        899.0
+                    ],
+                    [
+                        237.0,
+                        893.0
+                    ],
+                    [
+                        344.0,
+                        887.0
+                    ],
+                    [
+                        344.0,
+                        829.0
+                    ],
+                    [
+                        189.0,
+                        829.0
+                    ],
+                    [
+                        173.0,
+                        829.0
+                    ],
+                    [
+                        169.0,
+                        829.0
+                    ],
+                    [
+                        56.0,
+                        836.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 14,
+                "label": "image",
+                "score": 0.9425346255302429,
+                "coordinate": [
+                    56,
+                    891,
+                    347,
+                    1109
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        56.0,
+                        891.0
+                    ],
+                    [
+                        347.0,
+                        891.0
+                    ],
+                    [
+                        347.0,
+                        1109.0
+                    ],
+                    [
+                        56.0,
+                        1109.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 24,
+                "label": "vision_footnote",
+                "score": 0.4723013639450073,
+                "coordinate": [
+                    55,
+                    1105,
+                    351,
+                    1179
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        350.0,
+                        1105.0
+                    ],
+                    [
+                        218.0,
+                        1105.0
+                    ],
+                    [
+                        70.0,
+                        1112.0
+                    ],
+                    [
+                        55.0,
+                        1119.0
+                    ],
+                    [
+                        55.0,
+                        1165.0
+                    ],
+                    [
+                        60.0,
+                        1178.0
+                    ],
+                    [
+                        168.0,
+                        1178.0
+                    ],
+                    [
+                        277.0,
+                        1172.0
+                    ],
+                    [
+                        350.0,
+                        1165.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.5471859574317932,
+                "coordinate": [
+                    80,
+                    1164,
+                    351,
+                    1199
+                ],
+                "order": 15,
+                "polygon_points": [
+                    [
+                        350.0,
+                        1164.0
+                    ],
+                    [
+                        258.0,
+                        1164.0
+                    ],
+                    [
+                        145.0,
+                        1171.0
+                    ],
+                    [
+                        80.0,
+                        1178.0
+                    ],
+                    [
+                        80.0,
+                        1198.0
+                    ],
+                    [
+                        183.0,
+                        1198.0
+                    ],
+                    [
+                        296.0,
+                        1191.0
+                    ],
+                    [
+                        350.0,
+                        1184.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8958297371864319,
+                "coordinate": [
+                    355,
+                    706,
+                    638,
+                    752
+                ],
+                "order": 16,
+                "polygon_points": [
+                    [
+                        355.0,
+                        706.0
+                    ],
+                    [
+                        637.0,
+                        706.0
+                    ],
+                    [
+                        637.0,
+                        746.0
+                    ],
+                    [
+                        355.0,
+                        746.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9295363426208496,
+                "coordinate": [
+                    356,
+                    746,
+                    641,
+                    827
+                ],
+                "order": 17,
+                "polygon_points": [
+                    [
+                        356.0,
+                        746.0
+                    ],
+                    [
+                        641.0,
+                        746.0
+                    ],
+                    [
+                        641.0,
+                        827.0
+                    ],
+                    [
+                        356.0,
+                        827.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9033914804458618,
+                "coordinate": [
+                    359,
+                    880,
+                    644,
+                    924
+                ],
+                "order": 18,
+                "polygon_points": [
+                    [
+                        359.0,
+                        880.0
+                    ],
+                    [
+                        644.0,
+                        880.0
+                    ],
+                    [
+                        644.0,
+                        924.0
+                    ],
+                    [
+                        359.0,
+                        924.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9220787882804871,
+                "coordinate": [
+                    358,
+                    822,
+                    643,
+                    886
+                ],
+                "order": 19,
+                "polygon_points": [
+                    [
+                        358.0,
+                        822.0
+                    ],
+                    [
+                        643.0,
+                        822.0
+                    ],
+                    [
+                        643.0,
+                        886.0
+                    ],
+                    [
+                        358.0,
+                        886.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9482010006904602,
+                "coordinate": [
+                    358,
+                    919,
+                    649,
+                    1044
+                ],
+                "order": 20,
+                "polygon_points": [
+                    [
+                        358.0,
+                        919.0
+                    ],
+                    [
+                        649.0,
+                        919.0
+                    ],
+                    [
+                        649.0,
+                        1044.0
+                    ],
+                    [
+                        358.0,
+                        1044.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9247773289680481,
+                "coordinate": [
+                    361,
+                    1037,
+                    652,
+                    1103
+                ],
+                "order": 21,
+                "polygon_points": [
+                    [
+                        361.0,
+                        1037.0
+                    ],
+                    [
+                        652.0,
+                        1037.0
+                    ],
+                    [
+                        652.0,
+                        1103.0
+                    ],
+                    [
+                        361.0,
+                        1103.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9317983984947205,
+                "coordinate": [
+                    363,
+                    1097,
+                    654,
+                    1184
+                ],
+                "order": 22,
+                "polygon_points": [
+                    [
+                        363.0,
+                        1097.0
+                    ],
+                    [
+                        654.0,
+                        1097.0
+                    ],
+                    [
+                        654.0,
+                        1184.0
+                    ],
+                    [
+                        363.0,
+                        1184.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9323650002479553,
+                "coordinate": [
+                    630,
+                    86,
+                    915,
+                    180
+                ],
+                "order": 23,
+                "polygon_points": [
+                    [
+                        626.1439208984375,
+                        97.48628234863281
+                    ],
+                    [
+                        913.479736328125,
+                        82.81376647949219
+                    ],
+                    [
+                        917.768798828125,
+                        166.80751037597656
+                    ],
+                    [
+                        630.4329833984375,
+                        181.4800262451172
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9448261857032776,
+                "coordinate": [
+                    633,
+                    166,
+                    923,
+                    323
+                ],
+                "order": 24,
+                "polygon_points": [
+                    [
+                        633.0,
+                        166.0
+                    ],
+                    [
+                        923.0,
+                        166.0
+                    ],
+                    [
+                        923.0,
+                        323.0
+                    ],
+                    [
+                        633.0,
+                        323.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.7320975065231323,
+                "coordinate": [
+                    641,
+                    332,
+                    926,
+                    405
+                ],
+                "order": 25,
+                "polygon_points": [
+                    [
+                        640.7142333984375,
+                        339.95050048828125
+                    ],
+                    [
+                        924.74169921875,
+                        326.53192138671875
+                    ],
+                    [
+                        928.1112060546875,
+                        397.85302734375
+                    ],
+                    [
+                        644.083740234375,
+                        411.2716064453125
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8138971328735352,
+                "coordinate": [
+                    648,
+                    397,
+                    925,
+                    450
+                ],
+                "order": 26,
+                "polygon_points": [
+                    [
+                        924.0,
+                        397.0
+                    ],
+                    [
+                        866.0,
+                        397.0
+                    ],
+                    [
+                        747.0,
+                        404.0
+                    ],
+                    [
+                        648.0,
+                        411.0
+                    ],
+                    [
+                        648.0,
+                        449.0
+                    ],
+                    [
+                        766.0,
+                        449.0
+                    ],
+                    [
+                        924.0,
+                        443.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8871285915374756,
+                "coordinate": [
+                    659,
+                    442,
+                    937,
+                    561
+                ],
+                "order": 27,
+                "polygon_points": [
+                    [
+                        659.0,
+                        442.0
+                    ],
+                    [
+                        937.0,
+                        442.0
+                    ],
+                    [
+                        937.0,
+                        561.0
+                    ],
+                    [
+                        659.0,
+                        561.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9018964171409607,
+                "coordinate": [
+                    646,
+                    558,
+                    938,
+                    604
+                ],
+                "order": 28,
+                "polygon_points": [
+                    [
+                        937.0,
+                        558.0
+                    ],
+                    [
+                        851.0,
+                        558.0
+                    ],
+                    [
+                        646.0,
+                        565.0
+                    ],
+                    [
+                        646.0,
+                        603.0
+                    ],
+                    [
+                        830.0,
+                        603.0
+                    ],
+                    [
+                        937.0,
+                        597.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9018778204917908,
+                "coordinate": [
+                    648,
+                    597,
+                    941,
+                    642
+                ],
+                "order": 29,
+                "polygon_points": [
+                    [
+                        648.0,
+                        597.0
+                    ],
+                    [
+                        941.0,
+                        597.0
+                    ],
+                    [
+                        941.0,
+                        642.0
+                    ],
+                    [
+                        648.0,
+                        642.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 14,
+                "label": "image",
+                "score": 0.8775326013565063,
+                "coordinate": [
+                    652,
+                    639,
+                    943,
+                    774
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        652.0,
+                        639.0
+                    ],
+                    [
+                        943.0,
+                        639.0
+                    ],
+                    [
+                        943.0,
+                        774.0
+                    ],
+                    [
+                        652.0,
+                        774.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 14,
+                "label": "image",
+                "score": 0.8556615710258484,
+                "coordinate": [
+                    659,
+                    776,
+                    949,
+                    925
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        655.6307983398438,
+                        777.6168212890625
+                    ],
+                    [
+                        944.4644165039062,
+                        770.684814453125
+                    ],
+                    [
+                        947.9999389648438,
+                        918.0
+                    ],
+                    [
+                        659.1663208007812,
+                        924.9320068359375
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9073653221130371,
+                "coordinate": [
+                    659,
+                    928,
+                    954,
+                    1011
+                ],
+                "order": 30,
+                "polygon_points": [
+                    [
+                        659.0,
+                        928.0
+                    ],
+                    [
+                        954.0,
+                        928.0
+                    ],
+                    [
+                        954.0,
+                        1011.0
+                    ],
+                    [
+                        659.0,
+                        1011.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9381466507911682,
+                "coordinate": [
+                    662,
+                    1006,
+                    960,
+                    1132
+                ],
+                "order": 31,
+                "polygon_points": [
+                    [
+                        955.0,
+                        1006.0
+                    ],
+                    [
+                        876.0,
+                        1006.0
+                    ],
+                    [
+                        870.0,
+                        1006.0
+                    ],
+                    [
+                        856.0,
+                        1006.0
+                    ],
+                    [
+                        662.0,
+                        1013.0
+                    ],
+                    [
+                        662.0,
+                        1131.0
+                    ],
+                    [
+                        959.0,
+                        1125.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9187032580375671,
+                "coordinate": [
+                    667,
+                    1127,
+                    965,
+                    1193
+                ],
+                "order": 32,
+                "polygon_points": [
+                    [
+                        667.0,
+                        1127.0
+                    ],
+                    [
+                        965.0,
+                        1127.0
+                    ],
+                    [
+                        965.0,
+                        1193.0
+                    ],
+                    [
+                        667.0,
+                        1193.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 8,
+                "label": "footer",
+                "score": 0.8492001295089722,
+                "coordinate": [
+                    58,
+                    1203,
+                    398,
+                    1238
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        56.776058197021484,
+                        1218.1163330078125
+                    ],
+                    [
+                        396.5523681640625,
+                        1196.0938720703125
+                    ],
+                    [
+                        398.2908630371094,
+                        1222.9163818359375
+                    ],
+                    [
+                        58.514556884765625,
+                        1244.9388427734375
+                    ]
+                ]
+            },
+            {
+                "cls_id": 8,
+                "label": "footer",
+                "score": 0.7806227803230286,
+                "coordinate": [
+                    700,
+                    1196,
+                    966,
+                    1216
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        700.0,
+                        1196.0
+                    ],
+                    [
+                        965.0,
+                        1196.0
+                    ],
+                    [
+                        965.0,
+                        1215.0
+                    ],
+                    [
+                        700.0,
+                        1215.0
+                    ]
+                ]
+            }
+        ]
+    }
+}

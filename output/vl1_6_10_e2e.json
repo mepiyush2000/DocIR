@@ -1,0 +1,206 @@
+{
+  "schema_version": "1.0",
+  "input_path": "vl1_6_10.png",
+  "width": 2160.0,
+  "height": 3840.0,
+  "blocks": [
+    {
+      "id": 0,
+      "label": "header",
+      "content": "Innovation and technology",
+      "bbox": [
+        1535.0,
+        553.0,
+        1936.0,
+        594.0
+      ]
+    },
+    {
+      "id": 1,
+      "label": "paragraph_title",
+      "content": "Automation technologies can be broadly grouped into three categories:",
+      "bbox": [
+        234.0,
+        763.0,
+        703.0,
+        877.0
+      ]
+    },
+    {
+      "id": 2,
+      "label": "text",
+      "content": "1. Robotic Process Automation (RPA): The simplest form of automation, RPA technology automates repetitive rule-based processes. This technology cannot learn, adapt or make decisions; an RPA bot simply applies a consistent set of rules to a process to deliver quick and efficient outcomes. Many manual administrative processes can be streamlined in this way.",
+      "bbox": [
+        239.0,
+        877.0,
+        778.0,
+        1258.0
+      ]
+    },
+    {
+      "id": 3,
+      "label": "text",
+      "content": "2. Machine learning: At the next level is machine learning, where a computer is able to use large volumes of data to understand and predict the desired course of action, with performance improving over time. Chat-bots are a good example of machine learning being used today in the financial sector. These bots use technologies such as natural language processing (NLP) to communicate in real time with human customers, use data from past interactions to understand the nature of the customer's query, and provide the desired information or response.",
+      "bbox": [
+        237.0,
+        1284.0,
+        787.0,
+        1844.0
+      ]
+    },
+    {
+      "id": 4,
+      "label": "text",
+      "content": "3. Cognitive augmentation: Cognitive augmentation is the closest we currently have to true artificial intelligence. Cognitive computers, such as IBM's Watson, are able to handle unstructured data and provide answers to complex queries, enabling them to complete tasks that could once only be performed by humans.",
+      "bbox": [
+        242.0,
+        1874.0,
+        788.0,
+        2208.0
+      ]
+    },
+    {
+      "id": 5,
+      "label": "text",
+      "content": "Though these categories denote levels of complexity, it is better not to think of automation technologies as stages through which an organization must progress. Instead, each technology is best suited to particular types of work and may be used in concert to achieve larger goals.",
+      "bbox": [
+        244.0,
+        2238.0,
+        788.0,
+        2500.0
+      ]
+    },
+    {
+      "id": 6,
+      "label": "text",
+      "content": "Intelligent automation (IA) is a term increasingly applied to this concept of combining multiple automation technologies to solve complex business issues. For example, organizations are looking to use RPA with machine learning, NLP and digital character recognition to help address regulatory compliance challenges and process high-volume, low-complexity insurance claims.",
+      "bbox": [
+        247.0,
+        2530.0,
+        788.0,
+        2900.0
+      ]
+    },
+    {
+      "id": 7,
+      "label": "paragraph_title",
+      "content": "Jobs changing, not necessarily replaced",
+      "bbox": [
+        809.0,
+        762.0,
+        1291.0,
+        840.0
+      ]
+    },
+    {
+      "id": 8,
+      "label": "text",
+      "content": "Doomsday predictions about automation's impacts to the workforce have been in the headlines for the past few years, with total job loss a significant concern. For example, in 2014 Gartner research director Peter Sondergaard stated,",
+      "bbox": [
+        809.0,
+        842.0,
+        1356.0,
+        1066.0
+      ]
+    },
+    {
+      "id": 9,
+      "label": "text",
+      "content": "\"Gartner predicts one in three jobs will be converted to software, robots and smart machines by 2025.\" Yet while there are pockets of extensive automation within the industry, generous estimates cannot put the average rate of automation above 5 percent — significantly behind the rate required to achieve replacement of a full third of the workforce in 7 years.",
+      "bbox": [
+        811.0,
+        1070.0,
+        1345.0,
+        1406.0
+      ]
+    },
+    {
+      "id": 10,
+      "label": "text",
+      "content": "While initial predictions were for automation to result in wholesale replacement of human workers, that is not what we are seeing play out in immediate timeframes. Instead, these technologies are being used to enhance or support the work of human employees. Automation capabilities can help remove the burden of repetitive administrative work or provide information to help individuals make better decisions, allowing employees to focus on",
+      "bbox": [
+        815.0,
+        1446.0,
+        1361.0,
+        1844.0
+      ]
+    },
+    {
+      "id": 11,
+      "label": "paragraph_title",
+      "content": "Intelligent automation",
+      "bbox": [
+        1437.0,
+        763.0,
+        1787.0,
+        986.0
+      ]
+    },
+    {
+      "id": 12,
+      "label": "paragraph_title",
+      "content": "(IA) is a term increasingly applied to this concept of combining multiple automation technologies to solve complex business issues.",
+      "bbox": [
+        1433.0,
+        987.0,
+        1926.0,
+        1646.0
+      ]
+    },
+    {
+      "id": 13,
+      "label": "figure_title",
+      "content": "Today's organizational challenges",
+      "bbox": [
+        823.0,
+        1908.0,
+        1339.0,
+        1950.0
+      ]
+    },
+    {
+      "id": 14,
+      "label": "image",
+      "content": "",
+      "bbox": [
+        820.0,
+        1966.0,
+        1887.0,
+        2863.0
+      ]
+    },
+    {
+      "id": 15,
+      "label": "figure_title",
+      "content": "Source: Robotics Revolution, 2018, KPMG in Luxembourg",
+      "bbox": [
+        818.0,
+        2928.0,
+        1448.0,
+        2966.0
+      ]
+    },
+    {
+      "id": 16,
+      "label": "footer",
+      "content": "Frontiers in Finance",
+      "bbox": [
+        1668.0,
+        3044.0,
+        1881.0,
+        3074.0
+      ]
+    },
+    {
+      "id": 17,
+      "label": "number",
+      "content": "37",
+      "bbox": [
+        1890.0,
+        3044.0,
+        1921.0,
+        3072.0
+      ]
+    }
+  ]
+}

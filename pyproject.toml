@@ -1,0 +1,29 @@
+[project]
+name = "docir"
+version = "0.1.0"
+description = "Recover document layout via PaddleOCR-VL and rebuild a geometry-preserving PDF."
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2",
+    "reportlab>=4",
+    "pillow>=10",
+    "numpy>=1.26",
+]
+
+[project.optional-dependencies]
+ocr = ["paddleocr>=3.7", "paddlepaddle>=3.3", "paddlex[ocr]>=3.7"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+docir = "docir.cli:main"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["docir*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

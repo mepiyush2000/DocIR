@@ -1,0 +1,1132 @@
+{
+    "input_path": "vl1_6_10.png",
+    "page_index": null,
+    "page_count": null,
+    "width": 2160,
+    "height": 3840,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": true,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [
+            "number",
+            "footnote",
+            "header",
+            "header_image",
+            "footer",
+            "footer_image",
+            "aside_text"
+        ],
+        "return_layout_polygon_points": true
+    },
+    "parsing_res_list": [
+        {
+            "block_label": "header",
+            "block_content": "Innovation and technology",
+            "block_bbox": [
+                1535,
+                553,
+                1936,
+                594
+            ],
+            "block_id": 0,
+            "block_order": null,
+            "group_id": 0,
+            "block_polygon_points": [
+                [
+                    1535.0,
+                    553.0
+                ],
+                [
+                    1936.0,
+                    553.0
+                ],
+                [
+                    1936.0,
+                    594.0
+                ],
+                [
+                    1535.0,
+                    594.0
+                ]
+            ]
+        },
+        {
+            "block_label": "paragraph_title",
+            "block_content": "Automation technologies can be broadly grouped into three categories:",
+            "block_bbox": [
+                234,
+                763,
+                703,
+                877
+            ],
+            "block_id": 1,
+            "block_order": 1,
+            "group_id": 1,
+            "block_polygon_points": [
+                [
+                    234.0,
+                    763.0
+                ],
+                [
+                    703.0,
+                    763.0
+                ],
+                [
+                    703.0,
+                    877.0
+                ],
+                [
+                    234.0,
+                    877.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "1. Robotic Process Automation (RPA): The simplest form of automation, RPA technology automates repetitive rule-based processes. This technology cannot learn, adapt or make decisions; an RPA bot simply applies a consistent set of rules to a process to deliver quick and efficient outcomes. Many manual administrative processes can be streamlined in this way.",
+            "block_bbox": [
+                239,
+                877,
+                778,
+                1258
+            ],
+            "block_id": 2,
+            "block_order": 2,
+            "group_id": 2,
+            "block_polygon_points": [
+                [
+                    239.0,
+                    877.0
+                ],
+                [
+                    778.0,
+                    877.0
+                ],
+                [
+                    778.0,
+                    1258.0
+                ],
+                [
+                    239.0,
+                    1258.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "2. Machine learning: At the next level is machine learning, where a computer is able to use large volumes of data to understand and predict the desired course of action, with performance improving over time. Chat-bots are a good example of machine learning being used today in the financial sector. These bots use technologies such as natural language processing (NLP) to communicate in real time with human customers, use data from past interactions to understand the nature of the customer's query, and provide the desired information or response.",
+            "block_bbox": [
+                237,
+                1284,
+                787,
+                1844
+            ],
+            "block_id": 3,
+            "block_order": 3,
+            "group_id": 3,
+            "block_polygon_points": [
+                [
+                    237.0,
+                    1284.0
+                ],
+                [
+                    787.0,
+                    1284.0
+                ],
+                [
+                    787.0,
+                    1844.0
+                ],
+                [
+                    237.0,
+                    1844.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "3. Cognitive augmentation: Cognitive augmentation is the closest we currently have to true artificial intelligence. Cognitive computers, such as IBM's Watson, are able to handle unstructured data and provide answers to complex queries, enabling them to complete tasks that could once only be performed by humans.",
+            "block_bbox": [
+                242,
+                1874,
+                788,
+                2208
+            ],
+            "block_id": 4,
+            "block_order": 4,
+            "group_id": 4,
+            "block_polygon_points": [
+                [
+                    242.0,
+                    1874.0
+                ],
+                [
+                    788.0,
+                    1874.0
+                ],
+                [
+                    788.0,
+                    2208.0
+                ],
+                [
+                    242.0,
+                    2208.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Though these categories denote levels of complexity, it is better not to think of automation technologies as stages through which an organization must progress. Instead, each technology is best suited to particular types of work and may be used in concert to achieve larger goals.",
+            "block_bbox": [
+                244,
+                2238,
+                788,
+                2500
+            ],
+            "block_id": 5,
+            "block_order": 5,
+            "group_id": 5,
+            "block_polygon_points": [
+                [
+                    244.0,
+                    2238.0
+                ],
+                [
+                    788.0,
+                    2238.0
+                ],
+                [
+                    788.0,
+                    2500.0
+                ],
+                [
+                    244.0,
+                    2500.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Intelligent automation (IA) is a term increasingly applied to this concept of combining multiple automation technologies to solve complex business issues. For example, organizations are looking to use RPA with machine learning, NLP and digital character recognition to help address regulatory compliance challenges and process high-volume, low-complexity insurance claims.",
+            "block_bbox": [
+                247,
+                2530,
+                788,
+                2900
+            ],
+            "block_id": 6,
+            "block_order": 6,
+            "group_id": 6,
+            "block_polygon_points": [
+                [
+                    247.0,
+                    2530.0
+                ],
+                [
+                    788.0,
+                    2530.0
+                ],
+                [
+                    788.0,
+                    2900.0
+                ],
+                [
+                    247.0,
+                    2900.0
+                ]
+            ]
+        },
+        {
+            "block_label": "paragraph_title",
+            "block_content": "Jobs changing, not necessarily replaced",
+            "block_bbox": [
+                809,
+                762,
+                1291,
+                840
+            ],
+            "block_id": 7,
+            "block_order": 7,
+            "group_id": 7,
+            "block_polygon_points": [
+                [
+                    809.0,
+                    762.0
+                ],
+                [
+                    1291.0,
+                    762.0
+                ],
+                [
+                    1291.0,
+                    840.0
+                ],
+                [
+                    809.0,
+                    840.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "Doomsday predictions about automation's impacts to the workforce have been in the headlines for the past few years, with total job loss a significant concern. For example, in 2014 Gartner research director Peter Sondergaard stated,",
+            "block_bbox": [
+                809,
+                842,
+                1356,
+                1066
+            ],
+            "block_id": 8,
+            "block_order": 8,
+            "group_id": 8,
+            "block_polygon_points": [
+                [
+                    809.0,
+                    842.0
+                ],
+                [
+                    1356.0,
+                    842.0
+                ],
+                [
+                    1356.0,
+                    1066.0
+                ],
+                [
+                    809.0,
+                    1066.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "\"Gartner predicts one in three jobs will be converted to software, robots and smart machines by 2025.\" Yet while there are pockets of extensive automation within the industry, generous estimates cannot put the average rate of automation above 5 percent — significantly behind the rate required to achieve replacement of a full third of the workforce in 7 years.",
+            "block_bbox": [
+                811,
+                1070,
+                1345,
+                1406
+            ],
+            "block_id": 9,
+            "block_order": 9,
+            "group_id": 9,
+            "block_polygon_points": [
+                [
+                    811.0,
+                    1070.0
+                ],
+                [
+                    1345.0,
+                    1070.0
+                ],
+                [
+                    1345.0,
+                    1406.0
+                ],
+                [
+                    811.0,
+                    1406.0
+                ]
+            ]
+        },
+        {
+            "block_label": "text",
+            "block_content": "While initial predictions were for automation to result in wholesale replacement of human workers, that is not what we are seeing play out in immediate timeframes. Instead, these technologies are being used to enhance or support the work of human employees. Automation capabilities can help remove the burden of repetitive administrative work or provide information to help individuals make better decisions, allowing employees to focus on",
+            "block_bbox": [
+                815,
+                1446,
+                1361,
+                1844
+            ],
+            "block_id": 10,
+            "block_order": 10,
+            "group_id": 10,
+            "block_polygon_points": [
+                [
+                    815.0,
+                    1446.0
+                ],
+                [
+                    1361.0,
+                    1446.0
+                ],
+                [
+                    1361.0,
+                    1844.0
+                ],
+                [
+                    815.0,
+                    1844.0
+                ]
+            ]
+        },
+        {
+            "block_label": "paragraph_title",
+            "block_content": "Intelligent automation",
+            "block_bbox": [
+                1437,
+                763,
+                1787,
+                986
+            ],
+            "block_id": 11,
+            "block_order": 11,
+            "group_id": 11,
+            "block_polygon_points": [
+                [
+                    1437.0,
+                    763.0
+                ],
+                [
+                    1787.0,
+                    763.0
+                ],
+                [
+                    1787.0,
+                    986.0
+                ],
+                [
+                    1437.0,
+                    986.0
+                ]
+            ]
+        },
+        {
+            "block_label": "paragraph_title",
+            "block_content": "(IA) is a term increasingly applied to this concept of combining multiple automation technologies to solve complex business issues.",
+            "block_bbox": [
+                1433,
+                987,
+                1926,
+                1646
+            ],
+            "block_id": 12,
+            "block_order": 12,
+            "group_id": 12,
+            "block_polygon_points": [
+                [
+                    1433.0,
+                    987.0
+                ],
+                [
+                    1926.0,
+                    987.0
+                ],
+                [
+                    1926.0,
+                    1646.0
+                ],
+                [
+                    1433.0,
+                    1646.0
+                ]
+            ]
+        },
+        {
+            "block_label": "figure_title",
+            "block_content": "Today's organizational challenges",
+            "block_bbox": [
+                823,
+                1908,
+                1339,
+                1950
+            ],
+            "block_id": 13,
+            "block_order": null,
+            "group_id": 13,
+            "block_polygon_points": [
+                [
+                    823.0,
+                    1908.0
+                ],
+                [
+                    1339.0,
+                    1908.0
+                ],
+                [
+                    1339.0,
+                    1950.0
+                ],
+                [
+                    823.0,
+                    1950.0
+                ]
+            ]
+        },
+        {
+            "block_label": "image",
+            "block_content": "",
+            "block_bbox": [
+                820,
+                1966,
+                1887,
+                2863
+            ],
+            "block_id": 14,
+            "block_order": null,
+            "group_id": 14,
+            "block_polygon_points": [
+                [
+                    820.0,
+                    1966.0
+                ],
+                [
+                    1887.0,
+                    1966.0
+                ],
+                [
+                    1887.0,
+                    2863.0
+                ],
+                [
+                    820.0,
+                    2863.0
+                ]
+            ]
+        },
+        {
+            "block_label": "figure_title",
+            "block_content": "Source: Robotics Revolution, 2018, KPMG in Luxembourg",
+            "block_bbox": [
+                818,
+                2928,
+                1448,
+                2966
+            ],
+            "block_id": 15,
+            "block_order": null,
+            "group_id": 15,
+            "block_polygon_points": [
+                [
+                    818.0,
+                    2928.0
+                ],
+                [
+                    1448.0,
+                    2928.0
+                ],
+                [
+                    1448.0,
+                    2966.0
+                ],
+                [
+                    818.0,
+                    2966.0
+                ]
+            ]
+        },
+        {
+            "block_label": "footer",
+            "block_content": "Frontiers in Finance",
+            "block_bbox": [
+                1668,
+                3044,
+                1881,
+                3074
+            ],
+            "block_id": 16,
+            "block_order": null,
+            "group_id": 16,
+            "block_polygon_points": [
+                [
+                    1668.0,
+                    3044.0
+                ],
+                [
+                    1881.0,
+                    3044.0
+                ],
+                [
+                    1881.0,
+                    3074.0
+                ],
+                [
+                    1668.0,
+                    3074.0
+                ]
+            ]
+        },
+        {
+            "block_label": "number",
+            "block_content": "37",
+            "block_bbox": [
+                1890,
+                3044,
+                1921,
+                3072
+            ],
+            "block_id": 17,
+            "block_order": null,
+            "group_id": 17,
+            "block_polygon_points": [
+                [
+                    1890.0,
+                    3044.0
+                ],
+                [
+                    1920.0,
+                    3044.0
+                ],
+                [
+                    1920.0,
+                    3071.0
+                ],
+                [
+                    1890.0,
+                    3071.0
+                ]
+            ]
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 12,
+                "label": "header",
+                "score": 0.8154528141021729,
+                "coordinate": [
+                    1535,
+                    553,
+                    1936,
+                    594
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        1535.0,
+                        553.0
+                    ],
+                    [
+                        1936.0,
+                        553.0
+                    ],
+                    [
+                        1936.0,
+                        594.0
+                    ],
+                    [
+                        1535.0,
+                        594.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.793725848197937,
+                "coordinate": [
+                    234,
+                    763,
+                    703,
+                    877
+                ],
+                "order": 1,
+                "polygon_points": [
+                    [
+                        234.0,
+                        763.0
+                    ],
+                    [
+                        703.0,
+                        763.0
+                    ],
+                    [
+                        703.0,
+                        877.0
+                    ],
+                    [
+                        234.0,
+                        877.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9285652041435242,
+                "coordinate": [
+                    239,
+                    877,
+                    778,
+                    1258
+                ],
+                "order": 2,
+                "polygon_points": [
+                    [
+                        239.0,
+                        877.0
+                    ],
+                    [
+                        778.0,
+                        877.0
+                    ],
+                    [
+                        778.0,
+                        1258.0
+                    ],
+                    [
+                        239.0,
+                        1258.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.947625458240509,
+                "coordinate": [
+                    237,
+                    1284,
+                    787,
+                    1844
+                ],
+                "order": 3,
+                "polygon_points": [
+                    [
+                        237.0,
+                        1284.0
+                    ],
+                    [
+                        787.0,
+                        1284.0
+                    ],
+                    [
+                        787.0,
+                        1844.0
+                    ],
+                    [
+                        237.0,
+                        1844.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9256133437156677,
+                "coordinate": [
+                    242,
+                    1874,
+                    788,
+                    2208
+                ],
+                "order": 4,
+                "polygon_points": [
+                    [
+                        242.0,
+                        1874.0
+                    ],
+                    [
+                        788.0,
+                        1874.0
+                    ],
+                    [
+                        788.0,
+                        2208.0
+                    ],
+                    [
+                        242.0,
+                        2208.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9342178106307983,
+                "coordinate": [
+                    244,
+                    2238,
+                    788,
+                    2500
+                ],
+                "order": 5,
+                "polygon_points": [
+                    [
+                        244.0,
+                        2238.0
+                    ],
+                    [
+                        788.0,
+                        2238.0
+                    ],
+                    [
+                        788.0,
+                        2500.0
+                    ],
+                    [
+                        244.0,
+                        2500.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9301689863204956,
+                "coordinate": [
+                    247,
+                    2530,
+                    788,
+                    2900
+                ],
+                "order": 6,
+                "polygon_points": [
+                    [
+                        247.0,
+                        2530.0
+                    ],
+                    [
+                        788.0,
+                        2530.0
+                    ],
+                    [
+                        788.0,
+                        2900.0
+                    ],
+                    [
+                        247.0,
+                        2900.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.8224514126777649,
+                "coordinate": [
+                    809,
+                    762,
+                    1291,
+                    840
+                ],
+                "order": 7,
+                "polygon_points": [
+                    [
+                        809.0,
+                        762.0
+                    ],
+                    [
+                        1291.0,
+                        762.0
+                    ],
+                    [
+                        1291.0,
+                        840.0
+                    ],
+                    [
+                        809.0,
+                        840.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.8913475275039673,
+                "coordinate": [
+                    809,
+                    842,
+                    1356,
+                    1066
+                ],
+                "order": 8,
+                "polygon_points": [
+                    [
+                        809.0,
+                        842.0
+                    ],
+                    [
+                        1356.0,
+                        842.0
+                    ],
+                    [
+                        1356.0,
+                        1066.0
+                    ],
+                    [
+                        809.0,
+                        1066.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9266785979270935,
+                "coordinate": [
+                    811,
+                    1070,
+                    1345,
+                    1406
+                ],
+                "order": 9,
+                "polygon_points": [
+                    [
+                        811.0,
+                        1070.0
+                    ],
+                    [
+                        1345.0,
+                        1070.0
+                    ],
+                    [
+                        1345.0,
+                        1406.0
+                    ],
+                    [
+                        811.0,
+                        1406.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.9114067554473877,
+                "coordinate": [
+                    815,
+                    1446,
+                    1361,
+                    1844
+                ],
+                "order": 10,
+                "polygon_points": [
+                    [
+                        815.0,
+                        1446.0
+                    ],
+                    [
+                        1361.0,
+                        1446.0
+                    ],
+                    [
+                        1361.0,
+                        1844.0
+                    ],
+                    [
+                        815.0,
+                        1844.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.8077667951583862,
+                "coordinate": [
+                    1437,
+                    763,
+                    1787,
+                    986
+                ],
+                "order": 11,
+                "polygon_points": [
+                    [
+                        1437.0,
+                        763.0
+                    ],
+                    [
+                        1787.0,
+                        763.0
+                    ],
+                    [
+                        1787.0,
+                        986.0
+                    ],
+                    [
+                        1437.0,
+                        986.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.8680422306060791,
+                "coordinate": [
+                    1433,
+                    987,
+                    1926,
+                    1646
+                ],
+                "order": 12,
+                "polygon_points": [
+                    [
+                        1433.0,
+                        987.0
+                    ],
+                    [
+                        1926.0,
+                        987.0
+                    ],
+                    [
+                        1926.0,
+                        1646.0
+                    ],
+                    [
+                        1433.0,
+                        1646.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 7,
+                "label": "figure_title",
+                "score": 0.3757033348083496,
+                "coordinate": [
+                    823,
+                    1908,
+                    1339,
+                    1950
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        823.0,
+                        1908.0
+                    ],
+                    [
+                        1339.0,
+                        1908.0
+                    ],
+                    [
+                        1339.0,
+                        1950.0
+                    ],
+                    [
+                        823.0,
+                        1950.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 14,
+                "label": "image",
+                "score": 0.8945258855819702,
+                "coordinate": [
+                    820,
+                    1966,
+                    1887,
+                    2863
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        820.0,
+                        1966.0
+                    ],
+                    [
+                        1887.0,
+                        1966.0
+                    ],
+                    [
+                        1887.0,
+                        2863.0
+                    ],
+                    [
+                        820.0,
+                        2863.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 7,
+                "label": "figure_title",
+                "score": 0.34732046723365784,
+                "coordinate": [
+                    818,
+                    2928,
+                    1448,
+                    2966
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        818.0,
+                        2928.0
+                    ],
+                    [
+                        1448.0,
+                        2928.0
+                    ],
+                    [
+                        1448.0,
+                        2966.0
+                    ],
+                    [
+                        818.0,
+                        2966.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 8,
+                "label": "footer",
+                "score": 0.7413459420204163,
+                "coordinate": [
+                    1668,
+                    3044,
+                    1881,
+                    3074
+                ],
+                "order": null,
+                "polygon_points": [
+                    [
+                        1668.0,
+                        3044.0
+                    ],
+                    [
+                        1881.0,
+                        3044.0
+                    ],
+                    [
+                        1881.0,
+                        3074.0
+                    ],
+                    [
+                        1668.0,
+                        3074.0
+                    ]
+                ]
+            },
+            {
+                "cls_id": 16,
+                "label": "number",
+                "score": 0.5861298441886902,
+                "coordinate": [
+                    1890,
+                    3044,
+                    1921,
+                    3072
+                ],
+                "order": 13,
+                "polygon_points": [
+                    [
+                        1890.0,
+                        3044.0
+                    ],
+                    [
+                        1920.0,
+                        3044.0
+                    ],
+                    [
+                        1920.0,
+                        3071.0
+                    ],
+                    [
+                        1890.0,
+                        3071.0
+                    ]
+                ]
+            }
+        ]
+    }
+}
