@@ -10,22 +10,23 @@ from __future__ import annotations
 
 import statistics
 
-from .ink import _row_ink_bands, binarize_region
+from .ink import binarize_region, measure_text_lines
 
 BOLD_RELATIVE_FACTOR = 1.15  # a label's median ratio above (doc median * this) is bold
 
 
 def measure_stroke_ratio(source_image, bbox) -> float | None:
-    """Measure this block's ink-stroke-width / text-line-height ratio from
-    real pixels -- returns None if it can't tell (no image, empty crop, or
-    no clear text signal)."""
+    """This block's stem width relative to its x-height: the mean
+    horizontal ink-run length (a sub-pixel stem estimate) over the measured
+    x-height, so the weight doesn't depend on how many ascenders or capitals
+    the text contains. None if it can't tell (no image, empty crop, or no
+    clear text signal)."""
     binary = binarize_region(source_image, bbox)
     if binary is None:
         return None
 
-    bands = _row_ink_bands(binary)
-    line_height = statistics.median([e - s for s, e in bands]) if bands else binary.shape[0]
-    if line_height <= 0:
+    stats = measure_text_lines(binary)
+    if stats is None or stats.x_height <= 0:
         return None
 
     starts = binary.copy()
@@ -34,17 +35,21 @@ def measure_stroke_ratio(source_image, bbox) -> float | None:
     if num_runs == 0:
         return None
 
-    return (binary.sum() / num_runs) / line_height
+    return float(binary.sum() / num_runs) / stats.x_height
 
 
-def classify_bold_by_label(ratios_by_label: dict[str, list[float]]) -> dict[str, bool]:
+def classify_bold_by_label(ratios_by_label: dict[str, list[float]],
+                           baseline_label: str | None = None) -> dict[str, bool]:
     """Collapse per-block stroke ratios into one bold/regular verdict per
-    label, using this document's own median ratio as the baseline (so a
-    role like "paragraph_title" is either bold or not throughout the doc)."""
+    label, relative to this document's own baseline: the body-text label's
+    median when given (headings can outnumber paragraphs), else the median
+    of all blocks (so a role like "paragraph_title" is either bold or not
+    throughout the doc)."""
     all_ratios = [r for ratios in ratios_by_label.values() for r in ratios]
     if not all_ratios:
         return {}
-    threshold = statistics.median(all_ratios) * BOLD_RELATIVE_FACTOR
+    base = ratios_by_label.get(baseline_label) if baseline_label else None
+    threshold = statistics.median(base or all_ratios) * BOLD_RELATIVE_FACTOR
     return {
         label: bool(statistics.median(ratios) > threshold)
         for label, ratios in ratios_by_label.items()

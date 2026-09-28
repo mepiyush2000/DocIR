@@ -1,0 +1,243 @@
+"""High-level entry points wiring preprocessing -> OCR -> layout schema ->
+PDF rendering (and scoring)."""
+
+from __future__ import annotations
+
+import json
+import logging
+import os
+import statistics
+
+from PIL import Image
+
+from .config import line_ocr_enabled, preprocess_mode, render_mode
+from .ink import binarize_region, measure_text_lines
+from .ocr import LineOcrEngine, OcrEngine, PaddleLineOcrEngine, PaddleOcrVlEngine
+from .preprocess import flatten_page
+from .render_pdf import render_page_to_pdf
+from .schemas import PageLayout, PageLines
+
+logger = logging.getLogger(__name__)
+
+IMAGE_LABELS = {"image", "figure", "chart", "seal"}
+
+
+def analyze_image(image_path: str, engine: OcrEngine | None = None) -> PageLayout:
+    """Run layout detection + OCR on a raw image, returning our versioned
+    PageLayout schema (never a PaddleOCR-specific object)."""
+    engine = engine or PaddleOcrVlEngine()
+    return engine.analyze(image_path)
+
+
+def _resolve_source_image(source_image_path: str | None) -> Image.Image | None:
+    if not source_image_path:
+        return None
+    if not os.path.isfile(source_image_path):
+        logger.warning(
+            "Could not locate source image '%s'; rendering all text at regular "
+            "weight and image blocks as placeholders.", source_image_path,
+        )
+        return None
+    return Image.open(source_image_path).convert("RGB")
+
+
+def estimate_text_height(layout: PageLayout, image: Image.Image) -> float | None:
+    """Median x-height (px) over the page's text blocks."""
+    heights = []
+    for b in layout.blocks:
+        if b.label in IMAGE_LABELS or not b.content:
+            continue
+        mask = binarize_region(image, b.bbox)
+        stats = measure_text_lines(mask) if mask is not None else None
+        if stats is not None:
+            heights.append(stats.x_height)
+    return statistics.median(heights) if heights else None
+
+
+def lines_json_path(layout_json_path: str) -> str:
+    stem, ext = os.path.splitext(layout_json_path)
+    if stem.endswith("_res"):
+        stem = stem[: -len("_res")]
+    return f"{stem}_lines{ext or '.json'}"
+
+
+def load_lines(path: str) -> PageLines:
+    with open(path) as f:
+        return PageLines.model_validate_json(f.read())
+
+
+def detect_lines(
+    layout: PageLayout, image_path: str, cache_path: str | None = None,
+    engine: LineOcrEngine | None = None,
+) -> PageLines | None:
+    """Physical text lines for the page: the cached result when present,
+    otherwise a fresh line-OCR pass (saved to `cache_path`)."""
+    if cache_path and os.path.isfile(cache_path):
+        return load_lines(cache_path)
+    if engine is None and not line_ocr_enabled():
+        return None
+    try:
+        engine = engine or PaddleLineOcrEngine()
+        image = Image.open(image_path).convert("RGB")
+        lines = engine.detect_lines(image_path, text_height_px=estimate_text_height(layout, image))
+    except ImportError:
+        logger.warning("line OCR unavailable (install the 'ocr' extra); using block layout only")
+        return None
+    if cache_path:
+        with open(cache_path, "w") as f:
+            f.write(lines.model_dump_json(indent=1))
+    logger.info("detected %d text lines in %s", len(lines.lines), image_path)
+    return lines
+
+
+def render_pdf_from_layout(
+    layout: PageLayout, output_path: str, source_image_path: str | None = None,
+    page_lines: PageLines | None = None, mode: str | None = None,
+) -> str:
+    """Render `layout` to `output_path`, resolving the source image from
+    `source_image_path` (falling back to the layout's own `input_path`)."""
+    path = source_image_path or layout.input_path
+    source_image = _resolve_source_image(path)
+    return render_page_to_pdf(layout, output_path, source_image=source_image,
+                              page_lines=page_lines, mode=mode or render_mode())
+
+
+def _schema_json_path(output_json: str) -> str:
+    """Where our own versioned PageLayout schema is saved, kept separate
+    from `output_json` -- which holds PaddleOCR-VL's own raw result, in its
+    own native "_res.json" naming convention (never overwritten)."""
+    stem, ext = os.path.splitext(output_json)
+    if stem.endswith("_res"):
+        stem = stem[: -len("_res")]
+    return f"{stem}_schema{ext}"
+
+
+def process_image(
+    image_path: str,
+    output_pdf: str | None = None,
+    output_json: str | None = None,
+    engine: OcrEngine | None = None,
+    line_engine: LineOcrEngine | None = None,
+    preprocess: str | None = None,
+) -> str:
+    """End-to-end: raw image -> flat page -> layout + lines (+ optional
+    JSON) -> PDF.
+
+    The page is flattened first (see `preprocess.py`) and every later step
+    uses the flat image, so all coordinates refer to it. When `output_json`
+    is given, PaddleOCR-VL's raw result is saved there as-is, our schema
+    next to it (`_schema.json`), and the text lines as `_lines.json`.
+    """
+    prep = flatten_page(image_path, mode=preprocess or preprocess_mode())
+    page_path = prep.image_path
+    engine = engine or PaddleOcrVlEngine()
+    layout = engine.analyze(page_path)
+    if output_json:
+        raw = getattr(engine, "last_raw", None)
+        if raw is not None:
+            with open(output_json, "w") as f:
+                json.dump(raw, f, indent=2)
+            with open(_schema_json_path(output_json), "w") as f:
+                f.write(layout.model_dump_json(indent=2))
+        else:
+            with open(output_json, "w") as f:
+                f.write(layout.model_dump_json(indent=2))
+    lines = detect_lines(layout, page_path, lines_json_path(output_json) if output_json else None,
+                         engine=line_engine)
+    output_pdf = output_pdf or _default_output_path(image_path, ".pdf")
+    return render_pdf_from_layout(layout, output_pdf, source_image_path=page_path, page_lines=lines)
+
+
+def _locate_legacy_source_image(json_path: str, input_path: str | None) -> str | None:
+    """Resolve the original page image for a legacy layout JSON via its
+    `input_path` field, tried as-is and relative to the JSON's directory."""
+    if not input_path:
+        return None
+    json_dir = os.path.dirname(os.path.abspath(json_path))
+    for candidate in (
+        input_path,
+        os.path.join(json_dir, input_path),
+        os.path.join(os.path.dirname(json_dir), input_path),
+    ):
+        if os.path.isfile(candidate):
+            return candidate
+    return None
+
+
+def load_layout_json(json_path: str) -> PageLayout:
+    with open(json_path) as f:
+        return PageLayout.from_paddle_dict(json.load(f))
+
+
+def render_json_file(
+    json_path: str, output_path: str | None = None, source_image: str | None = None,
+    mode: str | None = None, line_engine: LineOcrEngine | None = None,
+) -> str:
+    """Render a previously saved layout JSON instead of running layout OCR
+    on a raw image. Text lines come from `<name>_lines.json` when cached,
+    or are detected (and cached) when line OCR is available."""
+    layout = load_layout_json(json_path)
+    output_path = output_path or _default_output_path(json_path, ".pdf")
+    resolved_source = source_image or _locate_legacy_source_image(json_path, layout.input_path)
+    mode = mode or render_mode()
+    lines = None
+    if mode == "lines" and resolved_source and os.path.isfile(resolved_source):
+        lines = detect_lines(layout, resolved_source, lines_json_path(json_path), engine=line_engine)
+    return render_pdf_from_layout(layout, output_path, source_image_path=resolved_source,
+                                  page_lines=lines, mode=mode)
+
+
+def detect_lines_for_json(json_path: str, source_image: str | None = None,
+                          refresh: bool = False) -> str:
+    """Detect/cache lines for a saved layout and summarize how they matched
+    its blocks."""
+    from .reconcile import reconcile
+
+    layout = load_layout_json(json_path)
+    resolved = source_image or _locate_legacy_source_image(json_path, layout.input_path)
+    if not resolved:
+        raise FileNotFoundError(f"source image not found for {json_path!r}; pass --source-image")
+    cache = lines_json_path(json_path)
+    if refresh and os.path.isfile(cache):
+        os.remove(cache)
+    lines = detect_lines(layout, resolved, cache, engine=PaddleLineOcrEngine())
+    rec = reconcile(layout, lines)
+    n_cont = sum(l.continuation for b in rec.blocks.values() for l in b.lines)
+    n_text = sum(1 for b in layout.blocks if b.label not in IMAGE_LABELS and b.content)
+    weak = sorted(rec.blocks.values(), key=lambda b: b.text_match)[:5]
+    return (f"{cache}: {len(lines.lines)} lines; {len(rec.blocks)}/{n_text} text blocks matched, "
+            f"{n_cont} continuation lines, {len(rec.orphans)} orphans; weakest text match: "
+            + ", ".join(f"#{b.block_id}={b.text_match:.2f}" for b in weak))
+
+
+def score_pdf_file(
+    json_path: str,
+    pdf_path: str,
+    source_image: str | None = None,
+    diff_path: str | None = None,
+    report_path: str | None = None,
+):
+    """Score `pdf_path` against the source scan of the layout in `json_path`;
+    optionally write a red/blue diff PNG and a JSON report."""
+    from .fidelity import diff_image, score_pdf
+
+    layout = load_layout_json(json_path)
+    resolved = source_image or _locate_legacy_source_image(json_path, layout.input_path)
+    if not resolved or not os.path.isfile(resolved):
+        raise FileNotFoundError(f"source image not found for {json_path!r}; pass --source-image")
+    source = Image.open(resolved).convert("RGB")
+    size = (int(round(layout.width)), int(round(layout.height)))
+    if source.size != size:
+        source = source.resize(size, Image.LANCZOS)
+    report, rendered = score_pdf(layout, pdf_path, source)
+    if diff_path:
+        diff_image(layout, source, rendered).save(diff_path)
+    if report_path:
+        with open(report_path, "w") as f:
+            f.write(report.to_json())
+    return report
+
+
+def _default_output_path(path: str, new_ext: str) -> str:
+    stem, _ = os.path.splitext(path)
+    return stem + new_ext

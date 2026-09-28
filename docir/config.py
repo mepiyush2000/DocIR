@@ -15,6 +15,9 @@ CONFIG_FILENAME = "docir_config.toml"
 
 _DEFAULTS: dict = {
     "logging": {"debug": False},
+    "preprocess": {"mode": "auto"},
+    "lines": {"enabled": True},
+    "render": {"mode": "lines", "straighten_max_deg": 5.0},
 }
 
 
@@ -37,9 +40,26 @@ def load_config() -> dict:
     with path.open("rb") as f:
         data = tomllib.load(f)
     return {
-        "logging": {**_DEFAULTS["logging"], **data.get("logging", {})},
+        section: {**defaults, **data.get(section, {})}
+        for section, defaults in _DEFAULTS.items()
     }
 
 
 def is_debug_logging_enabled() -> bool:
     return bool(load_config()["logging"].get("debug", False))
+
+
+def preprocess_mode() -> str:
+    return str(load_config()["preprocess"]["mode"])
+
+
+def line_ocr_enabled() -> bool:
+    return bool(load_config()["lines"]["enabled"])
+
+
+def render_mode() -> str:
+    return str(load_config()["render"]["mode"])
+
+
+def straighten_max_deg() -> float:
+    return float(load_config()["render"]["straighten_max_deg"])

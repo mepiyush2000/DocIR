@@ -396,6 +396,8 @@ def render_page_to_pdf(
     output_path: str,
     source_image: Image.Image | None = None,
     extra_styles: dict | None = None,
+    page_lines=None,
+    mode: str = "paragraph",
 ) -> str:
     """Render `layout` into a geometry-preserving PDF at `output_path`.
 
@@ -404,7 +406,18 @@ def render_page_to_pdf(
     blocks. If None, text renders at regular weight and image blocks render
     as placeholders.
     extra_styles: optional dict merged over DEFAULT_STYLES for custom labels.
+    page_lines: detected text lines (see `ocr.PaddleLineOcrEngine`), used by
+    mode="lines" when available (pixel segmentation otherwise).
+    mode: "lines" builds a measured page model and draws every line where
+    it was (needs `source_image`); "paragraph" reflows each block in its box.
     """
+    if mode == "lines" and source_image is not None:
+        from .page_builder import build_page
+        from .render_model import render_page_model
+
+        page = build_page(layout, source_image, page_lines)
+        return render_page_model(page, output_path, source_image=source_image)
+
     styles_spec = dict(DEFAULT_STYLES)
     if extra_styles:
         styles_spec.update(extra_styles)

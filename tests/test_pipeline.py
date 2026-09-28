@@ -1,9 +1,14 @@
 import os
 
-from docir.ocr import FakeOcrEngine
-from docir.pipeline import analyze_image, process_image, render_json_file
+from docir.ocr import FakeLineOcrEngine, FakeOcrEngine
+from docir.pipeline import analyze_image, lines_json_path, process_image, render_json_file
+from docir.schemas import PageLines
 
 from .conftest import FIXTURE_IMAGE, FIXTURE_JSON
+
+
+def _no_lines(layout) -> FakeLineOcrEngine:
+    return FakeLineOcrEngine(PageLines(width=layout.width, height=layout.height, lines=[]))
 
 
 def test_analyze_image_uses_injected_fake_engine(fixture_layout):
@@ -19,17 +24,19 @@ def test_process_image_end_to_end_with_fake_engine(tmp_path, fixture_layout):
 
     result_path = process_image(
         FIXTURE_IMAGE, output_pdf=str(output_pdf), output_json=str(output_json), engine=engine,
+        line_engine=_no_lines(fixture_layout), preprocess="off",
     )
 
     assert result_path == str(output_pdf)
     assert os.path.isfile(output_pdf)
     assert os.path.getsize(output_pdf) > 1000
     assert os.path.isfile(output_json)
+    assert os.path.isfile(lines_json_path(str(output_json)))
 
 
 def test_render_json_file_legacy_entry_point(tmp_path):
     output_pdf = tmp_path / "out.pdf"
-    result_path = render_json_file(FIXTURE_JSON, str(output_pdf))
+    result_path = render_json_file(FIXTURE_JSON, str(output_pdf), mode="paragraph")
     assert result_path == str(output_pdf)
     assert os.path.isfile(output_pdf)
     assert os.path.getsize(output_pdf) > 1000

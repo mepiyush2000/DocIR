@@ -205,7 +205,7 @@ class TextLineStats:
     pitch: float | None  # px, median baseline-to-baseline distance (None if 1 line)
 
 
-def _line_cores(profile: np.ndarray) -> list[tuple[int, int]]:
+def line_cores(profile: np.ndarray) -> list[tuple[int, int]]:
     """x-height core bands of a (deskewed) row profile: dense-row runs, with
     fragments of one line merged and stray thin runs dropped."""
     if profile.max() <= 0:
@@ -240,7 +240,7 @@ def measure_text_lines(binary: np.ndarray) -> TextLineStats | None:
     # few glyphs in any one strip for strip-level deskew to find its angle
     binary = rotate_mask(binary, estimate_skew(binary))
     h, w = binary.shape
-    block_cores = _line_cores(binary.sum(axis=1))
+    block_cores = line_cores(binary.sum(axis=1))
     # fixed-width strips, not ones sized off a first-pass line height: a
     # drop cap or an embedded picture would inflate that estimate and
     # collapse everything into one strip
@@ -252,7 +252,7 @@ def measure_text_lines(binary: np.ndarray) -> TextLineStats | None:
         strip = binary[:, a:b]
         if not strip.any():
             continue
-        cores = _line_cores(rotate_mask(strip, estimate_skew(strip)).sum(axis=1))
+        cores = line_cores(rotate_mask(strip, estimate_skew(strip)).sum(axis=1))
         if cores:
             strip_cores.append(cores)
     if not strip_cores:

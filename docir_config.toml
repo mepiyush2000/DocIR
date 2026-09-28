@@ -5,3 +5,21 @@
 # Turn on verbose debug logging (e.g. which standard page ratio a canvas
 # snapped to, or that its ratio was too distinctive to snap).
 debug = false
+
+[preprocess]
+# "auto": fix orientation, unwarp curved pages, deskew tilted ones -- only
+# when detected. "off": use the image as-is. "force": always unwarp.
+mode = "auto"
+
+[lines]
+# Run line-level OCR (PP-OCRv5) for exact per-line geometry; results are
+# cached next to the layout JSON as <name>_lines.json.
+enabled = true
+
+[render]
+# "lines": draw every text line at its measured position (most faithful).
+# "paragraph": reflow each block's text inside its box.
+mode = "lines"
+# Blocks whose lines tilt by at most this many degrees (scan / camera
+# error) are drawn perfectly level; larger angles are kept. 0 = keep all tilts.
+straighten_max_deg = 5.0

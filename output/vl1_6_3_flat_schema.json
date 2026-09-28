@@ -1,0 +1,500 @@
+{
+  "schema_version": "1.0",
+  "input_path": "vl1_6_3_flat.png",
+  "width": 693.0,
+  "height": 1121.0,
+  "blocks": [
+    {
+      "id": 0,
+      "label": "paragraph_title",
+      "content": "[PDF] No Safe Place",
+      "bbox": [
+        30.0,
+        99.0,
+        170.0,
+        121.0
+      ],
+      "polygon": [
+        [
+          30.0,
+          99.0
+        ],
+        [
+          168.99996948242188,
+          99.0
+        ],
+        [
+          168.99996948242188,
+          120.0
+        ],
+        [
+          30.0,
+          120.0
+        ]
+      ]
+    },
+    {
+      "id": 1,
+      "label": "image",
+      "content": "",
+      "bbox": [
+        30.0,
+        125.0,
+        87.0,
+        225.0
+      ],
+      "polygon": [
+        [
+          30.0,
+          125.0
+        ],
+        [
+          87.0,
+          125.0
+        ],
+        [
+          87.0,
+          225.0
+        ],
+        [
+          30.0,
+          225.0
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "label": "text",
+      "content": "There's nothing more dangerous than a familiar face... As funeral mourners stand in silence at Ragmullin cemetery, a deafening cry cuts through the air. Lying crumpled at the bottom of an open grave is the bloodied body of a young woman, and Detective Lottie Parker is called in to investi... Read More...",
+      "bbox": [
+        87.0,
+        134.0,
+        646.0,
+        211.0
+      ],
+      "polygon": [
+        [
+          91.03982543945312,
+          129.5869903564453
+        ],
+        [
+          645.6805419921875,
+          134.59278869628906
+        ],
+        [
+          645.0,
+          210.00001525878906
+        ],
+        [
+          90.35928344726562,
+          204.9942169189453
+        ]
+      ]
+    },
+    {
+      "id": 3,
+      "label": "paragraph_title",
+      "content": "[PDF] Portrait of an Unknown Woman",
+      "bbox": [
+        28.0,
+        270.0,
+        316.0,
+        293.0
+      ],
+      "polygon": [
+        [
+          28.0,
+          270.0
+        ],
+        [
+          316.0,
+          270.0
+        ],
+        [
+          316.0,
+          293.0
+        ],
+        [
+          28.0,
+          293.0
+        ]
+      ]
+    },
+    {
+      "id": 4,
+      "label": "image",
+      "content": "",
+      "bbox": [
+        31.0,
+        299.0,
+        83.0,
+        399.0
+      ],
+      "polygon": [
+        [
+          31.0,
+          299.0
+        ],
+        [
+          83.0,
+          299.0
+        ],
+        [
+          83.0,
+          399.0
+        ],
+        [
+          31.0,
+          399.0
+        ]
+      ]
+    },
+    {
+      "id": 5,
+      "label": "text",
+      "content": "In a spellbinding new masterpiece by #1 New York Times bestselling author Daniel Silva, Gabriel Allon undertakes a high-stakes search for the greatest art forger who ever lived Legendary spy and art restorer Gabriel Allon has at long last severed ties with Israeli intelligence and settled quietly in... Read More...",
+      "bbox": [
+        85.0,
+        305.0,
+        639.0,
+        383.0
+      ],
+      "polygon": [
+        [
+          85.0,
+          305.0
+        ],
+        [
+          639.0,
+          305.0
+        ],
+        [
+          639.0,
+          383.0
+        ],
+        [
+          85.0,
+          383.0
+        ]
+      ]
+    },
+    {
+      "id": 6,
+      "label": "paragraph_title",
+      "content": "[PDF] The 6:20 Man",
+      "bbox": [
+        29.0,
+        441.0,
+        164.0,
+        463.0
+      ],
+      "polygon": [
+        [
+          29.0,
+          441.0
+        ],
+        [
+          163.0,
+          441.0
+        ],
+        [
+          163.0,
+          462.0
+        ],
+        [
+          29.0,
+          462.0
+        ]
+      ]
+    },
+    {
+      "id": 7,
+      "label": "image",
+      "content": "",
+      "bbox": [
+        31.0,
+        470.0,
+        83.0,
+        572.0
+      ],
+      "polygon": [
+        [
+          31.0,
+          470.0
+        ],
+        [
+          83.0,
+          470.0
+        ],
+        [
+          83.0,
+          572.0
+        ],
+        [
+          31.0,
+          572.0
+        ]
+      ]
+    },
+    {
+      "id": 8,
+      "label": "text",
+      "content": "A cryptic murder pulls a former soldier turned financial analyst deep into the corruption and menace that prowl beneath the opulent world of finance, in this #1 New York Times bestselling thriller from David Baldacci. Every day without fail, Travis Devine puts on a cheap suit, grabs his faux-leather... Read More...",
+      "bbox": [
+        84.0,
+        476.0,
+        631.0,
+        553.0
+      ],
+      "polygon": [
+        [
+          84.0,
+          476.0
+        ],
+        [
+          631.0,
+          476.0
+        ],
+        [
+          631.0,
+          553.0
+        ],
+        [
+          84.0,
+          553.0
+        ]
+      ]
+    },
+    {
+      "id": 9,
+      "label": "paragraph_title",
+      "content": "[PDF] It Ends with Us",
+      "bbox": [
+        28.0,
+        613.0,
+        173.0,
+        635.0
+      ],
+      "polygon": [
+        [
+          28.0,
+          613.0
+        ],
+        [
+          172.0,
+          613.0
+        ],
+        [
+          172.0,
+          634.0
+        ],
+        [
+          28.0,
+          634.0
+        ]
+      ]
+    },
+    {
+      "id": 10,
+      "label": "image",
+      "content": "",
+      "bbox": [
+        30.0,
+        644.0,
+        82.0,
+        744.0
+      ],
+      "polygon": [
+        [
+          30.0,
+          644.0
+        ],
+        [
+          82.0,
+          644.0
+        ],
+        [
+          82.0,
+          744.0
+        ],
+        [
+          30.0,
+          744.0
+        ]
+      ]
+    },
+    {
+      "id": 11,
+      "label": "text",
+      "content": "In this \"brave and heartbreaking novel that digs its claws into you and doesn't let go, long after you've finished it\" (Anna Todd, New York Times bestselling author) from the #1 New York Times bestselling author of All Your Perfects, a workaholic with a too-good- to-be-true romance can't stop th... Read More...",
+      "bbox": [
+        82.0,
+        647.0,
+        626.0,
+        724.0
+      ],
+      "polygon": [
+        [
+          82.0,
+          647.0
+        ],
+        [
+          626.0,
+          647.0
+        ],
+        [
+          626.0,
+          724.0
+        ],
+        [
+          82.0,
+          724.0
+        ]
+      ]
+    },
+    {
+      "id": 12,
+      "label": "paragraph_title",
+      "content": "[PDF] Thunder Bay",
+      "bbox": [
+        25.0,
+        785.0,
+        150.0,
+        809.0
+      ],
+      "polygon": [
+        [
+          25.0,
+          785.0
+        ],
+        [
+          150.0,
+          785.0
+        ],
+        [
+          150.0,
+          809.0
+        ],
+        [
+          25.0,
+          809.0
+        ]
+      ]
+    },
+    {
+      "id": 13,
+      "label": "image",
+      "content": "",
+      "bbox": [
+        24.0,
+        815.0,
+        77.0,
+        914.0
+      ],
+      "polygon": [
+        [
+          24.0,
+          815.0
+        ],
+        [
+          77.0,
+          815.0
+        ],
+        [
+          77.0,
+          914.0
+        ],
+        [
+          24.0,
+          914.0
+        ]
+      ]
+    },
+    {
+      "id": 14,
+      "label": "text",
+      "content": "Stoirm Island's secrets are worth killing for in this immersive, unrelenting thriller for readers of All the Missing Girls and Neon Prey —\"this crime novel has it all\" ( Publishers Weekly, starred review). When reporter Rebecca Connolly gets a tip that suspected murderer Roddie Drummond... Read More...",
+      "bbox": [
+        78.0,
+        820.0,
+        629.0,
+        899.0
+      ],
+      "polygon": [
+        [
+          78.0,
+          820.0
+        ],
+        [
+          629.0,
+          820.0
+        ],
+        [
+          629.0,
+          899.0
+        ],
+        [
+          78.0,
+          899.0
+        ]
+      ]
+    },
+    {
+      "id": 15,
+      "label": "footer",
+      "content": "ile: Eating Purely",
+      "bbox": [
+        35.0,
+        1060.0,
+        113.0,
+        1083.0
+      ],
+      "polygon": [
+        [
+          35.0,
+          1060.0
+        ],
+        [
+          35.0,
+          1071.0
+        ],
+        [
+          45.0,
+          1071.0
+        ],
+        [
+          46.0,
+          1072.0
+        ],
+        [
+          46.0,
+          1077.0
+        ],
+        [
+          69.0,
+          1082.0
+        ],
+        [
+          112.0,
+          1082.0
+        ],
+        [
+          112.0,
+          1066.0
+        ],
+        [
+          52.0,
+          1066.0
+        ],
+        [
+          51.0,
+          1065.0
+        ],
+        [
+          51.0,
+          1060.0
+        ]
+      ]
+    }
+  ]
+}

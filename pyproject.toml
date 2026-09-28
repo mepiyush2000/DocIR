@@ -8,11 +8,14 @@ dependencies = [
     "reportlab>=4",
     "pillow>=10",
     "numpy>=1.26",
+    # same distribution PaddleX installs -- a second OpenCV wheel would clash
+    "opencv-contrib-python>=4.8",
 ]
 
 [project.optional-dependencies]
 ocr = ["paddleocr>=3.7", "paddlepaddle>=3.3", "paddlex[ocr]>=3.7"]
-dev = ["pytest>=8"]
+eval = ["pypdfium2>=4"]
+dev = ["pytest>=8", "pypdfium2>=4"]
 
 [project.scripts]
 docir = "docir.cli:main"
@@ -23,6 +26,9 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 include = ["docir*"]
+
+[tool.setuptools.package-data]
+docir = ["assets/fonts/*/*.ttf", "assets/fonts/*/LICENSE", "assets/fonts/*/COPYING", "assets/fonts/*/*.txt"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

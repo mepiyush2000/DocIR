@@ -413,10 +413,68 @@ Regenerate either with:
 ## Environment
 
 Python 3.13.5 venv at `.docir_env` -- always use `.docir_env/bin/python`.
-Key deps: Pillow (ImageFont/ImageDraw/Image), numpy, reportlab
-(standard-14 fonts only, no embedding/licensing concerns). `fontTools` was
-tried and explicitly removed -- filename-based hints on macOS system fonts
-turned out to be sufficient, no TTC/variable-font parsing needed.
+Key deps: Pillow (ImageFont/ImageDraw/Image), numpy, reportlab,
+opencv-contrib-python (the same wheel PaddleX installs), pypdfium2 (`eval`
+extra, for scoring). Bundled open fonts live in `docir/assets/fonts/`
+(re-fetch with `scripts/fetch_fonts.sh`).
+
+## Reconstruction plan progress (see RECONSTRUCTION_PLAN.md)
+
+Fidelity is measured with `docir score` / `scripts/score_fixtures.py`
+(renders every fixture into `output/_eval/`, writes diffs + JSON reports).
+Page F1 = ink-weighted precision/recall of rendered vs. source ink inside
+text blocks, tolerance 0.3 x-height; picture blocks masked; stray ink
+outside text blocks counts against precision.
+
+| phase | vl1_6_10 | demo_img | vl1_6_3 | vl1_6_4 |
+|---|---|---|---|---|
+| 1 baseline (paragraph mode) | 0.815 | 0.694 | 0.559 | 0.527 |
+| 2-6 lines mode (render from saved JSON) | 0.985 | 0.947 | 0.627 (raw curved photo) | 0.938 |
+| 2-6 lines mode, `analyze` (dewarped page `vl1_6_3_flat`) | | | 0.868 | |
+
+`vl1_6_3` rendered from its original JSON is a stress test only: `analyze`
+now flattens the page first (text-line dewarp), and its score is measured
+against that flat page (`vl1_6_3_flat`).
+
+### Modules (analysis -> page model -> renderer)
+- `preprocess.py` -- orientation (PP-LCNet doc_ori), curvature/skew
+  measurement per tile, `flatten_page`; `dewarp.py` -- text-line slope
+  field + vertical remap (sharper than UVDoc, which stays as fallback).
+- `ocr.py` -- `PaddleLineOcrEngine` (PP-OCRv5 server det+rec, page resized
+  so x-height ~12 px); cached `<name>_lines.json` (`docir lines`).
+- `reconcile.py` -- lines -> blocks (split across column gaps, clipped at
+  picture edges, continuations below short VL boxes), VL wording aligned
+  onto OCR line breaks (hyphen restore, mid-word anchors, unseen VL tails
+  trimmed), `vl_wording` for orphan lines.
+- `line_geometry.py` -- per-line baseline / x-height / ink extent
+  (`measure_line`), drop-cap glyph box, pixel line segmentation with
+  per-strip chaining (curved pages).
+- `page_model.py` / `page_builder.py` -- Page/Block/Line/Picture/Graphic;
+  detector lines validated against pixel line counts, merged with pixel
+  lines when they disagree; drop caps; orphans (deduplicated).
+- `typography.py` -- bold (stem width / x-height vs. body role), italic,
+  category, size clusters per role (short one-liners join the nearest
+  cluster), bundled family chosen by width fit, one width scale per role.
+- `font_catalog.py` -- bundled Liberation / DejaVu / Noto / PT Sans Narrow,
+  embedded via reportlab TTFont, real x-/cap-height, glyph fallback runs.
+- `color.py` -- flat-field for uneven lighting, paper/ink snapping, block
+  fills, per-line ink (block-shared; drop caps keep their own).
+- `graphics.py` -- rules by morphology on non-text ink (edges/text residue
+  rejected), fitted in segments.
+- `render_model.py` -- draws the model: background, fills, rules,
+  pictures, text; lines at measured baseline/tilt, gaps positioned
+  explicitly (PDF `Tw` doesn't apply to embedded TTF subsets), stretch into
+  word gaps, shrink into glyph width; paragraph fallback per block.
+- `render_pdf.render_page_to_pdf(mode="lines"|"paragraph")`, config
+  `[render] mode`, `[lines] enabled`, `[preprocess] mode`.
+
+### Known limitations / next steps
+- Bold on blurry photos: title stem ratio can be only ~1.08x body
+  (vl1_6_3 titles render regular).
+- vl1_6_4 references are a humanist sans but classified serif.
+- VL occasionally emits empty text blocks (their text then comes only from
+  orphan detector lines).
+- Superscripts are not split into runs yet.
 
 ## Open items / possible next steps
 

@@ -54,3 +54,35 @@ class PageLayout(BaseModel):
             height=height,
             blocks=blocks,
         )
+
+
+class TextLine(BaseModel):
+    polygon: list[tuple[float, float]]  # detected quad, source-image pixels
+    text: str                           # the line OCR's own reading
+    score: float
+
+
+class PageLines(BaseModel):
+    """Physical text lines from a line-level OCR pass -- geometry comes from
+    here, wording from the (cleaner) layout blocks."""
+
+    schema_version: str = SCHEMA_VERSION
+    input_path: str | None = None
+    engine: str = ""
+    width: float
+    height: float
+    lines: list[TextLine]
+
+    @classmethod
+    def from_paddle_dict(cls, data: dict, width: float, height: float, engine: str = "",
+                         scale: float = 1.0) -> "PageLines":
+        """Map PaddleOCR's raw `res.json["res"]` payload; `scale` maps the
+        coordinates of an image resized before OCR back to the original."""
+        lines = [
+            TextLine(polygon=[(float(x) / scale, float(y) / scale) for x, y in poly],
+                     text=text, score=float(score))
+            for poly, text, score in zip(data.get("rec_polys") or [], data.get("rec_texts") or [],
+                                         data.get("rec_scores") or [])
+        ]
+        return cls(input_path=data.get("input_path"), engine=engine, width=width,
+                   height=height, lines=lines)
