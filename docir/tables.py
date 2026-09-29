@@ -1,0 +1,181 @@
+"""Tables and table-like blocks (receipts, invoices, key/value lists).
+
+Paragraph logic breaks on these: a row is several separate *cells*, not
+one line, so splitting a block's text at line breaks moves words between
+cells and rows. Here a block is recognised as tabular from its detected
+line fragments (several rows made of several cells) or from the layout
+label, and each cell receives its own wording: the VL text (plain, or the
+cells of an HTML table) is aligned onto the cells in reading order by a
+monotone dynamic program that maximises reading similarity. Cells the VL
+text does not cover keep their own OCR reading; VL words that belong to no
+cell (e.g. a neighbouring block's row repeated by the layout model) are
+skipped.
+"""
+
+from __future__ import annotations
+
+import difflib
+import re
+from html.parser import HTMLParser
+
+import numpy as np
+
+TABLE_LABELS = {"table"}
+MIN_TABULAR_ROWS = 2             # rows made of 2+ cells needed to call a block tabular
+MIN_TABULAR_ROW_FRAC = 0.3       # ... and at least this share of its rows
+ROW_OVERLAP_FRAC = 0.5           # fragments sharing this much height are one row
+MAX_CELL_WORDS = 14
+MIN_CELL_MATCH = 0.45            # below this similarity a cell keeps its OCR reading
+SKIP_WORD_COST = 0.05            # small price for leaving a VL word unused
+ROW_BASELINE_TOLERANCE = 1.2     # of the x-height: baselines this close are one row
+
+
+# ---------- structure ----------
+
+def _bbox(poly):
+    xs, ys = [p[0] for p in poly], [p[1] for p in poly]
+    return min(xs), min(ys), max(xs), max(ys)
+
+
+def group_rows(polygons: list) -> list[list[int]]:
+    """Indices of `polygons` grouped into rows (top to bottom, left to right)."""
+    boxes = [_bbox(p) for p in polygons]
+    order = sorted(range(len(boxes)), key=lambda i: (boxes[i][1] + boxes[i][3]) / 2)
+    rows: list[list[int]] = []
+    for i in order:
+        _, y0, _, y1 = boxes[i]
+        if rows:
+            r = rows[-1]
+            ry0 = min(boxes[j][1] for j in r)
+            ry1 = max(boxes[j][3] for j in r)
+            if min(y1, ry1) - max(y0, ry0) >= ROW_OVERLAP_FRAC * min(y1 - y0, ry1 - ry0):
+                r.append(i)
+                continue
+        rows.append([i])
+    return [sorted(r, key=lambda j: boxes[j][0]) for r in rows]
+
+
+def is_tabular(label: str, polygons: list) -> bool:
+    if label in TABLE_LABELS:
+        return True
+    rows = group_rows(polygons)
+    multi = sum(len(r) >= 2 for r in rows)
+    return multi >= MIN_TABULAR_ROWS and multi >= MIN_TABULAR_ROW_FRAC * len(rows)
+
+
+# ---------- row geometry ----------
+
+def align_row_baselines(block) -> None:
+    """Cells of one table row share a baseline. Measured baselines of short
+    cells (digits have no lowercase to anchor them) wander by a few pixels;
+    a row is drawn on its median baseline. Run after levelling."""
+    lines = sorted(block.lines, key=lambda l: l.baseline_start[1])
+    rows: list[list] = []
+    for l in lines:
+        y = (l.baseline_start[1] + l.baseline_end[1]) / 2
+        if rows:
+            ref = rows[-1]
+            ry = float(np.median([(r.baseline_start[1] + r.baseline_end[1]) / 2 for r in ref]))
+            if abs(y - ry) <= ROW_BASELINE_TOLERANCE * min(l.x_height, ref[0].x_height):
+                ref.append(l)
+                continue
+        rows.append([l])
+    for row in rows:
+        if len(row) < 2:
+            continue
+        base = float(np.median([(l.baseline_start[1] + l.baseline_end[1]) / 2 for l in row]))
+        for l in row:
+            dy = base - (l.baseline_start[1] + l.baseline_end[1]) / 2
+            l.baseline_start = (l.baseline_start[0], l.baseline_start[1] + dy)
+            l.baseline_end = (l.baseline_end[0], l.baseline_end[1] + dy)
+
+
+# ---------- VL text ----------
+
+class _CellParser(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.cells: list[str] = []
+        self._buf: list[str] | None = None
+
+    def handle_starttag(self, tag, attrs):
+        if tag in ("td", "th"):
+            self._buf = []
+
+    def handle_endtag(self, tag):
+        if tag in ("td", "th") and self._buf is not None:
+            self.cells.append(" ".join("".join(self._buf).split()))
+            self._buf = None
+
+    def handle_data(self, data):
+        if self._buf is not None:
+            self._buf.append(data)
+
+
+def vl_tokens(content: str) -> list[str]:
+    """VL wording as a word sequence in reading order; an HTML table
+    contributes its cells' words cell by cell."""
+    if "<td" in content or "<th" in content:
+        parser = _CellParser()
+        parser.feed(content)
+        return [w for cell in parser.cells for w in cell.split()]
+    return content.split()
+
+
+# ---------- cell wording ----------
+
+def _norm(text: str) -> str:
+    return re.sub(r"\s+", "", text).lower()
+
+
+def _similarity(a: str, b: str) -> float:
+    a, b = _norm(a), _norm(b)
+    if not a or not b:
+        return 0.0
+    return difflib.SequenceMatcher(None, a, b, autojunk=False).ratio()
+
+
+def assign_cell_text(cell_ocr: list[str], words: list[str]) -> list[str]:
+    """Wording for each cell (in reading order): the consecutive run of VL
+    `words` that best matches its OCR reading, found jointly for all cells
+    so runs never overlap or cross; the OCR reading where nothing matches."""
+    n, m = len(cell_ocr), len(words)
+    neg = float("-inf")
+    # best[k][j]: score after assigning the first k cells using words[:j]
+    best = [[neg] * (m + 1) for _ in range(n + 1)]
+    back: list[list[tuple[str, int] | None]] = [[None] * (m + 1) for _ in range(n + 1)]
+    best[0][0] = 0.0
+    for k in range(n + 1):
+        for j in range(m + 1):
+            cur = best[k][j]
+            if cur == neg:
+                continue
+            if j < m and cur - SKIP_WORD_COST > best[k][j + 1]:
+                best[k][j + 1], back[k][j + 1] = cur - SKIP_WORD_COST, ("skip", j)
+            if k == n:
+                continue
+            # the cell takes no VL words (keeps its OCR reading)
+            if cur > best[k + 1][j]:
+                best[k + 1][j], back[k + 1][j] = cur, ("empty", j)
+            for e in range(j + 1, min(m, j + MAX_CELL_WORDS) + 1):
+                s = _similarity(cell_ocr[k], " ".join(words[j:e]))
+                if s < MIN_CELL_MATCH:
+                    continue
+                if cur + s > best[k + 1][e]:
+                    best[k + 1][e], back[k + 1][e] = cur + s, ("take", j)
+    j = max(range(m + 1), key=lambda t: best[n][t])
+    out = list(cell_ocr)
+    k = n
+    while k > 0 or j > 0:
+        step = back[k][j]
+        if step is None:
+            break
+        kind, prev = step
+        if kind == "skip":
+            j = prev
+            continue
+        k -= 1
+        if kind == "take":
+            out[k] = " ".join(words[prev:j])
+        j = prev
+    return [t.strip() for t in out]

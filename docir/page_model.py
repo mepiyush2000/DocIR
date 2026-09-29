@@ -62,6 +62,7 @@ class Block:
     lines: list[Line] = field(default_factory=list)
     style: TextStyle | None = None
     fill: Color | None = None      # background panel behind the block, if not the page's
+    tabular: bool = False          # rows of separate cells: each line keeps its own text
 
     @property
     def has_lines(self) -> bool:

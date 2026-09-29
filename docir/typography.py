@@ -44,6 +44,10 @@ WIDTH_PERCENTILE = 30            # justified lines are stretched: favour the tig
 MIN_FAMILY_EVIDENCE_CHARS = 60   # less text than this inherits the body family
 FAMILY_TIE_LOG = 0.015           # prefer the default family within this width-fit margin
 WIDTH_SCALE_RANGE = (0.82, 1.18)
+SIZE_MERGE_RATIO = 1.12          # styles closer in size than this are one size
+DISPLAY_SIZE_RATIO = 1.6         # text this much larger than body may keep its own face
+MIN_TRAIT_CHARS = 40             # less text than this can't establish its own slant
+TRAIT_ADOPT_RATIO = 1.35         # ... so it adopts those of a style this close in size
 
 
 @dataclass(frozen=True)
@@ -249,3 +253,97 @@ def assign_styles(page: Page, image: Image.Image | None) -> None:
         face = font_catalog.face(family, t.bold, t.italic)
         b.style = TextStyle(font_family=family, category=t.category, bold=t.bold, italic=t.italic,
                             size_px=size_for_x_height(xh, face.path))
+
+    harmonize_styles(blocks)
+
+
+# ---------- page-wide harmony ----------
+
+def _style_groups(blocks: list[Block]) -> list[tuple[TextStyle, list[Block], int]]:
+    """Distinct styles in use, with their blocks and amount of text."""
+    groups: dict[int, tuple[TextStyle, list[Block]]] = {}
+    for b in blocks:
+        if b.style is not None:
+            groups.setdefault(id(b.style), (b.style, []))[1].append(b)
+    return [(s, bs, _chars([l for b in bs for l in b.lines if not l.drop_cap]))
+            for s, bs in groups.values()]
+
+
+def _weighted_median(values: list[float], weights: list[float]) -> float:
+    order = np.argsort(values)
+    v, w = np.asarray(values)[order], np.asarray(weights, dtype=float)[order]
+    return float(v[np.searchsorted(np.cumsum(w), w.sum() / 2)])
+
+
+def harmonize_styles(blocks: list[Block]) -> int:
+    """Make nearby styles identical: a document uses a handful of styles,
+    and measurement noise must not turn one into several.
+
+      1. styles with too little text to judge slant take it from the
+         nearest-sized established style;
+      2. one typeface per category for all text up to display size
+         (large titles may use their own face);
+      3. sizes within SIZE_MERGE_RATIO of each other (same weight/slant)
+         become one size, weighted by amount of text;
+    and every merged style's glyph width is refitted to all its lines.
+    Returns the number of distinct styles left."""
+    groups = _style_groups(blocks)
+    if len(groups) < 2:
+        return len(groups)
+    strong = [(s, n) for s, _, n in groups if n >= MIN_TRAIT_CHARS]
+    for s, _, n in groups:
+        if n >= MIN_TRAIT_CHARS or not strong:
+            continue
+        near, _ = min(strong, key=lambda t: abs(math.log(t[0].size_px / s.size_px)))
+        if abs(math.log(near.size_px / s.size_px)) <= math.log(TRAIT_ADOPT_RATIO):
+            # slant needs many glyphs to measure; stem weight doesn't
+            s.italic = near.italic
+
+    # the body face of each category: the one carrying the most text
+    by_family: dict[tuple[str, str], int] = {}
+    for s, _, n in groups:
+        by_family[(s.category, s.font_family)] = by_family.get((s.category, s.font_family), 0) + n
+    body_face = {}
+    for (cat, fam), n in sorted(by_family.items(), key=lambda t: -t[1]):
+        body_face.setdefault(cat, fam)
+    body_size = {}
+    for s, _, n in sorted(groups, key=lambda t: -t[2]):
+        body_size.setdefault(s.category, s.size_px)
+    for s, _, _ in groups:
+        if s.size_px <= DISPLAY_SIZE_RATIO * body_size[s.category]:
+            s.font_family = body_face[s.category]
+
+    # merge near-equal sizes of the same look
+    merged: list[list[tuple[TextStyle, list[Block], int]]] = []
+    for g in sorted(groups, key=lambda t: (t[0].category, t[0].font_family, t[0].bold, t[0].italic,
+                                             t[0].size_px)):
+        s = g[0]
+        if merged:
+            head = merged[-1][0][0]
+            if (head.category, head.font_family, head.bold, head.italic) == \
+                    (s.category, s.font_family, s.bold, s.italic) and \
+                    s.size_px / head.size_px <= SIZE_MERGE_RATIO:
+                merged[-1].append(g)
+                continue
+        merged.append([g])
+
+    for cluster in merged:
+        base = cluster[0][0]
+        members = [b for _, bs, _ in cluster for b in bs]
+        weights = [max(n, 1) for _, _, n in cluster]
+        size = _weighted_median([s.size_px for s, _, _ in cluster], weights)
+        face = font_catalog.face(base.font_family, base.bold, base.italic)
+        lines = [l for b in members for l in b.lines if not l.drop_cap]
+        ratios = _width_ratios(lines, face, size)
+        width = float(np.percentile(ratios, WIDTH_PERCENTILE)) if ratios else \
+            _weighted_median([s.width_scale for s, _, _ in cluster], weights)
+        style = TextStyle(font_family=base.font_family, category=base.category, bold=base.bold,
+                          italic=base.italic, size_px=size,
+                          width_scale=float(np.clip(width, *WIDTH_SCALE_RANGE)))
+        for b in members:
+            b.style = style
+            for l in b.lines:
+                if l.drop_cap:
+                    l.size_px = l.cap_top / font_catalog.cap_height_em(face.path)
+    logger.debug("harmonized %d styles into %d", len(groups), len(merged))
+    return len(merged)

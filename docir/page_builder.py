@@ -14,11 +14,13 @@ import logging
 import numpy as np
 from PIL import Image
 
+from . import tables
 from .color import assign_colors
 from .config import straighten_max_deg
 from .graphics import detect_graphics
 from .ink import binarize_region, measure_text_lines
 from .line_geometry import measure_glyph, measure_line, ordered_quad, pixel_lines, quad_height
+from .line_fit import refit_page
 from .page_model import Block, Line, Page, Picture
 from .reconcile import LinePlacement, order_lines, reconcile, split_text_to_lines, vl_wording
 from .schemas import PageLayout, PageLines, TextLine
@@ -36,6 +38,8 @@ FALLBACK_X_HEIGHT_FRAC = 0.42
 DROP_CAP_HEIGHT_RATIO = 2.2      # a drop cap's quad vs the block's typical line quad
 DROP_CAP_LEFT_FRAC = 0.12        # ... and it sits at the block's left edge
 PICTURE_TRIM_DESCENDER = 0.5     # of the x-height below a baseline kept clear of pictures
+ORPHAN_ALIGN_XH = 1.5            # stacked orphan lines: left edges within this many x-heights
+ORPHAN_MAX_GAP_XH = 3.0          # ... and at most this far below the previous one
 
 
 def _split_drop_cap(block, own: list[LinePlacement]):
@@ -142,6 +146,9 @@ def _block_lines(block, placements: list[LinePlacement], image: Image.Image,
         drop_line = Line(text=content[0], baseline_start=start, baseline_end=end, x_height=ink_h,
                          cap_top=ink_h, drop_cap=True)
         content = content[1:].lstrip()
+    if tables.is_tabular(block.role, [l.polygon for l in own]):
+        block.tabular = True
+        return ([drop_line] if drop_line else []) + _table_lines(content, own + extra, gray)
     mask = binarize_region(image, block.bbox)
     stats = measure_text_lines(mask) if mask is not None else None
     polys: list[tuple[list, str, str, bool]]  # polygon, ocr text, source, continuation
@@ -163,6 +170,25 @@ def _block_lines(block, placements: list[LinePlacement], image: Image.Image,
     lines = [_measured_line(gray, poly, text, source, cont)
              for (poly, _, source, cont), text in zip(ordered, texts) if text]
     return ([drop_line] if drop_line else []) + lines
+
+
+def _table_lines(content: str, cells: list[LinePlacement], gray: np.ndarray) -> list[Line]:
+    """One line per detected cell, row by row, each with its own wording."""
+    rows = tables.group_rows([c.polygon for c in cells])
+    ordered = [cells[i] for row in rows for i in row]
+    texts = tables.assign_cell_text([c.ocr_text for c in ordered], tables.vl_tokens(content))
+    return [_measured_line(gray, c.polygon, t, "detector", c.continuation)
+            for c, t in zip(ordered, texts) if t]
+
+
+def _continues_column(block: Block, box, line: Line) -> bool:
+    """`line` (box) sits just below `block`'s last line, left edges aligned."""
+    last = block.lines[-1]
+    xh = max(min(last.x_height, line.x_height), 1.0)
+    gap = box[1] - block.bbox[3]
+    return (abs(box[0] - block.bbox[0]) <= ORPHAN_ALIGN_XH * xh
+            and -0.5 * xh <= gap <= ORPHAN_MAX_GAP_XH * xh
+            and 0.7 <= line.x_height / last.x_height <= 1.4)
 
 
 def _trim_pictures(page: Page) -> None:
@@ -206,6 +232,7 @@ def build_page(layout: PageLayout, image: Image.Image, page_lines: PageLines | N
 
     # text the layout model missed entirely (page numbers, captions, ...)
     next_id = max((b.id for b in layout.blocks), default=0) + 1
+    first_orphan_id = next_id
     contents = [b.content for b in layout.blocks if b.content]
     drawn = ["".join(" ".join(l.text for l in b.lines).split()).lower() for b in page.blocks]
     for orphan in (rec.orphans if rec is not None else []):
@@ -219,24 +246,37 @@ def build_page(layout: PageLayout, image: Image.Image, page_lines: PageLines | N
             continue
         xs, ys = [p[0] for p in orphan.polygon], [p[1] for p in orphan.polygon]
         box = (min(xs), min(ys), max(xs), max(ys))
+        # a quad narrower than it is tall is not a horizontal text line
+        if box[2] - box[0] < box[3] - box[1]:
+            continue
         # lettering on a picture (book covers, logos) stays part of the picture
         if any(_overlaps(box, p.bbox) for p in page.pictures):
             continue
-        xs, ys = [p[0] for p in orphan.polygon], [p[1] for p in orphan.polygon]
-        block = Block(id=next_id, role="text", reading_index=len(page.blocks),
-                      bbox=(min(xs), min(ys), max(xs), max(ys)), content=text)
-        block.lines = [_measured_line(gray, orphan.polygon, text, "detector", False)]
+        line = _measured_line(gray, orphan.polygon, text, "detector", False)
+        # lines stacked left-aligned right below the previous orphan: one block
+        prev = page.blocks[-1] if page.blocks and page.blocks[-1].id >= first_orphan_id else None
+        if prev is not None and _continues_column(prev, box, line):
+            prev.lines.append(line)
+            prev.content += "\n" + text
+            prev.bbox = (min(prev.bbox[0], box[0]), prev.bbox[1], max(prev.bbox[2], box[2]), box[3])
+            continue
+        block = Block(id=next_id, role="text", reading_index=len(page.blocks), bbox=box, content=text)
+        block.lines = [line]
         page.blocks.append(block)
         next_id += 1
 
     assign_styles(page, image)
+    refitted = refit_page(page.blocks)
     assign_colors(page, image)
     _trim_pictures(page)
     page.graphics = detect_graphics(page, image)
     # after all pixel measurements, which need the real (tilted) geometry
     levelled = straighten_page(page, straighten_max_deg() if straighten_deg is None else straighten_deg)
-    logger.info("page model: %d text blocks (%d lines; %d from pixels; %d levelled), %d pictures, "
-                "%d graphics", len(page.blocks), sum(len(b.lines) for b in page.blocks),
-                sum(l.source == "pixels" for b in page.blocks for l in b.lines), levelled,
+    for block in page.blocks:
+        if block.tabular:
+            tables.align_row_baselines(block)
+    logger.info("page model: %d text blocks (%d lines; %d from pixels; %d levelled; %d re-flowed), "
+                "%d pictures, %d graphics", len(page.blocks), sum(len(b.lines) for b in page.blocks),
+                sum(l.source == "pixels" for b in page.blocks for l in b.lines), levelled, refitted,
                 len(page.pictures), len(page.graphics))
     return page

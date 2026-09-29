@@ -24,6 +24,7 @@ from .schemas import Block, PageLayout, PageLines, TextLine
 IMAGE_LABELS = {"image", "figure", "chart", "seal"}
 MIN_CLAIM_FRAC = 0.5             # of a line's area inside a block to belong to it
 SPLIT_MIN_FRAC = 0.25            # of a line's width a second block must cover to split it
+SPLIT_SMALL_BLOCK_FRAC = 0.6     # ... or this much of the (small) block itself
 MIN_ROW_OVERLAP_FRAC = 0.5       # of a line's height overlapping a block to count as "beside" it
 CONTINUATION_MIN_X_OVERLAP = 0.6
 CONTINUATION_MAX_GAP_LINES = 2.0  # max gap below a block, in its line pitches
@@ -35,7 +36,7 @@ TRIM_MIN_COVERAGE = 0.7          # of OCR characters aligned before a text tail 
 TRIM_MIN_CHARS = 8
 TRIM_TAIL_FRAC = 0.35            # of the last line's length
 ANCHOR_CHARS = 4                 # next-line prefix that must match to break mid-word
-VL_WORDING_MIN_MATCH = 0.75      # of an orphan's characters found in a VL passage
+VL_WORDING_MIN_MATCH = 0.85      # of an orphan's characters found in a VL passage
 VL_WORDING_MAX_SPAN = 1.3        # the passage may be at most this much longer
 
 
@@ -114,7 +115,9 @@ def _split_across_blocks(line: TextLine, blocks: list[Block]) -> list[TextLine]:
         bx0, by0, bx1, by1 = b.bbox
         if _overlap_1d(y0, y1, by0, by1) < MIN_ROW_OVERLAP_FRAC * height:
             continue
-        if _overlap_1d(x0, x1, bx0, bx1) >= SPLIT_MIN_FRAC * width:
+        # covering much of the line, or most of a small neighbour (a page number)
+        overlap = _overlap_1d(x0, x1, bx0, bx1)
+        if overlap >= SPLIT_MIN_FRAC * width or overlap >= SPLIT_SMALL_BLOCK_FRAC * (bx1 - bx0):
             beside.append(b)
     if len(beside) < 2:
         return [line]
@@ -384,6 +387,9 @@ def vl_wording(ocr_text: str, contents: list[str]) -> str:
         sm = difflib.SequenceMatcher(None, key, flat, autojunk=False)
         blocks = [m for m in sm.get_matching_blocks() if m.size >= 2]
         if not blocks:
+            continue
+        # the passage must cover the reading from its start to its end
+        if blocks[0].a > 2 or blocks[-1].a + blocks[-1].size < len(key) - 2:
             continue
         matched = sum(m.size for m in blocks)
         start, end = blocks[0].b, blocks[-1].b + blocks[-1].size

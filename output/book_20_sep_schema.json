@@ -1,0 +1,704 @@
+{
+  "schema_version": "1.0",
+  "input_path": "book_20_sep_flat.png",
+  "width": 641.0,
+  "height": 3205.0,
+  "blocks": [
+    {
+      "id": 0,
+      "label": "paragraph_title",
+      "content": "NIKE",
+      "bbox": [
+        288.0,
+        177.0,
+        351.0,
+        210.0
+      ],
+      "polygon": [
+        [
+          288.0,
+          177.0
+        ],
+        [
+          351.0,
+          177.0
+        ],
+        [
+          351.0,
+          210.0
+        ],
+        [
+          288.0,
+          210.0
+        ]
+      ]
+    },
+    {
+      "id": 1,
+      "label": "text",
+      "content": "Nike India Private Limited\nNIKE FACTORY STORE NOIDA\nARTHA MART, PLOT NO. 21, SECTOR,\nGREATER NOIDA WRD, TECHZONE 4,\nAMRAPALI DREAM VALLEY, Noida, Uttar Pradesh 201318\nTelephone: +91 1169952586",
+      "bbox": [
+        100.0,
+        199.0,
+        550.0,
+        445.0
+      ],
+      "polygon": [
+        [
+          100.0,
+          199.0
+        ],
+        [
+          550.0,
+          199.0
+        ],
+        [
+          550.0,
+          445.0
+        ],
+        [
+          100.0,
+          445.0
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "label": "paragraph_title",
+      "content": "Tax Invoice",
+      "bbox": [
+        260.0,
+        460.0,
+        392.0,
+        495.0
+      ],
+      "polygon": [
+        [
+          260.0,
+          460.0
+        ],
+        [
+          392.0,
+          460.0
+        ],
+        [
+          392.0,
+          495.0
+        ],
+        [
+          260.0,
+          495.0
+        ]
+      ]
+    },
+    {
+      "id": 3,
+      "label": "text",
+      "content": "GSTN: 09AABC N9612K1Z5\nCIN: U36939KA2004PTC034515",
+      "bbox": [
+        146.0,
+        516.0,
+        507.0,
+        582.0
+      ],
+      "polygon": [
+        [
+          146.0,
+          516.0
+        ],
+        [
+          507.0,
+          516.0
+        ],
+        [
+          507.0,
+          582.0
+        ],
+        [
+          146.0,
+          582.0
+        ]
+      ]
+    },
+    {
+      "id": 4,
+      "label": "text",
+      "content": "Order ID: T3Y00 00000 12AP6",
+      "bbox": [
+        157.0,
+        603.0,
+        497.0,
+        636.0
+      ],
+      "polygon": [
+        [
+          157.0,
+          603.0
+        ],
+        [
+          497.0,
+          603.0
+        ],
+        [
+          497.0,
+          636.0
+        ],
+        [
+          157.0,
+          636.0
+        ]
+      ]
+    },
+    {
+      "id": 5,
+      "label": "text",
+      "content": "Invoice Number: 1064350030003502",
+      "bbox": [
+        119.0,
+        656.0,
+        537.0,
+        688.0
+      ],
+      "polygon": [
+        [
+          119.0,
+          656.0
+        ],
+        [
+          537.0,
+          656.0
+        ],
+        [
+          537.0,
+          688.0
+        ],
+        [
+          119.0,
+          688.0
+        ]
+      ]
+    },
+    {
+      "id": 6,
+      "label": "text",
+      "content": "NIKE TERRA MANTA MRP: ₹7,495.00\n00198487707175 Size: 10 Quantity: 1\nRate: 18.00% HSN:64029990 UQC:PRS\nSEAL IN SELECTED 40% (₹2,998.00)\nFinal Price ₹4,497.00",
+      "bbox": [
+        34.0,
+        712.0,
+        621.0,
+        864.0
+      ],
+      "polygon": [
+        [
+          34.0,
+          712.0
+        ],
+        [
+          621.0,
+          712.0
+        ],
+        [
+          621.0,
+          864.0
+        ],
+        [
+          34.0,
+          864.0
+        ]
+      ]
+    },
+    {
+      "id": 7,
+      "label": "text",
+      "content": "Subtotal\n€4,497.00",
+      "bbox": [
+        37.0,
+        889.0,
+        624.0,
+        922.0
+      ],
+      "polygon": [
+        [
+          37.0,
+          889.0
+        ],
+        [
+          624.0,
+          889.0
+        ],
+        [
+          624.0,
+          922.0
+        ],
+        [
+          37.0,
+          922.0
+        ]
+      ]
+    },
+    {
+      "id": 8,
+      "label": "text",
+      "content": "Taxable value HSN:64029990 ₹3,811.02\nTax = 18.00% ₹685.98\nCGST = 9.00% ₹342.99\nSGST = 9.00% ₹342.99\nTotal ₹4,497.00\nWhether RCM Payable: No",
+      "bbox": [
+        36.0,
+        943.0,
+        623.0,
+        1114.0
+      ],
+      "polygon": [
+        [
+          36.0,
+          943.0
+        ],
+        [
+          623.0,
+          943.0
+        ],
+        [
+          623.0,
+          1114.0
+        ],
+        [
+          36.0,
+          1114.0
+        ]
+      ]
+    },
+    {
+      "id": 9,
+      "label": "text",
+      "content": "Whether RCM Payable: No",
+      "bbox": [
+        38.0,
+        1093.0,
+        346.0,
+        1127.0
+      ],
+      "polygon": [
+        [
+          38.0,
+          1093.0
+        ],
+        [
+          346.0,
+          1093.0
+        ],
+        [
+          346.0,
+          1127.0
+        ],
+        [
+          38.0,
+          1127.0
+        ]
+      ]
+    },
+    {
+      "id": 10,
+      "label": "text",
+      "content": "Name: Piyush\nPhone: 9661257878\nAddress: Noida, UTTAR PRADESH, 201301, IND\nCustomer GSTN: Unregistered",
+      "bbox": [
+        36.0,
+        1175.0,
+        430.0,
+        1325.0
+      ],
+      "polygon": [
+        [
+          36.0,
+          1175.0
+        ],
+        [
+          430.0,
+          1175.0
+        ],
+        [
+          430.0,
+          1325.0
+        ],
+        [
+          36.0,
+          1325.0
+        ]
+      ]
+    },
+    {
+      "id": 11,
+      "label": "text",
+      "content": "Number of Item(s) Sold: 1\nNumber of Item(s) Returned: 0\nYou saved ₹2,998.00 today",
+      "bbox": [
+        150.0,
+        1346.0,
+        505.0,
+        1441.0
+      ],
+      "polygon": [
+        [
+          150.0,
+          1346.0
+        ],
+        [
+          505.0,
+          1346.0
+        ],
+        [
+          505.0,
+          1441.0
+        ],
+        [
+          150.0,
+          1441.0
+        ]
+      ]
+    },
+    {
+      "id": 12,
+      "label": "text",
+      "content": "4,497.00\n176028737",
+      "bbox": [
+        486.0,
+        1458.0,
+        619.0,
+        1518.0
+      ],
+      "polygon": [
+        [
+          486.0,
+          1458.0
+        ],
+        [
+          619.0,
+          1458.0
+        ],
+        [
+          619.0,
+          1518.0
+        ],
+        [
+          486.0,
+          1518.0
+        ]
+      ]
+    },
+    {
+      "id": 13,
+      "label": "text",
+      "content": "Op: 642280\nTime: 19:19:16\nTran: 21828\nState Code: 9",
+      "bbox": [
+        444.0,
+        1533.0,
+        621.0,
+        1654.0
+      ],
+      "polygon": [
+        [
+          444.0,
+          1533.0
+        ],
+        [
+          621.0,
+          1533.0
+        ],
+        [
+          621.0,
+          1654.0
+        ],
+        [
+          444.0,
+          1654.0
+        ]
+      ]
+    },
+    {
+      "id": 14,
+      "label": "text",
+      "content": "FOR NIKE INDIA PVT.LTD.",
+      "bbox": [
+        184.0,
+        1680.0,
+        472.0,
+        1712.0
+      ],
+      "polygon": [
+        [
+          184.0,
+          1680.0
+        ],
+        [
+          472.0,
+          1680.0
+        ],
+        [
+          472.0,
+          1712.0
+        ],
+        [
+          184.0,
+          1712.0
+        ]
+      ]
+    },
+    {
+      "id": 15,
+      "label": "paragraph_title",
+      "content": "Ramabroshnon",
+      "bbox": [
+        203.0,
+        1750.0,
+        463.0,
+        1795.0
+      ],
+      "polygon": [
+        [
+          203.0,
+          1750.0
+        ],
+        [
+          463.0,
+          1750.0
+        ],
+        [
+          463.0,
+          1795.0
+        ],
+        [
+          203.0,
+          1795.0
+        ]
+      ]
+    },
+    {
+      "id": 16,
+      "label": "text",
+      "content": "Authorized Signatory",
+      "bbox": [
+        203.0,
+        1813.0,
+        454.0,
+        1847.0
+      ],
+      "polygon": [
+        [
+          203.0,
+          1813.0
+        ],
+        [
+          454.0,
+          1813.0
+        ],
+        [
+          454.0,
+          1847.0
+        ],
+        [
+          203.0,
+          1847.0
+        ]
+      ]
+    },
+    {
+      "id": 17,
+      "label": "text",
+      "content": "Corporate Registered address: Nike India Private Limited, Ground & 1st Floor, Olympia building, No.66/1, Bagmane Tech park, CV Raman Nagar, Bangalore 560093. Thank you for shopping at Nike You can contact us at: 000 800 040 5043 (9:00 -",
+      "bbox": [
+        80.0,
+        1868.0,
+        574.0,
+        2060.0
+      ],
+      "polygon": [
+        [
+          80.0,
+          1868.0
+        ],
+        [
+          574.0,
+          1868.0
+        ],
+        [
+          574.0,
+          2060.0
+        ],
+        [
+          80.0,
+          2060.0
+        ]
+      ]
+    },
+    {
+      "id": 18,
+      "label": "text",
+      "content": "https://www.nlke.com/in/en/help/ask/r/nike. Should you have any questions about your purchase or wish to return or exchange, please refer to the Consumer Care Store Claim and Exchange Policy available at https://www.nike.com/in/help/a/india-consumer-care-policy. Please bring your receipt or proof of purchase for an exchange/refund within 30 days from the date of purchase to ensure your consumer rights are not affected.",
+      "bbox": [
+        63.0,
+        2085.0,
+        589.0,
+        2438.0
+      ],
+      "polygon": [
+        [
+          63.0,
+          2085.0
+        ],
+        [
+          589.0,
+          2085.0
+        ],
+        [
+          589.0,
+          2438.0
+        ],
+        [
+          63.0,
+          2438.0
+        ]
+      ]
+    },
+    {
+      "id": 19,
+      "label": "text",
+      "content": "We strive to meet the exact needs of every Athlete $ ^{*} $ that visits our stores\nWe would love to hear more from you on your recent experience at the Nike Store or Nike Factory Store.",
+      "bbox": [
+        88.0,
+        2471.0,
+        567.0,
+        2626.0
+      ],
+      "polygon": [
+        [
+          88.0,
+          2471.0
+        ],
+        [
+          567.0,
+          2471.0
+        ],
+        [
+          567.0,
+          2626.0
+        ],
+        [
+          88.0,
+          2626.0
+        ]
+      ]
+    },
+    {
+      "id": 20,
+      "label": "text",
+      "content": "Please take a short survey by scanning the QR Code below",
+      "bbox": [
+        100.0,
+        2657.0,
+        556.0,
+        2719.0
+      ],
+      "polygon": [
+        [
+          100.0,
+          2657.0
+        ],
+        [
+          556.0,
+          2657.0
+        ],
+        [
+          556.0,
+          2719.0
+        ],
+        [
+          100.0,
+          2719.0
+        ]
+      ]
+    },
+    {
+      "id": 21,
+      "label": "image",
+      "content": "",
+      "bbox": [
+        240.0,
+        2759.0,
+        426.0,
+        2952.0
+      ],
+      "polygon": [
+        [
+          240.0,
+          2759.0
+        ],
+        [
+          426.0,
+          2759.0
+        ],
+        [
+          426.0,
+          2952.0
+        ],
+        [
+          240.0,
+          2952.0
+        ]
+      ]
+    },
+    {
+      "id": 22,
+      "label": "text",
+      "content": "Survey expires seven days from date of purchase. Void where prohibited. See above website for complete details.",
+      "bbox": [
+        60.0,
+        2961.0,
+        580.0,
+        3066.0
+      ],
+      "polygon": [
+        [
+          60.0,
+          2961.0
+        ],
+        [
+          580.0,
+          2961.0
+        ],
+        [
+          580.0,
+          3066.0
+        ],
+        [
+          60.0,
+          3066.0
+        ]
+      ]
+    },
+    {
+      "id": 23,
+      "label": "image",
+      "content": "",
+      "bbox": [
+        165.0,
+        3101.0,
+        489.0,
+        3187.0
+      ],
+      "polygon": [
+        [
+          165.0,
+          3101.0
+        ],
+        [
+          489.0,
+          3101.0
+        ],
+        [
+          489.0,
+          3187.0
+        ],
+        [
+          165.0,
+          3187.0
+        ]
+      ]
+    }
+  ]
+}
