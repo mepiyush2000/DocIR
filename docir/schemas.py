@@ -7,9 +7,22 @@ leak past this module into rendering, tests, or the CLI.
 
 from __future__ import annotations
 
+import re
+
 from pydantic import BaseModel
 
 SCHEMA_VERSION = "1.0"
+
+# VL writes some glyphs as markup: a footnote star as `$ ^{*} $` (attached
+# to the word before it), and in-cell line breaks as a literal backslash-n
+_INLINE_SCRIPT = re.compile(r"[ \t]*\$\s*[\^_]\s*\{+\s*([^{}$]{1,8}?)\s*\}+\s*\$")
+
+
+def clean_vl_text(text: str) -> str:
+    """VL block text as printed: markup for super/subscripts and escaped
+    line breaks resolved (a bare `$` is currency and stays)."""
+    text = text.replace("\\n", "\n")
+    return _INLINE_SCRIPT.sub(r"\1", text)
 
 
 class Block(BaseModel):
@@ -41,7 +54,7 @@ class PageLayout(BaseModel):
             Block(
                 id=b.get("block_id", i),
                 label=b.get("block_label") or "text",
-                content=(b.get("block_content") or "").strip(),
+                content=clean_vl_text((b.get("block_content") or "").strip()),
                 bbox=tuple(b["block_bbox"]),
                 polygon=[tuple(p) for p in b["block_polygon_points"]]
                 if b.get("block_polygon_points") else None,

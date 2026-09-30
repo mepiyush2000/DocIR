@@ -43,6 +43,7 @@ from reportlab.pdfgen import canvas
 from reportlab.platypus import Frame, Paragraph
 
 from .bold import classify_bold_by_label, measure_stroke_ratio
+from .labels import PICTURE_LABELS
 from .fonts import classify_word_samples, collect_word_samples, discover_catalog
 from .ink import TextLineStats, binarize_region, measure_text_lines
 from .italic import classify_italic_by_label, measure_slant_angle
@@ -104,7 +105,7 @@ DEFAULT_STYLES = {
 FALLBACK_STYLE = DEFAULT_STYLES["text"]
 
 SKIP_LABELS: set[str] = set()  # labels to omit entirely even if content exists
-IMAGE_LABELS = {"image", "figure", "chart", "seal"}
+IMAGE_LABELS = PICTURE_LABELS
 
 # ReportLab's standard-14 fonts, keyed by detected style category -- no
 # embedding/licensing needed since these ship with every PDF viewer.

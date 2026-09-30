@@ -112,14 +112,15 @@ def _draw_line(c: canvas.Canvas, geo: _Geometry, line: Line, style: TextStyle) -
     size = (line.size_px or style.size_px) * geo.scale
     if size <= 0.5:
         return
-    face = font_catalog.face(style.font_family, style.bold, style.italic)
-    fallback = font_catalog.face(font_catalog.FALLBACK_FAMILY, style.bold, style.italic)
+    bold = style.bold if line.bold is None else line.bold
+    face = font_catalog.face(style.font_family, bold, style.italic)
+    fallback = font_catalog.fallback_faces(bold, style.italic)
     words = text.split()
     word_runs = [font_catalog.split_by_coverage(w, face, fallback) for w in words]
     widths = [_runs_width(r, size) for r in word_runs]
     space_w = font_catalog.string_width(" ", face.name, size)
     n_chars = sum(len(w) for w in words)
-    if line.drop_cap:
+    if line.drop_cap or not line.fit:
         ws, cs, hz = 0.0, 0.0, 1.0
     else:
         ws, cs, hz = fit_line(words, widths, space_w, n_chars, line.length * geo.scale,

@@ -15,12 +15,15 @@ skipped.
 from __future__ import annotations
 
 import difflib
+import html
 import re
+from dataclasses import dataclass
 from html.parser import HTMLParser
 
 import numpy as np
 
-TABLE_LABELS = {"table"}
+from .labels import TABLE_LABELS
+
 MIN_TABULAR_ROWS = 2             # rows made of 2+ cells needed to call a block tabular
 MIN_TABULAR_ROW_FRAC = 0.3       # ... and at least this share of its rows
 ROW_OVERLAP_FRAC = 0.5           # fragments sharing this much height are one row
@@ -68,18 +71,15 @@ def is_tabular(label: str, polygons: list) -> bool:
 def align_row_baselines(block) -> None:
     """Cells of one table row share a baseline. Measured baselines of short
     cells (digits have no lowercase to anchor them) wander by a few pixels;
-    a row is drawn on its median baseline. Run after levelling."""
-    lines = sorted(block.lines, key=lambda l: l.baseline_start[1])
-    rows: list[list] = []
-    for l in lines:
-        y = (l.baseline_start[1] + l.baseline_end[1]) / 2
-        if rows:
-            ref = rows[-1]
-            ry = float(np.median([(r.baseline_start[1] + r.baseline_end[1]) / 2 for r in ref]))
-            if abs(y - ry) <= ROW_BASELINE_TOLERANCE * min(l.x_height, ref[0].x_height):
-                ref.append(l)
-                continue
-        rows.append([l])
+    a row is drawn on its median baseline. Rows come from detection when
+    known (`Line.row`), else from baseline proximity. Run after levelling."""
+    if block.lines and all(l.row is not None for l in block.lines):
+        by_row: dict[int, list] = {}
+        for l in block.lines:
+            by_row.setdefault(l.row, []).append(l)
+        rows = list(by_row.values())
+    else:
+        rows = _rows_by_baseline(block.lines)
     for row in rows:
         if len(row) < 2:
             continue
@@ -90,26 +90,106 @@ def align_row_baselines(block) -> None:
             l.baseline_end = (l.baseline_end[0], l.baseline_end[1] + dy)
 
 
+def _rows_by_baseline(lines) -> list[list]:
+    rows: list[list] = []
+    for l in sorted(lines, key=lambda l: l.baseline_start[1]):
+        y = (l.baseline_start[1] + l.baseline_end[1]) / 2
+        if rows:
+            ref = rows[-1]
+            ry = float(np.median([(r.baseline_start[1] + r.baseline_end[1]) / 2 for r in ref]))
+            if abs(y - ry) <= ROW_BASELINE_TOLERANCE * min(l.x_height, ref[0].x_height):
+                ref.append(l)
+                continue
+        rows.append([l])
+    return rows
+
+
 # ---------- VL text ----------
 
 class _CellParser(HTMLParser):
+    """Collects cells as (row, text, colspan, rowspan), in document order."""
+
     def __init__(self):
         super().__init__()
         self.cells: list[str] = []
+        self.spans: list[tuple[int, str, int, int]] = []
+        self._row = -1
         self._buf: list[str] | None = None
+        self._span = (1, 1)
 
     def handle_starttag(self, tag, attrs):
-        if tag in ("td", "th"):
+        if tag == "tr":
+            self._row += 1
+        elif tag in ("td", "th"):
+            a = dict(attrs)
             self._buf = []
+            self._span = (_int(a.get("colspan")), _int(a.get("rowspan")))
 
     def handle_endtag(self, tag):
         if tag in ("td", "th") and self._buf is not None:
-            self.cells.append(" ".join("".join(self._buf).split()))
+            text = " ".join("".join(self._buf).split())
+            self.cells.append(text)
+            self.spans.append((max(self._row, 0), text, *self._span))
             self._buf = None
 
     def handle_data(self, data):
         if self._buf is not None:
             self._buf.append(data)
+
+
+def _int(v) -> int:
+    try:
+        return max(1, int(v))
+    except (TypeError, ValueError):
+        return 1
+
+
+@dataclass(frozen=True)
+class GridCell:
+    row: int
+    col: int
+    text: str
+    colspan: int = 1
+    rowspan: int = 1
+
+
+@dataclass
+class TableGrid:
+    n_rows: int
+    n_cols: int
+    cells: list[GridCell]
+
+    def at(self, row: int) -> list[GridCell]:
+        return [c for c in self.cells if c.row == row]
+
+
+def is_html_table(content: str) -> bool:
+    return "<td" in content or "<th" in content
+
+
+def parse_html_table(content: str) -> TableGrid | None:
+    """Row/column grid of an HTML table, honouring colspan and rowspan: a
+    cell occupies the first column slot not already taken by a cell
+    spanning down from a row above."""
+    parser = _CellParser()
+    parser.feed(content)
+    if not parser.spans:
+        return None
+    taken: set[tuple[int, int]] = set()
+    cells: list[GridCell] = []
+    col_by_row: dict[int, int] = {}
+    for row, text, cs, rs in parser.spans:
+        col = col_by_row.get(row, 0)
+        while (row, col) in taken:
+            col += 1
+        for r in range(row, row + rs):
+            for c in range(col, col + cs):
+                taken.add((r, c))
+        cells.append(GridCell(row, col, text, cs, rs))
+        col_by_row[row] = col + cs
+    n_rows = max(r for r, _ in taken) + 1
+    n_cols = max(c for _, c in taken) + 1
+    return TableGrid(n_rows, n_cols, cells)
 
 
 def vl_tokens(content: str) -> list[str]:

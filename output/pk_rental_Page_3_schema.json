@@ -1,0 +1,617 @@
+{
+  "schema_version": "1.0",
+  "input_path": "pk_rental_Page_3.jpg",
+  "width": 2005.0,
+  "height": 3045.0,
+  "blocks": [
+    {
+      "id": 0,
+      "label": "text",
+      "content": "6. Before the expiry of the agreed Term, subject to the agreement of both parties, this rent agreement can be extended in writing for another period of 11 months, or any other period as agreed, at enhanced rent of up to 10 % of the last “Rent” paid by the Tenant.",
+      "bbox": [
+        280.0,
+        259.0,
+        1768.0,
+        445.0
+      ],
+      "polygon": [
+        [
+          280.00006103515625,
+          259.0
+        ],
+        [
+          1768.71484375,
+          274.01727294921875
+        ],
+        [
+          1767.0,
+          444.0
+        ],
+        [
+          278.28533935546875,
+          428.98272705078125
+        ]
+      ]
+    },
+    {
+      "id": 1,
+      "label": "text",
+      "content": "7. THAT THE TENANT SHALL USE THE SAID PREMISES ONLY FOR RESIDENTIAL PURPOSES OF SELF AND DEPENDENT FAMILY AND NOT FOR ANY OTHER PURPOSES. The tenant will be fully liable for payment of any penalty / consequential liability imposed by any authority for un-authorised use of property.",
+      "bbox": [
+        289.0,
+        435.0,
+        1760.0,
+        650.0
+      ],
+      "polygon": [
+        [
+          289.0,
+          435.0
+        ],
+        [
+          1760.0,
+          435.0
+        ],
+        [
+          1760.0,
+          650.0
+        ],
+        [
+          289.0,
+          650.0
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "label": "text",
+      "content": "8. That the tenant shall not sub-let the said premises or any portion thereof to any person or persons under any circumstances.",
+      "bbox": [
+        302.0,
+        654.0,
+        1755.0,
+        757.0
+      ],
+      "polygon": [
+        [
+          302.0,
+          654.0
+        ],
+        [
+          1755.0,
+          654.0
+        ],
+        [
+          1755.0,
+          757.0
+        ],
+        [
+          302.0,
+          757.0
+        ]
+      ]
+    },
+    {
+      "id": 3,
+      "label": "text",
+      "content": "9. That the tenant will pay electricity, gas, water, as well as charges for using any facility.",
+      "bbox": [
+        310.0,
+        761.0,
+        1709.0,
+        814.0
+      ],
+      "polygon": [
+        [
+          310.0,
+          761.0
+        ],
+        [
+          1709.0,
+          761.0
+        ],
+        [
+          1709.0,
+          814.0
+        ],
+        [
+          310.0,
+          814.0
+        ]
+      ]
+    },
+    {
+      "id": 4,
+      "label": "text",
+      "content": "10. That the owner will be at liberty to inspect the said premises at any reasonable time in the presence of the Tenant.",
+      "bbox": [
+        316.0,
+        817.0,
+        1750.0,
+        915.0
+      ],
+      "polygon": [
+        [
+          316.0,
+          817.0
+        ],
+        [
+          1750.0,
+          817.0
+        ],
+        [
+          1750.0,
+          915.0
+        ],
+        [
+          316.0,
+          915.0
+        ]
+      ]
+    },
+    {
+      "id": 5,
+      "label": "text",
+      "content": "11. That the Tenant will maintain the said premises and he / she shall always keep the same premises neat and clean and tenantable worthy and not damage the said premises or change any portion thereof in any circumstances.",
+      "bbox": [
+        320.0,
+        917.0,
+        1754.0,
+        1058.0
+      ],
+      "polygon": [
+        [
+          320.0,
+          917.0
+        ],
+        [
+          1754.0,
+          917.0
+        ],
+        [
+          1754.0,
+          1058.0
+        ],
+        [
+          320.0,
+          1058.0
+        ]
+      ]
+    },
+    {
+      "id": 6,
+      "label": "text",
+      "content": "12. That the Agreement may be terminated earlier by either side giving one month's advance notice in writing to the other party. In the event of such termination, the Tenant will hand over Vacant possession of the Premises on or before the end of notice period as provided in paras above. A notice served by email will be treated as valid.",
+      "bbox": [
+        316.0,
+        1057.0,
+        1755.0,
+        1244.0
+      ],
+      "polygon": [
+        [
+          314.3255920410156,
+          1071.016357421875
+        ],
+        [
+          1754.0,
+          1057.0
+        ],
+        [
+          1755.6744384765625,
+          1228.983642578125
+        ],
+        [
+          316.0,
+          1243.0
+        ]
+      ]
+    },
+    {
+      "id": 7,
+      "label": "text",
+      "content": "13. That in case the rent, dues of the electricity, etc. are not paid regularly on due date, the lease deed can be terminated by owner even before the expiry of lease period and lease rent can be recovered through court of law with additional compensation, interest and expenses/cost commensurate to mental tensions/losses incurred and to recover the same through court of law. Owner will also be entitled to evict the tenant through court of law.",
+      "bbox": [
+        311.0,
+        1244.0,
+        1759.0,
+        1480.0
+      ],
+      "polygon": [
+        [
+          311.0,
+          1244.0
+        ],
+        [
+          1759.0,
+          1244.0
+        ],
+        [
+          1759.0,
+          1480.0
+        ],
+        [
+          311.0,
+          1480.0
+        ]
+      ]
+    },
+    {
+      "id": 8,
+      "label": "text",
+      "content": "14. That the original of this agreement will be retained by the owner.",
+      "bbox": [
+        309.0,
+        1486.0,
+        1372.0,
+        1535.0
+      ],
+      "polygon": [
+        [
+          309.0,
+          1486.0
+        ],
+        [
+          1372.0,
+          1486.0
+        ],
+        [
+          1372.0,
+          1535.0
+        ],
+        [
+          309.0,
+          1535.0
+        ]
+      ]
+    },
+    {
+      "id": 9,
+      "label": "text",
+      "content": "15. That the Tenant will not violate any terms and conditions of the concerned authorities of NOIDA, authorized Electricity Board, society and all other concerned Government or local agency relating on the above said premises.",
+      "bbox": [
+        308.0,
+        1540.0,
+        1753.0,
+        1691.0
+      ],
+      "polygon": [
+        [
+          308.0,
+          1540.0
+        ],
+        [
+          1753.0,
+          1540.0
+        ],
+        [
+          1753.0,
+          1691.0
+        ],
+        [
+          308.0,
+          1691.0
+        ]
+      ]
+    },
+    {
+      "id": 10,
+      "label": "text",
+      "content": "16. Any major repairs, not arising due to negligent use of premises, shall be carried out at the sole discretion of the Owner.",
+      "bbox": [
+        310.0,
+        1697.0,
+        1750.0,
+        1792.0
+      ],
+      "polygon": [
+        [
+          310.0,
+          1697.0
+        ],
+        [
+          1750.0,
+          1697.0
+        ],
+        [
+          1750.0,
+          1792.0
+        ],
+        [
+          310.0,
+          1792.0
+        ]
+      ]
+    },
+    {
+      "id": 11,
+      "label": "text",
+      "content": "17. The Tenant shall not take any Loan/ Credit Facility on this property address and if he does so, neither Owner nor his property will be Liable or responsible for the same.",
+      "bbox": [
+        312.0,
+        1796.0,
+        1746.0,
+        1893.0
+      ],
+      "polygon": [
+        [
+          312.0,
+          1796.0
+        ],
+        [
+          1746.0,
+          1796.0
+        ],
+        [
+          1746.0,
+          1893.0
+        ],
+        [
+          312.0,
+          1893.0
+        ]
+      ]
+    },
+    {
+      "id": 12,
+      "label": "text",
+      "content": "18. Cost of damages, if any, to the said premise and / or any fittings or fixtures shall be recovered by the owner / First party from the Tenant. The interest free security deposit can also be used for recovery of cost of damages.",
+      "bbox": [
+        314.0,
+        1899.0,
+        1746.0,
+        2041.0
+      ],
+      "polygon": [
+        [
+          314.0,
+          1899.0
+        ],
+        [
+          1746.0,
+          1899.0
+        ],
+        [
+          1746.0,
+          2041.0
+        ],
+        [
+          314.0,
+          2041.0
+        ]
+      ]
+    },
+    {
+      "id": 13,
+      "label": "text",
+      "content": "19. That both the parties shall abide by the rules and regulations of Rent Control Act and terms and conditions of this Lease Deed.",
+      "bbox": [
+        312.0,
+        2047.0,
+        1745.0,
+        2146.0
+      ],
+      "polygon": [
+        [
+          312.0,
+          2047.0
+        ],
+        [
+          1745.0,
+          2047.0
+        ],
+        [
+          1745.0,
+          2146.0
+        ],
+        [
+          312.0,
+          2146.0
+        ]
+      ]
+    },
+    {
+      "id": 14,
+      "label": "text",
+      "content": "20. That the present Agreement has been executed under the free will and consent of both the parties and neither party has signed under any pressure, threat or coercion etc.",
+      "bbox": [
+        309.0,
+        2151.0,
+        1743.0,
+        2250.0
+      ],
+      "polygon": [
+        [
+          309.0,
+          2151.0
+        ],
+        [
+          1743.0,
+          2151.0
+        ],
+        [
+          1743.0,
+          2250.0
+        ],
+        [
+          309.0,
+          2250.0
+        ]
+      ]
+    },
+    {
+      "id": 15,
+      "label": "text",
+      "content": "21. The Courts at Gautam Buddha Nagar shall alone have jurisdiction in all matters arising out of or concerning this Agreement.",
+      "bbox": [
+        308.0,
+        2256.0,
+        1743.0,
+        2353.0
+      ],
+      "polygon": [
+        [
+          308.0,
+          2256.0
+        ],
+        [
+          1743.0,
+          2256.0
+        ],
+        [
+          1743.0,
+          2353.0
+        ],
+        [
+          308.0,
+          2353.0
+        ]
+      ]
+    },
+    {
+      "id": 16,
+      "label": "text",
+      "content": "22. That this agreement has a lock in period of 06 month if lessee vacates before 06 month then the security amount will not be refunded.",
+      "bbox": [
+        309.0,
+        2359.0,
+        1743.0,
+        2462.0
+      ],
+      "polygon": [
+        [
+          309.0,
+          2359.0
+        ],
+        [
+          1743.0,
+          2359.0
+        ],
+        [
+          1743.0,
+          2462.0
+        ],
+        [
+          309.0,
+          2462.0
+        ]
+      ]
+    },
+    {
+      "id": 17,
+      "label": "image",
+      "content": "",
+      "bbox": [
+        241.0,
+        2544.0,
+        551.0,
+        2731.0
+      ],
+      "polygon": [
+        [
+          232.16749572753906,
+          2560.344970703125
+        ],
+        [
+          549.5482177734375,
+          2537.675048828125
+        ],
+        [
+          561.94921875,
+          2711.289306640625
+        ],
+        [
+          244.5684814453125,
+          2733.959228515625
+        ]
+      ]
+    },
+    {
+      "id": 18,
+      "label": "image",
+      "content": "",
+      "bbox": [
+        815.0,
+        2461.0,
+        1213.0,
+        2895.0
+      ],
+      "polygon": [
+        [
+          815.0,
+          2461.0
+        ],
+        [
+          1213.0,
+          2461.0
+        ],
+        [
+          1213.0,
+          2895.0
+        ],
+        [
+          815.0,
+          2895.0
+        ]
+      ]
+    },
+    {
+      "id": 19,
+      "label": "text",
+      "content": "Figurish Kumar",
+      "bbox": [
+        1632.0,
+        2556.0,
+        1896.0,
+        2671.0
+      ],
+      "polygon": [
+        [
+          1632.0,
+          2556.0
+        ],
+        [
+          1896.0,
+          2556.0
+        ],
+        [
+          1896.0,
+          2671.0
+        ],
+        [
+          1632.0,
+          2671.0
+        ]
+      ]
+    },
+    {
+      "id": 20,
+      "label": "text",
+      "content": "Tenant.....Abhishek",
+      "bbox": [
+        1513.0,
+        2681.0,
+        1907.0,
+        2794.0
+      ],
+      "polygon": [
+        [
+          1513.0,
+          2681.0
+        ],
+        [
+          1907.0,
+          2681.0
+        ],
+        [
+          1907.0,
+          2794.0
+        ],
+        [
+          1513.0,
+          2794.0
+        ]
+      ]
+    }
+  ]
+}

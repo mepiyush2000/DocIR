@@ -24,9 +24,9 @@ import numpy as np
 from PIL import Image
 
 from .ink import ink_maps, measure_text_lines
+from .labels import PICTURE_LABELS as IMAGE_LABELS
 from .schemas import Block, PageLayout
 
-IMAGE_LABELS = {"image", "figure", "chart", "seal"}
 TOLERANCE_X_HEIGHT_FRAC = 0.3
 MIN_TOLERANCE_PX = 1
 BLOCK_PAD_FRAC = 0.25       # of the block's x-height (or height); catches slight overflow

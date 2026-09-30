@@ -1,0 +1,1315 @@
+{
+  "input_path": "pk_rental_Page_3.jpg",
+  "page_index": null,
+  "page_count": null,
+  "width": 2005,
+  "height": 3045,
+  "model_settings": {
+    "use_doc_preprocessor": false,
+    "use_layout_detection": true,
+    "use_chart_recognition": false,
+    "use_seal_recognition": false,
+    "use_ocr_for_image_block": false,
+    "format_block_content": false,
+    "merge_layout_blocks": true,
+    "markdown_ignore_labels": [
+      "number",
+      "footnote",
+      "header",
+      "header_image",
+      "footer",
+      "footer_image",
+      "aside_text"
+    ],
+    "return_layout_polygon_points": true
+  },
+  "parsing_res_list": [
+    {
+      "block_label": "text",
+      "block_content": "6. Before the expiry of the agreed Term, subject to the agreement of both parties, this rent agreement can be extended in writing for another period of 11 months, or any other period as agreed, at enhanced rent of up to 10 % of the last \u201cRent\u201d paid by the Tenant.",
+      "block_bbox": [
+        280,
+        259,
+        1768,
+        445
+      ],
+      "block_id": 0,
+      "block_order": 1,
+      "group_id": 0,
+      "block_polygon_points": [
+        [
+          280.00006103515625,
+          259.0
+        ],
+        [
+          1768.71484375,
+          274.01727294921875
+        ],
+        [
+          1767.0,
+          444.0
+        ],
+        [
+          278.28533935546875,
+          428.98272705078125
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "7. THAT THE TENANT SHALL USE THE SAID PREMISES ONLY FOR RESIDENTIAL PURPOSES OF SELF AND DEPENDENT FAMILY AND NOT FOR ANY OTHER PURPOSES. The tenant will be fully liable for payment of any penalty / consequential liability imposed by any authority for un-authorised use of property.",
+      "block_bbox": [
+        289,
+        435,
+        1760,
+        650
+      ],
+      "block_id": 1,
+      "block_order": 2,
+      "group_id": 1,
+      "block_polygon_points": [
+        [
+          289.0,
+          435.0
+        ],
+        [
+          1760.0,
+          435.0
+        ],
+        [
+          1760.0,
+          650.0
+        ],
+        [
+          289.0,
+          650.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "8. That the tenant shall not sub-let the said premises or any portion thereof to any person or persons under any circumstances.",
+      "block_bbox": [
+        302,
+        654,
+        1755,
+        757
+      ],
+      "block_id": 2,
+      "block_order": 3,
+      "group_id": 2,
+      "block_polygon_points": [
+        [
+          302.0,
+          654.0
+        ],
+        [
+          1755.0,
+          654.0
+        ],
+        [
+          1755.0,
+          757.0
+        ],
+        [
+          302.0,
+          757.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "9. That the tenant will pay electricity, gas, water, as well as charges for using any facility.",
+      "block_bbox": [
+        310,
+        761,
+        1709,
+        814
+      ],
+      "block_id": 3,
+      "block_order": 4,
+      "group_id": 3,
+      "block_polygon_points": [
+        [
+          310.0,
+          761.0
+        ],
+        [
+          1709.0,
+          761.0
+        ],
+        [
+          1709.0,
+          814.0
+        ],
+        [
+          310.0,
+          814.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "10. That the owner will be at liberty to inspect the said premises at any reasonable time in the presence of the Tenant.",
+      "block_bbox": [
+        316,
+        817,
+        1750,
+        915
+      ],
+      "block_id": 4,
+      "block_order": 5,
+      "group_id": 4,
+      "block_polygon_points": [
+        [
+          316.0,
+          817.0
+        ],
+        [
+          1750.0,
+          817.0
+        ],
+        [
+          1750.0,
+          915.0
+        ],
+        [
+          316.0,
+          915.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "11. That the Tenant will maintain the said premises and he / she shall always keep the same premises neat and clean and tenantable worthy and not damage the said premises or change any portion thereof in any circumstances.",
+      "block_bbox": [
+        320,
+        917,
+        1754,
+        1058
+      ],
+      "block_id": 5,
+      "block_order": 6,
+      "group_id": 5,
+      "block_polygon_points": [
+        [
+          320.0,
+          917.0
+        ],
+        [
+          1754.0,
+          917.0
+        ],
+        [
+          1754.0,
+          1058.0
+        ],
+        [
+          320.0,
+          1058.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "12. That the Agreement may be terminated earlier by either side giving one month's advance notice in writing to the other party. In the event of such termination, the Tenant will hand over Vacant possession of the Premises on or before the end of notice period as provided in paras above. A notice served by email will be treated as valid.",
+      "block_bbox": [
+        316,
+        1057,
+        1755,
+        1244
+      ],
+      "block_id": 6,
+      "block_order": 7,
+      "group_id": 6,
+      "block_polygon_points": [
+        [
+          314.3255920410156,
+          1071.016357421875
+        ],
+        [
+          1754.0,
+          1057.0
+        ],
+        [
+          1755.6744384765625,
+          1228.983642578125
+        ],
+        [
+          316.0,
+          1243.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "13. That in case the rent, dues of the electricity, etc. are not paid regularly on due date, the lease deed can be terminated by owner even before the expiry of lease period and lease rent can be recovered through court of law with additional compensation, interest and expenses/cost commensurate to mental tensions/losses incurred and to recover the same through court of law. Owner will also be entitled to evict the tenant through court of law.",
+      "block_bbox": [
+        311,
+        1244,
+        1759,
+        1480
+      ],
+      "block_id": 7,
+      "block_order": 8,
+      "group_id": 7,
+      "block_polygon_points": [
+        [
+          311.0,
+          1244.0
+        ],
+        [
+          1759.0,
+          1244.0
+        ],
+        [
+          1759.0,
+          1480.0
+        ],
+        [
+          311.0,
+          1480.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "14. That the original of this agreement will be retained by the owner.",
+      "block_bbox": [
+        309,
+        1486,
+        1372,
+        1535
+      ],
+      "block_id": 8,
+      "block_order": 9,
+      "group_id": 8,
+      "block_polygon_points": [
+        [
+          309.0,
+          1486.0
+        ],
+        [
+          1372.0,
+          1486.0
+        ],
+        [
+          1372.0,
+          1535.0
+        ],
+        [
+          309.0,
+          1535.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "15. That the Tenant will not violate any terms and conditions of the concerned authorities of NOIDA, authorized Electricity Board, society and all other concerned Government or local agency relating on the above said premises.",
+      "block_bbox": [
+        308,
+        1540,
+        1753,
+        1691
+      ],
+      "block_id": 9,
+      "block_order": 10,
+      "group_id": 9,
+      "block_polygon_points": [
+        [
+          308.0,
+          1540.0
+        ],
+        [
+          1753.0,
+          1540.0
+        ],
+        [
+          1753.0,
+          1691.0
+        ],
+        [
+          308.0,
+          1691.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "16. Any major repairs, not arising due to negligent use of premises, shall be carried out at the sole discretion of the Owner.",
+      "block_bbox": [
+        310,
+        1697,
+        1750,
+        1792
+      ],
+      "block_id": 10,
+      "block_order": 11,
+      "group_id": 10,
+      "block_polygon_points": [
+        [
+          310.0,
+          1697.0
+        ],
+        [
+          1750.0,
+          1697.0
+        ],
+        [
+          1750.0,
+          1792.0
+        ],
+        [
+          310.0,
+          1792.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "17. The Tenant shall not take any Loan/ Credit Facility on this property address and if he does so, neither Owner nor his property will be Liable or responsible for the same.",
+      "block_bbox": [
+        312,
+        1796,
+        1746,
+        1893
+      ],
+      "block_id": 11,
+      "block_order": 12,
+      "group_id": 11,
+      "block_polygon_points": [
+        [
+          312.0,
+          1796.0
+        ],
+        [
+          1746.0,
+          1796.0
+        ],
+        [
+          1746.0,
+          1893.0
+        ],
+        [
+          312.0,
+          1893.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "18. Cost of damages, if any, to the said premise and / or any fittings or fixtures shall be recovered by the owner / First party from the Tenant. The interest free security deposit can also be used for recovery of cost of damages.",
+      "block_bbox": [
+        314,
+        1899,
+        1746,
+        2041
+      ],
+      "block_id": 12,
+      "block_order": 13,
+      "group_id": 12,
+      "block_polygon_points": [
+        [
+          314.0,
+          1899.0
+        ],
+        [
+          1746.0,
+          1899.0
+        ],
+        [
+          1746.0,
+          2041.0
+        ],
+        [
+          314.0,
+          2041.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "19. That both the parties shall abide by the rules and regulations of Rent Control Act and terms and conditions of this Lease Deed.",
+      "block_bbox": [
+        312,
+        2047,
+        1745,
+        2146
+      ],
+      "block_id": 13,
+      "block_order": 14,
+      "group_id": 13,
+      "block_polygon_points": [
+        [
+          312.0,
+          2047.0
+        ],
+        [
+          1745.0,
+          2047.0
+        ],
+        [
+          1745.0,
+          2146.0
+        ],
+        [
+          312.0,
+          2146.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "20. That the present Agreement has been executed under the free will and consent of both the parties and neither party has signed under any pressure, threat or coercion etc.",
+      "block_bbox": [
+        309,
+        2151,
+        1743,
+        2250
+      ],
+      "block_id": 14,
+      "block_order": 15,
+      "group_id": 14,
+      "block_polygon_points": [
+        [
+          309.0,
+          2151.0
+        ],
+        [
+          1743.0,
+          2151.0
+        ],
+        [
+          1743.0,
+          2250.0
+        ],
+        [
+          309.0,
+          2250.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "21. The Courts at Gautam Buddha Nagar shall alone have jurisdiction in all matters arising out of or concerning this Agreement.",
+      "block_bbox": [
+        308,
+        2256,
+        1743,
+        2353
+      ],
+      "block_id": 15,
+      "block_order": 16,
+      "group_id": 15,
+      "block_polygon_points": [
+        [
+          308.0,
+          2256.0
+        ],
+        [
+          1743.0,
+          2256.0
+        ],
+        [
+          1743.0,
+          2353.0
+        ],
+        [
+          308.0,
+          2353.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "22. That this agreement has a lock in period of 06 month if lessee vacates before 06 month then the security amount will not be refunded.",
+      "block_bbox": [
+        309,
+        2359,
+        1743,
+        2462
+      ],
+      "block_id": 16,
+      "block_order": 17,
+      "group_id": 16,
+      "block_polygon_points": [
+        [
+          309.0,
+          2359.0
+        ],
+        [
+          1743.0,
+          2359.0
+        ],
+        [
+          1743.0,
+          2462.0
+        ],
+        [
+          309.0,
+          2462.0
+        ]
+      ]
+    },
+    {
+      "block_label": "image",
+      "block_content": "",
+      "block_bbox": [
+        241,
+        2544,
+        551,
+        2731
+      ],
+      "block_id": 17,
+      "block_order": null,
+      "group_id": 17,
+      "block_polygon_points": [
+        [
+          232.16749572753906,
+          2560.344970703125
+        ],
+        [
+          549.5482177734375,
+          2537.675048828125
+        ],
+        [
+          561.94921875,
+          2711.289306640625
+        ],
+        [
+          244.5684814453125,
+          2733.959228515625
+        ]
+      ]
+    },
+    {
+      "block_label": "image",
+      "block_content": "",
+      "block_bbox": [
+        815,
+        2461,
+        1213,
+        2895
+      ],
+      "block_id": 18,
+      "block_order": null,
+      "group_id": 18,
+      "block_polygon_points": [
+        [
+          815.0,
+          2461.0
+        ],
+        [
+          1213.0,
+          2461.0
+        ],
+        [
+          1213.0,
+          2895.0
+        ],
+        [
+          815.0,
+          2895.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Figurish Kumar",
+      "block_bbox": [
+        1632,
+        2556,
+        1896,
+        2671
+      ],
+      "block_id": 19,
+      "block_order": 18,
+      "group_id": 19,
+      "block_polygon_points": [
+        [
+          1632.0,
+          2556.0
+        ],
+        [
+          1896.0,
+          2556.0
+        ],
+        [
+          1896.0,
+          2671.0
+        ],
+        [
+          1632.0,
+          2671.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Tenant.....Abhishek",
+      "block_bbox": [
+        1513,
+        2681,
+        1907,
+        2794
+      ],
+      "block_id": 20,
+      "block_order": 19,
+      "group_id": 20,
+      "block_polygon_points": [
+        [
+          1513.0,
+          2681.0
+        ],
+        [
+          1907.0,
+          2681.0
+        ],
+        [
+          1907.0,
+          2794.0
+        ],
+        [
+          1513.0,
+          2794.0
+        ]
+      ]
+    }
+  ],
+  "layout_det_res": {
+    "input_path": null,
+    "page_index": null,
+    "boxes": [
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.9114078879356384,
+        "coordinate": [
+          280,
+          259,
+          1768,
+          445
+        ],
+        "order": 1,
+        "polygon_points": [
+          [
+            280.00006103515625,
+            259.0
+          ],
+          [
+            1768.71484375,
+            274.01727294921875
+          ],
+          [
+            1767.0,
+            444.0
+          ],
+          [
+            278.28533935546875,
+            428.98272705078125
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.9350243210792542,
+        "coordinate": [
+          289,
+          435,
+          1760,
+          650
+        ],
+        "order": 2,
+        "polygon_points": [
+          [
+            289.0,
+            435.0
+          ],
+          [
+            1760.0,
+            435.0
+          ],
+          [
+            1760.0,
+            650.0
+          ],
+          [
+            289.0,
+            650.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.878991961479187,
+        "coordinate": [
+          302,
+          654,
+          1755,
+          757
+        ],
+        "order": 3,
+        "polygon_points": [
+          [
+            302.0,
+            654.0
+          ],
+          [
+            1755.0,
+            654.0
+          ],
+          [
+            1755.0,
+            757.0
+          ],
+          [
+            302.0,
+            757.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.7742325067520142,
+        "coordinate": [
+          310,
+          761,
+          1709,
+          814
+        ],
+        "order": 4,
+        "polygon_points": [
+          [
+            310.0,
+            761.0
+          ],
+          [
+            1709.0,
+            761.0
+          ],
+          [
+            1709.0,
+            814.0
+          ],
+          [
+            310.0,
+            814.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.8389143347740173,
+        "coordinate": [
+          316,
+          817,
+          1750,
+          915
+        ],
+        "order": 5,
+        "polygon_points": [
+          [
+            316.0,
+            817.0
+          ],
+          [
+            1750.0,
+            817.0
+          ],
+          [
+            1750.0,
+            915.0
+          ],
+          [
+            316.0,
+            915.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.9249340295791626,
+        "coordinate": [
+          320,
+          917,
+          1754,
+          1058
+        ],
+        "order": 6,
+        "polygon_points": [
+          [
+            320.0,
+            917.0
+          ],
+          [
+            1754.0,
+            917.0
+          ],
+          [
+            1754.0,
+            1058.0
+          ],
+          [
+            320.0,
+            1058.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.9368438124656677,
+        "coordinate": [
+          316,
+          1057,
+          1755,
+          1244
+        ],
+        "order": 7,
+        "polygon_points": [
+          [
+            314.3255920410156,
+            1071.016357421875
+          ],
+          [
+            1754.0,
+            1057.0
+          ],
+          [
+            1755.6744384765625,
+            1228.983642578125
+          ],
+          [
+            316.0,
+            1243.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.9325907230377197,
+        "coordinate": [
+          311,
+          1244,
+          1759,
+          1480
+        ],
+        "order": 8,
+        "polygon_points": [
+          [
+            311.0,
+            1244.0
+          ],
+          [
+            1759.0,
+            1244.0
+          ],
+          [
+            1759.0,
+            1480.0
+          ],
+          [
+            311.0,
+            1480.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.7873557209968567,
+        "coordinate": [
+          309,
+          1486,
+          1372,
+          1535
+        ],
+        "order": 9,
+        "polygon_points": [
+          [
+            309.0,
+            1486.0
+          ],
+          [
+            1372.0,
+            1486.0
+          ],
+          [
+            1372.0,
+            1535.0
+          ],
+          [
+            309.0,
+            1535.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.9252922534942627,
+        "coordinate": [
+          308,
+          1540,
+          1753,
+          1691
+        ],
+        "order": 10,
+        "polygon_points": [
+          [
+            308.0,
+            1540.0
+          ],
+          [
+            1753.0,
+            1540.0
+          ],
+          [
+            1753.0,
+            1691.0
+          ],
+          [
+            308.0,
+            1691.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.891015887260437,
+        "coordinate": [
+          310,
+          1697,
+          1750,
+          1792
+        ],
+        "order": 11,
+        "polygon_points": [
+          [
+            310.0,
+            1697.0
+          ],
+          [
+            1750.0,
+            1697.0
+          ],
+          [
+            1750.0,
+            1792.0
+          ],
+          [
+            310.0,
+            1792.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.9092414379119873,
+        "coordinate": [
+          312,
+          1796,
+          1746,
+          1893
+        ],
+        "order": 12,
+        "polygon_points": [
+          [
+            312.0,
+            1796.0
+          ],
+          [
+            1746.0,
+            1796.0
+          ],
+          [
+            1746.0,
+            1893.0
+          ],
+          [
+            312.0,
+            1893.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.9302923679351807,
+        "coordinate": [
+          314,
+          1899,
+          1746,
+          2041
+        ],
+        "order": 13,
+        "polygon_points": [
+          [
+            314.0,
+            1899.0
+          ],
+          [
+            1746.0,
+            1899.0
+          ],
+          [
+            1746.0,
+            2041.0
+          ],
+          [
+            314.0,
+            2041.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.9109944105148315,
+        "coordinate": [
+          312,
+          2047,
+          1745,
+          2146
+        ],
+        "order": 14,
+        "polygon_points": [
+          [
+            312.0,
+            2047.0
+          ],
+          [
+            1745.0,
+            2047.0
+          ],
+          [
+            1745.0,
+            2146.0
+          ],
+          [
+            312.0,
+            2146.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.9146672487258911,
+        "coordinate": [
+          309,
+          2151,
+          1743,
+          2250
+        ],
+        "order": 15,
+        "polygon_points": [
+          [
+            309.0,
+            2151.0
+          ],
+          [
+            1743.0,
+            2151.0
+          ],
+          [
+            1743.0,
+            2250.0
+          ],
+          [
+            309.0,
+            2250.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.9120798110961914,
+        "coordinate": [
+          308,
+          2256,
+          1743,
+          2353
+        ],
+        "order": 16,
+        "polygon_points": [
+          [
+            308.0,
+            2256.0
+          ],
+          [
+            1743.0,
+            2256.0
+          ],
+          [
+            1743.0,
+            2353.0
+          ],
+          [
+            308.0,
+            2353.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.8962839841842651,
+        "coordinate": [
+          309,
+          2359,
+          1743,
+          2462
+        ],
+        "order": 17,
+        "polygon_points": [
+          [
+            309.0,
+            2359.0
+          ],
+          [
+            1743.0,
+            2359.0
+          ],
+          [
+            1743.0,
+            2462.0
+          ],
+          [
+            309.0,
+            2462.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 14,
+        "label": "image",
+        "score": 0.6948245167732239,
+        "coordinate": [
+          241,
+          2544,
+          551,
+          2731
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            232.16749572753906,
+            2560.344970703125
+          ],
+          [
+            549.5482177734375,
+            2537.675048828125
+          ],
+          [
+            561.94921875,
+            2711.289306640625
+          ],
+          [
+            244.5684814453125,
+            2733.959228515625
+          ]
+        ]
+      },
+      {
+        "cls_id": 14,
+        "label": "image",
+        "score": 0.8420347571372986,
+        "coordinate": [
+          815,
+          2461,
+          1213,
+          2895
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            815.0,
+            2461.0
+          ],
+          [
+            1213.0,
+            2461.0
+          ],
+          [
+            1213.0,
+            2895.0
+          ],
+          [
+            815.0,
+            2895.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.6072149872779846,
+        "coordinate": [
+          1632,
+          2556,
+          1896,
+          2671
+        ],
+        "order": 18,
+        "polygon_points": [
+          [
+            1632.0,
+            2556.0
+          ],
+          [
+            1896.0,
+            2556.0
+          ],
+          [
+            1896.0,
+            2671.0
+          ],
+          [
+            1632.0,
+            2671.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.802018940448761,
+        "coordinate": [
+          1513,
+          2681,
+          1907,
+          2794
+        ],
+        "order": 19,
+        "polygon_points": [
+          [
+            1513.0,
+            2681.0
+          ],
+          [
+            1907.0,
+            2681.0
+          ],
+          [
+            1907.0,
+            2794.0
+          ],
+          [
+            1513.0,
+            2794.0
+          ]
+        ]
+      }
+    ]
+  }
+}

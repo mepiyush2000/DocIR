@@ -115,7 +115,14 @@ def _core_color(ink: np.ndarray, bg: np.ndarray, paper: np.ndarray) -> Color:
     ref = np.median(bg, axis=0) if len(bg) else paper
     dist = np.linalg.norm(ink.astype(float) - ref, axis=1)
     core = ink[dist >= np.quantile(dist, 1 - INK_DARKEST_FRAC)]
-    return snap_ink(np.median(core, axis=0))
+    return snap_ink(white_balance(np.median(core, axis=0), ref))
+
+
+def white_balance(color, local_paper) -> np.ndarray:
+    """Ink colour as it would look on white paper: tinted paper (yellow
+    receipts, warm lighting) casts its hue onto black print."""
+    paper = np.maximum(np.asarray(local_paper, dtype=float), 1.0)
+    return np.clip(np.asarray(color, dtype=float) * 255.0 / paper, 0, 255)
 
 
 def _line_bbox(line: Line) -> tuple[float, float, float, float]:

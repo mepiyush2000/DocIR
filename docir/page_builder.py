@@ -14,11 +14,13 @@ import logging
 import numpy as np
 from PIL import Image
 
-from . import tables
+from . import table_layout, tables
 from .color import assign_colors
 from .config import straighten_max_deg
 from .graphics import detect_graphics
 from .ink import binarize_region, measure_text_lines
+from .labels import PICTURE_LABELS as IMAGE_LABELS
+from .labels import TABLE_LABELS
 from .line_geometry import measure_glyph, measure_line, ordered_quad, pixel_lines, quad_height
 from .line_fit import refit_page
 from .page_model import Block, Line, Page, Picture
@@ -29,7 +31,6 @@ from .typography import assign_styles
 
 logger = logging.getLogger(__name__)
 
-IMAGE_LABELS = {"image", "figure", "chart", "seal"}
 MERGED_PITCH_RATIO = 1.7         # a quad this many pitches tall holds several lines
 MIN_PIXEL_LINE_HEIGHT_RATIO = 0.75  # of the block's typical line height
 MIN_ORPHAN_SCORE = 0.8
@@ -40,6 +41,7 @@ DROP_CAP_LEFT_FRAC = 0.12        # ... and it sits at the block's left edge
 PICTURE_TRIM_DESCENDER = 0.5     # of the x-height below a baseline kept clear of pictures
 ORPHAN_ALIGN_XH = 1.5            # stacked orphan lines: left edges within this many x-heights
 ORPHAN_MAX_GAP_XH = 3.0          # ... and at most this far below the previous one
+TABLE_RULE_XH = 0.12             # printed table rules, as a fraction of the x-height
 
 
 def _split_drop_cap(block, own: list[LinePlacement]):
@@ -146,6 +148,9 @@ def _block_lines(block, placements: list[LinePlacement], image: Image.Image,
         drop_line = Line(text=content[0], baseline_start=start, baseline_end=end, x_height=ink_h,
                          cap_top=ink_h, drop_cap=True)
         content = content[1:].lstrip()
+    if block.role in TABLE_LABELS and tables.is_html_table(content) and \
+            (grid := tables.parse_html_table(content)) is not None:
+        return _html_table_lines(block, grid, own + extra, gray)
     if tables.is_tabular(block.role, [l.polygon for l in own]):
         block.tabular = True
         return ([drop_line] if drop_line else []) + _table_lines(content, own + extra, gray)
@@ -172,13 +177,34 @@ def _block_lines(block, placements: list[LinePlacement], image: Image.Image,
     return ([drop_line] if drop_line else []) + lines
 
 
+def _html_table_lines(block, grid, placements: list[LinePlacement], gray: np.ndarray) -> list[Line]:
+    """Grid geometry for a table the layout model returned as HTML. The
+    measured detector lines returned here only inform typography (size,
+    face, colour); `table_layout.typeset` replaces them afterwards."""
+    measured = [_measured_line(gray, p.polygon, p.ocr_text, "detector", p.continuation)
+                 for p in placements if p.ocr_text.strip()]
+    x_height = float(np.median([l.x_height for l in measured])) if measured else 10.0
+    block.tabular = True
+    block.table = table_layout.analyze_table(grid, block.bbox, placements, gray, x_height)
+    table_layout.detect_bold_rows(block.table, gray)
+    # text inside the table region that the HTML doesn't contain (captions, sub-headers)
+    block.table.loose_lines = [_measured_line(gray, poly, text, "detector", False)
+                               for poly, text in block.table.loose if text.strip()]
+    return measured
+
+
 def _table_lines(content: str, cells: list[LinePlacement], gray: np.ndarray) -> list[Line]:
     """One line per detected cell, row by row, each with its own wording."""
     rows = tables.group_rows([c.polygon for c in cells])
-    ordered = [cells[i] for row in rows for i in row]
-    texts = tables.assign_cell_text([c.ocr_text for c in ordered], tables.vl_tokens(content))
-    return [_measured_line(gray, c.polygon, t, "detector", c.continuation)
-            for c, t in zip(ordered, texts) if t]
+    ordered = [(r, cells[i]) for r, row in enumerate(rows) for i in row]
+    texts = tables.assign_cell_text([c.ocr_text for _, c in ordered], tables.vl_tokens(content))
+    out = []
+    for (r, c), t in zip(ordered, texts):
+        if t:
+            line = _measured_line(gray, c.polygon, t, "detector", c.continuation)
+            line.row = r
+            out.append(line)
+    return out
 
 
 def _continues_column(block: Block, box, line: Line) -> bool:
@@ -268,12 +294,22 @@ def build_page(layout: PageLayout, image: Image.Image, page_lines: PageLines | N
     assign_styles(page, image)
     refitted = refit_page(page.blocks)
     assign_colors(page, image)
+    for block in page.blocks:
+        if block.table is not None and block.style is not None:
+            color = block.lines[0].color if block.lines else (0, 0, 0)
+            block.lines = table_layout.typeset(block, block.table)
+            for line in block.lines:
+                line.color = color
     _trim_pictures(page)
     page.graphics = detect_graphics(page, image)
+    for block in page.blocks:
+        if block.table is not None:
+            stroke = max(1.0, TABLE_RULE_XH * block.table.x_height)
+            page.graphics += table_layout.grid_graphics(block.table, stroke_px=stroke)
     # after all pixel measurements, which need the real (tilted) geometry
     levelled = straighten_page(page, straighten_max_deg() if straighten_deg is None else straighten_deg)
     for block in page.blocks:
-        if block.tabular:
+        if block.tabular and block.table is None:
             tables.align_row_baselines(block)
     logger.info("page model: %d text blocks (%d lines; %d from pixels; %d levelled; %d re-flowed), "
                 "%d pictures, %d graphics", len(page.blocks), sum(len(b.lines) for b in page.blocks),

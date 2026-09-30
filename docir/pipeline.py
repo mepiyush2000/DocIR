@@ -12,6 +12,7 @@ from PIL import Image
 
 from .config import line_ocr_enabled, preprocess_mode, render_mode
 from .ink import binarize_region, measure_text_lines
+from .labels import PICTURE_LABELS as IMAGE_LABELS
 from .ocr import LineOcrEngine, OcrEngine, PaddleLineOcrEngine, PaddleOcrVlEngine
 from .preprocess import flatten_page
 from .render_pdf import render_page_to_pdf
@@ -19,7 +20,6 @@ from .schemas import PageLayout, PageLines
 
 logger = logging.getLogger(__name__)
 
-IMAGE_LABELS = {"image", "figure", "chart", "seal"}
 ASPECT_TOLERANCE = 0.01          # a resized copy of the analysed image keeps its aspect ratio
 
 

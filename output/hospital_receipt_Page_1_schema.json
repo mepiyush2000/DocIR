@@ -1,0 +1,774 @@
+{
+  "schema_version": "1.0",
+  "input_path": "hospital_receipt_Page_1.jpg",
+  "width": 2300.0,
+  "height": 3314.0,
+  "blocks": [
+    {
+      "id": 0,
+      "label": "header_image",
+      "content": "",
+      "bbox": [
+        69.0,
+        53.0,
+        389.0,
+        243.0
+      ],
+      "polygon": [
+        [
+          69.0,
+          53.0
+        ],
+        [
+          389.0,
+          53.0
+        ],
+        [
+          389.0,
+          243.0
+        ],
+        [
+          69.0,
+          243.0
+        ]
+      ]
+    },
+    {
+      "id": 1,
+      "label": "header",
+      "content": "Felix Hospital",
+      "bbox": [
+        732.0,
+        40.0,
+        1594.0,
+        152.0
+      ],
+      "polygon": [
+        [
+          732.0,
+          40.0
+        ],
+        [
+          1594.0,
+          40.0
+        ],
+        [
+          1594.0,
+          152.0
+        ],
+        [
+          732.0,
+          152.0
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "label": "header",
+      "content": "Sector-137, Expressway, Noida-201305",
+      "bbox": [
+        784.0,
+        159.0,
+        1474.0,
+        207.0
+      ],
+      "polygon": [
+        [
+          784.0,
+          159.0
+        ],
+        [
+          1474.0,
+          159.0
+        ],
+        [
+          1474.0,
+          207.0
+        ],
+        [
+          784.0,
+          207.0
+        ]
+      ]
+    },
+    {
+      "id": 3,
+      "label": "header",
+      "content": "Email : info@felixhospital.com | Visit us : www.felixhospital.com",
+      "bbox": [
+        584.0,
+        206.0,
+        1672.0,
+        259.0
+      ],
+      "polygon": [
+        [
+          584.0,
+          206.0
+        ],
+        [
+          584.0,
+          245.0
+        ],
+        [
+          1671.0,
+          258.0
+        ],
+        [
+          1671.0,
+          220.0
+        ]
+      ]
+    },
+    {
+      "id": 4,
+      "label": "header_image",
+      "content": "",
+      "bbox": [
+        1848.0,
+        53.0,
+        1997.0,
+        202.0
+      ],
+      "polygon": [
+        [
+          1848.0,
+          53.0
+        ],
+        [
+          1997.0,
+          53.0
+        ],
+        [
+          1997.0,
+          202.0
+        ],
+        [
+          1848.0,
+          202.0
+        ]
+      ]
+    },
+    {
+      "id": 5,
+      "label": "header_image",
+      "content": "",
+      "bbox": [
+        2015.0,
+        57.0,
+        2179.0,
+        216.0
+      ],
+      "polygon": [
+        [
+          2015.0,
+          57.0
+        ],
+        [
+          2179.0,
+          57.0
+        ],
+        [
+          2179.0,
+          216.0
+        ],
+        [
+          2015.0,
+          216.0
+        ]
+      ]
+    },
+    {
+      "id": 6,
+      "label": "vision_footnote",
+      "content": "MC-5075",
+      "bbox": [
+        1868.0,
+        206.0,
+        1984.0,
+        242.0
+      ],
+      "polygon": [
+        [
+          1868.0,
+          206.0
+        ],
+        [
+          1984.0,
+          206.0
+        ],
+        [
+          1984.0,
+          242.0
+        ],
+        [
+          1868.0,
+          242.0
+        ]
+      ]
+    },
+    {
+      "id": 7,
+      "label": "text",
+      "content": "24X7 {Helpline - 7835 999 444, 7835 999 555}",
+      "bbox": [
+        206.0,
+        266.0,
+        2034.0,
+        363.0
+      ],
+      "polygon": [
+        [
+          206.0,
+          266.0
+        ],
+        [
+          2034.0,
+          266.0
+        ],
+        [
+          2034.0,
+          363.0
+        ],
+        [
+          206.0,
+          363.0
+        ]
+      ]
+    },
+    {
+      "id": 8,
+      "label": "header",
+      "content": "H-2016-0402",
+      "bbox": [
+        2018.0,
+        212.0,
+        2182.0,
+        247.0
+      ],
+      "polygon": [
+        [
+          2018.0,
+          212.0
+        ],
+        [
+          2182.0,
+          212.0
+        ],
+        [
+          2182.0,
+          247.0
+        ],
+        [
+          2018.0,
+          247.0
+        ]
+      ]
+    },
+    {
+      "id": 9,
+      "label": "paragraph_title",
+      "content": "Patient Assessment Report",
+      "bbox": [
+        954.0,
+        444.0,
+        1394.0,
+        500.0
+      ],
+      "polygon": [
+        [
+          954.0,
+          444.0
+        ],
+        [
+          1394.0,
+          444.0
+        ],
+        [
+          1394.0,
+          500.0
+        ],
+        [
+          954.0,
+          500.0
+        ]
+      ]
+    },
+    {
+      "id": 10,
+      "label": "table",
+      "content": "<table><tr><td>UMR NUMBER</td><td>: FHP29747909122023</td><td>VISIT NUMBER</td><td>: OC24029340</td></tr><tr><td>PATIENT NAME</td><td>: MR. PIYUSH KUMAR</td><td>VISIT DATE</td><td>: 07-Dec-2024 10:10</td></tr><tr><td>GENDER / AGE</td><td>: /Male / 23Y 11M 28D</td><td>CONTACT</td><td>: 9661257878</td></tr><tr><td>Doctor&#x27;s Name / Clinic Name</td><td>: Dr.Sheetal Yadav ( Dermatology )</td><td></td><td></td></tr><tr><td>Responsible Person</td><td>: piyush kumar _</td><td></td><td></td></tr></table>",
+      "bbox": [
+        175.0,
+        515.0,
+        2128.0,
+        784.0
+      ],
+      "polygon": [
+        [
+          175.0,
+          515.0
+        ],
+        [
+          2128.0,
+          515.0
+        ],
+        [
+          2128.0,
+          784.0
+        ],
+        [
+          175.0,
+          784.0
+        ]
+      ]
+    },
+    {
+      "id": 11,
+      "label": "text",
+      "content": "OP Assessment Notes",
+      "bbox": [
+        171.0,
+        805.0,
+        533.0,
+        859.0
+      ],
+      "polygon": [
+        [
+          171.0,
+          805.0
+        ],
+        [
+          533.0,
+          805.0
+        ],
+        [
+          533.0,
+          859.0
+        ],
+        [
+          171.0,
+          859.0
+        ]
+      ]
+    },
+    {
+      "id": 12,
+      "label": "text",
+      "content": "Chief Complaint\nc/o papulopustular lesions over face\nthickened papular lesion over right lower leg since 2 years\nHistory Of Present Illness\nno known allergies",
+      "bbox": [
+        169.0,
+        867.0,
+        967.0,
+        1116.0
+      ],
+      "polygon": [
+        [
+          169.0,
+          867.0
+        ],
+        [
+          967.0,
+          867.0
+        ],
+        [
+          967.0,
+          1116.0
+        ],
+        [
+          169.0,
+          1116.0
+        ]
+      ]
+    },
+    {
+      "id": 13,
+      "label": "text",
+      "content": "PROVISIONAL DIAGNOSIS",
+      "bbox": [
+        178.0,
+        1147.0,
+        602.0,
+        1202.0
+      ],
+      "polygon": [
+        [
+          178.0,
+          1147.0
+        ],
+        [
+          602.0,
+          1147.0
+        ],
+        [
+          602.0,
+          1202.0
+        ],
+        [
+          178.0,
+          1202.0
+        ]
+      ]
+    },
+    {
+      "id": 14,
+      "label": "text",
+      "content": "Acne vulgaris grade 2",
+      "bbox": [
+        178.0,
+        1214.0,
+        496.0,
+        1266.0
+      ],
+      "polygon": [
+        [
+          178.0,
+          1214.0
+        ],
+        [
+          496.0,
+          1214.0
+        ],
+        [
+          496.0,
+          1266.0
+        ],
+        [
+          178.0,
+          1266.0
+        ]
+      ]
+    },
+    {
+      "id": 15,
+      "label": "figure_title",
+      "content": "MEDICATIONS (Rx) (S-SCHEDULE DRUG, H-MEDICATION HISTORY, I-INSIDE MEDICATION, O-OUTSIDE MEDICATION)",
+      "bbox": [
+        185.0,
+        1291.0,
+        2012.0,
+        1348.0
+      ],
+      "polygon": [
+        [
+          185.0,
+          1291.0
+        ],
+        [
+          2012.0,
+          1291.0
+        ],
+        [
+          2012.0,
+          1348.0
+        ],
+        [
+          185.0,
+          1348.0
+        ]
+      ]
+    },
+    {
+      "id": 16,
+      "label": "table",
+      "content": "<table><tr><td>face</td><td>S.NO</td><td>MEDICATION NAME</td><td>FREQUENCY</td><td>DAYS</td><td>QTY</td><td>INSTRUCTION</td></tr><tr><td rowspan=\"2\">face</td><td>1</td><td>SOLSET INTENSE AQUA SUNSCREEN SPF50 LOTION 60ML MOHRISH (NA)</td><td>1</td><td>30</td><td>----</td><td>----</td></tr><tr><td>1</td><td>SOFTEREN PLUS LOTION BIOAID PHARMA (LYCOPENE WITH MULTIVITAMIN,MULTIMINERALS)</td><td>2 Times A Day</td><td>30</td><td>----</td><td>----</td></tr><tr><td>face</td><td>1</td><td>IRISCOVIT PLUS CAP IRISKA (LYCOPENE METHYCOBALAMIN VITAMIN C VITAMIN E ZINC)</td><td>Twice A Day (1 - 0 - 1)</td><td>21</td><td>42</td><td>----</td></tr><tr><td>face</td><td>0</td><td>DOXYCYCLINE CAPSULE 100MG</td><td>Twice A Day (0 - 0 - 1)</td><td>14</td><td>----</td><td>----</td></tr><tr><td>face</td><td>1</td><td>BILASHINE TAB SUN PHARMA (BILASTINE)</td><td>Once A Day (0 - 0 - 1)</td><td>30</td><td>60</td><td>evening</td></tr><tr><td>face</td><td>1</td><td>AQUASOFT FC CREAM AJANTA (NA)</td><td>Twice Daily</td><td>21</td><td>----</td><td>----</td></tr><tr><td>face</td><td>1</td><td>AHAGLOW ADVANCE FACE WASH 100GM TORRENT (NA)</td><td>----</td><td>----</td><td>----</td><td>----</td></tr><tr><td>face</td><td>1</td><td>TOPISAL 3 OINTMENT SYSTOPIC (Clobetasol + Salicylic Acid)</td><td>Once Daily</td><td>21</td><td>----</td><td>----</td></tr></table>",
+      "bbox": [
+        54.0,
+        1352.0,
+        2189.0,
+        2181.0
+      ],
+      "polygon": [
+        [
+          54.0,
+          1352.0
+        ],
+        [
+          2189.0,
+          1352.0
+        ],
+        [
+          2189.0,
+          2181.0
+        ],
+        [
+          54.0,
+          2181.0
+        ]
+      ]
+    },
+    {
+      "id": 17,
+      "label": "text",
+      "content": "PRINTED BY : EC6256\nPRINTED ON : 07 DEC 2024 10:14",
+      "bbox": [
+        165.0,
+        2232.0,
+        655.0,
+        2330.0
+      ],
+      "polygon": [
+        [
+          165.0,
+          2232.0
+        ],
+        [
+          655.0,
+          2232.0
+        ],
+        [
+          655.0,
+          2330.0
+        ],
+        [
+          165.0,
+          2330.0
+        ]
+      ]
+    },
+    {
+      "id": 18,
+      "label": "text",
+      "content": "DR. SHEETAL YADAV\nCONSULTANT\nMBBS, MD (DERMATOLOGY, VENEROLOGY & LEPROSY)",
+      "bbox": [
+        1425.0,
+        2235.0,
+        2205.0,
+        2388.0
+      ],
+      "polygon": [
+        [
+          1425.0,
+          2235.0
+        ],
+        [
+          2205.0,
+          2235.0
+        ],
+        [
+          2205.0,
+          2388.0
+        ],
+        [
+          1425.0,
+          2388.0
+        ]
+      ]
+    },
+    {
+      "id": 19,
+      "label": "image",
+      "content": "",
+      "bbox": [
+        166.0,
+        2450.0,
+        652.0,
+        2562.0
+      ],
+      "polygon": [
+        [
+          166.0,
+          2450.0
+        ],
+        [
+          652.0,
+          2450.0
+        ],
+        [
+          652.0,
+          2562.0
+        ],
+        [
+          166.0,
+          2562.0
+        ]
+      ]
+    },
+    {
+      "id": 20,
+      "label": "vision_footnote",
+      "content": "FHP29747909122023",
+      "bbox": [
+        276.0,
+        2552.0,
+        541.0,
+        2586.0
+      ],
+      "polygon": [
+        [
+          276.0,
+          2552.0
+        ],
+        [
+          541.0,
+          2552.0
+        ],
+        [
+          541.0,
+          2586.0
+        ],
+        [
+          276.0,
+          2586.0
+        ]
+      ]
+    },
+    {
+      "id": 21,
+      "label": "text",
+      "content": "Up to 15%\nDiscount on Medicines Purchase from Felix Pharmacy\nफ़िलिन्स फामेंसी से द्वाओं की खरीद पर 15% की छूट*",
+      "bbox": [
+        212.0,
+        2860.0,
+        599.0,
+        3005.0
+      ],
+      "polygon": [
+        [
+          212.0,
+          2860.0
+        ],
+        [
+          599.0,
+          2860.0
+        ],
+        [
+          599.0,
+          3005.0
+        ],
+        [
+          212.0,
+          3005.0
+        ]
+      ]
+    },
+    {
+      "id": 22,
+      "label": "text",
+      "content": "",
+      "bbox": [
+        620.0,
+        2861.0,
+        2008.0,
+        3018.0
+      ],
+      "polygon": [
+        [
+          620.0,
+          2861.0
+        ],
+        [
+          2008.0,
+          2861.0
+        ],
+        [
+          2008.0,
+          3018.0
+        ],
+        [
+          620.0,
+          3018.0
+        ]
+      ]
+    },
+    {
+      "id": 23,
+      "label": "text",
+      "content": "•24X7 Emergency • Ambulance • Pharmacy • Lab • Blood Bank",
+      "bbox": [
+        52.0,
+        3081.0,
+        2229.0,
+        3198.0
+      ],
+      "polygon": [
+        [
+          52.0,
+          3081.0
+        ],
+        [
+          2228.0,
+          3081.0
+        ],
+        [
+          2228.0,
+          3181.0
+        ],
+        [
+          52.0,
+          3181.0
+        ]
+      ]
+    },
+    {
+      "id": 24,
+      "label": "footer",
+      "content": "This is not for Medico Legal purpose",
+      "bbox": [
+        801.0,
+        3209.0,
+        1497.0,
+        3273.0
+      ],
+      "polygon": [
+        [
+          801.0,
+          3209.0
+        ],
+        [
+          1497.0,
+          3209.0
+        ],
+        [
+          1497.0,
+          3273.0
+        ],
+        [
+          801.0,
+          3273.0
+        ]
+      ]
+    },
+    {
+      "id": 25,
+      "label": "footer",
+      "content": "http://feliv doctor@com/on/clients/feliv/1/aeementrenort.htm?c2v0SW0QMic?MzV0_Im1vhm5vBVV/H_liA_wMDA_4D_045_1_C_CueoU7t-A17Z",
+      "bbox": [
+        62.0,
+        3247.0,
+        2144.0,
+        3313.0
+      ],
+      "polygon": [
+        [
+          62.0,
+          3247.0
+        ],
+        [
+          62.0,
+          3279.0
+        ],
+        [
+          1017.0,
+          3312.0
+        ],
+        [
+          2074.0,
+          3296.0
+        ],
+        [
+          2063.0,
+          3264.0
+        ],
+        [
+          1259.0,
+          3280.0
+        ],
+        [
+          947.0,
+          3247.0
+        ]
+      ]
+    }
+  ]
+}

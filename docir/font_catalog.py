@@ -73,11 +73,16 @@ FAMILIES: dict[str, FontFamily] = {f.key: f for f in (
          "LiberationMono-Bold.ttf", "LiberationMono-Italic.ttf", "LiberationMono-BoldItalic.ttf"),
     _fam("DejaVuSansMono", "monospace", "dejavu", "DejaVuSansMono.ttf", "DejaVuSansMono-Bold.ttf",
          "DejaVuSansMono-Oblique.ttf", "DejaVuSansMono-BoldOblique.ttf"),
+    # script fallback only: never chosen as a document's typeface
+    _fam("NotoSansDevanagari", "fallback", "noto-devanagari", "NotoSansDevanagari-Regular.ttf",
+         "NotoSansDevanagari-Bold.ttf"),
 )}
 
 DEFAULT_FAMILY = {"sans_serif": "LiberationSans", "serif": "LiberationSerif",
                   "monospace": "LiberationMono"}
 FALLBACK_FAMILY = "DejaVuSans"   # widest glyph coverage, for characters others lack
+# tried in order for characters the chosen face lacks
+FALLBACK_CHAIN = ("DejaVuSans", "NotoSansDevanagari")
 
 
 def families_in(category: str) -> list[FontFamily]:
@@ -132,17 +137,30 @@ def _glyph_set(font_name: str) -> frozenset[int]:
     return frozenset(pdfmetrics.getFont(font_name).face.charToGlyph.keys())
 
 
-def split_by_coverage(text: str, primary: Face, fallback: Face) -> list[tuple[str, Face]]:
-    """Runs of `text`, each drawn with `primary` unless it lacks a glyph."""
-    have, spare = _glyph_set(primary.name), _glyph_set(fallback.name)
+def split_by_coverage(text: str, primary: Face, fallbacks: list[Face] | Face) -> list[tuple[str, Face]]:
+    """Runs of `text`, each drawn with `primary` unless it lacks a glyph, in
+    which case the first fallback that has it; characters no font can draw
+    (usually OCR noise) are dropped rather than rendered as boxes."""
+    chain = [primary, *(fallbacks if isinstance(fallbacks, list) else [fallbacks])]
+    sets = [_glyph_set(f.name) for f in chain]
     runs: list[tuple[str, Face]] = []
     for ch in text:
-        use = primary if ord(ch) in have or ord(ch) not in spare or ch.isspace() else fallback
+        if ch.isspace():
+            use = primary
+        else:
+            use = next((f for f, have in zip(chain, sets) if ord(ch) in have), None)
+            if use is None:
+                continue
         if runs and runs[-1][1] is use:
             runs[-1] = (runs[-1][0] + ch, use)
         else:
             runs.append((ch, use))
     return runs
+
+
+def fallback_faces(bold: bool = False, italic: bool = False) -> list[Face]:
+    return [face(key, bold, italic) for key in FALLBACK_CHAIN
+            if available(FAMILIES[key])]
 
 
 def string_width(text: str, font_name: str, size: float) -> float:

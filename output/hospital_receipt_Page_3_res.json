@@ -1,0 +1,886 @@
+{
+  "input_path": "hospital_receipt_Page_3.jpg",
+  "page_index": null,
+  "page_count": null,
+  "width": 2485,
+  "height": 1777,
+  "model_settings": {
+    "use_doc_preprocessor": false,
+    "use_layout_detection": true,
+    "use_chart_recognition": false,
+    "use_seal_recognition": false,
+    "use_ocr_for_image_block": false,
+    "format_block_content": false,
+    "merge_layout_blocks": true,
+    "markdown_ignore_labels": [
+      "number",
+      "footnote",
+      "header",
+      "header_image",
+      "footer",
+      "footer_image",
+      "aside_text"
+    ],
+    "return_layout_polygon_points": true
+  },
+  "parsing_res_list": [
+    {
+      "block_label": "image",
+      "block_content": "",
+      "block_bbox": [
+        29,
+        55,
+        288,
+        191
+      ],
+      "block_id": 0,
+      "block_order": null,
+      "group_id": 0,
+      "block_polygon_points": [
+        [
+          29.0,
+          55.0
+        ],
+        [
+          288.0,
+          55.0
+        ],
+        [
+          288.0,
+          191.0
+        ],
+        [
+          29.0,
+          191.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "NH-1, EXPRESSWAY, SECTOR 137, NOIDA, 201305",
+      "block_bbox": [
+        501,
+        72,
+        1104,
+        108
+      ],
+      "block_id": 1,
+      "block_order": 1,
+      "group_id": 1,
+      "block_polygon_points": [
+        [
+          501.0,
+          72.0
+        ],
+        [
+          1104.0,
+          72.0
+        ],
+        [
+          1104.0,
+          108.0
+        ],
+        [
+          501.0,
+          108.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "lix Hospitals\n24/7 AVAILABILITY WITH FREE HOME DELIVERY ORDER NOW-",
+      "block_bbox": [
+        25,
+        145,
+        286,
+        188
+      ],
+      "block_id": 2,
+      "block_order": 2,
+      "group_id": 2,
+      "block_polygon_points": [
+        [
+          25.0,
+          145.0
+        ],
+        [
+          286.0,
+          145.0
+        ],
+        [
+          286.0,
+          188.0
+        ],
+        [
+          25.0,
+          188.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "",
+      "block_bbox": [
+        418,
+        112,
+        1191,
+        148
+      ],
+      "block_id": 3,
+      "block_order": 3,
+      "group_id": 2,
+      "block_polygon_points": [
+        [
+          418.0,
+          112.0
+        ],
+        [
+          1191.0,
+          112.0
+        ],
+        [
+          1191.0,
+          148.0
+        ],
+        [
+          418.0,
+          148.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "7835999111",
+      "block_bbox": [
+        720,
+        155,
+        889,
+        188
+      ],
+      "block_id": 4,
+      "block_order": 4,
+      "group_id": 4,
+      "block_polygon_points": [
+        [
+          720.0,
+          155.0
+        ],
+        [
+          889.0,
+          155.0
+        ],
+        [
+          889.0,
+          188.0
+        ],
+        [
+          720.0,
+          188.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Pat Name : Mr. PIYUSH KUMAR",
+      "block_bbox": [
+        1310,
+        74,
+        1762,
+        112
+      ],
+      "block_id": 5,
+      "block_order": 5,
+      "group_id": 5,
+      "block_polygon_points": [
+        [
+          1310.0,
+          74.0
+        ],
+        [
+          1762.0,
+          74.0
+        ],
+        [
+          1762.0,
+          112.0
+        ],
+        [
+          1310.0,
+          112.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "UMR# : FHP29747909122023\nPatient Category : GENERAL",
+      "block_bbox": [
+        1312,
+        116,
+        1781,
+        153
+      ],
+      "block_id": 6,
+      "block_order": 6,
+      "group_id": 6,
+      "block_polygon_points": [
+        [
+          1312.0,
+          116.0
+        ],
+        [
+          1781.0,
+          116.0
+        ],
+        [
+          1781.0,
+          153.0
+        ],
+        [
+          1312.0,
+          153.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "",
+      "block_bbox": [
+        1845,
+        76,
+        2267,
+        113
+      ],
+      "block_id": 7,
+      "block_order": 7,
+      "group_id": 6,
+      "block_polygon_points": [
+        [
+          1845.0,
+          76.0
+        ],
+        [
+          2267.0,
+          76.0
+        ],
+        [
+          2267.0,
+          113.0
+        ],
+        [
+          1845.0,
+          113.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Dr. Name : Dr. SHEETAL YADAV Mobile : 9661257878",
+      "block_bbox": [
+        1312,
+        158,
+        1771,
+        195
+      ],
+      "block_id": 8,
+      "block_order": 8,
+      "group_id": 8,
+      "block_polygon_points": [
+        [
+          1312.0,
+          158.0
+        ],
+        [
+          1771.0,
+          158.0
+        ],
+        [
+          1771.0,
+          195.0
+        ],
+        [
+          1312.0,
+          195.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "",
+      "block_bbox": [
+        1844,
+        117,
+        2307,
+        154
+      ],
+      "block_id": 9,
+      "block_order": 9,
+      "group_id": 8,
+      "block_polygon_points": [
+        [
+          1844.0,
+          117.0
+        ],
+        [
+          2307.0,
+          117.0
+        ],
+        [
+          2307.0,
+          154.0
+        ],
+        [
+          1844.0,
+          154.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Address : SEC 137 NOIDA",
+      "block_bbox": [
+        1843,
+        158,
+        2343,
+        196
+      ],
+      "block_id": 10,
+      "block_order": 10,
+      "group_id": 10,
+      "block_polygon_points": [
+        [
+          1843.0,
+          158.0
+        ],
+        [
+          2343.0,
+          158.0
+        ],
+        [
+          2343.0,
+          196.0
+        ],
+        [
+          1843.0,
+          196.0
+        ]
+      ]
+    },
+    {
+      "block_label": "table",
+      "block_content": "<table><tr><td>No</td><td>Item Name</td><td>HSN Code</td><td>Manf</td><td>Sh</td><td>Batch#</td><td>Exp Dt</td><td>Qty</td><td>Rate</td><td>Amount</td><td>Disc</td><td>%</td><td colspan=\"2\">CGST</td><td>SGST</td><td>Bill Am</td></tr><tr><td></td><td>IRISCOVIT PLUS CAP IRISKA</td><td>3004</td><td>IRISK</td><td></td><td>AMS071734</td><td>Jan-26</td><td>30.00</td><td>38.90</td><td>1,167.00</td><td>128.37</td><td>9</td><td>79.22</td><td>9</td><td>79.22</td><td>1,038.6</td></tr><tr><td>:</td><td>DOXY 1 LDR FORTE CAP</td><td>3004</td><td>USV</td><td></td><td>DXLF24070</td><td>Aug-26</td><td>28.00</td><td>11.50</td><td>322.00</td><td>35.42</td><td>6</td><td>15.35</td><td>6</td><td>15.35</td><td>286.5</td></tr><tr><td>:</td><td>BILAST 20MG TAB MICRO</td><td>3004</td><td>NO MA</td><td>N</td><td>BLAS031</td><td>Mar-26</td><td>50.00</td><td>14.30</td><td>715.00</td><td>78.65</td><td>6</td><td>34.09</td><td>6</td><td>34.09</td><td>636.3</td></tr><tr><td colspan=\"16\">elved Sum of One Thousand Nine Hundred Sixty Two Rupees Only Towards Above Bill</td></tr><tr><td colspan=\"16\"></td></tr><tr><td colspan=\"15\">Total Sale Value :</td><td>2,204.0</td></tr><tr><td colspan=\"15\">Concession :</td><td>242.4</td></tr><tr><td colspan=\"15\">Roundoff Amount :</td><td>0.4</td></tr><tr><td colspan=\"15\">Net Amount :</td><td>1,962.0</td></tr><tr><td colspan=\"15\">Receipt Amount :</td><td>1,962.0</td></tr><tr><td>Mode</td><td>Amount</td><td>Card#</td><td>Bank Name</td><td>Exp Dt</td><td colspan=\"11\"></td></tr><tr><td>t Card</td><td>1,962.00</td><td>5678568</td><td>ICICI Bank</td><td>Dec-24</td><td colspan=\"11\"></td></tr><tr><td colspan=\"4\">#: 09AABCF8206H3ZM</td><td colspan=\"5\">D.L#: UP16200000219</td><td colspan=\"7\">CIN#: U85100UP2020PTC139919</td></tr><tr><td colspan=\"16\">Intrusions : 1. Check Medicines: Verify all medicines before leaving; no claims will be accepted after exit.\n2. Returns Policy: Returns with the original bill are accepted only on Wednesdays and Thursdays between 12 PM and 3 PM, within 28 days of purchase. No returns are allowed for insulins, vaccines, temperature-sensitive items, expired or damaged goods, or cut strips. Ensure you get your bill before leaving.\n3. No Cash Refunds: Exchanges only\n4. Non-Returnable Items: Items are non-returnable except in cases of errors or defects. Tampered or expired items are not returnable.\n5. Free Home Delivery: Free delivery within 5 km for orders over Rs.300. Additional charges may apply for smaller orders or deliveries outside this radius. Emergency deliveries within the district are available.\n6. Data Privacy: Customer data is confidential and used only for pharmacy operations.</td></tr><tr><td colspan=\"15\">ate By : EC4552</td><td>Create Dt : 07-Dec-2024 10:29 AM</td></tr><tr><td colspan=\"15\">it By : ANIL SHARMA SHARMA</td><td>Print Dt : 07-Dec-2024 10:31 AM</td></tr><tr><td colspan=\"16\">Pharmacist</td></tr></table>",
+      "block_bbox": [
+        20,
+        207,
+        2433,
+        1268
+      ],
+      "block_id": 11,
+      "block_order": null,
+      "group_id": 11,
+      "block_polygon_points": [
+        [
+          20.0,
+          207.0
+        ],
+        [
+          2433.0,
+          207.0
+        ],
+        [
+          2433.0,
+          1268.0
+        ],
+        [
+          20.0,
+          1268.0
+        ]
+      ]
+    }
+  ],
+  "layout_det_res": {
+    "input_path": null,
+    "page_index": null,
+    "boxes": [
+      {
+        "cls_id": 14,
+        "label": "image",
+        "score": 0.5906698107719421,
+        "coordinate": [
+          29,
+          55,
+          288,
+          191
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            29.0,
+            55.0
+          ],
+          [
+            288.0,
+            55.0
+          ],
+          [
+            288.0,
+            191.0
+          ],
+          [
+            29.0,
+            191.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.5502904057502747,
+        "coordinate": [
+          501,
+          72,
+          1104,
+          108
+        ],
+        "order": 1,
+        "polygon_points": [
+          [
+            501.0,
+            72.0
+          ],
+          [
+            1104.0,
+            72.0
+          ],
+          [
+            1104.0,
+            108.0
+          ],
+          [
+            501.0,
+            108.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.3156270384788513,
+        "coordinate": [
+          25,
+          145,
+          286,
+          188
+        ],
+        "order": 2,
+        "polygon_points": [
+          [
+            25.0,
+            145.0
+          ],
+          [
+            286.0,
+            145.0
+          ],
+          [
+            286.0,
+            188.0
+          ],
+          [
+            25.0,
+            188.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.5794724822044373,
+        "coordinate": [
+          418,
+          112,
+          1191,
+          148
+        ],
+        "order": 3,
+        "polygon_points": [
+          [
+            418.0,
+            112.0
+          ],
+          [
+            1191.0,
+            112.0
+          ],
+          [
+            1191.0,
+            148.0
+          ],
+          [
+            418.0,
+            148.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.3531475067138672,
+        "coordinate": [
+          720,
+          155,
+          889,
+          188
+        ],
+        "order": 4,
+        "polygon_points": [
+          [
+            720.0,
+            155.0
+          ],
+          [
+            889.0,
+            155.0
+          ],
+          [
+            889.0,
+            188.0
+          ],
+          [
+            720.0,
+            188.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.7059088945388794,
+        "coordinate": [
+          1310,
+          74,
+          1762,
+          112
+        ],
+        "order": 5,
+        "polygon_points": [
+          [
+            1310.0,
+            74.0
+          ],
+          [
+            1762.0,
+            74.0
+          ],
+          [
+            1762.0,
+            112.0
+          ],
+          [
+            1310.0,
+            112.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.7349748015403748,
+        "coordinate": [
+          1312,
+          116,
+          1781,
+          153
+        ],
+        "order": 6,
+        "polygon_points": [
+          [
+            1312.0,
+            116.0
+          ],
+          [
+            1781.0,
+            116.0
+          ],
+          [
+            1781.0,
+            153.0
+          ],
+          [
+            1312.0,
+            153.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.7637367248535156,
+        "coordinate": [
+          1845,
+          76,
+          2267,
+          113
+        ],
+        "order": 7,
+        "polygon_points": [
+          [
+            1845.0,
+            76.0
+          ],
+          [
+            2267.0,
+            76.0
+          ],
+          [
+            2267.0,
+            113.0
+          ],
+          [
+            1845.0,
+            113.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.7262099385261536,
+        "coordinate": [
+          1312,
+          158,
+          1771,
+          195
+        ],
+        "order": 8,
+        "polygon_points": [
+          [
+            1312.0,
+            158.0
+          ],
+          [
+            1771.0,
+            158.0
+          ],
+          [
+            1771.0,
+            195.0
+          ],
+          [
+            1312.0,
+            195.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.7671385407447815,
+        "coordinate": [
+          1844,
+          117,
+          2307,
+          154
+        ],
+        "order": 9,
+        "polygon_points": [
+          [
+            1844.0,
+            117.0
+          ],
+          [
+            2307.0,
+            117.0
+          ],
+          [
+            2307.0,
+            154.0
+          ],
+          [
+            1844.0,
+            154.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.76277756690979,
+        "coordinate": [
+          1843,
+          158,
+          2343,
+          196
+        ],
+        "order": 10,
+        "polygon_points": [
+          [
+            1843.0,
+            158.0
+          ],
+          [
+            2343.0,
+            158.0
+          ],
+          [
+            2343.0,
+            196.0
+          ],
+          [
+            1843.0,
+            196.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 21,
+        "label": "table",
+        "score": 0.7657538056373596,
+        "coordinate": [
+          20,
+          207,
+          2433,
+          1268
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            20.0,
+            207.0
+          ],
+          [
+            2433.0,
+            207.0
+          ],
+          [
+            2433.0,
+            1268.0
+          ],
+          [
+            20.0,
+            1268.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.3347507119178772,
+        "coordinate": [
+          44,
+          1092,
+          417,
+          1128
+        ],
+        "order": 11,
+        "polygon_points": [
+          [
+            44.0,
+            1092.0
+          ],
+          [
+            417.0,
+            1092.0
+          ],
+          [
+            417.0,
+            1128.0
+          ],
+          [
+            44.0,
+            1128.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.5248274207115173,
+        "coordinate": [
+          1997,
+          1041,
+          2426,
+          1075
+        ],
+        "order": 12,
+        "polygon_points": [
+          [
+            1997.0,
+            1041.0
+          ],
+          [
+            2426.0,
+            1041.0
+          ],
+          [
+            2426.0,
+            1075.0
+          ],
+          [
+            1997.0,
+            1075.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.5672264695167542,
+        "coordinate": [
+          2016,
+          1086,
+          2425,
+          1124
+        ],
+        "order": 13,
+        "polygon_points": [
+          [
+            2016.0,
+            1086.0
+          ],
+          [
+            2425.0,
+            1086.0
+          ],
+          [
+            2425.0,
+            1124.0
+          ],
+          [
+            2016.0,
+            1124.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.4350315034389496,
+        "coordinate": [
+          2096,
+          1216,
+          2257,
+          1248
+        ],
+        "order": 14,
+        "polygon_points": [
+          [
+            2096.0,
+            1216.0
+          ],
+          [
+            2257.0,
+            1216.0
+          ],
+          [
+            2257.0,
+            1248.0
+          ],
+          [
+            2096.0,
+            1248.0
+          ]
+        ]
+      }
+    ]
+  }
+}

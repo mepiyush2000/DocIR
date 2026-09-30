@@ -1,0 +1,559 @@
+{
+  "schema_version": "1.0",
+  "input_path": "pk_rental_Page_2.jpg",
+  "width": 1949.0,
+  "height": 2947.0,
+  "blocks": [
+    {
+      "id": 0,
+      "label": "doc_title",
+      "content": "RENT AGREEMENT",
+      "bbox": [
+        808.0,
+        237.0,
+        1187.0,
+        292.0
+      ],
+      "polygon": [
+        [
+          808.0,
+          237.0
+        ],
+        [
+          1187.0,
+          237.0
+        ],
+        [
+          1187.0,
+          292.0
+        ],
+        [
+          808.0,
+          292.0
+        ]
+      ]
+    },
+    {
+      "id": 1,
+      "label": "text",
+      "content": "This Rent Agreement is made at Noida on this day of 04/08/2024.",
+      "bbox": [
+        429.0,
+        341.0,
+        1504.0,
+        396.0
+      ],
+      "polygon": [
+        [
+          429.0,
+          341.0
+        ],
+        [
+          1504.0,
+          341.0
+        ],
+        [
+          1504.0,
+          396.0
+        ],
+        [
+          429.0,
+          396.0
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "label": "text",
+      "content": "Between",
+      "bbox": [
+        903.0,
+        405.0,
+        1060.0,
+        452.0
+      ],
+      "polygon": [
+        [
+          903.0,
+          405.0
+        ],
+        [
+          1060.0,
+          405.0
+        ],
+        [
+          1060.0,
+          452.0
+        ],
+        [
+          903.0,
+          452.0
+        ]
+      ]
+    },
+    {
+      "id": 3,
+      "label": "text",
+      "content": "MR. MUKESH VERMA S/O MR. LAKSHMI KANTA VERMA R/o F-1102, ECO CITI SUPERTECH, SECTOR-137, NOIDA, GAUTAM BUDDHA NAGAR, UTTAR PRADESH - 201301. hereinafter called the First Party / Lessor / Owner which expression shall mean and include her legal heirs, successors, legal executors, representatives, administrators, nominees and assign.",
+      "bbox": [
+        303.0,
+        465.0,
+        1702.0,
+        702.0
+      ],
+      "polygon": [
+        [
+          303.0,
+          465.0
+        ],
+        [
+          1702.0,
+          465.0
+        ],
+        [
+          1702.0,
+          702.0
+        ],
+        [
+          303.0,
+          702.0
+        ]
+      ]
+    },
+    {
+      "id": 4,
+      "label": "paragraph_title",
+      "content": "And",
+      "bbox": [
+        960.0,
+        711.0,
+        1035.0,
+        751.0
+      ],
+      "polygon": [
+        [
+          960.0,
+          711.0
+        ],
+        [
+          1035.0,
+          711.0
+        ],
+        [
+          1035.0,
+          751.0
+        ],
+        [
+          960.0,
+          751.0
+        ]
+      ]
+    },
+    {
+      "id": 5,
+      "label": "text",
+      "content": "MR. PIYUSH KUMAR S/o MR. PREM KUMAR R/o AUWAL MUHALLA NEAR GOD FREY PUBLIC SCHOOL CHATRA, CHATRA, CHATRA, JHARKHAND - 825401.",
+      "bbox": [
+        299.0,
+        758.0,
+        1701.0,
+        892.0
+      ],
+      "polygon": [
+        [
+          299.0,
+          758.0
+        ],
+        [
+          1701.0,
+          758.0
+        ],
+        [
+          1701.0,
+          892.0
+        ],
+        [
+          299.0,
+          892.0
+        ]
+      ]
+    },
+    {
+      "id": 6,
+      "label": "paragraph_title",
+      "content": "&",
+      "bbox": [
+        973.0,
+        905.0,
+        1012.0,
+        940.0
+      ],
+      "polygon": [
+        [
+          973.0,
+          905.0
+        ],
+        [
+          1011.0,
+          905.0
+        ],
+        [
+          1011.0,
+          939.0
+        ],
+        [
+          973.0,
+          939.0
+        ]
+      ]
+    },
+    {
+      "id": 7,
+      "label": "text",
+      "content": "MR. ABHISHEK YADAV S/o MR. BIRENDER SINGH R/o 1405, SECTOR-4, VTC: REWARI, PO: REWARI, DISTRICT: REWARI STATE: HARYANA PIN CODE: 123401. (Hereinafter called the second party / tenant / Lessee which expression shall mean and include his / her legal heirs, successors, legal representatives, executors, administrators, nominees and assign.)",
+      "bbox": [
+        287.0,
+        948.0,
+        1704.0,
+        1176.0
+      ],
+      "polygon": [
+        [
+          287.0,
+          948.0
+        ],
+        [
+          1704.0,
+          948.0
+        ],
+        [
+          1704.0,
+          1176.0
+        ],
+        [
+          287.0,
+          1176.0
+        ]
+      ]
+    },
+    {
+      "id": 8,
+      "label": "text",
+      "content": "Whereas the first party is the absolute owner and in physical possession of the FLAT No. 1102, TOWER-F, SUPERTECH ECOCITI, SEC-137, NOIDA U.P., (PARKING SLOT No. 1132), (hereinafter called the \"Said Premise\" OR \"Premise\").",
+      "bbox": [
+        178.0,
+        1218.0,
+        1668.0,
+        1363.0
+      ],
+      "polygon": [
+        [
+          178.0,
+          1218.0
+        ],
+        [
+          1668.0,
+          1218.0
+        ],
+        [
+          1668.0,
+          1363.0
+        ],
+        [
+          178.0,
+          1363.0
+        ]
+      ]
+    },
+    {
+      "id": 9,
+      "label": "text",
+      "content": "AND WHEREAS the second party has approached the first party to let out the said premises for residential use on rent and the first party has agreed to let out the same for residential use on rent on the following agreed terms and conditions:",
+      "bbox": [
+        282.0,
+        1401.0,
+        1684.0,
+        1544.0
+      ],
+      "polygon": [
+        [
+          282.0,
+          1401.0
+        ],
+        [
+          1684.0,
+          1401.0
+        ],
+        [
+          1684.0,
+          1544.0
+        ],
+        [
+          282.0,
+          1544.0
+        ]
+      ]
+    },
+    {
+      "id": 10,
+      "label": "text",
+      "content": "NOW THIS RENT AGREEMENT WITNESSETH AS UNDER:",
+      "bbox": [
+        286.0,
+        1583.0,
+        1258.0,
+        1633.0
+      ],
+      "polygon": [
+        [
+          286.0,
+          1583.0
+        ],
+        [
+          1258.0,
+          1583.0
+        ],
+        [
+          1258.0,
+          1633.0
+        ],
+        [
+          286.0,
+          1633.0
+        ]
+      ]
+    },
+    {
+      "id": 11,
+      "label": "text",
+      "content": "1. That the tenancy of the said premises will be for a period of 11 (Eleven) Month beginning from 04-08-2024 To 03-07-2025.",
+      "bbox": [
+        292.0,
+        1674.0,
+        1693.0,
+        1767.0
+      ],
+      "polygon": [
+        [
+          292.0,
+          1674.0
+        ],
+        [
+          1693.0,
+          1674.0
+        ],
+        [
+          1693.0,
+          1767.0
+        ],
+        [
+          292.0,
+          1767.0
+        ]
+      ]
+    },
+    {
+      "id": 12,
+      "label": "text",
+      "content": "2. The tenant shall pay Rs 8,300/- (Rupees EIGHT THOUSAND THREE HUNDRED Only) to the owner, free of interest, which shall be refunded to the tenant within 30 days of the expiry of the Term after deducting arrears on rent, electricity, Gas, utility payments, maintenance, repair, water bills, etc, if any. The security deposit cannot be adjusted against the Rent in any case.",
+      "bbox": [
+        288.0,
+        1773.0,
+        1695.0,
+        1999.0
+      ],
+      "polygon": [
+        [
+          288.0,
+          1773.0
+        ],
+        [
+          1695.0,
+          1773.0
+        ],
+        [
+          1695.0,
+          1999.0
+        ],
+        [
+          288.0,
+          1999.0
+        ]
+      ]
+    },
+    {
+      "id": 13,
+      "label": "text",
+      "content": "3. That the monthly rent of Rs 8,300/- (Rupees EIGHT THOUSAND THREE HUNDRED Only) Excluding maintenance charges shall be paid every month in advance by the Lessee to the Lessor on or before the 15th day of each English Calendar month.",
+      "bbox": [
+        291.0,
+        2004.0,
+        1690.0,
+        2187.0
+      ],
+      "polygon": [
+        [
+          291.0,
+          2004.0
+        ],
+        [
+          1690.0,
+          2004.0
+        ],
+        [
+          1690.0,
+          2187.0
+        ],
+        [
+          291.0,
+          2187.0
+        ]
+      ]
+    },
+    {
+      "id": 14,
+      "label": "text",
+      "content": "4. The rent can also be paid through Electronic Fund Transfer to the Bank Account of the First party, whose details will be shared separately.",
+      "bbox": [
+        292.0,
+        2192.0,
+        1687.0,
+        2289.0
+      ],
+      "polygon": [
+        [
+          292.0,
+          2192.0
+        ],
+        [
+          1687.0,
+          2192.0
+        ],
+        [
+          1687.0,
+          2289.0
+        ],
+        [
+          292.0,
+          2289.0
+        ]
+      ]
+    },
+    {
+      "id": 15,
+      "label": "text",
+      "content": "5. After receiving Vacant possession of the premises, the Owner will refund the Security Deposit to the Tenant within 30 days of receiving the vacant premises, after deducting any charges towards dues, damages and repair.",
+      "bbox": [
+        293.0,
+        2291.0,
+        1690.0,
+        2432.0
+      ],
+      "polygon": [
+        [
+          293.0,
+          2291.0
+        ],
+        [
+          1690.0,
+          2291.0
+        ],
+        [
+          1690.0,
+          2432.0
+        ],
+        [
+          293.0,
+          2432.0
+        ]
+      ]
+    },
+    {
+      "id": 16,
+      "label": "image",
+      "content": "",
+      "bbox": [
+        207.0,
+        2551.0,
+        496.0,
+        2719.0
+      ],
+      "polygon": [
+        [
+          200.0529327392578,
+          2566.2294921875
+        ],
+        [
+          494.55511474609375,
+          2544.86669921875
+        ],
+        [
+          505.79437255859375,
+          2699.80810546875
+        ],
+        [
+          211.29217529296875,
+          2721.1708984375
+        ]
+      ]
+    },
+    {
+      "id": 17,
+      "label": "seal",
+      "content": "",
+      "bbox": [
+        742.0,
+        2409.0,
+        1121.0,
+        2777.0
+      ],
+      "polygon": [
+        [
+          742.0,
+          2409.0
+        ],
+        [
+          1121.0,
+          2409.0
+        ],
+        [
+          1121.0,
+          2777.0
+        ],
+        [
+          742.0,
+          2777.0
+        ]
+      ]
+    },
+    {
+      "id": 18,
+      "label": "text",
+      "content": "Piyush Kumar\nTenant..... Abhishek",
+      "bbox": [
+        1463.0,
+        2472.0,
+        1866.0,
+        2725.0
+      ],
+      "polygon": [
+        [
+          1463.0,
+          2472.0
+        ],
+        [
+          1866.0,
+          2472.0
+        ],
+        [
+          1866.0,
+          2725.0
+        ],
+        [
+          1463.0,
+          2725.0
+        ]
+      ]
+    }
+  ]
+}

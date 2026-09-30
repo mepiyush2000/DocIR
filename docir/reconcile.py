@@ -19,9 +19,9 @@ from dataclasses import dataclass, field
 
 import numpy as np
 
+from .labels import PICTURE_LABELS as IMAGE_LABELS
 from .schemas import Block, PageLayout, PageLines, TextLine
 
-IMAGE_LABELS = {"image", "figure", "chart", "seal"}
 MIN_CLAIM_FRAC = 0.5             # of a line's area inside a block to belong to it
 SPLIT_MIN_FRAC = 0.25            # of a line's width a second block must cover to split it
 SPLIT_SMALL_BLOCK_FRAC = 0.6     # ... or this much of the (small) block itself

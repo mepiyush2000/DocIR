@@ -45,6 +45,13 @@ for fam in NotoSans NotoSerif; do
 done
 fetch https://raw.githubusercontent.com/notofonts/latin-greek-cyrillic/main/OFL.txt "$DEST/noto/OFL.txt"
 
+# Noto Sans Devanagari -- script fallback for Hindi text (SIL OFL 1.1)
+mkdir -p "$DEST/noto-devanagari"
+for s in Regular Bold; do
+  fetch "$NOTO/NotoSansDevanagari/hinted/ttf/NotoSansDevanagari-$s.ttf" "$DEST/noto-devanagari/NotoSansDevanagari-$s.ttf"
+done
+fetch https://raw.githubusercontent.com/notofonts/devanagari/main/OFL.txt "$DEST/noto-devanagari/OFL.txt"
+
 # PT Sans Narrow -- condensed humanist sans (SIL OFL 1.1)
 GF=https://github.com/google/fonts/raw/main/ofl/ptsansnarrow
 mkdir -p "$DEST/pt-sans-narrow"

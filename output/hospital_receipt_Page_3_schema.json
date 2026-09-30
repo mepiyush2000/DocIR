@@ -1,0 +1,356 @@
+{
+  "schema_version": "1.0",
+  "input_path": "hospital_receipt_Page_3.jpg",
+  "width": 2485.0,
+  "height": 1777.0,
+  "blocks": [
+    {
+      "id": 0,
+      "label": "image",
+      "content": "",
+      "bbox": [
+        29.0,
+        55.0,
+        288.0,
+        191.0
+      ],
+      "polygon": [
+        [
+          29.0,
+          55.0
+        ],
+        [
+          288.0,
+          55.0
+        ],
+        [
+          288.0,
+          191.0
+        ],
+        [
+          29.0,
+          191.0
+        ]
+      ]
+    },
+    {
+      "id": 1,
+      "label": "text",
+      "content": "NH-1, EXPRESSWAY, SECTOR 137, NOIDA, 201305",
+      "bbox": [
+        501.0,
+        72.0,
+        1104.0,
+        108.0
+      ],
+      "polygon": [
+        [
+          501.0,
+          72.0
+        ],
+        [
+          1104.0,
+          72.0
+        ],
+        [
+          1104.0,
+          108.0
+        ],
+        [
+          501.0,
+          108.0
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "label": "text",
+      "content": "lix Hospitals\n24/7 AVAILABILITY WITH FREE HOME DELIVERY ORDER NOW-",
+      "bbox": [
+        25.0,
+        145.0,
+        286.0,
+        188.0
+      ],
+      "polygon": [
+        [
+          25.0,
+          145.0
+        ],
+        [
+          286.0,
+          145.0
+        ],
+        [
+          286.0,
+          188.0
+        ],
+        [
+          25.0,
+          188.0
+        ]
+      ]
+    },
+    {
+      "id": 3,
+      "label": "text",
+      "content": "",
+      "bbox": [
+        418.0,
+        112.0,
+        1191.0,
+        148.0
+      ],
+      "polygon": [
+        [
+          418.0,
+          112.0
+        ],
+        [
+          1191.0,
+          112.0
+        ],
+        [
+          1191.0,
+          148.0
+        ],
+        [
+          418.0,
+          148.0
+        ]
+      ]
+    },
+    {
+      "id": 4,
+      "label": "text",
+      "content": "7835999111",
+      "bbox": [
+        720.0,
+        155.0,
+        889.0,
+        188.0
+      ],
+      "polygon": [
+        [
+          720.0,
+          155.0
+        ],
+        [
+          889.0,
+          155.0
+        ],
+        [
+          889.0,
+          188.0
+        ],
+        [
+          720.0,
+          188.0
+        ]
+      ]
+    },
+    {
+      "id": 5,
+      "label": "text",
+      "content": "Pat Name : Mr. PIYUSH KUMAR",
+      "bbox": [
+        1310.0,
+        74.0,
+        1762.0,
+        112.0
+      ],
+      "polygon": [
+        [
+          1310.0,
+          74.0
+        ],
+        [
+          1762.0,
+          74.0
+        ],
+        [
+          1762.0,
+          112.0
+        ],
+        [
+          1310.0,
+          112.0
+        ]
+      ]
+    },
+    {
+      "id": 6,
+      "label": "text",
+      "content": "UMR# : FHP29747909122023\nPatient Category : GENERAL",
+      "bbox": [
+        1312.0,
+        116.0,
+        1781.0,
+        153.0
+      ],
+      "polygon": [
+        [
+          1312.0,
+          116.0
+        ],
+        [
+          1781.0,
+          116.0
+        ],
+        [
+          1781.0,
+          153.0
+        ],
+        [
+          1312.0,
+          153.0
+        ]
+      ]
+    },
+    {
+      "id": 7,
+      "label": "text",
+      "content": "",
+      "bbox": [
+        1845.0,
+        76.0,
+        2267.0,
+        113.0
+      ],
+      "polygon": [
+        [
+          1845.0,
+          76.0
+        ],
+        [
+          2267.0,
+          76.0
+        ],
+        [
+          2267.0,
+          113.0
+        ],
+        [
+          1845.0,
+          113.0
+        ]
+      ]
+    },
+    {
+      "id": 8,
+      "label": "text",
+      "content": "Dr. Name : Dr. SHEETAL YADAV Mobile : 9661257878",
+      "bbox": [
+        1312.0,
+        158.0,
+        1771.0,
+        195.0
+      ],
+      "polygon": [
+        [
+          1312.0,
+          158.0
+        ],
+        [
+          1771.0,
+          158.0
+        ],
+        [
+          1771.0,
+          195.0
+        ],
+        [
+          1312.0,
+          195.0
+        ]
+      ]
+    },
+    {
+      "id": 9,
+      "label": "text",
+      "content": "",
+      "bbox": [
+        1844.0,
+        117.0,
+        2307.0,
+        154.0
+      ],
+      "polygon": [
+        [
+          1844.0,
+          117.0
+        ],
+        [
+          2307.0,
+          117.0
+        ],
+        [
+          2307.0,
+          154.0
+        ],
+        [
+          1844.0,
+          154.0
+        ]
+      ]
+    },
+    {
+      "id": 10,
+      "label": "text",
+      "content": "Address : SEC 137 NOIDA",
+      "bbox": [
+        1843.0,
+        158.0,
+        2343.0,
+        196.0
+      ],
+      "polygon": [
+        [
+          1843.0,
+          158.0
+        ],
+        [
+          2343.0,
+          158.0
+        ],
+        [
+          2343.0,
+          196.0
+        ],
+        [
+          1843.0,
+          196.0
+        ]
+      ]
+    },
+    {
+      "id": 11,
+      "label": "table",
+      "content": "<table><tr><td>No</td><td>Item Name</td><td>HSN Code</td><td>Manf</td><td>Sh</td><td>Batch#</td><td>Exp Dt</td><td>Qty</td><td>Rate</td><td>Amount</td><td>Disc</td><td>%</td><td colspan=\"2\">CGST</td><td>SGST</td><td>Bill Am</td></tr><tr><td></td><td>IRISCOVIT PLUS CAP IRISKA</td><td>3004</td><td>IRISK</td><td></td><td>AMS071734</td><td>Jan-26</td><td>30.00</td><td>38.90</td><td>1,167.00</td><td>128.37</td><td>9</td><td>79.22</td><td>9</td><td>79.22</td><td>1,038.6</td></tr><tr><td>:</td><td>DOXY 1 LDR FORTE CAP</td><td>3004</td><td>USV</td><td></td><td>DXLF24070</td><td>Aug-26</td><td>28.00</td><td>11.50</td><td>322.00</td><td>35.42</td><td>6</td><td>15.35</td><td>6</td><td>15.35</td><td>286.5</td></tr><tr><td>:</td><td>BILAST 20MG TAB MICRO</td><td>3004</td><td>NO MA</td><td>N</td><td>BLAS031</td><td>Mar-26</td><td>50.00</td><td>14.30</td><td>715.00</td><td>78.65</td><td>6</td><td>34.09</td><td>6</td><td>34.09</td><td>636.3</td></tr><tr><td colspan=\"16\">elved Sum of One Thousand Nine Hundred Sixty Two Rupees Only Towards Above Bill</td></tr><tr><td colspan=\"16\"></td></tr><tr><td colspan=\"15\">Total Sale Value :</td><td>2,204.0</td></tr><tr><td colspan=\"15\">Concession :</td><td>242.4</td></tr><tr><td colspan=\"15\">Roundoff Amount :</td><td>0.4</td></tr><tr><td colspan=\"15\">Net Amount :</td><td>1,962.0</td></tr><tr><td colspan=\"15\">Receipt Amount :</td><td>1,962.0</td></tr><tr><td>Mode</td><td>Amount</td><td>Card#</td><td>Bank Name</td><td>Exp Dt</td><td colspan=\"11\"></td></tr><tr><td>t Card</td><td>1,962.00</td><td>5678568</td><td>ICICI Bank</td><td>Dec-24</td><td colspan=\"11\"></td></tr><tr><td colspan=\"4\">#: 09AABCF8206H3ZM</td><td colspan=\"5\">D.L#: UP16200000219</td><td colspan=\"7\">CIN#: U85100UP2020PTC139919</td></tr><tr><td colspan=\"16\">Intrusions : 1. Check Medicines: Verify all medicines before leaving; no claims will be accepted after exit.\n2. Returns Policy: Returns with the original bill are accepted only on Wednesdays and Thursdays between 12 PM and 3 PM, within 28 days of purchase. No returns are allowed for insulins, vaccines, temperature-sensitive items, expired or damaged goods, or cut strips. Ensure you get your bill before leaving.\n3. No Cash Refunds: Exchanges only\n4. Non-Returnable Items: Items are non-returnable except in cases of errors or defects. Tampered or expired items are not returnable.\n5. Free Home Delivery: Free delivery within 5 km for orders over Rs.300. Additional charges may apply for smaller orders or deliveries outside this radius. Emergency deliveries within the district are available.\n6. Data Privacy: Customer data is confidential and used only for pharmacy operations.</td></tr><tr><td colspan=\"15\">ate By : EC4552</td><td>Create Dt : 07-Dec-2024 10:29 AM</td></tr><tr><td colspan=\"15\">it By : ANIL SHARMA SHARMA</td><td>Print Dt : 07-Dec-2024 10:31 AM</td></tr><tr><td colspan=\"16\">Pharmacist</td></tr></table>",
+      "bbox": [
+        20.0,
+        207.0,
+        2433.0,
+        1268.0
+      ],
+      "polygon": [
+        [
+          20.0,
+          207.0
+        ],
+        [
+          2433.0,
+          207.0
+        ],
+        [
+          2433.0,
+          1268.0
+        ],
+        [
+          20.0,
+          1268.0
+        ]
+      ]
+    }
+  ]
+}

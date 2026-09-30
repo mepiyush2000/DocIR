@@ -29,6 +29,9 @@ class Line:
     color: Color = BLACK
     size_px: float | None = None   # own size (drop caps); None = the block style's size
     drop_cap: bool = False         # a single enlarged initial; cap_top = its ink height
+    row: int | None = None         # table row the cell was detected in (tabular blocks)
+    bold: bool | None = None       # per-line weight override (table header rows)
+    fit: bool = True               # stretch to the measured length; False = natural width
 
     @property
     def angle_deg(self) -> float:
@@ -63,6 +66,7 @@ class Block:
     style: TextStyle | None = None
     fill: Color | None = None      # background panel behind the block, if not the page's
     tabular: bool = False          # rows of separate cells: each line keeps its own text
+    table: object | None = None    # table_layout.TableLayout when rebuilt as a grid
 
     @property
     def has_lines(self) -> bool:
