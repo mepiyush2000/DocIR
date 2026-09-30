@@ -121,6 +121,26 @@ def test_grid_drawn_only_for_ruled_tables():
     gray = np.full((400, 800), 255, np.uint8)
     for y in (0, 40, 80, 119):
         gray[y:y + 2, 0:300] = 0
+    lined = _layout(rows, placements, bbox, gray)
+    assert not lined.ruled                       # horizontal rules only: no invented verticals
+    assert len(grid_graphics(lined)) == len(lined.h_rules) >= 3
+
+    for x in (0, 150, 299):
+        gray[0:121, x:x + 2] = 0
     ruled = _layout(rows, placements, bbox, gray)
     assert ruled.ruled
     assert len(grid_graphics(ruled)) >= 4
+
+
+def test_faint_rules_are_not_drawn():
+    rows = [["A", "1"], ["B", "2"], ["C", "3"]]
+    placements = [_place(10, 10 + 40 * i, 30, 30 + 40 * i, r[0]) for i, r in enumerate(rows)] + \
+                 [_place(200, 10 + 40 * i, 220, 30 + 40 * i, r[1]) for i, r in enumerate(rows)]
+    bbox = (0, 0, 300, 120)
+    gray = np.full((400, 800), 255, np.uint8)
+    for i in range(3):   # dark text, so the page has real ink to compare against
+        gray[12 + 40 * i:28 + 40 * i, 10:30] = 0
+    for y in (40, 80):
+        gray[y:y + 2, 0:300] = 225
+    layout = _layout(rows, placements, bbox, gray)
+    assert layout.h_rules == [] and grid_graphics(layout) == []

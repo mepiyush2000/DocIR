@@ -24,6 +24,9 @@ QUAD_PAD_FRAC = 0.15          # vertical padding around a quad before measuring
 ASCENDER_X_HEIGHT = 0.85      # band above the x-height core reached by ascenders/caps
 DESCENDER_X_HEIGHT = 0.45     # band below the baseline reached by descenders
 MIN_INK_COL_FRAC = 0.02       # of the band's height: columns with less ink are empty
+RULE_ROW_FILL = 0.85          # an unbroken ink run across this much of the line is a rule
+RULE_EDGE_FRAC = 0.3          # ... when it lies in the top/bottom share of the line box
+RULE_FRINGE_ROWS = 2          # ... and this many rows either side are its blur
 MAX_SKEW_DEG = 12.0
 STRIP_MIN_XH = 12             # strip width in x-heights (enough glyphs for a clear core)
 MAX_STRIPS = 8
@@ -78,7 +81,25 @@ def _ink_mask(gray: np.ndarray) -> np.ndarray | None:
     thresh, _ = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
     dark = gray < thresh
     # text is the minority class, whichever side of the threshold it is on
-    return dark if dark.mean() < 0.5 else ~dark
+    ink = dark if dark.mean() < 0.5 else ~dark
+    # a rule touching the line: unbroken rows at the box's top or bottom
+    # edge (and their blurred fringe) aren't glyphs
+    h, w = ink.shape
+    rule = np.zeros(h, dtype=bool)
+    edge = max(1, int(RULE_EDGE_FRAC * h))
+    for y in [*range(edge), *range(h - edge, h)]:
+        rule[y] = _longest_run(ink[y]) >= RULE_ROW_FILL * w
+    if rule.any():
+        rule = np.convolve(rule, np.ones(2 * RULE_FRINGE_ROWS + 1), mode="same") > 0
+        ink[rule] = False
+    return ink
+
+
+def _longest_run(row: np.ndarray) -> int:
+    if not row.any():
+        return 0
+    d = np.diff(np.concatenate([[0], row.astype(np.int8), [0]]))
+    return int((np.where(d == -1)[0] - np.where(d == 1)[0]).max())
 
 
 def _core(profile: np.ndarray) -> tuple[int, int] | None:

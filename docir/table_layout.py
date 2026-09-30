@@ -46,9 +46,10 @@ LEADING = 1.2                 # line spacing of wrapped cell text, in font sizes
 MIN_SHRINK = 0.6              # a cell's text may shrink to this fraction of the table size
 RULE_MIN_FRAC = 0.5           # a printed rule spans at least this much of the table
 RULE_SNAP_XH = 1.0            # a row/column edge this close to a printed rule snaps onto it
+RULE_MIN_CONTRAST = 0.5       # a drawn rule is at least half as dark as the text (vs paper)
+RULE_MIN_DROP = 80            # ... and at least this many grey levels below the paper
+RULE_MIN_DARK_COVER = 0.6     # ... along this much of its length
 RULE_PROJECTION_COVER = 0.45  # a broken vertical rule is inked along this share of the height
-GRID_RULED_ROW_FRAC = 0.6     # rows separated by printed rules -> draw the full grid
-GRID_MIN_ROWS = 3             # ... in a table with at least this many rows
 LOOSE_MIN_CHARS = 3           # shorter unmatched fragments are cell parts, not captions
 WRAP_PART_SIM = 0.8           # a fragment this much contained in a cell is one of its lines
 PAGE_MARGIN_XH = 1.0          # an unruled table's last value stops this far from the page edge
@@ -273,7 +274,24 @@ def printed_rules(gray: np.ndarray, bbox, x_height: float):
         out.append(segs)
     if not out[1]:
         out[1] = _projected_verticals(ink, X0, Y0, x_height)
-    return out[0], out[1]
+    paper, text_ink = np.percentile(crop, 90), np.percentile(crop, 3)
+    return ([s for s in out[0] if _is_dark(gray, s, True, paper, text_ink)],
+            [s for s in out[1] if _is_dark(gray, s, False, paper, text_ink)])
+
+
+def _is_dark(gray: np.ndarray, seg, horizontal: bool, paper: float, text_ink: float) -> bool:
+    """A rule printed clearly: darker than the paper by a good share of the
+    text's contrast along most of its length (faint lines aren't drawn)."""
+    c, a, b = (int(round(v)) for v in seg)
+    h, w = gray.shape
+    lo, hi = max(0, c - 2), min(h if horizontal else w, c + 3)
+    strip = gray[lo:hi, max(0, a):min(w, b)] if horizontal else gray[max(0, a):min(h, b), lo:hi].T
+    if strip.size == 0:
+        return False
+    darkest = strip.min(axis=0).astype(np.float64)
+    contrast = (paper - darkest) / max(paper - text_ink, 1.0)
+    dark = (contrast >= RULE_MIN_CONTRAST) & (paper - darkest >= RULE_MIN_DROP)
+    return float(dark.mean()) >= RULE_MIN_DARK_COVER
 
 
 def _projected_verticals(ink: np.ndarray, X0: int, Y0: int, x_height: float):
@@ -299,11 +317,19 @@ def _runs(mask: np.ndarray) -> list[tuple[int, int]]:
     return list(zip(np.where(d == 1)[0], np.where(d == -1)[0]))
 
 
-def _snap(edges: list[float], rules: list[float], tol: float) -> list[float]:
+def _snap(edges: list[float], rules: list[float], tol: float,
+          lo: list[float] | None = None, hi: list[float] | None = None) -> list[float]:
+    """Edges moved onto a nearby rule, but never past lo[i]/hi[i] (the
+    measured text either side of edge i)."""
     out = []
-    for e in edges:
+    for i, e in enumerate(edges):
         near = min(rules, key=lambda r: abs(r - e)) if rules else None
-        out.append(near if near is not None and abs(near - e) <= tol else e)
+        ok = near is not None and abs(near - e) <= tol
+        if ok and lo is not None and lo[i] is not None and near < lo[i]:
+            ok = False
+        if ok and hi is not None and hi[i] is not None and near > hi[i]:
+            ok = False
+        out.append(near if ok else e)
     return out
 
 
@@ -370,6 +396,12 @@ def analyze_table(grid: TableGrid, bbox, placements, gray: np.ndarray, x_height:
     centres = [None if t is None else (t + b) / 2 for t, b in zip(tops, bots)]
     centres = _fill(centres, y0 - row_h / 2, y1 + row_h / 2)
     row_edges = [y0] + [(a + b) / 2 for a, b in zip(centres, centres[1:])] + [y1]
+    # the table's box may clip text printed at its very top or bottom
+    vpad = CELL_VPAD_XH * x_height
+    if tops[0] is not None:
+        row_edges[0] = min(row_edges[0], tops[0] - vpad)
+    if bots[-1] is not None:
+        row_edges[-1] = max(row_edges[-1], bots[-1] + vpad)
     for i in range(1, len(row_edges)):
         nxt_measured = i < len(tops) and tops[i] is not None
         if tops[i - 1] is None and not nxt_measured:
@@ -386,7 +418,10 @@ def analyze_table(grid: TableGrid, bbox, placements, gray: np.ndarray, x_height:
 
     h_rules, v_rules = printed_rules(gray, bbox, x_height)
     tol = RULE_SNAP_XH * x_height
-    row_edges = _snap(row_edges, [r[0] for r in h_rules], tol)
+    # edge i lies between row i-1's text bottom and row i's text top
+    lo = [None] + bots
+    hi = tops + [None]
+    row_edges = _snap(row_edges, [r[0] for r in h_rules], tol, lo, hi)
     col_edges = _snap(col_edges, [r[0] for r in v_rules], tol)
     row_tops = {r: t for r, t in enumerate(tops) if t is not None}
     layout = TableLayout(grid=grid, row_edges=row_edges, col_edges=col_edges, x_height=x_height,
@@ -394,8 +429,7 @@ def analyze_table(grid: TableGrid, bbox, placements, gray: np.ndarray, x_height:
                          row_frags=row_frags, loose=loose, h_rules=h_rules, v_rules=v_rules)
     # a ruled table's last column is closed by its border; otherwise a row's
     # last value may run on to the page margin
-    ruled = len(v_rules) >= 2 or (grid.n_rows >= GRID_MIN_ROWS and len(h_rules) >= 2
-                                  and _ruled_rows(layout) >= GRID_RULED_ROW_FRAC)
+    ruled = len(v_rules) >= 2
     layout.ruled = ruled
     layout.page_right = layout.col_edges[-1] if ruled else max(layout.col_edges[-1], page_w - PAGE_MARGIN_XH * x_height)
     return layout
@@ -622,23 +656,12 @@ def typeset(block: Block, layout: TableLayout) -> list[Line]:
     return out + layout.loose_lines
 
 
-def _ruled_rows(layout: TableLayout) -> float:
-    """Share of inner row boundaries that carry a printed horizontal rule
-    (a fully ruled table even when its faint verticals weren't found)."""
-    inner = layout.row_edges[1:-1]
-    if not inner:
-        return 0.0
-    tol = RULE_SNAP_XH * 2 * layout.x_height
-    ys = [r[0] for r in layout.h_rules]
-    return sum(any(abs(y - e) <= tol for y in ys) for e in inner) / len(inner)
-
-
 def grid_graphics(layout: TableLayout, color=(0, 0, 0), stroke_px: float = 2.0) -> list[Graphic]:
     """Clean rules drawn on the table's own row/column edges, so they always
     fall between the typeset text:
       * ruled vertically in print  -> a full grid (segments a spanning cell
         covers are left out);
-      * only horizontal rules      -> just those, snapped to row edges;
+      * only horizontal rules      -> just those, where they were printed;
       * no printed rules           -> nothing."""
     rows, cols = layout.row_edges, layout.col_edges
     x0, x1 = cols[0], cols[-1]
@@ -662,8 +685,6 @@ def grid_graphics(layout: TableLayout, color=(0, 0, 0), stroke_px: float = 2.0) 
                 if (r, c) not in covered_v:
                     seg((x, rows[r]), (x, rows[r + 1]))
         return g
-    tol = RULE_SNAP_XH * 2 * layout.x_height
     for y, a, b in layout.h_rules:
-        near = min(rows, key=lambda e: abs(e - y))
-        seg((max(a, x0), near if abs(near - y) <= tol else y), (min(b, x1), near if abs(near - y) <= tol else y))
+        seg((max(a, x0), y), (min(b, x1), y))
     return g

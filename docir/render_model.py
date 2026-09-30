@@ -39,6 +39,7 @@ MIN_SPACE_KEEP = 0.5              # word gaps keep at least half a normal space
 SYNTHETIC_ITALIC_DEG = 11.0
 FILL_PAD_PX = 2.0
 PARAGRAPH_LEADING = 1.2
+PAGE_EDGE_PT = 6.0                # lines stop this short of the page's right edge
 _CONTROL = re.compile(r"[\x00-\x08\x0b-\x1f\x7f]")
 
 
@@ -127,6 +128,13 @@ def _draw_line(c: canvas.Canvas, geo: _Geometry, line: Line, style: TextStyle) -
                               size, style.width_scale)
 
     x0, y0 = geo.pt(*line.baseline_start)
+    # text the detector under-measured (one big glyph of a banner) never runs off the page
+    drawn = (sum(widths) + cs * n_chars + (space_w + ws) * (len(words) - 1)) * hz
+    room = geo.page_w - PAGE_EDGE_PT - x0
+    if drawn > room > 0:
+        k = room / drawn
+        size, space_w, ws, cs = size * k, space_w * k, ws * k, cs * k
+        widths = [w * k for w in widths]
     c.saveState()
     c.translate(x0, y0)
     if abs(line.angle_deg) > 0.05:

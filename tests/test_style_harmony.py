@@ -44,3 +44,19 @@ def test_short_text_adopts_slant_of_nearby_style():
     harmonize_styles(blocks)
     assert not blocks[1].style.italic
     assert blocks[1].style is blocks[0].style
+
+
+def test_caps_and_digit_lines_are_sized_from_their_cap_height():
+    from docir import font_catalog
+    from docir.typography import line_x_height, measures_caps
+
+    # a line of capitals has no x-band: its measured "x-height" is its cap height
+    caps = Line(text="GSTIN No. 09AABCF8206H3ZM", baseline_start=(0, 0), baseline_end=(300, 0),
+                x_height=25, cap_top=27)
+    mixed = Line(text="Email: info@felixhospital.com", baseline_start=(0, 0), baseline_end=(300, 0),
+                 x_height=18, cap_top=25)
+    assert measures_caps(caps) and not measures_caps(mixed)
+    path = font_catalog.face("LiberationSans").path
+    ratio = font_catalog.x_height_em(path) / font_catalog.cap_height_em(path)
+    assert line_x_height(caps, path) == pytest.approx(25 * ratio)
+    assert line_x_height(mixed, path) == 18

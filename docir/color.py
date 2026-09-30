@@ -25,6 +25,8 @@ INK_DARKEST_FRAC = 0.35         # blur lightens glyph edges: use the core of the
 UNEVEN_LIGHT_RANGE = 14         # paper luminance spread (p90 - p10) that means uneven lighting
 ILLUMINATION_SIGMA_FRAC = 1 / 12
 DESCENDER_BAND = 0.35           # of the x-height, below the baseline
+REVERSE_MAX_BG_LUMA = 110       # a background darker than this can carry light text
+RULE_ROW_FILL = 0.85            # a region row this dark across is a rule, not text
 
 
 def flat_field(rgb: np.ndarray) -> np.ndarray:
@@ -71,8 +73,15 @@ def _ink_split(region: np.ndarray) -> tuple[np.ndarray, np.ndarray] | None:
         return None
     t, _ = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
     dark = gray < t
-    ink = dark if dark.mean() < 0.5 else ~dark
-    return ink, ~ink
+    # rules crossing the region are neither text nor background
+    keep = np.broadcast_to((dark.mean(axis=1) < RULE_ROW_FILL)[:, None], dark.shape)
+    if not keep.any():
+        return None
+    # light text is only on a dark panel; a grey halftone panel's dots and
+    # text outnumber its gaps yet the text is still the dark class
+    light_ink = dark[keep].mean() >= 0.5 and float(np.median(gray[dark & keep])) < REVERSE_MAX_BG_LUMA
+    ink = (~dark if light_ink else dark) & keep
+    return ink, ~ink & keep
 
 
 def page_background(rgb: np.ndarray) -> np.ndarray:

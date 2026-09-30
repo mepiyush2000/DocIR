@@ -48,6 +48,9 @@ SIZE_MERGE_RATIO = 1.12          # styles closer in size than this are one size
 DISPLAY_SIZE_RATIO = 1.6         # text this much larger than body may keep its own face
 MIN_TRAIT_CHARS = 40             # less text than this can't establish its own slant
 TRAIT_ADOPT_RATIO = 1.35         # ... so it adopts those of a style this close in size
+CAPS_MAX_SHORT_FRAC = 0.5        # fewer x-band-only letters than this: the line may measure caps
+CAPS_MAX_RISE = 1.25             # ... confirmed by ink barely rising above the measured band
+XH_PER_CAP = 0.74                # typical x-height / cap height, before a family is chosen
 
 
 @dataclass(frozen=True)
@@ -113,10 +116,39 @@ def size_for_x_height(x_height_px: float, font_path: str) -> float:
     return x_height_px / x_band_bias(font_path) / font_catalog.x_height_em(font_path)
 
 
+# lowercase letters that stay inside the x-height band
+_X_ONLY = frozenset("acegimnopqrsuvwxyz")
+
+
+def measures_caps(line: Line) -> bool:
+    """Whether a line's measured x-height is really its cap height: text of
+    capitals and digits has no x-band, so its densest band is the caps."""
+    chars = [c for c in line.text if c.isalnum()]
+    if not chars:
+        return False
+    short = sum(c in _X_ONLY for c in chars) / len(chars)
+    return short < CAPS_MAX_SHORT_FRAC and line.cap_top < CAPS_MAX_RISE * line.x_height
+
+
+def line_x_height(line: Line, font_path: str | None = None) -> float:
+    """The line's x-height, converted from its cap height (in the given
+    font's proportions) when that is what was measured."""
+    if not measures_caps(line):
+        return line.x_height
+    ratio = (font_catalog.x_height_em(font_path) / font_catalog.cap_height_em(font_path)
+             if font_path else XH_PER_CAP)
+    return line.x_height * ratio
+
+
+def lines_x_height(lines: list[Line], font_path: str | None = None) -> float:
+    hs = [line_x_height(l, font_path) for l in lines if len(l.text.strip()) >= 3]
+    return float(np.median(hs or [line_x_height(l, font_path) for l in lines]))
+
+
 # ---------- size clusters ----------
 
 def _block_x_height(block: Block) -> float | None:
-    hs = [l.x_height for l in block.lines if len(l.text.strip()) >= 3 and not l.drop_cap]
+    hs = [line_x_height(l) for l in block.lines if len(l.text.strip()) >= 3 and not l.drop_cap]
     return float(np.median(hs)) if hs else None
 
 
@@ -163,8 +195,7 @@ def _width_ratios(lines: list[Line], face: font_catalog.Face, size_px: float) ->
     return out
 
 
-def fit_family(lines: list[Line], category: str, bold: bool, italic: bool,
-               x_height_px: float) -> tuple[str, float, float] | None:
+def fit_family(lines: list[Line], category: str, bold: bool, italic: bool) -> tuple[str, float, float] | None:
     """(family, size_px, width ratio) of the bundled family in `category`
     whose natural widths best match these lines, or None without evidence."""
     candidates = []
@@ -172,7 +203,7 @@ def fit_family(lines: list[Line], category: str, bold: bool, italic: bool,
         if not font_catalog.available(family):
             continue
         face = font_catalog.face(family.key, bold, italic)
-        size = size_for_x_height(x_height_px, face.path)
+        size = size_for_x_height(lines_x_height(lines, face.path), face.path)
         ratios = _width_ratios(lines, face, size)
         if not ratios:
             return None
@@ -209,19 +240,17 @@ def assign_styles(page: Page, image: Image.Image | None) -> None:
             lines = [l for b in cluster for l in b.lines if not l.drop_cap]
             if not lines:
                 continue
-            xh = float(np.median([l.x_height for l in lines if len(l.text.strip()) >= 3]
-                                 or [l.x_height for l in lines]))
-            plans.append((role, t, cluster, lines, xh))
+            plans.append((role, t, cluster, lines))
     plans.sort(key=lambda p: -_chars(p[3]))
     body_family: dict[str, str] = {}
-    for role, t, cluster, lines, xh in plans:
+    for role, t, cluster, lines in plans:
         fit = None
         if _chars(lines) >= MIN_FAMILY_EVIDENCE_CHARS or t.category not in body_family:
-            fit = fit_family(lines, t.category, t.bold, t.italic, xh)
+            fit = fit_family(lines, t.category, t.bold, t.italic)
         if fit is None or (_chars(lines) < MIN_FAMILY_EVIDENCE_CHARS and t.category in body_family):
             family = body_family.get(t.category, font_catalog.DEFAULT_FAMILY[t.category])
             face = font_catalog.face(family, t.bold, t.italic)
-            size = size_for_x_height(xh, face.path)
+            size = size_for_x_height(lines_x_height(lines, face.path), face.path)
             ratios = _width_ratios(lines, face, size)
             ratio = float(np.percentile(ratios, WIDTH_PERCENTILE)) if ratios else 1.0
         else:
@@ -243,7 +272,7 @@ def assign_styles(page: Page, image: Image.Image | None) -> None:
     for b in blocks:
         if b.style is not None:
             continue
-        xh = float(np.median([l.x_height for l in b.lines]))
+        xh = float(np.median([line_x_height(l) for l in b.lines]))
         peers = [p.style for p in blocks if p.role == b.role and p.style is not None]
         if peers:
             b.style = min(peers, key=lambda s: abs(math.log(max(s.size_px, 1e-6) / max(xh * 2, 1e-6))))
@@ -252,7 +281,7 @@ def assign_styles(page: Page, image: Image.Image | None) -> None:
         family = body_family.get(t.category, font_catalog.DEFAULT_FAMILY[t.category])
         face = font_catalog.face(family, t.bold, t.italic)
         b.style = TextStyle(font_family=family, category=t.category, bold=t.bold, italic=t.italic,
-                            size_px=size_for_x_height(xh, face.path))
+                            size_px=size_for_x_height(lines_x_height(b.lines, face.path), face.path))
 
     harmonize_styles(blocks)
 
