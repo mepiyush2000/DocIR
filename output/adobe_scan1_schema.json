@@ -1,0 +1,907 @@
+{
+  "schema_version": "1.0",
+  "input_path": "adobe_scan1.jpg",
+  "width": 714.0,
+  "height": 3135.0,
+  "blocks": [
+    {
+      "id": 0,
+      "label": "doc_title",
+      "content": "safari",
+      "bbox": [
+        94.0,
+        21.0,
+        607.0,
+        110.0
+      ],
+      "polygon": [
+        [
+          94.0,
+          21.0
+        ],
+        [
+          607.0,
+          21.0
+        ],
+        [
+          607.0,
+          110.0
+        ],
+        [
+          94.0,
+          110.0
+        ]
+      ]
+    },
+    {
+      "id": 1,
+      "label": "text",
+      "content": "SAFARI INDUSTRIES(I) LTD",
+      "bbox": [
+        170.0,
+        122.0,
+        529.0,
+        152.0
+      ],
+      "polygon": [
+        [
+          170.0,
+          122.0
+        ],
+        [
+          529.0,
+          122.0
+        ],
+        [
+          529.0,
+          152.0
+        ],
+        [
+          170.0,
+          152.0
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "label": "text",
+      "content": "SAFARI INDUSTRIES(I) LTD",
+      "bbox": [
+        176.0,
+        158.0,
+        525.0,
+        189.0
+      ],
+      "polygon": [
+        [
+          176.0,
+          158.0
+        ],
+        [
+          525.0,
+          158.0
+        ],
+        [
+          525.0,
+          189.0
+        ],
+        [
+          176.0,
+          189.0
+        ]
+      ]
+    },
+    {
+      "id": 3,
+      "label": "text",
+      "content": "SHOP NO FF-18 MGF METROPOLITAN MALL,",
+      "bbox": [
+        52.0,
+        190.0,
+        642.0,
+        229.0
+      ],
+      "polygon": [
+        [
+          52.0,
+          190.0
+        ],
+        [
+          642.0,
+          190.0
+        ],
+        [
+          642.0,
+          229.0
+        ],
+        [
+          52.0,
+          229.0
+        ]
+      ]
+    },
+    {
+      "id": 4,
+      "label": "text",
+      "content": "GURUGRAM, HARYANA",
+      "bbox": [
+        190.0,
+        266.0,
+        507.0,
+        296.0
+      ],
+      "polygon": [
+        [
+          190.0,
+          266.0
+        ],
+        [
+          507.0,
+          266.0
+        ],
+        [
+          507.0,
+          296.0
+        ],
+        [
+          190.0,
+          296.0
+        ]
+      ]
+    },
+    {
+      "id": 5,
+      "label": "text",
+      "content": "GURGAON-122506",
+      "bbox": [
+        217.0,
+        306.0,
+        480.0,
+        335.0
+      ],
+      "polygon": [
+        [
+          217.0,
+          306.0
+        ],
+        [
+          480.0,
+          306.0
+        ],
+        [
+          480.0,
+          335.0
+        ],
+        [
+          217.0,
+          335.0
+        ]
+      ]
+    },
+    {
+      "id": 6,
+      "label": "text",
+      "content": "HARYANA",
+      "bbox": [
+        276.0,
+        344.0,
+        418.0,
+        376.0
+      ],
+      "polygon": [
+        [
+          276.0,
+          344.0
+        ],
+        [
+          418.0,
+          344.0
+        ],
+        [
+          418.0,
+          376.0
+        ],
+        [
+          276.0,
+          376.0
+        ]
+      ]
+    },
+    {
+      "id": 7,
+      "label": "text",
+      "content": "GSTIN.:06AAHCS5888E1ZZ",
+      "bbox": [
+        165.0,
+        384.0,
+        530.0,
+        412.0
+      ],
+      "polygon": [
+        [
+          165.0,
+          384.0
+        ],
+        [
+          530.0,
+          384.0
+        ],
+        [
+          530.0,
+          412.0
+        ],
+        [
+          165.0,
+          412.0
+        ]
+      ]
+    },
+    {
+      "id": 8,
+      "label": "text",
+      "content": "CIN NO.: L25200MH19B0PLC022812",
+      "bbox": [
+        105.0,
+        419.0,
+        586.0,
+        454.0
+      ],
+      "polygon": [
+        [
+          105.0,
+          419.0
+        ],
+        [
+          586.0,
+          419.0
+        ],
+        [
+          586.0,
+          454.0
+        ],
+        [
+          105.0,
+          454.0
+        ]
+      ]
+    },
+    {
+      "id": 9,
+      "label": "text",
+      "content": "PAN NO.: AAHCS5888",
+      "bbox": [
+        145.0,
+        465.0,
+        507.0,
+        500.0
+      ],
+      "polygon": [
+        [
+          196.0,
+          465.0
+        ],
+        [
+          499.0,
+          465.0
+        ],
+        [
+          499.0,
+          499.0
+        ],
+        [
+          196.0,
+          499.0
+        ]
+      ]
+    },
+    {
+      "id": 10,
+      "label": "paragraph_title",
+      "content": "TAX INVOICE",
+      "bbox": [
+        254.0,
+        517.0,
+        442.0,
+        551.0
+      ],
+      "polygon": [
+        [
+          254.0,
+          517.0
+        ],
+        [
+          442.0,
+          517.0
+        ],
+        [
+          442.0,
+          551.0
+        ],
+        [
+          254.0,
+          551.0
+        ]
+      ]
+    },
+    {
+      "id": 11,
+      "label": "table",
+      "content": "<table><tr><td>CustomerName</td><td>: PIYUSH KUMAR</td></tr><tr><td>Address 1</td><td>:</td></tr><tr><td>Address 2</td><td></td></tr><tr><td>Mobile</td><td>: 9661257878</td></tr><tr><td>Ship To</td><td></td></tr><tr><td>Name</td><td>:</td></tr><tr><td>No.</td><td>:</td></tr><tr><td>Bill No</td><td>: MFG00S26000489</td></tr><tr><td>Date &amp; Time</td><td>: 21-Aug-2026 20:12</td></tr><tr><td>Terminal No.</td><td>: 1</td></tr><tr><td>Cashier</td><td>: Safari.MFG</td></tr><tr><td>Salesman Name</td><td>:</td></tr><tr><td>Store</td><td>: MFG</td></tr></table>",
+      "bbox": [
+        30.0,
+        556.0,
+        657.0,
+        1055.0
+      ],
+      "polygon": [
+        [
+          30.0,
+          556.0
+        ],
+        [
+          657.0,
+          556.0
+        ],
+        [
+          657.0,
+          1055.0
+        ],
+        [
+          30.0,
+          1055.0
+        ]
+      ]
+    },
+    {
+      "id": 12,
+      "label": "paragraph_title",
+      "content": "Product Name & SKU Id",
+      "bbox": [
+        36.0,
+        1092.0,
+        300.0,
+        1120.0
+      ],
+      "polygon": [
+        [
+          36.0,
+          1092.0
+        ],
+        [
+          300.0,
+          1092.0
+        ],
+        [
+          300.0,
+          1120.0
+        ],
+        [
+          36.0,
+          1120.0
+        ]
+      ]
+    },
+    {
+      "id": 13,
+      "label": "table",
+      "content": "<table><tr><td>MRP</td><td>Price</td><td>GST%</td><td>Disc</td><td>Qty Amount</td></tr></table>",
+      "bbox": [
+        34.0,
+        1114.0,
+        651.0,
+        1176.0
+      ],
+      "polygon": [
+        [
+          34.0,
+          1114.0
+        ],
+        [
+          651.0,
+          1114.0
+        ],
+        [
+          651.0,
+          1176.0
+        ],
+        [
+          34.0,
+          1176.0
+        ]
+      ]
+    },
+    {
+      "id": 14,
+      "label": "table",
+      "content": "<table><tr><td>MARQUE 18 FB BLUE</td><td>1.00</td></tr></table>",
+      "bbox": [
+        31.0,
+        1194.0,
+        651.0,
+        1229.0
+      ],
+      "polygon": [
+        [
+          31.0,
+          1194.0
+        ],
+        [
+          651.0,
+          1194.0
+        ],
+        [
+          651.0,
+          1229.0
+        ],
+        [
+          31.0,
+          1229.0
+        ]
+      ]
+    },
+    {
+      "id": 15,
+      "label": "table",
+      "content": "<table><tr><td>6430.00</td><td>4799.00</td><td>18%</td><td>0.00</td><td>4799.00</td></tr></table>",
+      "bbox": [
+        33.0,
+        1261.0,
+        652.0,
+        1297.0
+      ],
+      "polygon": [
+        [
+          33.0,
+          1261.0
+        ],
+        [
+          652.0,
+          1261.0
+        ],
+        [
+          652.0,
+          1297.0
+        ],
+        [
+          33.0,
+          1297.0
+        ]
+      ]
+    },
+    {
+      "id": 16,
+      "label": "table",
+      "content": "<table><tr><td>Sub Total</td><td>4799.00</td></tr><tr><td>Bill Discount</td><td>0.00</td></tr><tr><td>Item Discount</td><td>0.00</td></tr><tr><td>TOTAL</td><td>4799.00</td></tr></table>",
+      "bbox": [
+        33.0,
+        1316.0,
+        652.0,
+        1499.0
+      ],
+      "polygon": [
+        [
+          33.0,
+          1316.0
+        ],
+        [
+          652.0,
+          1316.0
+        ],
+        [
+          652.0,
+          1499.0
+        ],
+        [
+          33.0,
+          1499.0
+        ]
+      ]
+    },
+    {
+      "id": 17,
+      "label": "text",
+      "content": "Four Thousand Seven Hundred And Ninety Nine",
+      "bbox": [
+        39.0,
+        1530.0,
+        635.0,
+        1566.0
+      ],
+      "polygon": [
+        [
+          39.0,
+          1530.0
+        ],
+        [
+          635.0,
+          1530.0
+        ],
+        [
+          635.0,
+          1566.0
+        ],
+        [
+          39.0,
+          1566.0
+        ]
+      ]
+    },
+    {
+      "id": 18,
+      "label": "figure_title",
+      "content": "Tax Details (HSN - Wise)",
+      "bbox": [
+        193.0,
+        1605.0,
+        495.0,
+        1636.0
+      ],
+      "polygon": [
+        [
+          193.0,
+          1605.0
+        ],
+        [
+          495.0,
+          1605.0
+        ],
+        [
+          495.0,
+          1636.0
+        ],
+        [
+          193.0,
+          1636.0
+        ]
+      ]
+    },
+    {
+      "id": 19,
+      "label": "table",
+      "content": "<table><tr><td rowspan=\"2\">HSN</td><td rowspan=\"2\">Taxable Value</td><td colspan=\"2\">CGST</td><td colspan=\"2\">SGST</td></tr><tr><td>Rate</td><td>Amt.</td><td>Rate</td><td>Amt.</td></tr><tr><td>42021290</td><td>4066.95</td><td>9.0%</td><td>366.03</td><td>9.0%</td><td>366.03</td></tr><tr><td>Total</td><td>4067.00</td><td></td><td>366.03</td><td></td><td>366.03</td></tr><tr><td>Round off</td><td></td><td></td><td>0.00</td><td></td><td></td></tr></table>",
+      "bbox": [
+        30.0,
+        1650.0,
+        654.0,
+        1828.0
+      ],
+      "polygon": [
+        [
+          30.0,
+          1650.0
+        ],
+        [
+          654.0,
+          1650.0
+        ],
+        [
+          654.0,
+          1828.0
+        ],
+        [
+          30.0,
+          1828.0
+        ]
+      ]
+    },
+    {
+      "id": 20,
+      "label": "table",
+      "content": "<table><tr><td>BY Manual UPI</td><td>4799.00</td></tr><tr><td>INVOICE TOTAL:</td><td>4799.00</td></tr></table>",
+      "bbox": [
+        33.0,
+        1878.0,
+        650.0,
+        1966.0
+      ],
+      "polygon": [
+        [
+          33.0,
+          1878.0
+        ],
+        [
+          650.0,
+          1878.0
+        ],
+        [
+          650.0,
+          1966.0
+        ],
+        [
+          33.0,
+          1966.0
+        ]
+      ]
+    },
+    {
+      "id": 21,
+      "label": "paragraph_title",
+      "content": "Thank you for shopping at safari",
+      "bbox": [
+        35.0,
+        2012.0,
+        403.0,
+        2039.0
+      ],
+      "polygon": [
+        [
+          35.0,
+          2012.0
+        ],
+        [
+          403.0,
+          2012.0
+        ],
+        [
+          403.0,
+          2039.0
+        ],
+        [
+          35.0,
+          2039.0
+        ]
+      ]
+    },
+    {
+      "id": 22,
+      "label": "text",
+      "content": "I hereby register myself to receive Promo SMS and emails on my registered number email Id. mentioned on the invoice.",
+      "bbox": [
+        31.0,
+        2049.0,
+        627.0,
+        2126.0
+      ],
+      "polygon": [
+        [
+          31.0,
+          2049.0
+        ],
+        [
+          627.0,
+          2049.0
+        ],
+        [
+          627.0,
+          2126.0
+        ],
+        [
+          31.0,
+          2126.0
+        ]
+      ]
+    },
+    {
+      "id": 23,
+      "label": "text",
+      "content": "Bill details will be sent to you on your email id SMS on phone, if provided by you. In case you do not receive such eMail SMS within 24 hours then mail us at customercare@safari.in",
+      "bbox": [
+        29.0,
+        2137.0,
+        646.0,
+        2238.0
+      ],
+      "polygon": [
+        [
+          29.0,
+          2137.0
+        ],
+        [
+          646.0,
+          2137.0
+        ],
+        [
+          646.0,
+          2238.0
+        ],
+        [
+          29.0,
+          2238.0
+        ]
+      ]
+    },
+    {
+      "id": 24,
+      "label": "text",
+      "content": "Safari Industries India Ltd., 302-303, A Wing, The Qube CTS No.1498, A2, M.V. Road, Marol, Andheri E. Mumbai - 400 059, Maharashtra, India",
+      "bbox": [
+        26.0,
+        2251.0,
+        609.0,
+        2334.0
+      ],
+      "polygon": [
+        [
+          26.0,
+          2251.0
+        ],
+        [
+          609.0,
+          2251.0
+        ],
+        [
+          609.0,
+          2334.0
+        ],
+        [
+          26.0,
+          2334.0
+        ]
+      ]
+    },
+    {
+      "id": 25,
+      "label": "image",
+      "content": "",
+      "bbox": [
+        136.0,
+        2418.0,
+        540.0,
+        2508.0
+      ],
+      "polygon": [
+        [
+          136.0,
+          2418.0
+        ],
+        [
+          540.0,
+          2418.0
+        ],
+        [
+          540.0,
+          2508.0
+        ],
+        [
+          136.0,
+          2508.0
+        ]
+      ]
+    },
+    {
+      "id": 26,
+      "label": "text",
+      "content": "Mob: 080 691 48000, Website: www.safarlbags.com",
+      "bbox": [
+        24.0,
+        2344.0,
+        645.0,
+        2377.0
+      ],
+      "polygon": [
+        [
+          24.0,
+          2344.0
+        ],
+        [
+          645.0,
+          2344.0
+        ],
+        [
+          645.0,
+          2377.0
+        ],
+        [
+          24.0,
+          2377.0
+        ]
+      ]
+    },
+    {
+      "id": 27,
+      "label": "vision_footnote",
+      "content": "MFG00S26000489",
+      "bbox": [
+        227.0,
+        2510.0,
+        451.0,
+        2536.0
+      ],
+      "polygon": [
+        [
+          227.0,
+          2510.0
+        ],
+        [
+          451.0,
+          2510.0
+        ],
+        [
+          451.0,
+          2536.0
+        ],
+        [
+          227.0,
+          2536.0
+        ]
+      ]
+    },
+    {
+      "id": 28,
+      "label": "image",
+      "content": "",
+      "bbox": [
+        107.0,
+        2570.0,
+        564.0,
+        2960.0
+      ],
+      "polygon": [
+        [
+          107.0,
+          2570.0
+        ],
+        [
+          564.0,
+          2570.0
+        ],
+        [
+          564.0,
+          2960.0
+        ],
+        [
+          107.0,
+          2960.0
+        ]
+      ]
+    },
+    {
+      "id": 29,
+      "label": "text",
+      "content": "For SAFARI INDUSTRIES(I) LTD",
+      "bbox": [
+        285.0,
+        3003.0,
+        646.0,
+        3034.0
+      ],
+      "polygon": [
+        [
+          285.0,
+          3003.0
+        ],
+        [
+          646.0,
+          3003.0
+        ],
+        [
+          646.0,
+          3034.0
+        ],
+        [
+          285.0,
+          3034.0
+        ]
+      ]
+    },
+    {
+      "id": 30,
+      "label": "paragraph_title",
+      "content": "Authorised Signatory",
+      "bbox": [
+        221.0,
+        3113.0,
+        465.0,
+        3134.0
+      ],
+      "polygon": [
+        [
+          221.00001525878906,
+          3113.0
+        ],
+        [
+          464.0,
+          3113.0
+        ],
+        [
+          464.0,
+          3133.0
+        ],
+        [
+          221.00001525878906,
+          3133.0
+        ]
+      ]
+    }
+  ]
+}

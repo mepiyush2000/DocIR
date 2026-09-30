@@ -20,6 +20,7 @@ from .schemas import PageLayout, PageLines
 logger = logging.getLogger(__name__)
 
 IMAGE_LABELS = {"image", "figure", "chart", "seal"}
+ASPECT_TOLERANCE = 0.01          # a resized copy of the analysed image keeps its aspect ratio
 
 
 def analyze_image(image_path: str, engine: OcrEngine | None = None) -> PageLayout:
@@ -98,8 +99,50 @@ def render_pdf_from_layout(
     `source_image_path` (falling back to the layout's own `input_path`)."""
     path = source_image_path or layout.input_path
     source_image = _resolve_source_image(path)
+    if source_image is not None:
+        source_image = match_layout_space(source_image, layout, path)
+    if page_lines is not None:
+        page_lines = lines_in_layout_space(page_lines, layout)
     return render_page_to_pdf(layout, output_path, source_image=source_image,
                               page_lines=page_lines, mode=mode or render_mode())
+
+
+def _same_aspect(w1: float, h1: float, w2: float, h2: float) -> bool:
+    return abs((w1 / h1) / (w2 / h2) - 1) <= ASPECT_TOLERANCE
+
+
+def match_layout_space(image: Image.Image, layout: PageLayout, path: str | None = None) -> Image.Image:
+    """The source image in the layout's pixel space. Every coordinate is in
+    pixels of the image the layout was detected on; a uniformly resized copy
+    is rescaled to it, a different image (e.g. the original instead of its
+    `_flat.png`) is refused rather than silently misaligned."""
+    size = (round(layout.width), round(layout.height))
+    if image.size == size:
+        return image
+    if not _same_aspect(image.width, image.height, *size):
+        raise ValueError(
+            f"source image {path or ''} is {image.width}x{image.height} but the layout was "
+            f"detected on a {size[0]}x{size[1]} page; pass the image it was analysed on "
+            f"(for a flattened page, <name>_flat.png)")
+    logger.warning("source image %s is %dx%d, layout is %dx%d; rescaling the image",
+                   path, image.width, image.height, *size)
+    return image.resize(size, Image.LANCZOS)
+
+
+def lines_in_layout_space(lines: PageLines, layout: PageLayout) -> PageLines | None:
+    """Detector lines rescaled to the layout's pixel space (None if they
+    belong to a different page shape)."""
+    if (round(lines.width), round(lines.height)) == (round(layout.width), round(layout.height)):
+        return lines
+    if not _same_aspect(lines.width, lines.height, layout.width, layout.height):
+        logger.warning("cached lines (%dx%d) don't match the layout page (%dx%d); ignoring them",
+                       lines.width, lines.height, layout.width, layout.height)
+        return None
+    sx, sy = layout.width / lines.width, layout.height / lines.height
+    return lines.model_copy(update={
+        "width": layout.width, "height": layout.height,
+        "lines": [l.model_copy(update={"polygon": [(x * sx, y * sy) for x, y in l.polygon]})
+                  for l in lines.lines]})
 
 
 def _schema_json_path(output_json: str) -> str:

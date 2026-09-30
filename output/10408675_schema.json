@@ -1,0 +1,675 @@
+{
+  "schema_version": "1.0",
+  "input_path": "10408675.jpg",
+  "width": 2544.0,
+  "height": 3296.0,
+  "blocks": [
+    {
+      "id": 0,
+      "label": "header",
+      "content": "Medical Nev's",
+      "bbox": [
+        1608.0,
+        420.0,
+        2346.0,
+        519.0
+      ],
+      "polygon": [
+        [
+          1608.0,
+          420.0
+        ],
+        [
+          2346.0,
+          420.0
+        ],
+        [
+          2346.0,
+          519.0
+        ],
+        [
+          1608.0,
+          519.0
+        ]
+      ]
+    },
+    {
+      "id": 1,
+      "label": "header",
+      "content": "June 2, 1978",
+      "bbox": [
+        2145.0,
+        543.0,
+        2351.0,
+        580.0
+      ],
+      "polygon": [
+        [
+          2145.0,
+          543.0
+        ],
+        [
+          2351.0,
+          543.0
+        ],
+        [
+          2351.0,
+          580.0
+        ],
+        [
+          2145.0,
+          580.0
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "label": "doc_title",
+      "content": "Hepatitis A: antibodies are prevalent but illness is not",
+      "bbox": [
+        974.0,
+        709.0,
+        2253.0,
+        949.0
+      ],
+      "polygon": [
+        [
+          974.0,
+          709.0
+        ],
+        [
+          2253.0,
+          709.0
+        ],
+        [
+          2253.0,
+          949.0
+        ],
+        [
+          974.0,
+          949.0
+        ]
+      ]
+    },
+    {
+      "id": 3,
+      "label": "text",
+      "content": "Research on hepatitis A may lag behind that on hepatitis 3, but a clinical picture of type A disease is becoming more clear.",
+      "bbox": [
+        538.0,
+        977.0,
+        1337.0,
+        1089.0
+      ],
+      "polygon": [
+        [
+          538.0,
+          977.0
+        ],
+        [
+          1337.0,
+          977.0
+        ],
+        [
+          1337.0,
+          1089.0
+        ],
+        [
+          538.0,
+          1089.0
+        ]
+      ]
+    },
+    {
+      "id": 4,
+      "label": "text",
+      "content": "The words “subclinical picture” might be more accurate, however, because according to Jules L. Dienstag, MD, and co-workers, much of the disease produced by the hepatitis A virus is not clinically apparent. They suggest it is this sporadic, inapparent infection that maintains the hepatitis A virus in nature between major detectable outbreaks",
+      "bbox": [
+        534.0,
+        1088.0,
+        1339.0,
+        1346.0
+      ],
+      "polygon": [
+        [
+          534.0,
+          1088.0
+        ],
+        [
+          1339.0,
+          1088.0
+        ],
+        [
+          1339.0,
+          1346.0
+        ],
+        [
+          534.0,
+          1346.0
+        ]
+      ]
+    },
+    {
+      "id": 5,
+      "label": "text",
+      "content": "Recently in New York City, in serological testing of more than 1,000 specimens, this research team found antibodies to hepatitis A virus in 41% of middle class volunteer blood donors and in 60% of poor persons from the inner city. Despite this prevalence, less than 5% of these people could remember having had hepatitis. The investigators say this is \"consistent with the belief that most cases are clinically inappropriate.\"",
+      "bbox": [
+        534.0,
+        1346.0,
+        1337.0,
+        1643.0
+      ],
+      "polygon": [
+        [
+          534.0,
+          1346.0
+        ],
+        [
+          1337.0,
+          1346.0
+        ],
+        [
+          1337.0,
+          1643.0
+        ],
+        [
+          534.0,
+          1643.0
+        ]
+      ]
+    },
+    {
+      "id": 6,
+      "label": "image",
+      "content": "",
+      "bbox": [
+        1423.0,
+        978.0,
+        2245.0,
+        1468.0
+      ],
+      "polygon": [
+        [
+          1423.0,
+          978.0
+        ],
+        [
+          2245.0,
+          978.0
+        ],
+        [
+          2245.0,
+          1468.0
+        ],
+        [
+          1423.0,
+          1468.0
+        ]
+      ]
+    },
+    {
+      "id": 7,
+      "label": "text",
+      "content": "Even when hepatitis A is clinically apparent, Dr Dienstag told an American College of Physicians audience in Boston, usually it is a mild, self-limited illness. Hepatic encephalopathy develops in a few patients, but, in the outbreaks that Dr Dienstag and colleagues have studied, all patients have survived. Thus, he said, evidence from these and other studies suggests that hepatitis A rarely fulminates, and the virus so far has not been associated serologically with chronic liver disease.",
+      "bbox": [
+        532.0,
+        1642.0,
+        1337.0,
+        2012.0
+      ],
+      "polygon": [
+        [
+          532.0,
+          1642.0
+        ],
+        [
+          1337.0,
+          1642.0
+        ],
+        [
+          1337.0,
+          2012.0
+        ],
+        [
+          532.0,
+          2012.0
+        ]
+      ]
+    },
+    {
+      "id": 8,
+      "label": "text",
+      "content": "Until recently, he says, most of what was known about the epidemiology of hepatitis A was learned from studies with volunteers and observations during natural outbreaks. Now that the hepatitis A virus has been identified and its antibody can be detected by immune adherence hemagglutination, radioimmunoassay, complement fixation, and immune electron microscopy. \"The means are at hand to test and extend our current understanding of this virus.\"",
+      "bbox": [
+        531.0,
+        2012.0,
+        1336.0,
+        2343.0
+      ],
+      "polygon": [
+        [
+          531.0,
+          2012.0
+        ],
+        [
+          1336.0,
+          2012.0
+        ],
+        [
+          1336.0,
+          2343.0
+        ],
+        [
+          531.0,
+          2343.0
+        ]
+      ]
+    },
+    {
+      "id": 9,
+      "label": "text",
+      "content": "The virus contains RNA. Dr Dienstag pointed out, and it is \"most likely an enterovirus\" of the icosahedral picorna group, \"although a few properties don't fit\"",
+      "bbox": [
+        531.0,
+        2344.0,
+        1332.0,
+        2457.0
+      ],
+      "polygon": [
+        [
+          531.0,
+          2344.0
+        ],
+        [
+          1332.0,
+          2344.0
+        ],
+        [
+          1332.0,
+          2457.0
+        ],
+        [
+          531.0,
+          2457.0
+        ]
+      ]
+    },
+    {
+      "id": 10,
+      "label": "text",
+      "content": "He and his colleagues report that exposure to hepatitis A virus is much more likely than exposure to the type E virus. A two to six times greater prevalence of antibodies to type A than to type B has been found in most populations studied in the United States and for both sexes. The likelihood of exposure increases with the person's age, decreases with rising socioeconomic class, and varies from country to country in relation to their stages of development, emphasis on sanitation.",
+      "bbox": [
+        530.0,
+        2457.0,
+        1336.0,
+        2792.0
+      ],
+      "polygon": [
+        [
+          530.0,
+          2457.0
+        ],
+        [
+          1336.0,
+          2457.0
+        ],
+        [
+          1336.0,
+          2792.0
+        ],
+        [
+          530.0,
+          2792.0
+        ]
+      ]
+    },
+    {
+      "id": 11,
+      "label": "vision_footnote",
+      "content": "Cow108y 01 N81+0n81 in1+1.n2+1 01 m+81n",
+      "bbox": [
+        1834.0,
+        1461.0,
+        2248.0,
+        1486.0
+      ],
+      "polygon": [
+        [
+          1834.0,
+          1461.0
+        ],
+        [
+          2248.0,
+          1461.0
+        ],
+        [
+          2248.0,
+          1486.0
+        ],
+        [
+          1834.0,
+          1486.0
+        ]
+      ]
+    },
+    {
+      "id": 12,
+      "label": "figure_title",
+      "content": "Aggregate of 27-nm hepatitis A antigen particles coated with antibody (X188,000)",
+      "bbox": [
+        1418.0,
+        1488.0,
+        2253.0,
+        1557.0
+      ],
+      "polygon": [
+        [
+          1418.0,
+          1488.0
+        ],
+        [
+          2253.0,
+          1488.0
+        ],
+        [
+          2253.0,
+          1557.0
+        ],
+        [
+          1418.0,
+          1557.0
+        ]
+      ]
+    },
+    {
+      "id": 13,
+      "label": "text",
+      "content": "tion, and perhaps some still-undiscovered geographic factors.",
+      "bbox": [
+        1420.0,
+        1565.0,
+        2256.0,
+        1637.0
+      ],
+      "polygon": [
+        [
+          1420.0,
+          1565.0
+        ],
+        [
+          2256.0,
+          1565.0
+        ],
+        [
+          2256.0,
+          1637.0
+        ],
+        [
+          1420.0,
+          1637.0
+        ]
+      ]
+    },
+    {
+      "id": 14,
+      "label": "text",
+      "content": "With regard to age, the prevalence of antibodies to hepatitis A virus increases with age in all socioeconomic groups tested, approaching 80% among persons 50 or older. It is possible that these older people were exposed to the virus years ago when living conditions were less hygienic. Support for this idea is found in the declining number of reported childhood cases of hepatitis A in this country in recent years. However, anti-hepatitis A titers in immune serum globulin collected in large cities like Boston in the last 30 years have not shown a similar decline.",
+      "bbox": [
+        1417.0,
+        1640.0,
+        2259.0,
+        2044.0
+      ],
+      "polygon": [
+        [
+          1417.0,
+          1640.0
+        ],
+        [
+          2259.0,
+          1640.0
+        ],
+        [
+          2259.0,
+          2044.0
+        ],
+        [
+          1417.0,
+          2044.0
+        ]
+      ]
+    },
+    {
+      "id": 15,
+      "label": "text",
+      "content": "Another possibility is that, at least in urban areas, there may be continuous exposure throughout life. At least half the people living in the lower socioeconomic areas of New York appear to become infected by the time they reach their 20s. But in neighborhoods where people of a higher socioeconomic class live, serological testing by age groups has to extend to people in their 40s and 50s before a 50% rate of exposure is reached.",
+      "bbox": [
+        1414.0,
+        2046.0,
+        2257.0,
+        2377.0
+      ],
+      "polygon": [
+        [
+          1414.0,
+          2046.0
+        ],
+        [
+          2257.0,
+          2046.0
+        ],
+        [
+          2257.0,
+          2377.0
+        ],
+        [
+          1414.0,
+          2377.0
+        ]
+      ]
+    },
+    {
+      "id": 16,
+      "label": "text",
+      "content": "Say Dr Dienstag and colleagues: \"One implication of these seroepidemiologic studies is the advisability of preparing immune serum globulin from plasma of older, lower socioeconomic class urban individuals.\"",
+      "bbox": [
+        1414.0,
+        2377.0,
+        2255.0,
+        2526.0
+      ],
+      "polygon": [
+        [
+          1414.0,
+          2377.0
+        ],
+        [
+          2255.0,
+          2377.0
+        ],
+        [
+          2255.0,
+          2526.0
+        ],
+        [
+          1414.0,
+          2526.0
+        ]
+      ]
+    },
+    {
+      "id": 17,
+      "label": "text",
+      "content": "The inverse relationship of exposure to hepatitis A virus and socioeconomic class has been reported by several investigators and holds \"whether socioeconomic class is defined by level of education, religious group, working class or prison status, census classification, or underdeveloped vs developed country\"",
+      "bbox": [
+        1412.0,
+        2527.0,
+        2252.0,
+        2751.0
+      ],
+      "polygon": [
+        [
+          1412.0,
+          2527.0
+        ],
+        [
+          2252.0,
+          2527.0
+        ],
+        [
+          2252.0,
+          2751.0
+        ],
+        [
+          1412.0,
+          2751.0
+        ]
+      ]
+    },
+    {
+      "id": 18,
+      "label": "text",
+      "content": "continued on page 23.36",
+      "bbox": [
+        1879.0,
+        2752.0,
+        2252.0,
+        2789.0
+      ],
+      "polygon": [
+        [
+          1879.0,
+          2752.0
+        ],
+        [
+          2252.0,
+          2752.0
+        ],
+        [
+          2252.0,
+          2789.0
+        ],
+        [
+          1879.0,
+          2789.0
+        ]
+      ]
+    },
+    {
+      "id": 19,
+      "label": "footer",
+      "content": "JAMA. June 2. 1978 - Vol 239. No 22",
+      "bbox": [
+        533.0,
+        2823.0,
+        1104.0,
+        2858.0
+      ],
+      "polygon": [
+        [
+          533.0,
+          2823.0
+        ],
+        [
+          1104.0,
+          2823.0
+        ],
+        [
+          1104.0,
+          2858.0
+        ],
+        [
+          533.0,
+          2858.0
+        ]
+      ]
+    },
+    {
+      "id": 20,
+      "label": "footer",
+      "content": "Medical News",
+      "bbox": [
+        2027.0,
+        2822.0,
+        2233.0,
+        2857.0
+      ],
+      "polygon": [
+        [
+          2027.0,
+          2822.0
+        ],
+        [
+          2233.0,
+          2822.0
+        ],
+        [
+          2233.0,
+          2857.0
+        ],
+        [
+          2027.0,
+          2857.0
+        ]
+      ]
+    },
+    {
+      "id": 21,
+      "label": "number",
+      "content": "2328",
+      "bbox": [
+        2265.0,
+        2821.0,
+        2348.0,
+        2853.0
+      ],
+      "polygon": [
+        [
+          2265.0,
+          2821.0
+        ],
+        [
+          2348.0,
+          2821.0
+        ],
+        [
+          2348.0,
+          2853.0
+        ],
+        [
+          2265.0,
+          2853.0
+        ]
+      ]
+    },
+    {
+      "id": 22,
+      "label": "footer",
+      "content": "+60°C±2.0°C±1.0°C±2.0°C±1.0°C±1.0°C±1.0°C±1.0°",
+      "bbox": [
+        536.0,
+        2994.0,
+        2187.0,
+        3036.0
+      ],
+      "polygon": [
+        [
+          536.0,
+          2994.0
+        ],
+        [
+          2187.0,
+          2994.0
+        ],
+        [
+          2187.0,
+          3036.0
+        ],
+        [
+          536.0,
+          3036.0
+        ]
+      ]
+    }
+  ]
+}

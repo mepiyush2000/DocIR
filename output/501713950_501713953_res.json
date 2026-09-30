@@ -1,0 +1,766 @@
+{
+  "input_path": "501713950_501713953.jpg",
+  "page_index": null,
+  "page_count": null,
+  "width": 2544,
+  "height": 3230,
+  "model_settings": {
+    "use_doc_preprocessor": false,
+    "use_layout_detection": true,
+    "use_chart_recognition": false,
+    "use_seal_recognition": false,
+    "use_ocr_for_image_block": false,
+    "format_block_content": false,
+    "merge_layout_blocks": true,
+    "markdown_ignore_labels": [
+      "number",
+      "footnote",
+      "header",
+      "header_image",
+      "footer",
+      "footer_image",
+      "aside_text"
+    ],
+    "return_layout_polygon_points": true
+  },
+  "parsing_res_list": [
+    {
+      "block_label": "header",
+      "block_content": "MANAGEMENT SUMMARY",
+      "block_bbox": [
+        925,
+        132,
+        1494,
+        197
+      ],
+      "block_id": 0,
+      "block_order": null,
+      "group_id": 0,
+      "block_polygon_points": [
+        [
+          925.0,
+          132.0
+        ],
+        [
+          1494.0,
+          132.0
+        ],
+        [
+          1494.0,
+          197.0
+        ],
+        [
+          925.0,
+          197.0
+        ]
+      ]
+    },
+    {
+      "block_label": "doc_title",
+      "block_content": "REAL",
+      "block_bbox": [
+        1143,
+        237,
+        1283,
+        293
+      ],
+      "block_id": 1,
+      "block_order": 1,
+      "group_id": 1,
+      "block_polygon_points": [
+        [
+          1143.0,
+          237.0
+        ],
+        [
+          1283.0,
+          237.0
+        ],
+        [
+          1283.0,
+          293.0
+        ],
+        [
+          1143.0,
+          293.0
+        ]
+      ]
+    },
+    {
+      "block_label": "header",
+      "block_content": "RJR SECRET",
+      "block_bbox": [
+        1781,
+        46,
+        2153,
+        321
+      ],
+      "block_id": 2,
+      "block_order": null,
+      "group_id": 2,
+      "block_polygon_points": [
+        [
+          1781.0,
+          46.0
+        ],
+        [
+          2153.0,
+          46.0
+        ],
+        [
+          2153.0,
+          321.0
+        ],
+        [
+          1781.0,
+          321.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "No. 225 By.",
+      "block_bbox": [
+        1552,
+        336,
+        2094,
+        448
+      ],
+      "block_id": 3,
+      "block_order": 2,
+      "group_id": 3,
+      "block_polygon_points": [
+        [
+          1552.0,
+          336.0
+        ],
+        [
+          2094.0,
+          336.0
+        ],
+        [
+          2094.0,
+          448.0
+        ],
+        [
+          1552.0,
+          448.0
+        ]
+      ]
+    },
+    {
+      "block_label": "paragraph_title",
+      "block_content": "I. Background History",
+      "block_bbox": [
+        178,
+        439,
+        859,
+        501
+      ],
+      "block_id": 4,
+      "block_order": 3,
+      "group_id": 4,
+      "block_polygon_points": [
+        [
+          178.0,
+          439.0
+        ],
+        [
+          859.0,
+          439.0
+        ],
+        [
+          859.0,
+          501.0
+        ],
+        [
+          178.0,
+          501.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "REAL FILTER and MENTHOL were introduced nationally on 6/13/77, 4 months ago. REAL is positioned in the fast-growing Hi-Fi category as the only major brand with \"nothing artificial added\" -- capitalizing on recent consumer interest in all-natural products to differentiate the Brand from all other cigarettes. Based on pre-market concept research, low \"tar\" and good taste are the consumer benefits which make the Brand important to consumers. The Brand is targeted to young adults, especially males, with emphasis on a rich, masculine tone in advertising--on judgment, distinctly unique versus the more \"clinical\" pack/copy approach used by the leading Hi-Fi brands (VANTAGE and Merit). Pre-market research indicated strong and broad-based appeal for REAL, so it received very heavy intro-ductory spending support to capitalize on this potential.",
+      "block_bbox": [
+        282,
+        520,
+        2381,
+        1203
+      ],
+      "block_id": 5,
+      "block_order": 4,
+      "group_id": 5,
+      "block_polygon_points": [
+        [
+          282.0,
+          520.0
+        ],
+        [
+          2381.0,
+          520.0
+        ],
+        [
+          2381.0,
+          1203.0
+        ],
+        [
+          282.0,
+          1203.0
+        ]
+      ]
+    },
+    {
+      "block_label": "paragraph_title",
+      "block_content": "II. Business Review",
+      "block_bbox": [
+        149,
+        1235,
+        773,
+        1297
+      ],
+      "block_id": 6,
+      "block_order": 5,
+      "group_id": 6,
+      "block_polygon_points": [
+        [
+          149.0,
+          1235.0
+        ],
+        [
+          773.0,
+          1235.0
+        ],
+        [
+          773.0,
+          1297.0
+        ],
+        [
+          149.0,
+          1297.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "REAL's performance thus far in 1977 has been disappointing. Shipments forecasted for total year 1977 are only 66% of the original goal:",
+      "block_bbox": [
+        296,
+        1315,
+        2437,
+        1448
+      ],
+      "block_id": 7,
+      "block_order": 6,
+      "group_id": 7,
+      "block_polygon_points": [
+        [
+          295.284912109375,
+          1345.0050048828125
+        ],
+        [
+          2436.0,
+          1330.0001220703125
+        ],
+        [
+          2436.71630859375,
+          1432.1959228515625
+        ],
+        [
+          296.001220703125,
+          1447.2008056640625
+        ]
+      ]
+    },
+    {
+      "block_label": "table",
+      "block_content": "<table><tr><td></td><td colspan=\"2\">Total Year 1977</td></tr><tr><td></td><td>Volume</td><td>SOM</td></tr><tr><td>Original Goal</td><td>3.64 bil.</td><td>.68</td></tr><tr><td>Current Forecast\\n(% of Goal)</td><td>2.40 bil. $ ^{{*}} $\\n(66%)</td><td>.48</td></tr></table>",
+      "block_bbox": [
+        462,
+        1470,
+        2021,
+        1842
+      ],
+      "block_id": 8,
+      "block_order": null,
+      "group_id": 8,
+      "block_polygon_points": [
+        [
+          462.0,
+          1470.0
+        ],
+        [
+          2021.0,
+          1470.0
+        ],
+        [
+          2021.0,
+          1842.0
+        ],
+        [
+          462.0,
+          1842.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": " $ ^{*} $ Inflated by an estimated net pickup from retailers/\njobbers of 200 million units. Given a heavy initial\nload-in and lower than expected movement, pickup was\nrequired to balance inventories and assure fresh product.",
+      "block_bbox": [
+        479,
+        1867,
+        2280,
+        2093
+      ],
+      "block_id": 9,
+      "block_order": 7,
+      "group_id": 9,
+      "block_polygon_points": [
+        [
+          479.0,
+          1867.0
+        ],
+        [
+          2280.0,
+          1867.0
+        ],
+        [
+          2280.0,
+          2093.0
+        ],
+        [
+          479.0,
+          2093.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Although REAL's spending in 1977 was at a significantly high rate versus previous RJR new brand introductions, its impact was somewhat diluted by the national introduction of 19 competitive new brand items (all low \"tar\") during the year. Importantly, Merit's first year expenditures accounted for a greater share of both low \"tar\" category and new brand expenditures than did REAL's.",
+      "block_bbox": [
+        296,
+        2118,
+        2318,
+        2441
+      ],
+      "block_id": 10,
+      "block_order": 8,
+      "group_id": 10,
+      "block_polygon_points": [
+        [
+          295.9999084472656,
+          2135.0
+        ],
+        [
+          2317.0,
+          2118.0
+        ],
+        [
+          2319.57373046875,
+          2423.978515625
+        ],
+        [
+          298.57373046875,
+          2440.978515625
+        ]
+      ]
+    },
+    {
+      "block_label": "table",
+      "block_content": "<table><tr><td></td><td>Merit Year 1976</td><td>REAL July-Dec. 1977 (Annual Rate)</td></tr><tr><td>Low &quot;Tar&quot; Category Expenditures</td><td>$208 Million</td><td>$272 Million</td></tr><tr><td>Brand Spending</td><td>$ 43</td><td>$ 48</td></tr><tr><td>Share of Category Spending</td><td>21%</td><td>16% (vs. Merit&#x27;s 15%)</td></tr><tr><td>Share of New Brand Spending</td><td>45%</td><td>33%</td></tr></table>",
+      "block_bbox": [
+        455,
+        2480,
+        2401,
+        3210
+      ],
+      "block_id": 11,
+      "block_order": null,
+      "group_id": 11,
+      "block_polygon_points": [
+        [
+          455.0,
+          2480.0
+        ],
+        [
+          2401.0,
+          2480.0
+        ],
+        [
+          2401.0,
+          3210.0
+        ],
+        [
+          455.0,
+          3210.0
+        ]
+      ]
+    }
+  ],
+  "layout_det_res": {
+    "input_path": null,
+    "page_index": null,
+    "boxes": [
+      {
+        "cls_id": 12,
+        "label": "header",
+        "score": 0.633104145526886,
+        "coordinate": [
+          925,
+          132,
+          1494,
+          197
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            925.0,
+            132.0
+          ],
+          [
+            1494.0,
+            132.0
+          ],
+          [
+            1494.0,
+            197.0
+          ],
+          [
+            925.0,
+            197.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 6,
+        "label": "doc_title",
+        "score": 0.4562612771987915,
+        "coordinate": [
+          1143,
+          237,
+          1283,
+          293
+        ],
+        "order": 1,
+        "polygon_points": [
+          [
+            1143.0,
+            237.0
+          ],
+          [
+            1283.0,
+            237.0
+          ],
+          [
+            1283.0,
+            293.0
+          ],
+          [
+            1143.0,
+            293.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 12,
+        "label": "header",
+        "score": 0.6158645153045654,
+        "coordinate": [
+          1781,
+          46,
+          2153,
+          321
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            1781.0,
+            46.0
+          ],
+          [
+            2153.0,
+            46.0
+          ],
+          [
+            2153.0,
+            321.0
+          ],
+          [
+            1781.0,
+            321.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.450629860162735,
+        "coordinate": [
+          1552,
+          336,
+          2094,
+          448
+        ],
+        "order": 2,
+        "polygon_points": [
+          [
+            1552.0,
+            336.0
+          ],
+          [
+            2094.0,
+            336.0
+          ],
+          [
+            2094.0,
+            448.0
+          ],
+          [
+            1552.0,
+            448.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 17,
+        "label": "paragraph_title",
+        "score": 0.8360603451728821,
+        "coordinate": [
+          178,
+          439,
+          859,
+          501
+        ],
+        "order": 3,
+        "polygon_points": [
+          [
+            178.0,
+            439.0
+          ],
+          [
+            859.0,
+            439.0
+          ],
+          [
+            859.0,
+            501.0
+          ],
+          [
+            178.0,
+            501.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.9433159828186035,
+        "coordinate": [
+          282,
+          520,
+          2381,
+          1203
+        ],
+        "order": 4,
+        "polygon_points": [
+          [
+            282.0,
+            520.0
+          ],
+          [
+            2381.0,
+            520.0
+          ],
+          [
+            2381.0,
+            1203.0
+          ],
+          [
+            282.0,
+            1203.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 17,
+        "label": "paragraph_title",
+        "score": 0.846824586391449,
+        "coordinate": [
+          149,
+          1235,
+          773,
+          1297
+        ],
+        "order": 5,
+        "polygon_points": [
+          [
+            149.0,
+            1235.0
+          ],
+          [
+            773.0,
+            1235.0
+          ],
+          [
+            773.0,
+            1297.0
+          ],
+          [
+            149.0,
+            1297.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.8949881196022034,
+        "coordinate": [
+          296,
+          1315,
+          2437,
+          1448
+        ],
+        "order": 6,
+        "polygon_points": [
+          [
+            295.284912109375,
+            1345.0050048828125
+          ],
+          [
+            2436.0,
+            1330.0001220703125
+          ],
+          [
+            2436.71630859375,
+            1432.1959228515625
+          ],
+          [
+            296.001220703125,
+            1447.2008056640625
+          ]
+        ]
+      },
+      {
+        "cls_id": 21,
+        "label": "table",
+        "score": 0.9019064903259277,
+        "coordinate": [
+          462,
+          1470,
+          2021,
+          1842
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            462.0,
+            1470.0
+          ],
+          [
+            2021.0,
+            1470.0
+          ],
+          [
+            2021.0,
+            1842.0
+          ],
+          [
+            462.0,
+            1842.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.9051483273506165,
+        "coordinate": [
+          479,
+          1867,
+          2280,
+          2093
+        ],
+        "order": 7,
+        "polygon_points": [
+          [
+            479.0,
+            1867.0
+          ],
+          [
+            2280.0,
+            1867.0
+          ],
+          [
+            2280.0,
+            2093.0
+          ],
+          [
+            479.0,
+            2093.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.937629759311676,
+        "coordinate": [
+          296,
+          2118,
+          2318,
+          2441
+        ],
+        "order": 8,
+        "polygon_points": [
+          [
+            295.9999084472656,
+            2135.0
+          ],
+          [
+            2317.0,
+            2118.0
+          ],
+          [
+            2319.57373046875,
+            2423.978515625
+          ],
+          [
+            298.57373046875,
+            2440.978515625
+          ]
+        ]
+      },
+      {
+        "cls_id": 21,
+        "label": "table",
+        "score": 0.8366464376449585,
+        "coordinate": [
+          455,
+          2480,
+          2401,
+          3210
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            455.0,
+            2480.0
+          ],
+          [
+            2401.0,
+            2480.0
+          ],
+          [
+            2401.0,
+            3210.0
+          ],
+          [
+            455.0,
+            3210.0
+          ]
+        ]
+      }
+    ]
+  }
+}

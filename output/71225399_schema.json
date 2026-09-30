@@ -1,0 +1,443 @@
+{
+  "schema_version": "1.0",
+  "input_path": "71225399.jpg",
+  "width": 2400.0,
+  "height": 3150.0,
+  "blocks": [
+    {
+      "id": 0,
+      "label": "doc_title",
+      "content": "SUMMARY OF THE PROPOSED RESOLUTION",
+      "bbox": [
+        660.0,
+        356.0,
+        1631.0,
+        417.0
+      ],
+      "polygon": [
+        [
+          660.0,
+          356.0
+        ],
+        [
+          1631.0,
+          356.0
+        ],
+        [
+          1631.0,
+          417.0
+        ],
+        [
+          660.0,
+          417.0
+        ]
+      ]
+    },
+    {
+      "id": 1,
+      "label": "text",
+      "content": "The proposed resolution, which would be implemented through legislation and a binding contractual protocol to be entered into by participating members of the tobacco industry, mandates a total reformation and restructuring of how tobacco products are manufactured, marketed and distributed in the United States:",
+      "bbox": [
+        277.0,
+        462.0,
+        1992.0,
+        692.0
+      ],
+      "polygon": [
+        [
+          277.0,
+          462.0
+        ],
+        [
+          1992.0,
+          462.0
+        ],
+        [
+          1992.0,
+          692.0
+        ],
+        [
+          277.0,
+          692.0
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "label": "text",
+      "content": "(1) by seeking to prevent underage access to, and dramatically reduce underage use of, tobacco products;",
+      "bbox": [
+        281.0,
+        729.0,
+        1953.0,
+        851.0
+      ],
+      "polygon": [
+        [
+          280.048583984375,
+          744.0084838867188
+        ],
+        [
+          1952.0,
+          729.0000610351562
+        ],
+        [
+          1952.951416015625,
+          834.9915161132812
+        ],
+        [
+          281.0,
+          849.9999389648438
+        ]
+      ]
+    },
+    {
+      "id": 3,
+      "label": "text",
+      "content": "(2) by confirming the Food & Drug Administration’s authority to regulate tobacco products under the Food, Drug and Cosmetic Act, with certain provisions applicable to tobacco products;",
+      "bbox": [
+        278.0,
+        886.0,
+        1980.0,
+        1063.0
+      ],
+      "polygon": [
+        [
+          278.0,
+          886.0
+        ],
+        [
+          1980.0,
+          886.0
+        ],
+        [
+          1980.0,
+          1063.0
+        ],
+        [
+          278.0,
+          1063.0
+        ]
+      ]
+    },
+    {
+      "id": 4,
+      "label": "text",
+      "content": "(3) by mandating changes in the corporate culture of tobacco companies;",
+      "bbox": [
+        420.0,
+        1100.0,
+        1712.0,
+        1167.0
+      ],
+      "polygon": [
+        [
+          420.0,
+          1100.0
+        ],
+        [
+          1712.0,
+          1100.0
+        ],
+        [
+          1712.0,
+          1167.0
+        ],
+        [
+          420.0,
+          1167.0
+        ]
+      ]
+    },
+    {
+      "id": 5,
+      "label": "text",
+      "content": "(4) by setting national requirements limiting smoking in public places (with State and local governments remaining free to set more stringent requirements);",
+      "bbox": [
+        286.0,
+        1203.0,
+        1947.0,
+        1329.0
+      ],
+      "polygon": [
+        [
+          284.9495849609375,
+          1219.0098876953125
+        ],
+        [
+          1946.0001220703125,
+          1202.9998779296875
+        ],
+        [
+          1947.2037353515625,
+          1327.8726806640625
+        ],
+        [
+          286.1531982421875,
+          1343.8826904296875
+        ]
+      ]
+    },
+    {
+      "id": 6,
+      "label": "text",
+      "content": "(5) by requiring that the participating members of the tobacco industry pay hundreds of billions of dollars to fund medical research; public education; cessation programs; health-care costs incurred by federal, state and local governments; and federal and state enforcement of the restrictions imposed by the proposed resolution;",
+      "bbox": [
+        287.0,
+        1361.0,
+        1985.0,
+        1596.0
+      ],
+      "polygon": [
+        [
+          287.0,
+          1361.0
+        ],
+        [
+          1985.0,
+          1361.0
+        ],
+        [
+          1985.0,
+          1596.0
+        ],
+        [
+          287.0,
+          1596.0
+        ]
+      ]
+    },
+    {
+      "id": 7,
+      "label": "text",
+      "content": "(6) by preserving the rights of individuals to sue the tobacco industry;",
+      "bbox": [
+        424.0,
+        1633.0,
+        1667.0,
+        1698.0
+      ],
+      "polygon": [
+        [
+          424.0,
+          1633.0
+        ],
+        [
+          1667.0,
+          1633.0
+        ],
+        [
+          1667.0,
+          1698.0
+        ],
+        [
+          424.0,
+          1698.0
+        ]
+      ]
+    },
+    {
+      "id": 8,
+      "label": "text",
+      "content": "(7) by ensuring that members of the tobacco industry who seek to avoid the strictures of the new regime will be held fully accountable for any injuries their products may cause; and",
+      "bbox": [
+        293.0,
+        1736.0,
+        1998.0,
+        1859.0
+      ],
+      "polygon": [
+        [
+          292.0580749511719,
+          1751.0081787109375
+        ],
+        [
+          1996.999755859375,
+          1735.9998779296875
+        ],
+        [
+          1997.941650390625,
+          1842.9915771484375
+        ],
+        [
+          293.0,
+          1857.9998779296875
+        ]
+      ]
+    },
+    {
+      "id": 9,
+      "label": "text",
+      "content": "(8) by establishing a comprehensive regime of federal regulation and federal and state enforcement to implement these requirements.",
+      "bbox": [
+        294.0,
+        1896.0,
+        1958.0,
+        2020.0
+      ],
+      "polygon": [
+        [
+          292.9705810546875,
+          1912.010009765625
+        ],
+        [
+          1957.0,
+          1896.000244140625
+        ],
+        [
+          1958.1722412109375,
+          2017.843994140625
+        ],
+        [
+          294.142822265625,
+          2033.853759765625
+        ]
+      ]
+    },
+    {
+      "id": 10,
+      "label": "text",
+      "content": "The principal details follow.",
+      "bbox": [
+        567.0,
+        2066.0,
+        1074.0,
+        2126.0
+      ],
+      "polygon": [
+        [
+          567.0,
+          2066.0
+        ],
+        [
+          1074.0,
+          2066.0
+        ],
+        [
+          1074.0,
+          2126.0
+        ],
+        [
+          567.0,
+          2126.0
+        ]
+      ]
+    },
+    {
+      "id": 11,
+      "label": "paragraph_title",
+      "content": "1. Prevention of Underage Use of Tobacco Products",
+      "bbox": [
+        300.0,
+        2172.0,
+        1366.0,
+        2232.0
+      ],
+      "polygon": [
+        [
+          300.0,
+          2172.0
+        ],
+        [
+          1366.0,
+          2172.0
+        ],
+        [
+          1366.0,
+          2232.0
+        ],
+        [
+          300.0,
+          2232.0
+        ]
+      ]
+    },
+    {
+      "id": 12,
+      "label": "text",
+      "content": "The proposed resolution strikes at the core problem of underage consumption of tobacco products. The Food & Drug Administration (“FDA”) and other public health authorities have concluded that virtually all new consumers of tobacco products are under legal age. The proposed resolution attempts to cure what the FDA has termed a “pediatric disease” by drastically curtailing advertising and marketing practices that have been criticized as appealing to minors; by imposing strict controls restricting the sale of tobacco products to adult consumers only; and by requiring dramatic reductions in the levels of underage use, with the tobacco",
+      "bbox": [
+        300.0,
+        2271.0,
+        2040.0,
+        2664.0
+      ],
+      "polygon": [
+        [
+          300.0,
+          2271.0
+        ],
+        [
+          2040.0,
+          2271.0
+        ],
+        [
+          2040.0,
+          2664.0
+        ],
+        [
+          300.0,
+          2664.0
+        ]
+      ]
+    },
+    {
+      "id": 13,
+      "label": "number",
+      "content": "1",
+      "bbox": [
+        1161.0,
+        2712.0,
+        1186.0,
+        2755.0
+      ],
+      "polygon": [
+        [
+          1161.0,
+          2712.0
+        ],
+        [
+          1185.0,
+          2712.0
+        ],
+        [
+          1185.0,
+          2754.0
+        ],
+        [
+          1161.0,
+          2754.0
+        ]
+      ]
+    },
+    {
+      "id": 14,
+      "label": "footer",
+      "content": "689604150\nPRODUCED FROM B&W WEB SITE",
+      "bbox": [
+        0.0,
+        2996.0,
+        734.0,
+        3098.0
+      ],
+      "polygon": [
+        [
+          -1.0,
+          2996.0
+        ],
+        [
+          734.0,
+          2996.0
+        ],
+        [
+          734.0,
+          3098.0
+        ],
+        [
+          -1.0,
+          3098.0
+        ]
+      ]
+    }
+  ]
+}

@@ -51,3 +51,21 @@ def test_render_pdf_falls_back_gracefully_without_source_image(tmp_path, fixture
         fixture_layout, str(output_pdf), source_image_path="does/not/exist.png",
     )
     assert os.path.isfile(result_path)
+
+
+def test_source_image_and_lines_are_brought_into_layout_pixel_space():
+    import pytest
+    from PIL import Image
+
+    from docir.pipeline import lines_in_layout_space, match_layout_space
+    from docir.schemas import PageLayout, TextLine
+
+    layout = PageLayout(width=1000, height=1400, blocks=[])
+    assert match_layout_space(Image.new("RGB", (500, 700)), layout).size == (1000, 1400)
+    with pytest.raises(ValueError):
+        match_layout_space(Image.new("RGB", (700, 1400)), layout)
+    half = PageLines(width=500, height=700, lines=[
+        TextLine(polygon=[(10, 20), (110, 20), (110, 40), (10, 40)], text="x", score=1.0)])
+    scaled = lines_in_layout_space(half, layout)
+    assert scaled.lines[0].polygon[1] == (220, 40)
+    assert lines_in_layout_space(PageLines(width=700, height=1400, lines=[]), layout) is None
