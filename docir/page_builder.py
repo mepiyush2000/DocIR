@@ -16,7 +16,7 @@ from PIL import Image
 
 from . import table_layout, tables
 from .color import assign_colors
-from .config import straighten_max_deg
+from .config import font_size_offset_pt, straighten_max_deg
 from .graphics import detect_graphics
 from .ink import binarize_region, measure_text_lines
 from .labels import PICTURE_LABELS as IMAGE_LABELS
@@ -25,9 +25,10 @@ from .line_geometry import measure_glyph, measure_line, ordered_quad, pixel_line
 from .line_fit import refit_page
 from .page_model import Block, Line, Page, Picture
 from .reconcile import LinePlacement, order_lines, reconcile, split_text_to_lines, vl_wording
+from .render_model import TARGET_PAGE_WIDTH_PT as PAGE_WIDTH_PT
 from .schemas import PageLayout, PageLines, TextLine
 from .straighten import straighten_page
-from .typography import assign_styles
+from .typography import assign_styles, offset_sizes
 
 logger = logging.getLogger(__name__)
 
@@ -239,7 +240,7 @@ def _trim_pictures(page: Page) -> None:
 
 
 def build_page(layout: PageLayout, image: Image.Image, page_lines: PageLines | None = None,
-               straighten_deg: float | None = None) -> Page:
+               straighten_deg: float | None = None, size_offset_pt: float | None = None) -> Page:
     image = image.convert("RGB")
     gray = np.asarray(image.convert("L"))
     page = Page(width=layout.width, height=layout.height)
@@ -292,6 +293,8 @@ def build_page(layout: PageLayout, image: Image.Image, page_lines: PageLines | N
         next_id += 1
 
     assign_styles(page, image)
+    offset = font_size_offset_pt() if size_offset_pt is None else size_offset_pt
+    offset_sizes(page.blocks, offset * image.width / PAGE_WIDTH_PT)
     refitted = refit_page(page.blocks)
     assign_colors(page, image)
     for block in page.blocks:

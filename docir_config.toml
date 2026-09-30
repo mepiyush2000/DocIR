@@ -23,3 +23,6 @@ mode = "lines"
 # Blocks whose lines tilt by at most this many degrees (scan / camera
 # error) are drawn perfectly level; larger angles are kept. 0 = keep all tilts.
 straighten_max_deg = 5.0
+# Added to every measured font size, in PDF points (the page is 612 pt
+# wide). Negative = slightly smaller text than measured. 0 = as measured.
+font_size_offset_pt = -1.0

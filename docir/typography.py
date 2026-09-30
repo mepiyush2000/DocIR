@@ -51,6 +51,7 @@ TRAIT_ADOPT_RATIO = 1.35         # ... so it adopts those of a style this close 
 CAPS_MAX_SHORT_FRAC = 0.5        # fewer x-band-only letters than this: the line may measure caps
 CAPS_MAX_RISE = 1.25             # ... confirmed by ink barely rising above the measured band
 XH_PER_CAP = 0.74                # typical x-height / cap height, before a family is chosen
+MIN_OFFSET_SCALE = 0.8           # a size offset never shrinks text below this share of its size
 
 
 @dataclass(frozen=True)
@@ -287,6 +288,19 @@ def assign_styles(page: Page, image: Image.Image | None) -> None:
 
 
 # ---------- page-wide harmony ----------
+
+def offset_sizes(blocks: list[Block], delta_px: float) -> None:
+    """Shift every style's size by `delta_px` (drop caps keep their measured
+    size), never below MIN_OFFSET_SCALE of it."""
+    if not delta_px:
+        return
+    seen: set[int] = set()
+    for b in blocks:
+        s = b.style
+        if s is None or id(s) in seen:
+            continue
+        seen.add(id(s))
+        s.size_px = max(s.size_px + delta_px, MIN_OFFSET_SCALE * s.size_px)
 
 def _style_groups(blocks: list[Block]) -> list[tuple[TextStyle, list[Block], int]]:
     """Distinct styles in use, with their blocks and amount of text."""
