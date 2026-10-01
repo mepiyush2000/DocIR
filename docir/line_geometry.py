@@ -18,13 +18,14 @@ import cv2
 import numpy as np
 from PIL import Image
 
-from .ink import binarize_region, estimate_skew, line_cores
+from .ink import LINE_CORE_FRAC, binarize_region, estimate_skew, line_cores, runs_1d
 
 QUAD_PAD_FRAC = 0.15          # vertical padding around a quad before measuring
 ASCENDER_X_HEIGHT = 0.85      # band above the x-height core reached by ascenders/caps
 DESCENDER_X_HEIGHT = 0.45     # band below the baseline reached by descenders
 MIN_INK_COL_FRAC = 0.02       # of the band's height: columns with less ink are empty
-RULE_ROW_FILL = 0.85          # an unbroken ink run across this much of the line is a rule
+RULE_ROW_FILL = 0.6           # an unbroken ink run across this much of the line is a rule
+MIN_CORE_BOX_FRAC = 0.4       # a band thinner than this share of its line box is split letters
 RULE_EDGE_FRAC = 0.3          # ... when it lies in the top/bottom share of the line box
 RULE_FRINGE_ROWS = 2          # ... and this many rows either side are its blur
 MAX_SKEW_DEG = 12.0
@@ -102,12 +103,30 @@ def _longest_run(row: np.ndarray) -> int:
     return int((np.where(d == -1)[0] - np.where(d == 1)[0]).max())
 
 
-def _core(profile: np.ndarray) -> tuple[int, int] | None:
-    """The x-height band: the heaviest dense-row run."""
+def _core(profile: np.ndarray, box: tuple[int, int] | None = None) -> tuple[int, int] | None:
+    """The x-height band: the heaviest dense-row run. When it is implausibly
+    thin for the line's box (serif capitals: heavy top and bottom strokes,
+    sparse middles), the dense runs inside the box are one band."""
     cores = line_cores(profile.astype(np.float64))
     if not cores:
         return None
-    return max(cores, key=lambda c: profile[c[0]:c[1]].sum())
+    best = max(cores, key=lambda c: profile[c[0]:c[1]].sum())
+    if box is None or best[1] - best[0] >= MIN_CORE_BOX_FRAC * (box[1] - box[0]):
+        return best
+    # re-merge from the raw dense runs: thin stroke bands are dropped by
+    # line_cores, yet they bound the letters
+    peak = np.percentile(profile[profile > 0], 85)
+    runs = [(max(s, box[0]), min(e, box[1])) for s, e in runs_1d(profile > LINE_CORE_FRAC * peak)
+            if s < box[1] and e > box[0]]
+    merged = [list(runs[0])] if runs else [list(best)]
+    for s, e in runs[1:]:
+        ps, pe = merged[-1]
+        if s - pe <= max(pe - ps, e - s):
+            merged[-1][1] = e
+        else:
+            merged.append([s, e])
+    grown = [(s, e) for s, e in merged if s <= best[0] and best[1] <= e]
+    return grown[0] if grown else best
 
 
 def measure_line(gray: np.ndarray, polygon) -> LineMetrics | None:
@@ -121,7 +140,8 @@ def measure_line(gray: np.ndarray, polygon) -> LineMetrics | None:
     ink = _ink_mask(rect)
     if ink is None:
         return None
-    core = _core(ink.sum(axis=1))
+    core = _core(ink.sum(axis=1), (round(h * QUAD_PAD_FRAC / (1 + 2 * QUAD_PAD_FRAC)),
+                                   round(h * (1 + QUAD_PAD_FRAC) / (1 + 2 * QUAD_PAD_FRAC))))
     if core is None:
         return None
     top, base = core

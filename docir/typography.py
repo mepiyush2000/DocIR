@@ -23,7 +23,7 @@ from functools import lru_cache
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
-from . import font_catalog
+from . import font_catalog, pitch
 from .bold import classify_bold_by_label, measure_stroke_ratio
 from .fonts import classify_word_samples, collect_word_samples
 from .italic import classify_italic_by_label, measure_slant_angle
@@ -148,9 +148,18 @@ def lines_x_height(lines: list[Line], font_path: str | None = None) -> float:
 
 # ---------- size clusters ----------
 
-def _block_x_height(block: Block) -> float | None:
+def _block_x_height(block: Block, role_xh: float | None = None) -> float | None:
+    """The block's x-height; a mis-measured line (one that caught a picture
+    or rule beside it) doesn't pull a short block off its role's size."""
     hs = [line_x_height(l) for l in block.lines if len(l.text.strip()) >= 3 and not l.drop_cap]
-    return float(np.median(hs)) if hs else None
+    if not hs:
+        return None
+    # only when its own lines clearly disagree: a block whose lines agree is that size
+    if role_xh and max(hs) / min(hs) > NOISY_JOIN_RATIO:
+        near = [h for h in hs if max(h, role_xh) / min(h, role_xh) <= NOISY_JOIN_RATIO]
+        if 2 * len(near) >= len(hs):
+            return float(np.median(near))
+    return float(np.median(hs))
 
 
 def _reliable(block: Block) -> bool:
@@ -161,7 +170,9 @@ def _reliable(block: Block) -> bool:
 def cluster_by_x_height(blocks: list[Block], ratio: float = SIZE_CLUSTER_RATIO) -> list[list[Block]]:
     """Size clusters of one role. Short one-line blocks (capitals and digits
     distort their x-height) join the nearest cluster of the longer ones."""
-    measured = sorted(((xh, b) for b in blocks if (xh := _block_x_height(b))), key=lambda t: t[0])
+    role_hs = [line_x_height(l) for b in blocks for l in b.lines if len(l.text.strip()) >= 3 and not l.drop_cap]
+    role_xh = float(np.median(role_hs)) if role_hs else None
+    measured = sorted(((xh, b) for b in blocks if (xh := _block_x_height(b, role_xh))), key=lambda t: t[0])
     solid = [t for t in measured if _reliable(t[1])]
     noisy = [t for t in measured if not _reliable(t[1])] if solid else []
     if not solid:
@@ -232,6 +243,12 @@ def assign_styles(page: Page, image: Image.Image | None) -> None:
     if not blocks:
         return
     traits = classify_roles([(b.role, b.bbox, b.content) for b in blocks], image)
+    # typewriter text: judged from line lengths, which survive blur better than glyph shapes
+    page_mono = pitch.looks_monospaced(blocks)
+    for role, t in traits.items():
+        r = pitch.pitch_ratio([b for b in blocks if b.role == role])
+        if (r[0] < pitch.MONO_RATIO) if r else page_mono:
+            traits[role] = RoleTraits(t.bold, t.italic, "monospace")
 
     # the body family: fitted on the role cluster with the most text
     plans = []
@@ -388,5 +405,29 @@ def harmonize_styles(blocks: list[Block]) -> int:
             for l in b.lines:
                 if l.drop_cap:
                     l.size_px = l.cap_top / font_catalog.cap_height_em(face.path)
+    _unify_sizes(blocks)
     logger.debug("harmonized %d styles into %d", len(groups), len(merged))
     return len(merged)
+
+
+def _unify_sizes(blocks: list[Block]) -> None:
+    """One size for near-equal sizes of a category, whatever their weight or
+    slant: a bold label set in the body size keeps the body size."""
+    groups = _style_groups(blocks)
+    for category in {s.category for s, _, _ in groups}:
+        chain: list[list[tuple[TextStyle, list[Block], int]]] = []
+        for g in sorted((g for g in groups if g[0].category == category), key=lambda g: g[0].size_px):
+            if chain and g[0].size_px / chain[-1][0][0].size_px <= SIZE_MERGE_RATIO:
+                chain[-1].append(g)
+            else:
+                chain.append([g])
+        for run in chain:
+            if len(run) < 2:
+                continue
+            size = _weighted_median([s.size_px for s, _, _ in run], [max(n, 1) for _, _, n in run])
+            for s, bs, _ in run:
+                face = font_catalog.face(s.font_family, s.bold, s.italic)
+                ratios = _width_ratios([l for b in bs for l in b.lines if not l.drop_cap], face, size)
+                if ratios:
+                    s.width_scale = float(np.clip(np.percentile(ratios, WIDTH_PERCENTILE), *WIDTH_SCALE_RANGE))
+                s.size_px = size

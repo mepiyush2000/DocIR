@@ -1,0 +1,762 @@
+{
+  "schema_version": "1.0",
+  "input_path": "71360042_flat.png",
+  "width": 2400.0,
+  "height": 3150.0,
+  "blocks": [
+    {
+      "id": 0,
+      "label": "header",
+      "content": "per Frank. At to Fast and not mail\nFailed 407 A.",
+      "bbox": [
+        373.0,
+        53.0,
+        1075.0,
+        169.0
+      ],
+      "polygon": [
+        [
+          370.4825134277344,
+          68.07376098632812
+        ],
+        [
+          1073.8377685546875,
+          47.46763610839844
+        ],
+        [
+          1077.1114501953125,
+          159.20767211914062
+        ],
+        [
+          373.7562255859375,
+          179.8137969970703
+        ]
+      ]
+    },
+    {
+      "id": 1,
+      "label": "header_image",
+      "content": "",
+      "bbox": [
+        1506.0,
+        81.0,
+        1575.0,
+        151.0
+      ],
+      "polygon": [
+        [
+          1506.0,
+          81.0
+        ],
+        [
+          1575.0,
+          81.0
+        ],
+        [
+          1575.0,
+          151.0
+        ],
+        [
+          1506.0,
+          151.0
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "label": "text",
+      "content": "RETURN TO:\nAK Public Offices Commission\nPO Box 110222\nJuneau, AK 99811-110222\nPhone: 907-465-4864",
+      "bbox": [
+        166.0,
+        186.0,
+        678.0,
+        406.0
+      ],
+      "polygon": [
+        [
+          166.0,
+          186.0
+        ],
+        [
+          678.0,
+          186.0
+        ],
+        [
+          678.0,
+          406.0
+        ],
+        [
+          166.0,
+          406.0
+        ]
+      ]
+    },
+    {
+      "id": 3,
+      "label": "header",
+      "content": "Physical Address for Deliveries:\n240 Main Street, Room 201\nCourt Plaza Building\nJuneau, AK 99801\nFax: 907-465-4832",
+      "bbox": [
+        1526.0,
+        183.0,
+        2116.0,
+        408.0
+      ],
+      "polygon": [
+        [
+          1526.0,
+          183.0
+        ],
+        [
+          2116.0,
+          183.0
+        ],
+        [
+          2116.0,
+          408.0
+        ],
+        [
+          1526.0,
+          408.0
+        ]
+      ]
+    },
+    {
+      "id": 4,
+      "label": "doc_title",
+      "content": "1999 EMPLOYER OF LOBBYIST REPORT\nGeneral Information - Cover Page (Form 24-4)",
+      "bbox": [
+        618.0,
+        503.0,
+        1779.0,
+        628.0
+      ],
+      "polygon": [
+        [
+          618.0,
+          503.0
+        ],
+        [
+          1779.0,
+          503.0
+        ],
+        [
+          1779.0,
+          628.0
+        ],
+        [
+          618.0,
+          628.0
+        ]
+      ]
+    },
+    {
+      "id": 5,
+      "label": "text",
+      "content": "Employer Name: Brown & Williamson Tobacco Corp.",
+      "bbox": [
+        167.0,
+        640.0,
+        1446.0,
+        705.0
+      ],
+      "polygon": [
+        [
+          167.0,
+          640.0
+        ],
+        [
+          1446.0,
+          640.0
+        ],
+        [
+          1446.0,
+          705.0
+        ],
+        [
+          167.0,
+          705.0
+        ]
+      ]
+    },
+    {
+      "id": 6,
+      "label": "text",
+      "content": "Mailing Address:  $ \\underline{\\text{PO Box 35090}} $",
+      "bbox": [
+        165.0,
+        715.0,
+        952.0,
+        772.0
+      ],
+      "polygon": [
+        [
+          165.0,
+          715.0
+        ],
+        [
+          952.0,
+          715.0
+        ],
+        [
+          952.0,
+          772.0
+        ],
+        [
+          165.0,
+          772.0
+        ]
+      ]
+    },
+    {
+      "id": 7,
+      "label": "text",
+      "content": "Phone Number:  $ \\underline{\\text{Louisville, KY}} $ 40232",
+      "bbox": [
+        166.0,
+        788.0,
+        1121.0,
+        844.0
+      ],
+      "polygon": [
+        [
+          166.0,
+          788.0
+        ],
+        [
+          1121.0,
+          788.0
+        ],
+        [
+          1121.0,
+          844.0
+        ],
+        [
+          166.0,
+          844.0
+        ]
+      ]
+    },
+    {
+      "id": 8,
+      "label": "paragraph_title",
+      "content": "REPORTING PERIOD",
+      "bbox": [
+        966.0,
+        878.0,
+        1423.0,
+        929.0
+      ],
+      "polygon": [
+        [
+          966.0,
+          878.0
+        ],
+        [
+          1423.0,
+          878.0
+        ],
+        [
+          1423.0,
+          929.0
+        ],
+        [
+          966.0,
+          929.0
+        ]
+      ]
+    },
+    {
+      "id": 9,
+      "label": "text",
+      "content": "Check the box to indicate which reporting period this report covers",
+      "bbox": [
+        539.0,
+        934.0,
+        1858.0,
+        991.0
+      ],
+      "polygon": [
+        [
+          539.0,
+          934.0
+        ],
+        [
+          1858.0,
+          934.0
+        ],
+        [
+          1858.0,
+          991.0
+        ],
+        [
+          539.0,
+          991.0
+        ]
+      ]
+    },
+    {
+      "id": 10,
+      "label": "image",
+      "content": "",
+      "bbox": [
+        167.0,
+        1074.0,
+        246.0,
+        1155.0
+      ],
+      "polygon": [
+        [
+          167.0,
+          1074.0
+        ],
+        [
+          246.0,
+          1074.0
+        ],
+        [
+          246.0,
+          1155.0
+        ],
+        [
+          167.0,
+          1155.0
+        ]
+      ]
+    },
+    {
+      "id": 11,
+      "label": "text",
+      "content": "1st QUARTER REPORT: Due 04/30/99\n3rd QUARTER REPORT: Due 11/01/99",
+      "bbox": [
+        329.0,
+        1095.0,
+        1121.0,
+        1150.0
+      ],
+      "polygon": [
+        [
+          329.0,
+          1095.0
+        ],
+        [
+          1121.0,
+          1095.0
+        ],
+        [
+          1121.0,
+          1150.0
+        ],
+        [
+          329.0,
+          1150.0
+        ]
+      ]
+    },
+    {
+      "id": 12,
+      "label": "text",
+      "content": "",
+      "bbox": [
+        1272.0,
+        1097.0,
+        2080.0,
+        1154.0
+      ],
+      "polygon": [
+        [
+          1272.0,
+          1097.0
+        ],
+        [
+          2080.0,
+          1097.0
+        ],
+        [
+          2080.0,
+          1154.0
+        ],
+        [
+          1272.0,
+          1154.0
+        ]
+      ]
+    },
+    {
+      "id": 13,
+      "label": "image",
+      "content": "",
+      "bbox": [
+        1199.0,
+        1101.0,
+        1255.0,
+        1153.0
+      ],
+      "polygon": [
+        [
+          1199.0,
+          1101.0
+        ],
+        [
+          1255.0,
+          1101.0
+        ],
+        [
+          1255.0,
+          1153.0
+        ],
+        [
+          1199.0,
+          1153.0
+        ]
+      ]
+    },
+    {
+      "id": 14,
+      "label": "text",
+      "content": "2nd QUARTER REPORT: Due 08/02/99\n4th QUARTER REPORT: Due 01/31/00",
+      "bbox": [
+        167.0,
+        1242.0,
+        1137.0,
+        1298.0
+      ],
+      "polygon": [
+        [
+          167.0,
+          1242.0
+        ],
+        [
+          1137.0,
+          1242.0
+        ],
+        [
+          1137.0,
+          1298.0
+        ],
+        [
+          167.0,
+          1298.0
+        ]
+      ]
+    },
+    {
+      "id": 15,
+      "label": "text",
+      "content": "",
+      "bbox": [
+        1277.0,
+        1243.0,
+        2079.0,
+        1301.0
+      ],
+      "polygon": [
+        [
+          1277.0,
+          1243.0
+        ],
+        [
+          2079.0,
+          1243.0
+        ],
+        [
+          2079.0,
+          1301.0
+        ],
+        [
+          1277.0,
+          1301.0
+        ]
+      ]
+    },
+    {
+      "id": 16,
+      "label": "image",
+      "content": "",
+      "bbox": [
+        1199.0,
+        1247.0,
+        1254.0,
+        1296.0
+      ],
+      "polygon": [
+        [
+          1199.0,
+          1247.0
+        ],
+        [
+          1254.0,
+          1247.0
+        ],
+        [
+          1254.0,
+          1296.0
+        ],
+        [
+          1199.0,
+          1296.0
+        ]
+      ]
+    },
+    {
+      "id": 17,
+      "label": "paragraph_title",
+      "content": "SHORT FORM FOR ZERO REPORTS",
+      "bbox": [
+        740.0,
+        1445.0,
+        1648.0,
+        1504.0
+      ],
+      "polygon": [
+        [
+          740.0,
+          1445.0
+        ],
+        [
+          1648.0,
+          1445.0
+        ],
+        [
+          1648.0,
+          1504.0
+        ],
+        [
+          740.0,
+          1504.0
+        ]
+      ]
+    },
+    {
+      "id": 18,
+      "label": "text",
+      "content": "If no payments were accrued in connection with lobbying activities during this reporting period, check the ZERO REPORT BOX below. If this box is checked, you do not need to submit Schedule A (APOC Form 24-4A) or Schedule B (APOC Form 24-4B).",
+      "bbox": [
+        167.0,
+        1527.0,
+        2187.0,
+        1684.0
+      ],
+      "polygon": [
+        [
+          167.0,
+          1527.0
+        ],
+        [
+          2187.0,
+          1527.0
+        ],
+        [
+          2187.0,
+          1684.0
+        ],
+        [
+          167.0,
+          1684.0
+        ]
+      ]
+    },
+    {
+      "id": 19,
+      "label": "image",
+      "content": "",
+      "bbox": [
+        1174.0,
+        1690.0,
+        1277.0,
+        1791.0
+      ],
+      "polygon": [
+        [
+          1174.0,
+          1690.0
+        ],
+        [
+          1277.0,
+          1690.0
+        ],
+        [
+          1277.0,
+          1791.0
+        ],
+        [
+          1174.0,
+          1791.0
+        ]
+      ]
+    },
+    {
+      "id": 20,
+      "label": "paragraph_title",
+      "content": "GIFTS",
+      "bbox": [
+        1115.0,
+        1855.0,
+        1284.0,
+        1908.0
+      ],
+      "polygon": [
+        [
+          1115.0,
+          1855.0
+        ],
+        [
+          1284.0,
+          1855.0
+        ],
+        [
+          1284.0,
+          1908.0
+        ],
+        [
+          1115.0,
+          1908.0
+        ]
+      ]
+    },
+    {
+      "id": 21,
+      "label": "text",
+      "content": "Report the date and nature of any gift of more than $100 in value made to any public official during this reporting period. AS 24.45.161(4)",
+      "bbox": [
+        166.0,
+        1932.0,
+        2202.0,
+        2038.0
+      ],
+      "polygon": [
+        [
+          166.0,
+          1932.0
+        ],
+        [
+          2202.0,
+          1932.0
+        ],
+        [
+          2202.0,
+          2038.0
+        ],
+        [
+          166.0,
+          2038.0
+        ]
+      ]
+    },
+    {
+      "id": 22,
+      "label": "table",
+      "content": "<table><tr><td>Date</td><td>Name &amp; Position of Public Official</td><td>Nature of Gift</td><td>Value</td></tr><tr><td>N/A</td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr></table>",
+      "bbox": [
+        154.0,
+        2111.0,
+        2146.0,
+        2515.0
+      ],
+      "polygon": [
+        [
+          154.0,
+          2111.0
+        ],
+        [
+          2146.0,
+          2111.0
+        ],
+        [
+          2146.0,
+          2515.0
+        ],
+        [
+          154.0,
+          2515.0
+        ]
+      ]
+    },
+    {
+      "id": 23,
+      "label": "paragraph_title",
+      "content": "COMPLETE BOTH SIDES OF THIS FORM",
+      "bbox": [
+        760.0,
+        2671.0,
+        1635.0,
+        2728.0
+      ],
+      "polygon": [
+        [
+          760.0,
+          2671.0
+        ],
+        [
+          1635.0,
+          2671.0
+        ],
+        [
+          1635.0,
+          2728.0
+        ],
+        [
+          760.0,
+          2728.0
+        ]
+      ]
+    },
+    {
+      "id": 24,
+      "label": "footer",
+      "content": "20210013\nPRODUCED FROM B&W WEB SITE",
+      "bbox": [
+        0.0,
+        2961.0,
+        687.0,
+        3079.0
+      ],
+      "polygon": [
+        [
+          -1.0,
+          2961.0
+        ],
+        [
+          687.0,
+          2961.0
+        ],
+        [
+          687.0,
+          3079.0
+        ],
+        [
+          -1.0,
+          3079.0
+        ]
+      ]
+    },
+    {
+      "id": 25,
+      "label": "footer",
+      "content": "APOC Form 24-4 (3/99)",
+      "bbox": [
+        1822.0,
+        2749.0,
+        2221.0,
+        2797.0
+      ],
+      "polygon": [
+        [
+          1822.0,
+          2749.0
+        ],
+        [
+          2221.0,
+          2749.0
+        ],
+        [
+          2221.0,
+          2797.0
+        ],
+        [
+          1822.0,
+          2797.0
+        ]
+      ]
+    }
+  ]
+}

@@ -16,13 +16,27 @@ SCHEMA_VERSION = "1.0"
 # VL writes some glyphs as markup: a footnote star as `$ ^{*} $` (attached
 # to the word before it), and in-cell line breaks as a literal backslash-n
 _INLINE_SCRIPT = re.compile(r"[ \t]*\$\s*[\^_]\s*\{+\s*([^{}$]{1,8}?)\s*\}+\s*\$")
+# other inline math holding formatting commands, e.g. `$ \underline{\text{PO Box 1}} $`
+_INLINE_MATH = re.compile(r"\$([^$]*\\[A-Za-z]+[^$]*)\$")
+_TEX_COMMAND = re.compile(r"\\[A-Za-z]+\*?")
+# fill-in blanks: VL writes a form's empty lines as runs of underscores (the
+# lines themselves are drawn as graphics)
+_BLANK = re.compile(r"_{2,}")
+
+
+def _math_text(m: re.Match) -> str:
+    return " ".join(re.sub(r"[{}]", "", _TEX_COMMAND.sub("", m.group(1))).split())
 
 
 def clean_vl_text(text: str) -> str:
-    """VL block text as printed: markup for super/subscripts and escaped
-    line breaks resolved (a bare `$` is currency and stays)."""
+    """VL block text as printed: markup for super/subscripts, formatting
+    commands, fill-in blanks and escaped line breaks resolved (a bare `$` is
+    currency and stays)."""
     text = text.replace("\\n", "\n")
-    return _INLINE_SCRIPT.sub(r"\1", text)
+    text = _INLINE_SCRIPT.sub(r"\1", text)
+    text = _INLINE_MATH.sub(_math_text, text)
+    text = _BLANK.sub(" ", text)
+    return "\n".join(" ".join(line.split()) for line in text.split("\n")).strip()
 
 
 class Block(BaseModel):

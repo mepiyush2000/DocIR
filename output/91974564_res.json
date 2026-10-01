@@ -1,0 +1,491 @@
+{
+  "input_path": "91974564.jpg",
+  "page_index": null,
+  "page_count": null,
+  "width": 1728,
+  "height": 2292,
+  "model_settings": {
+    "use_doc_preprocessor": false,
+    "use_layout_detection": true,
+    "use_chart_recognition": false,
+    "use_seal_recognition": false,
+    "use_ocr_for_image_block": false,
+    "format_block_content": false,
+    "merge_layout_blocks": true,
+    "markdown_ignore_labels": [
+      "number",
+      "footnote",
+      "header",
+      "header_image",
+      "footer",
+      "footer_image",
+      "aside_text"
+    ],
+    "return_layout_polygon_points": true
+  },
+  "parsing_res_list": [
+    {
+      "block_label": "doc_title",
+      "block_content": "COUPON CODE REGISTRATION FORM",
+      "block_bbox": [
+        694,
+        346,
+        1192,
+        385
+      ],
+      "block_id": 0,
+      "block_order": 1,
+      "group_id": 0,
+      "block_polygon_points": [
+        [
+          694.0,
+          346.0
+        ],
+        [
+          1192.0,
+          346.0
+        ],
+        [
+          1192.0,
+          385.0
+        ],
+        [
+          694.0,
+          385.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "FROM: THOM SMITH",
+      "block_bbox": [
+        246,
+        414,
+        532,
+        448
+      ],
+      "block_id": 1,
+      "block_order": 2,
+      "group_id": 1,
+      "block_polygon_points": [
+        [
+          246.0,
+          414.0
+        ],
+        [
+          532.0,
+          414.0
+        ],
+        [
+          532.0,
+          448.0
+        ],
+        [
+          246.0,
+          448.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "TO: VINCE LOSITO",
+      "block_bbox": [
+        245,
+        480,
+        521,
+        515
+      ],
+      "block_id": 2,
+      "block_order": 3,
+      "group_id": 2,
+      "block_polygon_points": [
+        [
+          245.0,
+          480.0
+        ],
+        [
+          521.0,
+          480.0
+        ],
+        [
+          521.0,
+          515.0
+        ],
+        [
+          245.0,
+          515.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "CC: D. WEST, L. GIORDANO, V. LINDSLEY, A. SADOVNICK, S. RAPISARLDI, B. DAVIN, A. Pasheluk",
+      "block_bbox": [
+        243,
+        549,
+        1506,
+        594
+      ],
+      "block_id": 3,
+      "block_order": 4,
+      "group_id": 3,
+      "block_polygon_points": [
+        [
+          243.08343505859375,
+          539.43017578125
+        ],
+        [
+          1505.37109375,
+          550.4327392578125
+        ],
+        [
+          1505.0,
+          593.0
+        ],
+        [
+          242.71246337890625,
+          581.9974365234375
+        ]
+      ]
+    },
+    {
+      "block_label": "table",
+      "block_content": "<table><tr><td></td><td>KENT HEAVY UP TEST DIRECT MAIL CPNS - New</td></tr><tr><td>BRANDS(S) APPLICABLE</td><td>KENT</td></tr><tr><td>MEDIA</td><td>DIRECT MAIL</td></tr><tr><td>ISSUE FREQUENCY/YEAR</td><td>1</td></tr><tr><td>SPACE/COLOR</td><td></td></tr><tr><td>COUPON ISSUE DATE</td><td>10/13/95</td></tr><tr><td>COUPON EXPIRATION DATE</td><td>1/7/96</td></tr><tr><td>CIRCULATION</td><td></td></tr><tr><td>GEOGRAPHICAL AREA(S)</td><td>Regions 11, 17, 21</td></tr><tr><td>COUPON VALUE</td><td>$3 OFF CARTON</td></tr><tr><td>PACK AND OR/CARTON</td><td>CARTON</td></tr><tr><td>ADVERTISING CREATIVE THEME</td><td></td></tr><tr><td>SIGNATURE OF INITIATOR</td><td>6/8/95</td></tr><tr><td>DATE INITIATED</td><td></td></tr><tr><td>ANALYTICAL REQUIREMENTS:</td><td></td></tr></table>",
+      "block_bbox": [
+        233,
+        631,
+        1420,
+        1697
+      ],
+      "block_id": 4,
+      "block_order": null,
+      "group_id": 4,
+      "block_polygon_points": [
+        [
+          233.0,
+          631.0
+        ],
+        [
+          1420.0,
+          631.0
+        ],
+        [
+          1420.0,
+          1697.0
+        ],
+        [
+          233.0,
+          1697.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "FOR CONTROL USE ONLY:",
+      "block_bbox": [
+        679,
+        1739,
+        1026,
+        1774
+      ],
+      "block_id": 5,
+      "block_order": 5,
+      "group_id": 5,
+      "block_polygon_points": [
+        [
+          679.0,
+          1739.0
+        ],
+        [
+          1026.0,
+          1739.0
+        ],
+        [
+          1026.0,
+          1774.0
+        ],
+        [
+          679.0,
+          1774.0
+        ]
+      ]
+    },
+    {
+      "block_label": "aside_text",
+      "block_content": "91974564",
+      "block_bbox": [
+        1536,
+        1898,
+        1571,
+        2050
+      ],
+      "block_id": 6,
+      "block_order": null,
+      "group_id": 6,
+      "block_polygon_points": [
+        [
+          1536.0,
+          1898.0
+        ],
+        [
+          1571.0,
+          1898.0
+        ],
+        [
+          1571.0,
+          2050.0
+        ],
+        [
+          1536.0,
+          2050.0
+        ]
+      ]
+    }
+  ],
+  "layout_det_res": {
+    "input_path": null,
+    "page_index": null,
+    "boxes": [
+      {
+        "cls_id": 6,
+        "label": "doc_title",
+        "score": 0.8182060122489929,
+        "coordinate": [
+          694,
+          346,
+          1192,
+          385
+        ],
+        "order": 1,
+        "polygon_points": [
+          [
+            694.0,
+            346.0
+          ],
+          [
+            1192.0,
+            346.0
+          ],
+          [
+            1192.0,
+            385.0
+          ],
+          [
+            694.0,
+            385.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.6978210806846619,
+        "coordinate": [
+          246,
+          414,
+          532,
+          448
+        ],
+        "order": 2,
+        "polygon_points": [
+          [
+            246.0,
+            414.0
+          ],
+          [
+            532.0,
+            414.0
+          ],
+          [
+            532.0,
+            448.0
+          ],
+          [
+            246.0,
+            448.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.7545393109321594,
+        "coordinate": [
+          245,
+          480,
+          521,
+          515
+        ],
+        "order": 3,
+        "polygon_points": [
+          [
+            245.0,
+            480.0
+          ],
+          [
+            521.0,
+            480.0
+          ],
+          [
+            521.0,
+            515.0
+          ],
+          [
+            245.0,
+            515.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.7778249382972717,
+        "coordinate": [
+          243,
+          549,
+          1506,
+          594
+        ],
+        "order": 4,
+        "polygon_points": [
+          [
+            243.08343505859375,
+            539.43017578125
+          ],
+          [
+            1505.37109375,
+            550.4327392578125
+          ],
+          [
+            1505.0,
+            593.0
+          ],
+          [
+            242.71246337890625,
+            581.9974365234375
+          ]
+        ]
+      },
+      {
+        "cls_id": 21,
+        "label": "table",
+        "score": 0.7854827642440796,
+        "coordinate": [
+          233,
+          631,
+          1420,
+          1697
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            233.0,
+            631.0
+          ],
+          [
+            1420.0,
+            631.0
+          ],
+          [
+            1420.0,
+            1697.0
+          ],
+          [
+            233.0,
+            1697.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.5444263815879822,
+        "coordinate": [
+          232,
+          1667,
+          627,
+          1702
+        ],
+        "order": 5,
+        "polygon_points": [
+          [
+            232.0,
+            1667.0
+          ],
+          [
+            627.0,
+            1667.0
+          ],
+          [
+            627.0,
+            1702.0
+          ],
+          [
+            232.0,
+            1702.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.33990561962127686,
+        "coordinate": [
+          679,
+          1739,
+          1026,
+          1774
+        ],
+        "order": 6,
+        "polygon_points": [
+          [
+            679.0,
+            1739.0
+          ],
+          [
+            1026.0,
+            1739.0
+          ],
+          [
+            1026.0,
+            1774.0
+          ],
+          [
+            679.0,
+            1774.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 2,
+        "label": "aside_text",
+        "score": 0.6350377798080444,
+        "coordinate": [
+          1536,
+          1898,
+          1571,
+          2050
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            1536.0,
+            1898.0
+          ],
+          [
+            1571.0,
+            1898.0
+          ],
+          [
+            1571.0,
+            2050.0
+          ],
+          [
+            1536.0,
+            2050.0
+          ]
+        ]
+      }
+    ]
+  }
+}

@@ -196,6 +196,7 @@ def component_boxes(mask: np.ndarray) -> list[tuple[int, int, int, int]]:
 LINE_CORE_FRAC = 0.45  # rows above this fraction of the peak row count are x-height core
 MIN_STRIP_WIDTH_PX = 60
 MAX_STRIPS = 8
+RULE_RUN_FRAC = 0.3   # an unbroken row of ink this share of a block's width is a rule
 
 
 @dataclass(frozen=True)
@@ -227,7 +228,24 @@ def line_cores(profile: np.ndarray) -> list[tuple[int, int]]:
     return [(s, e) for s, e in merged if e - s >= 0.4 * max_h]
 
 
-def measure_text_lines(binary: np.ndarray) -> TextLineStats | None:
+def without_rules(binary: np.ndarray) -> np.ndarray:
+    """The mask without underlines and other rules crossing the block: an
+    unbroken ink run this long in one row is never part of a glyph."""
+    h, w = binary.shape
+    padded = np.concatenate([np.zeros((h, 1), bool), binary, np.zeros((h, 1), bool)], axis=1)
+    d = np.diff(padded.astype(np.int8), axis=1)
+    rule = np.zeros(h, dtype=bool)
+    for y in np.nonzero(binary.any(axis=1))[0]:
+        starts, ends = np.nonzero(d[y] == 1)[0], np.nonzero(d[y] == -1)[0]
+        rule[y] = (ends - starts).max() >= RULE_RUN_FRAC * w
+    if not rule.any():
+        return binary
+    out = binary.copy()
+    out[np.convolve(rule, np.ones(3), mode="same") > 0] = False
+    return out
+
+
+def measure_text_lines(binary: np.ndarray, ignore_rules: bool = False) -> TextLineStats | None:
     """Count physical text lines and measure x-height/line pitch from a
     block's ink mask. The block is split into vertical strips that are
     deskewed independently, so slanted *and* curved (warped-page) lines are
@@ -239,6 +257,11 @@ def measure_text_lines(binary: np.ndarray) -> TextLineStats | None:
     # level the block as a whole first: a strongly rotated line leaves too
     # few glyphs in any one strip for strip-level deskew to find its angle
     binary = rotate_mask(binary, estimate_skew(binary))
+    if ignore_rules:
+        # underlines and fill-in lines would count as extra text lines
+        binary = without_rules(binary)
+    if not binary.any():
+        return None
     h, w = binary.shape
     block_cores = line_cores(binary.sum(axis=1))
     # fixed-width strips, not ones sized off a first-pass line height: a
@@ -257,7 +280,9 @@ def measure_text_lines(binary: np.ndarray) -> TextLineStats | None:
             strip_cores.append(cores)
     if not strip_cores:
         return None
-    strip_typical = float(np.median([e - s for cores in strip_cores for s, e in cores]))
+    # each strip's tallest core is a whole line; capitals and box edges split
+    # a strip's profile into thin bars that aren't lines
+    strip_typical = float(np.median([max(e - s for s, e in cores) for cores in strip_cores]))
     # the whole-block profile anchors the line height: a strip holding a
     # picture fragment the bbox clipped in yields tall bogus "lines"
     typical = float(np.median([e - s for s, e in block_cores])) if block_cores else strip_typical

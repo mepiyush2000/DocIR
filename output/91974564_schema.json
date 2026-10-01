@@ -1,0 +1,211 @@
+{
+  "schema_version": "1.0",
+  "input_path": "91974564.jpg",
+  "width": 1728.0,
+  "height": 2292.0,
+  "blocks": [
+    {
+      "id": 0,
+      "label": "doc_title",
+      "content": "COUPON CODE REGISTRATION FORM",
+      "bbox": [
+        694.0,
+        346.0,
+        1192.0,
+        385.0
+      ],
+      "polygon": [
+        [
+          694.0,
+          346.0
+        ],
+        [
+          1192.0,
+          346.0
+        ],
+        [
+          1192.0,
+          385.0
+        ],
+        [
+          694.0,
+          385.0
+        ]
+      ]
+    },
+    {
+      "id": 1,
+      "label": "text",
+      "content": "FROM: THOM SMITH",
+      "bbox": [
+        246.0,
+        414.0,
+        532.0,
+        448.0
+      ],
+      "polygon": [
+        [
+          246.0,
+          414.0
+        ],
+        [
+          532.0,
+          414.0
+        ],
+        [
+          532.0,
+          448.0
+        ],
+        [
+          246.0,
+          448.0
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "label": "text",
+      "content": "TO: VINCE LOSITO",
+      "bbox": [
+        245.0,
+        480.0,
+        521.0,
+        515.0
+      ],
+      "polygon": [
+        [
+          245.0,
+          480.0
+        ],
+        [
+          521.0,
+          480.0
+        ],
+        [
+          521.0,
+          515.0
+        ],
+        [
+          245.0,
+          515.0
+        ]
+      ]
+    },
+    {
+      "id": 3,
+      "label": "text",
+      "content": "CC: D. WEST, L. GIORDANO, V. LINDSLEY, A. SADOVNICK, S. RAPISARLDI, B. DAVIN, A. Pasheluk",
+      "bbox": [
+        243.0,
+        549.0,
+        1506.0,
+        594.0
+      ],
+      "polygon": [
+        [
+          243.08343505859375,
+          539.43017578125
+        ],
+        [
+          1505.37109375,
+          550.4327392578125
+        ],
+        [
+          1505.0,
+          593.0
+        ],
+        [
+          242.71246337890625,
+          581.9974365234375
+        ]
+      ]
+    },
+    {
+      "id": 4,
+      "label": "table",
+      "content": "<table><tr><td></td><td>KENT HEAVY UP TEST DIRECT MAIL CPNS - New</td></tr><tr><td>BRANDS(S) APPLICABLE</td><td>KENT</td></tr><tr><td>MEDIA</td><td>DIRECT MAIL</td></tr><tr><td>ISSUE FREQUENCY/YEAR</td><td>1</td></tr><tr><td>SPACE/COLOR</td><td></td></tr><tr><td>COUPON ISSUE DATE</td><td>10/13/95</td></tr><tr><td>COUPON EXPIRATION DATE</td><td>1/7/96</td></tr><tr><td>CIRCULATION</td><td></td></tr><tr><td>GEOGRAPHICAL AREA(S)</td><td>Regions 11, 17, 21</td></tr><tr><td>COUPON VALUE</td><td>$3 OFF CARTON</td></tr><tr><td>PACK AND OR/CARTON</td><td>CARTON</td></tr><tr><td>ADVERTISING CREATIVE THEME</td><td></td></tr><tr><td>SIGNATURE OF INITIATOR</td><td>6/8/95</td></tr><tr><td>DATE INITIATED</td><td></td></tr><tr><td>ANALYTICAL REQUIREMENTS:</td><td></td></tr></table>",
+      "bbox": [
+        233.0,
+        631.0,
+        1420.0,
+        1697.0
+      ],
+      "polygon": [
+        [
+          233.0,
+          631.0
+        ],
+        [
+          1420.0,
+          631.0
+        ],
+        [
+          1420.0,
+          1697.0
+        ],
+        [
+          233.0,
+          1697.0
+        ]
+      ]
+    },
+    {
+      "id": 5,
+      "label": "text",
+      "content": "FOR CONTROL USE ONLY:",
+      "bbox": [
+        679.0,
+        1739.0,
+        1026.0,
+        1774.0
+      ],
+      "polygon": [
+        [
+          679.0,
+          1739.0
+        ],
+        [
+          1026.0,
+          1739.0
+        ],
+        [
+          1026.0,
+          1774.0
+        ],
+        [
+          679.0,
+          1774.0
+        ]
+      ]
+    },
+    {
+      "id": 6,
+      "label": "aside_text",
+      "content": "91974564",
+      "bbox": [
+        1536.0,
+        1898.0,
+        1571.0,
+        2050.0
+      ],
+      "polygon": [
+        [
+          1536.0,
+          1898.0
+        ],
+        [
+          1571.0,
+          1898.0
+        ],
+        [
+          1571.0,
+          2050.0
+        ],
+        [
+          1536.0,
+          2050.0
+        ]
+      ]
+    }
+  ]
+}

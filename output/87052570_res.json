@@ -1,0 +1,1343 @@
+{
+  "input_path": "87052570_flat.png",
+  "page_index": null,
+  "page_count": null,
+  "width": 1728,
+  "height": 2292,
+  "model_settings": {
+    "use_doc_preprocessor": false,
+    "use_layout_detection": true,
+    "use_chart_recognition": false,
+    "use_seal_recognition": false,
+    "use_ocr_for_image_block": false,
+    "format_block_content": false,
+    "merge_layout_blocks": true,
+    "markdown_ignore_labels": [
+      "number",
+      "footnote",
+      "header",
+      "header_image",
+      "footer",
+      "footer_image",
+      "aside_text"
+    ],
+    "return_layout_polygon_points": true
+  },
+  "parsing_res_list": [
+    {
+      "block_label": "header_image",
+      "block_content": "",
+      "block_bbox": [
+        110,
+        214,
+        443,
+        314
+      ],
+      "block_id": 0,
+      "block_order": null,
+      "group_id": 0,
+      "block_polygon_points": [
+        [
+          110.0,
+          214.0
+        ],
+        [
+          443.0,
+          214.0
+        ],
+        [
+          443.0,
+          314.0
+        ],
+        [
+          110.0,
+          314.0
+        ]
+      ]
+    },
+    {
+      "block_label": "doc_title",
+      "block_content": "NEWSPAPER ADVERTISING SPECIALISTS, INC.\n333 NORTH MICHIGAN AVENUE \u2022 CHICAGO, ILLINOIS 60601 \u2022 (312) 853-1195",
+      "block_bbox": [
+        527,
+        216,
+        1531,
+        312
+      ],
+      "block_id": 1,
+      "block_order": 1,
+      "group_id": 1,
+      "block_polygon_points": [
+        [
+          527.0,
+          216.0
+        ],
+        [
+          1531.0,
+          216.0
+        ],
+        [
+          1531.0,
+          312.0
+        ],
+        [
+          527.0,
+          312.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "INSERTION ORDER DATE November 1, 1984 AS",
+      "block_bbox": [
+        529,
+        350,
+        1572,
+        403
+      ],
+      "block_id": 2,
+      "block_order": 2,
+      "group_id": 2,
+      "block_polygon_points": [
+        [
+          529.0,
+          350.0
+        ],
+        [
+          1572.0,
+          350.0
+        ],
+        [
+          1572.0,
+          403.0
+        ],
+        [
+          529.0,
+          403.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "NATIONAL ADVERTISING RATE PER LINE.5313 Wed 6 x 301 (12.0)",
+      "block_bbox": [
+        638,
+        413,
+        1273,
+        509
+      ],
+      "block_id": 3,
+      "block_order": 3,
+      "group_id": 3,
+      "block_polygon_points": [
+        [
+          638.0,
+          413.0
+        ],
+        [
+          1273.0,
+          413.0
+        ],
+        [
+          1273.0,
+          509.0
+        ],
+        [
+          638.0,
+          509.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Northshore Citizen\nP. O. Box 706\nBothell, WA 98011",
+      "block_bbox": [
+        208,
+        510,
+        500,
+        604
+      ],
+      "block_id": 4,
+      "block_order": 4,
+      "group_id": 4,
+      "block_polygon_points": [
+        [
+          208.0,
+          510.0
+        ],
+        [
+          500.0,
+          510.0
+        ],
+        [
+          500.0,
+          604.0
+        ],
+        [
+          208.0,
+          604.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "CANCELLATION ORDER\n1. PAYMENT WILL BE BASED ON RATE SHOWN\nUNLESS N.A.S. IS ADVISED OTHERWISE.",
+      "block_bbox": [
+        707,
+        561,
+        1002,
+        593
+      ],
+      "block_id": 5,
+      "block_order": 5,
+      "group_id": 5,
+      "block_polygon_points": [
+        [
+          707.0,
+          561.0
+        ],
+        [
+          1002.0,
+          561.0
+        ],
+        [
+          1002.0,
+          593.0
+        ],
+        [
+          707.0,
+          593.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "",
+      "block_bbox": [
+        1026,
+        523,
+        1523,
+        574
+      ],
+      "block_id": 6,
+      "block_order": 6,
+      "group_id": 5,
+      "block_polygon_points": [
+        [
+          1026.0,
+          523.0
+        ],
+        [
+          1523.0,
+          523.0
+        ],
+        [
+          1523.0,
+          574.0
+        ],
+        [
+          1026.0,
+          574.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "2. PLEASE ADVISE N.A.S. IMMEDIATELY IF FOR ANY REASON THE FOLLOWING INSERTIONS CAN NOT BE MADE AS SCHEDULED.",
+      "block_bbox": [
+        1023,
+        592,
+        1533,
+        667
+      ],
+      "block_id": 7,
+      "block_order": 7,
+      "group_id": 7,
+      "block_polygon_points": [
+        [
+          1023.0,
+          592.0
+        ],
+        [
+          1533.0,
+          592.0
+        ],
+        [
+          1533.0,
+          667.0
+        ],
+        [
+          1023.0,
+          667.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "ADVERTISER Lorillard - True",
+      "block_bbox": [
+        111,
+        728,
+        641,
+        766
+      ],
+      "block_id": 8,
+      "block_order": 8,
+      "group_id": 8,
+      "block_polygon_points": [
+        [
+          111.0,
+          728.0
+        ],
+        [
+          641.0,
+          728.0
+        ],
+        [
+          641.0,
+          766.0
+        ],
+        [
+          111.0,
+          766.0
+        ]
+      ]
+    },
+    {
+      "block_label": "table",
+      "block_content": "<table><tr><td>INSERTION WEEK OF</td><td>AD. NO.</td><td>CAPTION</td><td>SPACE</td></tr><tr><td>October 22, 1984 4/3454D</td><td>Taste Extra</td><td colspan=\"2\">903 Li, (1 page)</td></tr></table>",
+      "block_bbox": [
+        115,
+        854,
+        1532,
+        1015
+      ],
+      "block_id": 9,
+      "block_order": null,
+      "group_id": 9,
+      "block_polygon_points": [
+        [
+          115.0,
+          854.0
+        ],
+        [
+          1532.0,
+          854.0
+        ],
+        [
+          1532.0,
+          1015.0
+        ],
+        [
+          115.0,
+          1015.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "NOTE: THIS CANCELS THE ABOVE ADVERTISING AUTHORIZED BY OUR ORIGINAL ORDER. DATED: 8-31-84.",
+      "block_bbox": [
+        175,
+        1162,
+        1419,
+        1230
+      ],
+      "block_id": 10,
+      "block_order": 9,
+      "group_id": 10,
+      "block_polygon_points": [
+        [
+          175.0,
+          1162.0
+        ],
+        [
+          1419.0,
+          1162.0
+        ],
+        [
+          1419.0,
+          1230.0
+        ],
+        [
+          175.0,
+          1230.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "REASON: NO PAYMENT ALLOWED DUE TO AD BEING BACKED BY COUPON.",
+      "block_bbox": [
+        174,
+        1381,
+        1182,
+        1416
+      ],
+      "block_id": 11,
+      "block_order": 10,
+      "group_id": 11,
+      "block_polygon_points": [
+        [
+          174.0,
+          1381.0
+        ],
+        [
+          1182.0,
+          1381.0
+        ],
+        [
+          1182.0,
+          1416.0
+        ],
+        [
+          174.0,
+          1416.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "ALL OTHER INFORMATION ON OUR ORIGINAL ORDER REMAINS THE SAME.",
+      "block_bbox": [
+        179,
+        1724,
+        1141,
+        1760
+      ],
+      "block_id": 12,
+      "block_order": 11,
+      "group_id": 12,
+      "block_polygon_points": [
+        [
+          178.68434143066406,
+          1725.295166015625
+        ],
+        [
+          1139.9278564453125,
+          1716.29296875
+        ],
+        [
+          1140.2435302734375,
+          1749.99755859375
+        ],
+        [
+          179.0,
+          1758.999755859375
+        ]
+      ]
+    },
+    {
+      "block_label": "paragraph_title",
+      "block_content": "CANCELLED",
+      "block_bbox": [
+        941,
+        1805,
+        1602,
+        1918
+      ],
+      "block_id": 13,
+      "block_order": 12,
+      "group_id": 13,
+      "block_polygon_points": [
+        [
+          941.0,
+          1805.0
+        ],
+        [
+          1602.0,
+          1805.0
+        ],
+        [
+          1602.0,
+          1918.0
+        ],
+        [
+          941.0,
+          1918.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "NOTE: THE ABOVE ADVERTISING IS SUBJECT TO 15% AND 2% AGENCY COMMISSION (16.7%) AND 13.3% N.A.S. SALES/SERVICE CHARGE FOR A BELOW AVERAGE TOTAL CHARGE OF 30%.",
+      "block_bbox": [
+        157,
+        1908,
+        1476,
+        2006
+      ],
+      "block_id": 14,
+      "block_order": 13,
+      "group_id": 14,
+      "block_polygon_points": [
+        [
+          157.0,
+          1908.0
+        ],
+        [
+          1476.0,
+          1908.0
+        ],
+        [
+          1476.0,
+          2006.0
+        ],
+        [
+          157.0,
+          2006.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "NOTE: PLEASE SEND CHECKING COPIES AND INVOICES ONLY TO: NEWSPAPER ADVERTISING SPECIALISTS, INC. 333 NORTH MICHIGAN AVENUE CHICAGO, ILLINOIS 60601",
+      "block_bbox": [
+        220,
+        2052,
+        924,
+        2085
+      ],
+      "block_id": 15,
+      "block_order": 14,
+      "group_id": 15,
+      "block_polygon_points": [
+        [
+          220.0,
+          2052.0
+        ],
+        [
+          924.0,
+          2052.0
+        ],
+        [
+          924.0,
+          2085.0
+        ],
+        [
+          220.0,
+          2085.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "",
+      "block_bbox": [
+        946,
+        2050,
+        1436,
+        2123
+      ],
+      "block_id": 16,
+      "block_order": 15,
+      "group_id": 15,
+      "block_polygon_points": [
+        [
+          946.0,
+          2050.0
+        ],
+        [
+          1436.0,
+          2050.0
+        ],
+        [
+          1436.0,
+          2123.0
+        ],
+        [
+          946.0,
+          2123.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "IF TEARSHEETS ARE NOT RECEIVED WITHIN 60 DAYS THIS ORDER WILL BE CANCELLED.",
+      "block_bbox": [
+        299,
+        2149,
+        1246,
+        2178
+      ],
+      "block_id": 17,
+      "block_order": 16,
+      "group_id": 17,
+      "block_polygon_points": [
+        [
+          299.0,
+          2149.0
+        ],
+        [
+          1246.0,
+          2149.0
+        ],
+        [
+          1246.0,
+          2178.0
+        ],
+        [
+          299.0,
+          2178.0
+        ]
+      ]
+    },
+    {
+      "block_label": "aside_text",
+      "block_content": "87052570",
+      "block_bbox": [
+        1552,
+        1933,
+        1595,
+        2133
+      ],
+      "block_id": 18,
+      "block_order": null,
+      "group_id": 18,
+      "block_polygon_points": [
+        [
+          1552.0,
+          1933.0
+        ],
+        [
+          1595.0,
+          1933.0
+        ],
+        [
+          1595.0,
+          2133.0
+        ],
+        [
+          1552.0,
+          2133.0
+        ]
+      ]
+    }
+  ],
+  "layout_det_res": {
+    "input_path": null,
+    "page_index": null,
+    "boxes": [
+      {
+        "cls_id": 13,
+        "label": "header_image",
+        "score": 0.6491504907608032,
+        "coordinate": [
+          110,
+          214,
+          443,
+          314
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            110.0,
+            214.0
+          ],
+          [
+            443.0,
+            214.0
+          ],
+          [
+            443.0,
+            314.0
+          ],
+          [
+            110.0,
+            314.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 6,
+        "label": "doc_title",
+        "score": 0.3955574035644531,
+        "coordinate": [
+          527,
+          216,
+          1531,
+          312
+        ],
+        "order": 1,
+        "polygon_points": [
+          [
+            527.0,
+            216.0
+          ],
+          [
+            1531.0,
+            216.0
+          ],
+          [
+            1531.0,
+            312.0
+          ],
+          [
+            527.0,
+            312.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.5012155771255493,
+        "coordinate": [
+          529,
+          350,
+          1572,
+          403
+        ],
+        "order": 2,
+        "polygon_points": [
+          [
+            529.0,
+            350.0
+          ],
+          [
+            1572.0,
+            350.0
+          ],
+          [
+            1572.0,
+            403.0
+          ],
+          [
+            529.0,
+            403.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 6,
+        "label": "doc_title",
+        "score": 0.30636677145957947,
+        "coordinate": [
+          642,
+          412,
+          999,
+          514
+        ],
+        "order": 3,
+        "polygon_points": [
+          [
+            642.0,
+            412.0
+          ],
+          [
+            999.0,
+            412.0
+          ],
+          [
+            999.0,
+            514.0
+          ],
+          [
+            642.0,
+            514.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.34950199723243713,
+        "coordinate": [
+          638,
+          413,
+          1273,
+          509
+        ],
+        "order": 4,
+        "polygon_points": [
+          [
+            638.0,
+            413.0
+          ],
+          [
+            1273.0,
+            413.0
+          ],
+          [
+            1273.0,
+            509.0
+          ],
+          [
+            638.0,
+            509.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.47787824273109436,
+        "coordinate": [
+          208,
+          510,
+          500,
+          604
+        ],
+        "order": 5,
+        "polygon_points": [
+          [
+            208.0,
+            510.0
+          ],
+          [
+            500.0,
+            510.0
+          ],
+          [
+            500.0,
+            604.0
+          ],
+          [
+            208.0,
+            604.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.3518035411834717,
+        "coordinate": [
+          1049,
+          420,
+          1273,
+          487
+        ],
+        "order": 6,
+        "polygon_points": [
+          [
+            1049.0,
+            420.0
+          ],
+          [
+            1273.0,
+            420.0
+          ],
+          [
+            1273.0,
+            487.0
+          ],
+          [
+            1049.0,
+            487.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.3174154758453369,
+        "coordinate": [
+          210,
+          573,
+          498,
+          605
+        ],
+        "order": 7,
+        "polygon_points": [
+          [
+            210.0,
+            573.0
+          ],
+          [
+            498.0,
+            573.0
+          ],
+          [
+            498.0,
+            605.0
+          ],
+          [
+            210.0,
+            605.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.41099604964256287,
+        "coordinate": [
+          707,
+          561,
+          1002,
+          593
+        ],
+        "order": 8,
+        "polygon_points": [
+          [
+            707.0,
+            561.0
+          ],
+          [
+            1002.0,
+            561.0
+          ],
+          [
+            1002.0,
+            593.0
+          ],
+          [
+            707.0,
+            593.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.6360482573509216,
+        "coordinate": [
+          1026,
+          523,
+          1523,
+          574
+        ],
+        "order": 9,
+        "polygon_points": [
+          [
+            1026.0,
+            523.0
+          ],
+          [
+            1523.0,
+            523.0
+          ],
+          [
+            1523.0,
+            574.0
+          ],
+          [
+            1026.0,
+            574.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.8452051877975464,
+        "coordinate": [
+          1023,
+          592,
+          1533,
+          667
+        ],
+        "order": 10,
+        "polygon_points": [
+          [
+            1023.0,
+            592.0
+          ],
+          [
+            1533.0,
+            592.0
+          ],
+          [
+            1533.0,
+            667.0
+          ],
+          [
+            1023.0,
+            667.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.3923327922821045,
+        "coordinate": [
+          111,
+          728,
+          641,
+          766
+        ],
+        "order": 11,
+        "polygon_points": [
+          [
+            111.0,
+            728.0
+          ],
+          [
+            641.0,
+            728.0
+          ],
+          [
+            641.0,
+            766.0
+          ],
+          [
+            111.0,
+            766.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 21,
+        "label": "table",
+        "score": 0.8611015677452087,
+        "coordinate": [
+          115,
+          854,
+          1532,
+          1015
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            115.0,
+            854.0
+          ],
+          [
+            1532.0,
+            854.0
+          ],
+          [
+            1532.0,
+            1015.0
+          ],
+          [
+            115.0,
+            1015.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.32185468077659607,
+        "coordinate": [
+          1235,
+          976,
+          1493,
+          1016
+        ],
+        "order": 12,
+        "polygon_points": [
+          [
+            1235.0,
+            976.0
+          ],
+          [
+            1493.0,
+            976.0
+          ],
+          [
+            1493.0,
+            1016.0
+          ],
+          [
+            1235.0,
+            1016.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.8230530619621277,
+        "coordinate": [
+          175,
+          1162,
+          1419,
+          1230
+        ],
+        "order": 13,
+        "polygon_points": [
+          [
+            175.0,
+            1162.0
+          ],
+          [
+            1419.0,
+            1162.0
+          ],
+          [
+            1419.0,
+            1230.0
+          ],
+          [
+            175.0,
+            1230.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.7332644462585449,
+        "coordinate": [
+          174,
+          1381,
+          1182,
+          1416
+        ],
+        "order": 14,
+        "polygon_points": [
+          [
+            174.0,
+            1381.0
+          ],
+          [
+            1182.0,
+            1381.0
+          ],
+          [
+            1182.0,
+            1416.0
+          ],
+          [
+            174.0,
+            1416.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.7690913081169128,
+        "coordinate": [
+          179,
+          1724,
+          1141,
+          1760
+        ],
+        "order": 15,
+        "polygon_points": [
+          [
+            178.68434143066406,
+            1725.295166015625
+          ],
+          [
+            1139.9278564453125,
+            1716.29296875
+          ],
+          [
+            1140.2435302734375,
+            1749.99755859375
+          ],
+          [
+            179.0,
+            1758.999755859375
+          ]
+        ]
+      },
+      {
+        "cls_id": 17,
+        "label": "paragraph_title",
+        "score": 0.37232667207717896,
+        "coordinate": [
+          941,
+          1805,
+          1602,
+          1918
+        ],
+        "order": 16,
+        "polygon_points": [
+          [
+            941.0,
+            1805.0
+          ],
+          [
+            1602.0,
+            1805.0
+          ],
+          [
+            1602.0,
+            1918.0
+          ],
+          [
+            941.0,
+            1918.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.6616427898406982,
+        "coordinate": [
+          157,
+          1908,
+          1476,
+          2006
+        ],
+        "order": 17,
+        "polygon_points": [
+          [
+            157.0,
+            1908.0
+          ],
+          [
+            1476.0,
+            1908.0
+          ],
+          [
+            1476.0,
+            2006.0
+          ],
+          [
+            157.0,
+            2006.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.43100911378860474,
+        "coordinate": [
+          220,
+          2052,
+          924,
+          2085
+        ],
+        "order": 18,
+        "polygon_points": [
+          [
+            220.0,
+            2052.0
+          ],
+          [
+            924.0,
+            2052.0
+          ],
+          [
+            924.0,
+            2085.0
+          ],
+          [
+            220.0,
+            2085.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.3834892511367798,
+        "coordinate": [
+          946,
+          2050,
+          1436,
+          2123
+        ],
+        "order": 19,
+        "polygon_points": [
+          [
+            946.0,
+            2050.0
+          ],
+          [
+            1436.0,
+            2050.0
+          ],
+          [
+            1436.0,
+            2123.0
+          ],
+          [
+            946.0,
+            2123.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.309401273727417,
+        "coordinate": [
+          949,
+          2100,
+          1224,
+          2127
+        ],
+        "order": 20,
+        "polygon_points": [
+          [
+            949.0,
+            2100.0
+          ],
+          [
+            1224.0,
+            2100.0
+          ],
+          [
+            1224.0,
+            2127.0
+          ],
+          [
+            949.0,
+            2127.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.46520137786865234,
+        "coordinate": [
+          299,
+          2149,
+          1246,
+          2178
+        ],
+        "order": 21,
+        "polygon_points": [
+          [
+            299.0,
+            2149.0
+          ],
+          [
+            1246.0,
+            2149.0
+          ],
+          [
+            1246.0,
+            2178.0
+          ],
+          [
+            299.0,
+            2178.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 2,
+        "label": "aside_text",
+        "score": 0.32384544610977173,
+        "coordinate": [
+          1552,
+          1933,
+          1595,
+          2133
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            1552.0,
+            1933.0
+          ],
+          [
+            1595.0,
+            1933.0
+          ],
+          [
+            1595.0,
+            2133.0
+          ],
+          [
+            1552.0,
+            2133.0
+          ]
+        ]
+      }
+    ]
+  }
+}

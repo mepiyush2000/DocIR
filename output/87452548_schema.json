@@ -1,0 +1,153 @@
+{
+  "schema_version": "1.0",
+  "input_path": "87452548.jpg",
+  "width": 1728.0,
+  "height": 2292.0,
+  "blocks": [
+    {
+      "id": 0,
+      "label": "header",
+      "content": "HRC",
+      "bbox": [
+        259.0,
+        195.0,
+        520.0,
+        293.0
+      ],
+      "polygon": [
+        [
+          259.0,
+          195.0
+        ],
+        [
+          520.0,
+          195.0
+        ],
+        [
+          520.0,
+          293.0
+        ],
+        [
+          259.0,
+          293.0
+        ]
+      ]
+    },
+    {
+      "id": 1,
+      "label": "figure_title",
+      "content": "COMPOUND PHYSICAL PARAMETERS",
+      "bbox": [
+        539.0,
+        320.0,
+        1185.0,
+        368.0
+      ],
+      "polygon": [
+        [
+          539.0,
+          320.0
+        ],
+        [
+          1185.0,
+          320.0
+        ],
+        [
+          1185.0,
+          368.0
+        ],
+        [
+          539.0,
+          368.0
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "label": "table",
+      "content": "<table><tr><td>LRC FILE NUMBER\nB158</td><td>LOT NUMBER</td></tr><tr><td colspan=\"2\">PHYSICAL STATE\nClear colorless liquid</td></tr><tr><td colspan=\"2\">pH\nThe pH of a 50% concentration of B158 in 73.6% dioxane/water solution was calculated to be 5.2 at 25°C according to the extrapolation procedure of Dr. P.D. Schickedantz, Lorillard Research Center, Accession Number 1662. Reference OR110-14.</td></tr><tr><td colspan=\"2\">SPECIFIC GRAVITY\nThe specific gravity of B158 at 25°C is 0.897-0.910.</td></tr><tr><td colspan=\"2\">SOLUBILITY\nMUTAGENICITY SOLVENTS\nB158 is soluble in ethanol at 0.2 g/mL, with stirring, at room temperature.\nReference BC20-69.</td></tr><tr><td colspan=\"2\">IP\nB158 is soluble in corn oil at 0.5 g/0.5 mL, with stirring, at room temperature. Reference BC20-69.</td></tr><tr><td colspan=\"2\">ORAL\nB158 is soluble in corn oil at 0.5 g/0.5 mL, with stirring, at room temperature. Reference BC20-69.</td></tr><tr><td colspan=\"2\">ACUTE CARDIOVASCULAR\nB158 is insoluble for this procedure. Reference BC30-101.</td></tr><tr><td colspan=\"2\">STORAGE RECOMMENDATIONS\nRefrigerate in amber glass bottle at no more than 8°C.\nCOMPOUND SENSITIVE TO:\n☐ AIR ☐ HEAT ☐ MOISTURE ☐ OTHER................................................................................</td></tr><tr><td colspan=\"2\">SAFETY COMMENTS (SUGGESTED HANDLING PROCEDURE) 87452548</td></tr><tr><td>SIGNATURE Elizabeth A. Crueve</td><td>DATE Octob. 26, 1987</td></tr></table>",
+      "bbox": [
+        219.0,
+        344.0,
+        1525.0,
+        2097.0
+      ],
+      "polygon": [
+        [
+          219.0,
+          344.0
+        ],
+        [
+          1525.0,
+          344.0
+        ],
+        [
+          1525.0,
+          2097.0
+        ],
+        [
+          219.0,
+          2097.0
+        ]
+      ]
+    },
+    {
+      "id": 3,
+      "label": "number",
+      "content": "主",
+      "bbox": [
+        125.0,
+        2178.0,
+        141.0,
+        2199.0
+      ],
+      "polygon": [
+        [
+          125.0,
+          2178.0
+        ],
+        [
+          140.0,
+          2178.0
+        ],
+        [
+          140.0,
+          2198.0
+        ],
+        [
+          125.0,
+          2198.0
+        ]
+      ]
+    },
+    {
+      "id": 4,
+      "label": "number",
+      "content": "浄",
+      "bbox": [
+        394.0,
+        2128.0,
+        417.0,
+        2148.0
+      ],
+      "polygon": [
+        [
+          394.0,
+          2128.0
+        ],
+        [
+          416.0,
+          2128.0
+        ],
+        [
+          416.0,
+          2147.0
+        ],
+        [
+          394.0,
+          2147.0
+        ]
+      ]
+    }
+  ]
+}

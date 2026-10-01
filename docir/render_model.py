@@ -131,7 +131,7 @@ def _draw_line(c: canvas.Canvas, geo: _Geometry, line: Line, style: TextStyle) -
     # text the detector under-measured (one big glyph of a banner) never runs off the page
     drawn = (sum(widths) + cs * n_chars + (space_w + ws) * (len(words) - 1)) * hz
     room = geo.page_w - PAGE_EDGE_PT - x0
-    if drawn > room > 0:
+    if abs(line.angle_deg) < 45 and drawn > room > 0:
         k = room / drawn
         size, space_w, ws, cs = size * k, space_w * k, ws * k, cs * k
         widths = [w * k for w in widths]

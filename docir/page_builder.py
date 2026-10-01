@@ -14,7 +14,7 @@ import logging
 import numpy as np
 from PIL import Image
 
-from . import table_layout, tables
+from . import table_layout, tables, vertical
 from .color import assign_colors
 from .config import font_size_offset_pt, straighten_max_deg
 from .graphics import detect_graphics
@@ -28,7 +28,7 @@ from .reconcile import LinePlacement, order_lines, reconcile, split_text_to_line
 from .render_model import TARGET_PAGE_WIDTH_PT as PAGE_WIDTH_PT
 from .schemas import PageLayout, PageLines, TextLine
 from .straighten import straighten_page
-from .typography import assign_styles, offset_sizes
+from .typography import assign_styles, line_x_height, offset_sizes
 
 logger = logging.getLogger(__name__)
 
@@ -139,6 +139,10 @@ def _merge_with_pixels(own: list[LinePlacement], pix: list[list], pitch: float |
 
 def _block_lines(block, placements: list[LinePlacement], image: Image.Image,
                  gray: np.ndarray) -> list[Line]:
+    if vertical.is_vertical(block.bbox, block.content):
+        line = vertical.vertical_line(gray, block.bbox, block.content)
+        if line is not None:
+            return [line]
     own = [l for l in placements if not l.continuation]
     extra = [l for l in placements if l.continuation]
     drop, own = _split_drop_cap(block, own)
@@ -156,7 +160,7 @@ def _block_lines(block, placements: list[LinePlacement], image: Image.Image,
         block.tabular = True
         return ([drop_line] if drop_line else []) + _table_lines(content, own + extra, gray)
     mask = binarize_region(image, block.bbox)
-    stats = measure_text_lines(mask) if mask is not None else None
+    stats = measure_text_lines(mask, ignore_rules=True) if mask is not None else None
     polys: list[tuple[list, str, str, bool]]  # polygon, ocr text, source, continuation
     if stats is None or _detector_agrees(own, stats.n_lines, stats.pitch):
         polys = [(l.polygon, l.ocr_text, "detector", False) for l in own]
@@ -187,6 +191,9 @@ def _html_table_lines(block, grid, placements: list[LinePlacement], gray: np.nda
     x_height = float(np.median([l.x_height for l in measured])) if measured else 10.0
     block.tabular = True
     block.table = table_layout.analyze_table(grid, block.bbox, placements, gray, x_height)
+    texts = [p for p in placements if p.ocr_text.strip()]
+    block.table.frag_xh = {table_layout.frag_key(p.bbox): (line_x_height(l), len(l.text.strip()))
+                           for p, l in zip(texts, measured)}
     table_layout.detect_bold_rows(block.table, gray)
     # text inside the table region that the HTML doesn't contain (captions, sub-headers)
     block.table.loose_lines = [_measured_line(gray, poly, text, "detector", False)

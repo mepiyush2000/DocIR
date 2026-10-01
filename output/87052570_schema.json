@@ -1,0 +1,559 @@
+{
+  "schema_version": "1.0",
+  "input_path": "87052570_flat.png",
+  "width": 1728.0,
+  "height": 2292.0,
+  "blocks": [
+    {
+      "id": 0,
+      "label": "header_image",
+      "content": "",
+      "bbox": [
+        110.0,
+        214.0,
+        443.0,
+        314.0
+      ],
+      "polygon": [
+        [
+          110.0,
+          214.0
+        ],
+        [
+          443.0,
+          214.0
+        ],
+        [
+          443.0,
+          314.0
+        ],
+        [
+          110.0,
+          314.0
+        ]
+      ]
+    },
+    {
+      "id": 1,
+      "label": "doc_title",
+      "content": "NEWSPAPER ADVERTISING SPECIALISTS, INC.\n333 NORTH MICHIGAN AVENUE • CHICAGO, ILLINOIS 60601 • (312) 853-1195",
+      "bbox": [
+        527.0,
+        216.0,
+        1531.0,
+        312.0
+      ],
+      "polygon": [
+        [
+          527.0,
+          216.0
+        ],
+        [
+          1531.0,
+          216.0
+        ],
+        [
+          1531.0,
+          312.0
+        ],
+        [
+          527.0,
+          312.0
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "label": "text",
+      "content": "INSERTION ORDER DATE November 1, 1984 AS",
+      "bbox": [
+        529.0,
+        350.0,
+        1572.0,
+        403.0
+      ],
+      "polygon": [
+        [
+          529.0,
+          350.0
+        ],
+        [
+          1572.0,
+          350.0
+        ],
+        [
+          1572.0,
+          403.0
+        ],
+        [
+          529.0,
+          403.0
+        ]
+      ]
+    },
+    {
+      "id": 3,
+      "label": "text",
+      "content": "NATIONAL ADVERTISING RATE PER LINE.5313 Wed 6 x 301 (12.0)",
+      "bbox": [
+        638.0,
+        413.0,
+        1273.0,
+        509.0
+      ],
+      "polygon": [
+        [
+          638.0,
+          413.0
+        ],
+        [
+          1273.0,
+          413.0
+        ],
+        [
+          1273.0,
+          509.0
+        ],
+        [
+          638.0,
+          509.0
+        ]
+      ]
+    },
+    {
+      "id": 4,
+      "label": "text",
+      "content": "Northshore Citizen\nP. O. Box 706\nBothell, WA 98011",
+      "bbox": [
+        208.0,
+        510.0,
+        500.0,
+        604.0
+      ],
+      "polygon": [
+        [
+          208.0,
+          510.0
+        ],
+        [
+          500.0,
+          510.0
+        ],
+        [
+          500.0,
+          604.0
+        ],
+        [
+          208.0,
+          604.0
+        ]
+      ]
+    },
+    {
+      "id": 5,
+      "label": "text",
+      "content": "CANCELLATION ORDER\n1. PAYMENT WILL BE BASED ON RATE SHOWN\nUNLESS N.A.S. IS ADVISED OTHERWISE.",
+      "bbox": [
+        707.0,
+        561.0,
+        1002.0,
+        593.0
+      ],
+      "polygon": [
+        [
+          707.0,
+          561.0
+        ],
+        [
+          1002.0,
+          561.0
+        ],
+        [
+          1002.0,
+          593.0
+        ],
+        [
+          707.0,
+          593.0
+        ]
+      ]
+    },
+    {
+      "id": 6,
+      "label": "text",
+      "content": "",
+      "bbox": [
+        1026.0,
+        523.0,
+        1523.0,
+        574.0
+      ],
+      "polygon": [
+        [
+          1026.0,
+          523.0
+        ],
+        [
+          1523.0,
+          523.0
+        ],
+        [
+          1523.0,
+          574.0
+        ],
+        [
+          1026.0,
+          574.0
+        ]
+      ]
+    },
+    {
+      "id": 7,
+      "label": "text",
+      "content": "2. PLEASE ADVISE N.A.S. IMMEDIATELY IF FOR ANY REASON THE FOLLOWING INSERTIONS CAN NOT BE MADE AS SCHEDULED.",
+      "bbox": [
+        1023.0,
+        592.0,
+        1533.0,
+        667.0
+      ],
+      "polygon": [
+        [
+          1023.0,
+          592.0
+        ],
+        [
+          1533.0,
+          592.0
+        ],
+        [
+          1533.0,
+          667.0
+        ],
+        [
+          1023.0,
+          667.0
+        ]
+      ]
+    },
+    {
+      "id": 8,
+      "label": "text",
+      "content": "ADVERTISER Lorillard - True",
+      "bbox": [
+        111.0,
+        728.0,
+        641.0,
+        766.0
+      ],
+      "polygon": [
+        [
+          111.0,
+          728.0
+        ],
+        [
+          641.0,
+          728.0
+        ],
+        [
+          641.0,
+          766.0
+        ],
+        [
+          111.0,
+          766.0
+        ]
+      ]
+    },
+    {
+      "id": 9,
+      "label": "table",
+      "content": "<table><tr><td>INSERTION WEEK OF</td><td>AD. NO.</td><td>CAPTION</td><td>SPACE</td></tr><tr><td>October 22, 1984 4/3454D</td><td>Taste Extra</td><td colspan=\"2\">903 Li, (1 page)</td></tr></table>",
+      "bbox": [
+        115.0,
+        854.0,
+        1532.0,
+        1015.0
+      ],
+      "polygon": [
+        [
+          115.0,
+          854.0
+        ],
+        [
+          1532.0,
+          854.0
+        ],
+        [
+          1532.0,
+          1015.0
+        ],
+        [
+          115.0,
+          1015.0
+        ]
+      ]
+    },
+    {
+      "id": 10,
+      "label": "text",
+      "content": "NOTE: THIS CANCELS THE ABOVE ADVERTISING AUTHORIZED BY OUR ORIGINAL ORDER. DATED: 8-31-84.",
+      "bbox": [
+        175.0,
+        1162.0,
+        1419.0,
+        1230.0
+      ],
+      "polygon": [
+        [
+          175.0,
+          1162.0
+        ],
+        [
+          1419.0,
+          1162.0
+        ],
+        [
+          1419.0,
+          1230.0
+        ],
+        [
+          175.0,
+          1230.0
+        ]
+      ]
+    },
+    {
+      "id": 11,
+      "label": "text",
+      "content": "REASON: NO PAYMENT ALLOWED DUE TO AD BEING BACKED BY COUPON.",
+      "bbox": [
+        174.0,
+        1381.0,
+        1182.0,
+        1416.0
+      ],
+      "polygon": [
+        [
+          174.0,
+          1381.0
+        ],
+        [
+          1182.0,
+          1381.0
+        ],
+        [
+          1182.0,
+          1416.0
+        ],
+        [
+          174.0,
+          1416.0
+        ]
+      ]
+    },
+    {
+      "id": 12,
+      "label": "text",
+      "content": "ALL OTHER INFORMATION ON OUR ORIGINAL ORDER REMAINS THE SAME.",
+      "bbox": [
+        179.0,
+        1724.0,
+        1141.0,
+        1760.0
+      ],
+      "polygon": [
+        [
+          178.68434143066406,
+          1725.295166015625
+        ],
+        [
+          1139.9278564453125,
+          1716.29296875
+        ],
+        [
+          1140.2435302734375,
+          1749.99755859375
+        ],
+        [
+          179.0,
+          1758.999755859375
+        ]
+      ]
+    },
+    {
+      "id": 13,
+      "label": "paragraph_title",
+      "content": "CANCELLED",
+      "bbox": [
+        941.0,
+        1805.0,
+        1602.0,
+        1918.0
+      ],
+      "polygon": [
+        [
+          941.0,
+          1805.0
+        ],
+        [
+          1602.0,
+          1805.0
+        ],
+        [
+          1602.0,
+          1918.0
+        ],
+        [
+          941.0,
+          1918.0
+        ]
+      ]
+    },
+    {
+      "id": 14,
+      "label": "text",
+      "content": "NOTE: THE ABOVE ADVERTISING IS SUBJECT TO 15% AND 2% AGENCY COMMISSION (16.7%) AND 13.3% N.A.S. SALES/SERVICE CHARGE FOR A BELOW AVERAGE TOTAL CHARGE OF 30%.",
+      "bbox": [
+        157.0,
+        1908.0,
+        1476.0,
+        2006.0
+      ],
+      "polygon": [
+        [
+          157.0,
+          1908.0
+        ],
+        [
+          1476.0,
+          1908.0
+        ],
+        [
+          1476.0,
+          2006.0
+        ],
+        [
+          157.0,
+          2006.0
+        ]
+      ]
+    },
+    {
+      "id": 15,
+      "label": "text",
+      "content": "NOTE: PLEASE SEND CHECKING COPIES AND INVOICES ONLY TO: NEWSPAPER ADVERTISING SPECIALISTS, INC. 333 NORTH MICHIGAN AVENUE CHICAGO, ILLINOIS 60601",
+      "bbox": [
+        220.0,
+        2052.0,
+        924.0,
+        2085.0
+      ],
+      "polygon": [
+        [
+          220.0,
+          2052.0
+        ],
+        [
+          924.0,
+          2052.0
+        ],
+        [
+          924.0,
+          2085.0
+        ],
+        [
+          220.0,
+          2085.0
+        ]
+      ]
+    },
+    {
+      "id": 16,
+      "label": "text",
+      "content": "",
+      "bbox": [
+        946.0,
+        2050.0,
+        1436.0,
+        2123.0
+      ],
+      "polygon": [
+        [
+          946.0,
+          2050.0
+        ],
+        [
+          1436.0,
+          2050.0
+        ],
+        [
+          1436.0,
+          2123.0
+        ],
+        [
+          946.0,
+          2123.0
+        ]
+      ]
+    },
+    {
+      "id": 17,
+      "label": "text",
+      "content": "IF TEARSHEETS ARE NOT RECEIVED WITHIN 60 DAYS THIS ORDER WILL BE CANCELLED.",
+      "bbox": [
+        299.0,
+        2149.0,
+        1246.0,
+        2178.0
+      ],
+      "polygon": [
+        [
+          299.0,
+          2149.0
+        ],
+        [
+          1246.0,
+          2149.0
+        ],
+        [
+          1246.0,
+          2178.0
+        ],
+        [
+          299.0,
+          2178.0
+        ]
+      ]
+    },
+    {
+      "id": 18,
+      "label": "aside_text",
+      "content": "87052570",
+      "bbox": [
+        1552.0,
+        1933.0,
+        1595.0,
+        2133.0
+      ],
+      "polygon": [
+        [
+          1552.0,
+          1933.0
+        ],
+        [
+          1595.0,
+          1933.0
+        ],
+        [
+          1595.0,
+          2133.0
+        ],
+        [
+          1552.0,
+          2133.0
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+/Users/piyushkuma/MLAI/DocIR/.docir_env/lib/python3.13/site-packages/paddle/utils/cpp_extension/extension_utils.py:712: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/Users/piyushkuma/.paddlex/official_models/PP-LCNet_x1_0_doc_ori`.[0m
+INFO: preprocess 87052570.jpg: ->87052570_flat.png rotation=0 unwarped=False deskew=0.75 distortion=Distortion(skew_deg=0.75, curvature_deg=0.125, tiles_measured=11)
+[32mCreating model: ('PP-DocLayoutV3', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/Users/piyushkuma/.paddlex/official_models/PP-DocLayoutV3`.[0m
+[32mCreating model: ('PaddleOCR-VL-1.6-0.9B', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/Users/piyushkuma/.paddlex/official_models/PaddleOCR-VL-1.6`.[0m
+[33mBucketed engine_config has no entry for resolved engine 'paddle_dynamic'; using an empty config for that engine.[0m
+[32mLoading configuration file /Users/piyushkuma/.paddlex/official_models/PaddleOCR-VL-1.6/config.json[0m
+[32mLoading weights file /Users/piyushkuma/.paddlex/official_models/PaddleOCR-VL-1.6/model.safetensors[0m
+[32muse GQA - num_heads: 16- num_key_value_heads: 2[0m
+[32muse GQA - num_heads: 16- num_key_value_heads: 2[0m
+[32muse GQA - num_heads: 16- num_key_value_heads: 2[0m
+[32muse GQA - num_heads: 16- num_key_value_heads: 2[0m
+[32muse GQA - num_heads: 16- num_key_value_heads: 2[0m
+[32muse GQA - num_heads: 16- num_key_value_heads: 2[0m
+[32muse GQA - num_heads: 16- num_key_value_heads: 2[0m
+[32muse GQA - num_heads: 16- num_key_value_heads: 2[0m
+[32muse GQA - num_heads: 16- num_key_value_heads: 2[0m
+[32muse GQA - num_heads: 16- num_key_value_heads: 2[0m
+[32muse GQA - num_heads: 16- num_key_value_heads: 2[0m
+[32muse GQA - num_heads: 16- num_key_value_heads: 2[0m
+[32muse GQA - num_heads: 16- num_key_value_heads: 2[0m
+[32muse GQA - num_heads: 16- num_key_value_heads: 2[0m
+[32muse GQA - num_heads: 16- num_key_value_heads: 2[0m
+[32muse GQA - num_heads: 16- num_key_value_heads: 2[0m
+[32muse GQA - num_heads: 16- num_key_value_heads: 2[0m
+[32muse GQA - num_heads: 16- num_key_value_heads: 2[0m
+[32mLoaded weights file from disk, setting weights to model.[0m
+[32mAll model checkpoint weights were used when initializing PaddleOCRVLForConditionalGeneration.
+[0m
+[32mAll the weights of PaddleOCRVLForConditionalGeneration were initialized from the model checkpoint at /Users/piyushkuma/.paddlex/official_models/PaddleOCR-VL-1.6.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use PaddleOCRVLForConditionalGeneration for predictions without further training.[0m
+[32mLoading configuration file /Users/piyushkuma/.paddlex/official_models/PaddleOCR-VL-1.6/generation_config.json[0m
+/Users/piyushkuma/MLAI/DocIR/.docir_env/lib/python3.13/site-packages/paddle/tensor/creation.py:1152: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach(), rather than paddle.to_tensor(sourceTensor).
+  return tensor(
+[32mCreating model: ('PP-OCRv5_server_det', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/Users/piyushkuma/.paddlex/official_models/PP-OCRv5_server_det`.[0m
+[32mCreating model: ('PP-OCRv5_server_rec', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/Users/piyushkuma/.paddlex/official_models/PP-OCRv5_server_rec`.[0m
+INFO: detected 53 text lines in 87052570_flat.png
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/piyushkuma/MLAI/DocIR/docir/cli.py", line 149, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/Users/piyushkuma/MLAI/DocIR/docir/cli.py", line 112, in main
+    result_path = process_image(
+        args.image_path, output_pdf=args.output_pdf, output_json=args.output_json,
+        preprocess=args.preprocess,
+    )
+  File "/Users/piyushkuma/MLAI/DocIR/docir/pipeline.py", line 191, in process_image
+    return render_pdf_from_layout(layout, output_pdf, source_image_path=page_path, page_lines=lines)
+  File "/Users/piyushkuma/MLAI/DocIR/docir/pipeline.py", line 106, in render_pdf_from_layout
+    return render_page_to_pdf(layout, output_path, source_image=source_image,
+                              page_lines=page_lines, mode=mode or render_mode())
+  File "/Users/piyushkuma/MLAI/DocIR/docir/render_pdf.py", line 419, in render_page_to_pdf
+    page = build_page(layout, source_image, page_lines)
+  File "/Users/piyushkuma/MLAI/DocIR/docir/page_builder.py", line 295, in build_page
+    assign_styles(page, image)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/piyushkuma/MLAI/DocIR/docir/typography.py", line 234, in assign_styles
+    traits = classify_roles([(b.role, b.bbox, b.content) for b in blocks], image)
+  File "/Users/piyushkuma/MLAI/DocIR/docir/typography.py", line 74, in classify_roles
+    if (a := measure_slant_angle(image, bbox)) is not None:
+             ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/piyushkuma/MLAI/DocIR/docir/italic.py", line 59, in measure_slant_angle
+    sheared = _shear_mask(binary, angle)
+  File "/Users/piyushkuma/MLAI/DocIR/docir/italic.py", line 36, in _shear_mask
+    sheared[y, shift:] = binary[y, : w - shift]
+    ~~~~~~~^^^^^^^^^^^
+ValueError: could not broadcast input array from shape (41,) into shape (0,)

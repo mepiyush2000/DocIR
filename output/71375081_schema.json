@@ -1,0 +1,327 @@
+{
+  "schema_version": "1.0",
+  "input_path": "71375081_flat.png",
+  "width": 2400.0,
+  "height": 3150.0,
+  "blocks": [
+    {
+      "id": 0,
+      "label": "header",
+      "content": "JUL 2 '98 12:13 FROM SECTION 3 HARTFORD",
+      "bbox": [
+        265.0,
+        6.0,
+        1207.0,
+        53.0
+      ],
+      "polygon": [
+        [
+          265.0,
+          6.0
+        ],
+        [
+          1207.0,
+          6.0
+        ],
+        [
+          1207.0,
+          53.0
+        ],
+        [
+          265.0,
+          53.0
+        ]
+      ]
+    },
+    {
+      "id": 1,
+      "label": "header",
+      "content": "～～～～～～～～",
+      "bbox": [
+        1357.0,
+        6.0,
+        1618.0,
+        55.0
+      ],
+      "polygon": [
+        [
+          1357.0,
+          6.0
+        ],
+        [
+          1618.0,
+          6.0
+        ],
+        [
+          1618.0,
+          55.0
+        ],
+        [
+          1357.0,
+          55.0
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "label": "header",
+      "content": "PAGE.002",
+      "bbox": [
+        1857.0,
+        8.0,
+        2034.0,
+        53.0
+      ],
+      "polygon": [
+        [
+          1857.0,
+          8.0
+        ],
+        [
+          2034.0,
+          8.0
+        ],
+        [
+          2034.0,
+          53.0
+        ],
+        [
+          1857.0,
+          53.0
+        ]
+      ]
+    },
+    {
+      "id": 3,
+      "label": "doc_title",
+      "content": "GPC Special Program – Phase III\nNewspaper Advertisements\nRetailer Participation Information",
+      "bbox": [
+        701.0,
+        195.0,
+        1599.0,
+        393.0
+      ],
+      "polygon": [
+        [
+          701.0,
+          195.0
+        ],
+        [
+          1599.0,
+          195.0
+        ],
+        [
+          1599.0,
+          393.0
+        ],
+        [
+          701.0,
+          393.0
+        ]
+      ]
+    },
+    {
+      "id": 4,
+      "label": "text",
+      "content": "Section # 03- Hartford, CT",
+      "bbox": [
+        188.0,
+        478.0,
+        769.0,
+        540.0
+      ],
+      "polygon": [
+        [
+          188.0,
+          478.0
+        ],
+        [
+          769.0,
+          478.0
+        ],
+        [
+          769.0,
+          540.0
+        ],
+        [
+          188.0,
+          540.0
+        ]
+      ]
+    },
+    {
+      "id": 5,
+      "label": "text",
+      "content": "Date 7/2/98",
+      "bbox": [
+        1582.0,
+        489.0,
+        1867.0,
+        541.0
+      ],
+      "polygon": [
+        [
+          1582.0,
+          489.0
+        ],
+        [
+          1867.0,
+          489.0
+        ],
+        [
+          1867.0,
+          541.0
+        ],
+        [
+          1582.0,
+          541.0
+        ]
+      ]
+    },
+    {
+      "id": 6,
+      "label": "text",
+      "content": "Note: The retailer's name will appear in the advertisement exactly as it appears on this form.",
+      "bbox": [
+        447.0,
+        609.0,
+        2015.0,
+        659.0
+      ],
+      "polygon": [
+        [
+          447.0,
+          609.0
+        ],
+        [
+          2015.0,
+          609.0
+        ],
+        [
+          2015.0,
+          659.0
+        ],
+        [
+          447.0,
+          659.0
+        ]
+      ]
+    },
+    {
+      "id": 7,
+      "label": "table",
+      "content": "<table><tr><td>Controlling Manager</td><td>Newspaper Name</td><td>Chain Name</td></tr><tr><td>03T00C</td><td>Hartford Courant</td><td>Sunnyside Farms</td></tr><tr><td>03T00C</td><td>Schenectady Gazette</td><td>Stewart&#x27;s Shops</td></tr><tr><td>03T00C</td><td>Syracuse Herald-American</td><td>Stewart&#x27;s Shops</td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></table>",
+      "bbox": [
+        154.0,
+        715.0,
+        2102.0,
+        2580.0
+      ],
+      "polygon": [
+        [
+          154.0,
+          715.0
+        ],
+        [
+          2102.0,
+          715.0
+        ],
+        [
+          2102.0,
+          2580.0
+        ],
+        [
+          154.0,
+          2580.0
+        ]
+      ]
+    },
+    {
+      "id": 8,
+      "label": "vision_footnote",
+      "content": "Please send completed forms via fax (502-568-7027) to Marina Kiser each Friday as retailers are signed. The final date for placing the ad requests is July 17.",
+      "bbox": [
+        180.0,
+        2614.0,
+        2115.0,
+        2709.0
+      ],
+      "polygon": [
+        [
+          180.0,
+          2614.0
+        ],
+        [
+          2115.0,
+          2614.0
+        ],
+        [
+          2115.0,
+          2709.0
+        ],
+        [
+          180.0,
+          2709.0
+        ]
+      ]
+    },
+    {
+      "id": 9,
+      "label": "footer",
+      "content": "06000012\nPRODUCED FROM B&W WEB SITE",
+      "bbox": [
+        0.0,
+        2966.0,
+        698.0,
+        3082.0
+      ],
+      "polygon": [
+        [
+          -1.0,
+          2966.0
+        ],
+        [
+          698.0,
+          2966.0
+        ],
+        [
+          698.0,
+          3082.0
+        ],
+        [
+          -1.0,
+          3082.0
+        ]
+      ]
+    },
+    {
+      "id": 10,
+      "label": "footer",
+      "content": "** TOTAL PAGE.002 **",
+      "bbox": [
+        1684.0,
+        2813.0,
+        2098.0,
+        2857.0
+      ],
+      "polygon": [
+        [
+          1684.0,
+          2813.0
+        ],
+        [
+          2098.0,
+          2813.0
+        ],
+        [
+          2098.0,
+          2857.0
+        ],
+        [
+          1684.0,
+          2857.0
+        ]
+      ]
+    }
+  ]
+}

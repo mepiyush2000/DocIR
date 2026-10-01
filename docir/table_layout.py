@@ -44,6 +44,8 @@ CELL_PAD_XH = 0.4             # inner cell padding, in x-heights
 ROW_PAD_XH = 0.5              # padding above/below text for rows sized from the font
 LEADING = 1.2                 # line spacing of wrapped cell text, in font sizes
 MIN_SHRINK = 0.6              # a cell's text may shrink to this fraction of the table size
+SIZE_CLASS_RATIO = 1.25       # cells whose text heights differ more than this are set in different sizes
+SIZE_CLASS_MIN_LINES = 3      # ... when each size has at least this many lines
 RULE_MIN_FRAC = 0.5           # a printed rule spans at least this much of the table
 RULE_SNAP_XH = 1.0            # a row/column edge this close to a printed rule snaps onto it
 RULE_MIN_CONTRAST = 0.5       # a drawn rule is at least half as dark as the text (vs paper)
@@ -78,6 +80,7 @@ class TableLayout:
     h_rules: list[tuple[float, float, float]] = field(default_factory=list)   # y, x0, x1
     v_rules: list[tuple[float, float, float]] = field(default_factory=list)   # x, y0, y1
     bold_rows: set[int] = field(default_factory=set)
+    frag_xh: dict[tuple, tuple[float, int]] = field(default_factory=dict)  # box -> (x-height, chars)
 
 
 def _norm(text: str) -> str:
@@ -344,10 +347,11 @@ def _fill(values: list[float | None], lo: float, hi: float) -> list[float]:
 
 # ---------- geometry ----------
 
-def absorb_punctuation(grid: TableGrid) -> TableGrid:
+def absorb_punctuation(grid: TableGrid, row_texts: dict[int, list[str]] | None = None) -> TableGrid:
     """A cell holding only punctuation (\":\" between a label and its value)
     is printed attached to the value; merge it into the next filled cell of
-    its row so it doesn't claim a column of its own."""
+    its row so it doesn't claim a column of its own -- when the row's
+    measured fragments show them printed together (`row_texts`)."""
     cells = list(grid.cells)
     drop = set()
     for i, c in enumerate(cells):
@@ -358,17 +362,20 @@ def absorb_punctuation(grid: TableGrid) -> TableGrid:
         if not later:
             continue
         j, nxt = min(later, key=lambda t: t[1].col)
+        if row_texts is not None and not any(
+                _sim(f, c.text + nxt.text) > _sim(f, nxt.text) for f in row_texts.get(c.row, [])):
+            continue
         cells[j] = GridCell(nxt.row, nxt.col, f"{c.text} {nxt.text}", nxt.colspan, nxt.rowspan)
         drop.add(i)
     return TableGrid(grid.n_rows, grid.n_cols, [c for i, c in enumerate(cells) if i not in drop])
 
 
 def analyze_table(grid: TableGrid, bbox, placements, gray: np.ndarray, x_height: float) -> TableLayout:
-    grid = absorb_punctuation(grid)
     page_w = gray.shape[1]
     x0, y0, x1, y1 = bbox
     vrows = visual_rows(placements)
     matched = match_rows(grid, vrows)
+    grid = absorb_punctuation(grid, {r: [t for k in idx for _, t in vrows[k].frags] for r, idx in matched.items()})
     absorb_wrapped_rows(grid, vrows, matched)
     tops: list[float | None] = [None] * grid.n_rows
     bots: list[float | None] = [None] * grid.n_rows
@@ -402,10 +409,14 @@ def analyze_table(grid: TableGrid, bbox, placements, gray: np.ndarray, x_height:
         row_edges[0] = min(row_edges[0], tops[0] - vpad)
     if bots[-1] is not None:
         row_edges[-1] = max(row_edges[-1], bots[-1] + vpad)
+    spread = list(row_edges)
     for i in range(1, len(row_edges)):
         nxt_measured = i < len(tops) and tops[i] is not None
         if tops[i - 1] is None and not nxt_measured:
             row_edges[i] = max(row_edges[i], row_edges[i - 1] + row_h)
+    # many empty rows (a blank form) share the table's box rather than overflow it
+    if row_edges[-1] > spread[-1] + vpad:
+        row_edges = spread
 
     # columns: median left edge of each column's cells, padded
     pad = CELL_PAD_XH * x_height
@@ -553,9 +564,10 @@ def _is_text_row(layout: TableLayout, cell) -> bool:
 
 
 def _measured_lines(layout: TableLayout, cell, text: str, font: str, size: float, bold: bool,
-                    frags=None, min_x: float | None = None, max_x: float | None = None) -> list[Line]:
+                    frags=None, min_x: float | None = None, max_x: float | None = None,
+                    size_at=None) -> list[Line]:
     """The cell's clean text split across its measured lines, each drawn
-    where it was printed (the table's size, shrunk only to fit its line)."""
+    where it was printed (at its own size class, shrunk only to fit its line)."""
     from .reconcile import split_text_to_lines
 
     frags = _merge_line_frags(layout.row_frags[cell.row] if frags is None else frags, layout.x_height)
@@ -565,18 +577,19 @@ def _measured_lines(layout: TableLayout, cell, text: str, font: str, size: float
     for (box, _), piece in zip(frags, pieces):
         if not piece:
             continue
+        line_size = size_at(box) if size_at else size
         x0, y0, x1, y1 = box
         if min_x is not None and x0 < min_x:
             x0, x1 = min_x, max(x1, min_x + layout.x_height)
-        natural = font_catalog.string_width(piece, font, size)
+        natural = font_catalog.string_width(piece, font, line_size)
         # a cell's own extent bounds it (a detector box may run into the next cell)
         room = (max_x - x0) if max_x is not None else x1 - x0
-        s = size if natural <= room * 1.05 else max(size * room / natural, MIN_SHRINK * size)
+        s = line_size if natural <= room * 1.05 else max(line_size * room / natural, MIN_SHRINK * line_size)
         base = y1 - DESCENDER_FRAC * (y1 - y0)
         w = font_catalog.string_width(piece, font, s)
         out.append(Line(text=piece, baseline_start=(x0, base), baseline_end=(x0 + w, base),
                         x_height=layout.x_height, cap_top=CAP_HEIGHT_EM * s, row=cell.row,
-                        size_px=None if abs(s - size) < 1e-6 else s, bold=bold, fit=False))
+                        size_px=s, bold=bold, fit=False))
     return out
 
 
@@ -604,29 +617,73 @@ def _merge_line_frags(frags, x_height: float) -> list[tuple[tuple, str]]:
     return [(b, t) for b, t, _ in lines]
 
 
+def frag_key(box) -> tuple:
+    return tuple(round(float(v), 1) for v in box)
+
+
+def _size_scales(layout: TableLayout):
+    """Measured text height -> size relative to the table's: the table's
+    fragments cluster by height into a few sizes (a form's small printed
+    labels vs. its typed entries); a table of one size keeps one."""
+    values = sorted(v for v, _ in layout.frag_xh.values())
+    if not values:
+        return lambda xh: 1.0
+    classes = [[values[0]]]
+    for v in values[1:]:
+        if v / classes[-1][0] > SIZE_CLASS_RATIO:
+            classes.append([v])
+        else:
+            classes[-1].append(v)
+    # a class needs a few lines to be a size of its own (not a stray stamp)
+    classes = [c for c in classes if len(c) >= SIZE_CLASS_MIN_LINES]
+    if len(classes) < 2:
+        return lambda xh: 1.0
+    # the table's own size was measured on its lines of a few characters
+    base = [v for v, n in layout.frag_xh.values() if n >= 3] or values
+    overall = float(np.median(base))
+    meds = [float(np.median(c)) for c in classes]
+    return lambda xh: min(meds, key=lambda m: abs(np.log(m / xh))) / overall
+
+
+def _frags_xh(layout: TableLayout, box) -> float | None:
+    """Measured height of the fragments inside a (merged) line box."""
+    x0, y0, x1, y1 = box
+    hs = [v for k, (v, _) in layout.frag_xh.items()
+          if k[0] >= x0 - 1 and k[2] <= x1 + 1 and k[1] >= y0 - 1 and k[3] <= y1 + 1]
+    return float(np.median(hs)) if hs else None
+
+
 def typeset(block: Block, layout: TableLayout) -> list[Line]:
     """Final lines of a table block: each cell's text wrapped inside its
-    cell at the table's font size (shrunk per cell only if it can't fit)."""
+    cell at its size class (shrunk per cell only if it can't fit)."""
     style = block.style
-    size, xh = style.size_px, layout.x_height
+    xh = layout.x_height
     pad = CELL_PAD_XH * xh
+    scale_of = _size_scales(layout)
+
+    def size_at(box) -> float:
+        h = _frags_xh(layout, box)
+        return style.size_px * (scale_of(h) if h else 1.0)
+
     out: list[Line] = []
     for cell in layout.grid.cells:
         text = cell.text.strip()
         if not text:
             continue
+        cx0, cx1 = _cell_extent(layout, cell, pad)
+        own = [h for b, _ in _cell_frags(layout, cell, cx0, cx1) if (h := _frags_xh(layout, b))]
+        size = style.size_px * (scale_of(float(np.median(own))) if own else 1.0)
         bold = cell.row in layout.bold_rows or style.bold
         face = font_catalog.face(style.font_family, bold, style.italic)
         if _is_text_row(layout, cell):
-            out += _measured_lines(layout, cell, text, face.name, size, bold)
+            out += _measured_lines(layout, cell, text, face.name, size, bold, size_at=size_at)
             continue
         last_row = min(cell.row + cell.rowspan, len(layout.row_edges) - 1)
-        cx0, cx1 = _cell_extent(layout, cell, pad)
         # a cell printed over several lines keeps its printed line breaks
         frags = _cell_frags(layout, cell, cx0, cx1)
         if len(_merge_line_frags(frags, xh)) >= 2:
             out += _measured_lines(layout, cell, text, face.name, size, bold, frags,
-                                   min_x=cx0 if layout.ruled else None, max_x=cx1)
+                                   min_x=cx0 if layout.ruled else None, max_x=cx1, size_at=size_at)
             continue
         cy0, cy1 = layout.row_edges[cell.row], layout.row_edges[last_row]
         width, height = cx1 - cx0, max(cy1 - cy0, xh)
@@ -652,7 +709,7 @@ def typeset(block: Block, layout: TableLayout) -> list[Line]:
             w = font_catalog.string_width(t, face.name, s)
             out.append(Line(text=t, baseline_start=(cx0, base), baseline_end=(cx0 + w, base),
                             x_height=xh, cap_top=CAP_HEIGHT_EM * s, row=cell.row,
-                            size_px=None if abs(s - size) < 1e-6 else s, bold=bold, fit=False))
+                            size_px=None if abs(s - style.size_px) < 1e-6 else s, bold=bold, fit=False))
     return out + layout.loose_lines
 
 

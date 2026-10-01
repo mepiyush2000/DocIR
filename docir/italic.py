@@ -30,6 +30,8 @@ def _shear_mask(binary: np.ndarray, angle_deg: float) -> np.ndarray:
     sheared = np.zeros_like(binary)
     for y in range(h):
         shift = int(round(shear * (y - center)))
+        if abs(shift) >= w:
+            continue  # sheared entirely out of a narrow crop
         if shift == 0:
             sheared[y] = binary[y]
         elif shift > 0:

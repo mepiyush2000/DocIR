@@ -27,6 +27,9 @@ FILL_MIN_HEIGHT_XH = 1.2      # thinner shaded runs are rules, not bands
 MAX_RULE_THICKNESS_FRAC = 0.006
 TEXT_MASK_PAD_FRAC = 0.35     # of a line's x-height, around each line's box
 SEGMENT_FRAC = 0.12           # long rules are fitted in pieces this long (page width)
+DASH_GAP_FRAC = 0.006         # gaps this short (page width) between dashes are bridged
+RULE_MIN_DARKNESS = 0.5       # a rule is at least half as dark as the page's text (vs paper)
+INK_PERCENTILE = 10           # of the page's dark pixels: its text ink
 ADAPTIVE_BLOCK_FRAC = 0.02
 ADAPTIVE_C = 12
 
@@ -42,11 +45,15 @@ def _text_and_picture_mask(page: Page, shape) -> np.ndarray:
     for block in page.blocks:
         for line in block.lines:
             pad = TEXT_MASK_PAD_FRAC * line.x_height
-            (x0, y0), (x1, y1) = line.baseline_start, line.baseline_end
+            start = np.array(line.baseline_start, dtype=float)
+            end = np.array(line.baseline_end, dtype=float)
+            d = end - start
+            d = d / max(np.linalg.norm(d), 1e-6)
+            up = np.array([d[1], -d[0]])      # towards the cap line, whatever the line's turn
             top = line.cap_top + pad
             desc = 0.5 * line.x_height + pad
-            poly = np.array([[x0 - pad, y0 - top], [x1 + pad, y1 - top],
-                             [x1 + pad, y1 + desc], [x0 - pad, y0 + desc]], dtype=np.int32)
+            poly = np.array([start + up * top - d * pad, end + up * top + d * pad,
+                             end - up * desc + d * pad, start - up * desc - d * pad], dtype=np.int32)
             cv2.fillPoly(mask, [poly], 1)
     for pic in page.pictures:
         x0, y0, x1, y1 = (int(round(v)) for v in pic.bbox)
@@ -98,21 +105,28 @@ def _plausible_rule(page: Page, bbox, w: int, h: int) -> bool:
             ly = (l.baseline_start[1] + l.baseline_end[1]) / 2
             if lx0 < x1 and x0 < lx1 and ly - l.cap_top <= cy <= ly:
                 return False
-    # text residue (glyph parts the line masks missed) sits inside text
-    # blocks -- except a table's own grid, which spans a good part of it
+    # text residue (glyph parts the line masks missed) is short; a long thin
+    # stroke inside a text block is a fill-in line (forms) and is kept
     for b in page.blocks:
         if not (b.bbox[0] <= cx <= b.bbox[2] and b.bbox[1] <= cy <= b.bbox[3]):
             continue
         # a rebuilt table draws its own clean grid
         if b.table is not None:
             return False
-        if not b.tabular:
-            return False
         horizontal = (x1 - x0) >= (y1 - y0)
         span, full = ((x1 - x0), b.bbox[2] - b.bbox[0]) if horizontal else ((y1 - y0), b.bbox[3] - b.bbox[1])
-        if span < TABLE_GRID_MIN_SPAN * full:
+        if b.tabular and span < TABLE_GRID_MIN_SPAN * full:
             return False
     return True
+
+
+def _paper_and_ink(gray: np.ndarray) -> tuple[float, float]:
+    """The page's paper and text-ink grey levels. Ink is the dark end of the
+    Otsu dark class: grey patterns and shading fill the rest of it."""
+    t, _ = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+    dark, light = gray[gray < t], gray[gray >= t]
+    return (float(np.median(light)) if light.size else 255.0,
+            float(np.percentile(dark, INK_PERCENTILE)) if dark.size else 0.0)
 
 
 def detect_rules(page: Page, image: Image.Image) -> list[Graphic]:
@@ -121,6 +135,7 @@ def detect_rules(page: Page, image: Image.Image) -> list[Graphic]:
     ink = _ink(gray) & ~_text_and_picture_mask(page, gray.shape)
     h, w = gray.shape
     max_thick = max(2, int(MAX_RULE_THICKNESS_FRAC * max(w, h)))
+    paper, text_ink = _paper_and_ink(gray)
     graphics = []
     for horizontal in (True, False):
         length = int(MIN_RULE_FRAC * (w if horizontal else h))
@@ -128,6 +143,10 @@ def detect_rules(page: Page, image: Image.Image) -> list[Graphic]:
         # a gently curved or tilted rule is still long in a slightly thicker band
         closed = cv2.morphologyEx(ink.astype(np.uint8), cv2.MORPH_CLOSE,
                                   cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3)))
+        # dashed and dotted rules: bridge the gaps along the rule's direction
+        gap = max(3, int(DASH_GAP_FRAC * (w if horizontal else h)))
+        closed = cv2.morphologyEx(closed, cv2.MORPH_CLOSE, cv2.getStructuringElement(
+            cv2.MORPH_RECT, (gap, 1) if horizontal else (1, gap)))
         lines = cv2.morphologyEx(closed, cv2.MORPH_OPEN, kernel)
         n, labels, stats, _ = cv2.connectedComponentsWithStats(lines, connectivity=8)
         for i in range(1, n):
@@ -138,6 +157,10 @@ def detect_rules(page: Page, image: Image.Image) -> list[Graphic]:
             if not _plausible_rule(page, (x, y, x + bw, y + bh), w, h):
                 continue
             comp = labels[y:y + bh, x:x + bw] == i
+            # faint lines (security patterns, show-through) aren't drawn
+            darkness = (paper - float(np.median(gray[y:y + bh, x:x + bw][comp]))) / max(paper - text_ink, 1.0)
+            if darkness < RULE_MIN_DARKNESS:
+                continue
             color = snap_ink(np.median(rgb[y:y + bh, x:x + bw][comp], axis=0))
             for p0, p1, t in _segments(comp, x, y, horizontal, SEGMENT_FRAC * w):
                 graphics.append(Graphic(
