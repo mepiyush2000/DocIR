@@ -17,7 +17,8 @@ _DEFAULTS: dict = {
     "logging": {"debug": False},
     "preprocess": {"mode": "auto"},
     "lines": {"enabled": True},
-    "render": {"mode": "lines", "straighten_max_deg": 5.0, "font_size_offset_pt": -1.0},
+    "render": {"mode": "lines", "straighten_max_deg": 5.0, "font_size_offset_pt": -1.0,
+               "font_size_offset_pct": 0.0},
 }
 
 
@@ -67,3 +68,7 @@ def straighten_max_deg() -> float:
 
 def font_size_offset_pt() -> float:
     return float(load_config()["render"]["font_size_offset_pt"])
+
+
+def font_size_offset_pct() -> float:
+    return float(load_config()["render"]["font_size_offset_pct"])

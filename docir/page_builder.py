@@ -16,7 +16,7 @@ from PIL import Image
 
 from . import table_layout, tables, vertical
 from .color import assign_colors
-from .config import font_size_offset_pt, straighten_max_deg
+from .config import font_size_offset_pct, font_size_offset_pt, straighten_max_deg
 from .graphics import detect_graphics
 from .ink import binarize_region, measure_text_lines
 from .labels import PICTURE_LABELS as IMAGE_LABELS
@@ -301,7 +301,7 @@ def build_page(layout: PageLayout, image: Image.Image, page_lines: PageLines | N
 
     assign_styles(page, image)
     offset = font_size_offset_pt() if size_offset_pt is None else size_offset_pt
-    offset_sizes(page.blocks, offset * image.width / PAGE_WIDTH_PT)
+    offset_sizes(page.blocks, offset * image.width / PAGE_WIDTH_PT, font_size_offset_pct())
     refitted = refit_page(page.blocks)
     assign_colors(page, image)
     for block in page.blocks:

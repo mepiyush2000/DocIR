@@ -282,7 +282,10 @@ def measure_text_lines(binary: np.ndarray, ignore_rules: bool = False) -> TextLi
         return None
     # each strip's tallest core is a whole line; capitals and box edges split
     # a strip's profile into thin bars that aren't lines
-    strip_typical = float(np.median([max(e - s for s, e in cores) for cores in strip_cores]))
+    tallest = [max(e - s for s, e in cores) for cores in strip_cores]
+    # strips holding only slivers (rule remnants, specks) say nothing about line height
+    tallest = [t for t in tallest if t >= 0.5 * float(np.median(tallest))] or tallest
+    strip_typical = float(np.median(tallest))
     # the whole-block profile anchors the line height: a strip holding a
     # picture fragment the bbox clipped in yields tall bogus "lines"
     typical = float(np.median([e - s for s, e in block_cores])) if block_cores else strip_typical

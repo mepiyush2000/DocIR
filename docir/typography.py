@@ -306,10 +306,10 @@ def assign_styles(page: Page, image: Image.Image | None) -> None:
 
 # ---------- page-wide harmony ----------
 
-def offset_sizes(blocks: list[Block], delta_px: float) -> None:
-    """Shift every style's size by `delta_px` (drop caps keep their measured
-    size), never below MIN_OFFSET_SCALE of it."""
-    if not delta_px:
+def offset_sizes(blocks: list[Block], delta_px: float, delta_pct: float = 0.0) -> None:
+    """Shift every style's size by `delta_pct` percent and `delta_px` (drop
+    caps keep their measured size), never below MIN_OFFSET_SCALE of it."""
+    if not delta_px and not delta_pct:
         return
     seen: set[int] = set()
     for b in blocks:
@@ -317,7 +317,7 @@ def offset_sizes(blocks: list[Block], delta_px: float) -> None:
         if s is None or id(s) in seen:
             continue
         seen.add(id(s))
-        s.size_px = max(s.size_px + delta_px, MIN_OFFSET_SCALE * s.size_px)
+        s.size_px = max(s.size_px * (1 + delta_pct / 100) + delta_px, MIN_OFFSET_SCALE * s.size_px)
 
 def _style_groups(blocks: list[Block]) -> list[tuple[TextStyle, list[Block], int]]:
     """Distinct styles in use, with their blocks and amount of text."""
