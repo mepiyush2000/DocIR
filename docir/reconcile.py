@@ -23,6 +23,7 @@ from .labels import PICTURE_LABELS as IMAGE_LABELS
 from .schemas import Block, PageLayout, PageLines, TextLine
 
 MIN_CLAIM_FRAC = 0.5             # of a line's area inside a block to belong to it
+MIN_ORPHAN_SCORE = 0.8           # less confident lines outside every block are not drawn
 SPLIT_MIN_FRAC = 0.25            # of a line's width a second block must cover to split it
 SPLIT_SMALL_BLOCK_FRAC = 0.6     # ... or this much of the (small) block itself
 MIN_ROW_OVERLAP_FRAC = 0.5       # of a line's height overlapping a block to count as "beside" it
@@ -188,14 +189,22 @@ def _line_pitch(lines: list[TextLine]) -> float:
     return float(np.median(gaps)) if gaps else 1.4 * float(np.median(heights))
 
 
-def _attach_continuations(owned, unclaimed, text_blocks):
+def _attach_continuations(owned, unclaimed, text_blocks, unread=()):
     """Unclaimed lines directly below a block, in its column, while the
-    block's VL text still holds words its own lines don't account for."""
+    block's VL text still holds words its own lines don't account for.
+    Confident lines inside a region the layout model boxed but could not
+    read (`unread`) are that region's own text, not a neighbour's
+    continuation (a less confident one would be lost as an orphan, so the
+    neighbour's wording is the better bet)."""
     by_id = {b.id: b for b in text_blocks}
     continuation: set[int] = set()
     leftovers = []
     for line in sorted(unclaimed, key=lambda l: _bbox(l.polygon)[1]):
         lx0, ly0, lx1, ly1 = _bbox(line.polygon)
+        if line.score >= MIN_ORPHAN_SCORE and any(
+                _area_frac_inside((lx0, ly0, lx1, ly1), r.bbox) >= MIN_CLAIM_FRAC for r in unread):
+            leftovers.append(line)
+            continue
         best = None
         for bid, blines in owned.items():
             if not blines:
@@ -418,7 +427,8 @@ def reconcile(layout: PageLayout, page_lines: PageLines) -> Reconciliation:
     lines = [_clip_out_of_pictures(piece, pictures)
              for line in page_lines.lines for piece in _split_across_blocks(line, text_blocks)]
     owned, unclaimed = _assign(lines, text_blocks, pictures)
-    orphans, continuation = _attach_continuations(owned, unclaimed, text_blocks)
+    unread = [b for b in layout.blocks if b.label not in IMAGE_LABELS and not b.content]
+    orphans, continuation = _attach_continuations(owned, unclaimed, text_blocks, unread)
 
     result = Reconciliation(orphans=orphans)
     for block in text_blocks:

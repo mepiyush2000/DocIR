@@ -1,0 +1,118 @@
+{
+  "precision": 0.6713,
+  "recall": 0.4346,
+  "f1": 0.5276,
+  "stray_ink": 1919,
+  "blocks": [
+    {
+      "block_id": 0,
+      "label": "paragraph_title",
+      "precision": 0.7379,
+      "recall": 0.631,
+      "f1": 0.6803,
+      "source_ink": 775,
+      "rendered_ink": 725,
+      "tolerance_px": 3
+    },
+    {
+      "block_id": 2,
+      "label": "text",
+      "precision": 0.6799,
+      "recall": 0.2571,
+      "f1": 0.3731,
+      "source_ink": 9023,
+      "rendered_ink": 3602,
+      "tolerance_px": 3
+    },
+    {
+      "block_id": 3,
+      "label": "paragraph_title",
+      "precision": 0.8207,
+      "recall": 0.8556,
+      "f1": 0.8378,
+      "source_ink": 1891,
+      "rendered_ink": 1885,
+      "tolerance_px": 3
+    },
+    {
+      "block_id": 5,
+      "label": "text",
+      "precision": 0.7723,
+      "recall": 0.2471,
+      "f1": 0.3744,
+      "source_ink": 10006,
+      "rendered_ink": 2780,
+      "tolerance_px": 3
+    },
+    {
+      "block_id": 6,
+      "label": "paragraph_title",
+      "precision": 0.9536,
+      "recall": 0.9611,
+      "f1": 0.9573,
+      "source_ink": 745,
+      "rendered_ink": 733,
+      "tolerance_px": 3
+    },
+    {
+      "block_id": 8,
+      "label": "text",
+      "precision": 0.7075,
+      "recall": 0.5642,
+      "f1": 0.6277,
+      "source_ink": 8244,
+      "rendered_ink": 6560,
+      "tolerance_px": 3
+    },
+    {
+      "block_id": 9,
+      "label": "paragraph_title",
+      "precision": 0.9635,
+      "recall": 0.9542,
+      "f1": 0.9588,
+      "source_ink": 830,
+      "rendered_ink": 712,
+      "tolerance_px": 3
+    },
+    {
+      "block_id": 11,
+      "label": "text",
+      "precision": 0.6764,
+      "recall": 0.4795,
+      "f1": 0.5612,
+      "source_ink": 8492,
+      "rendered_ink": 6356,
+      "tolerance_px": 3
+    },
+    {
+      "block_id": 12,
+      "label": "paragraph_title",
+      "precision": 0.9614,
+      "recall": 0.9099,
+      "f1": 0.9349,
+      "source_ink": 799,
+      "rendered_ink": 699,
+      "tolerance_px": 3
+    },
+    {
+      "block_id": 14,
+      "label": "text",
+      "precision": 0.6606,
+      "recall": 0.4602,
+      "f1": 0.5425,
+      "source_ink": 8122,
+      "rendered_ink": 5177,
+      "tolerance_px": 3
+    },
+    {
+      "block_id": 15,
+      "label": "footer",
+      "precision": 0.7281,
+      "recall": 0.8567,
+      "f1": 0.7872,
+      "source_ink": 635,
+      "rendered_ink": 662,
+      "tolerance_px": 2
+    }
+  ]
+}

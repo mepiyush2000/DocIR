@@ -1,0 +1,2786 @@
+{
+  "input_path": "DermaPlus_Skin_Page_2_flat.png",
+  "page_index": null,
+  "page_count": null,
+  "width": 2389,
+  "height": 3404,
+  "model_settings": {
+    "use_doc_preprocessor": false,
+    "use_layout_detection": true,
+    "use_chart_recognition": false,
+    "use_seal_recognition": false,
+    "use_ocr_for_image_block": false,
+    "format_block_content": false,
+    "merge_layout_blocks": true,
+    "markdown_ignore_labels": [
+      "number",
+      "footnote",
+      "header",
+      "header_image",
+      "footer",
+      "footer_image",
+      "aside_text"
+    ],
+    "return_layout_polygon_points": true
+  },
+  "parsing_res_list": [
+    {
+      "block_label": "image",
+      "block_content": "",
+      "block_bbox": [
+        111,
+        17,
+        502,
+        248
+      ],
+      "block_id": 0,
+      "block_order": null,
+      "group_id": 0,
+      "block_polygon_points": [
+        [
+          111.0,
+          17.0
+        ],
+        [
+          502.0,
+          17.0
+        ],
+        [
+          502.0,
+          248.0
+        ],
+        [
+          111.0,
+          248.0
+        ]
+      ]
+    },
+    {
+      "block_label": "doc_title",
+      "block_content": "DERMA PLUS SKIN & HAIR CLINIC\nLASER | SKIN | HAIR | COSMETOLOGY",
+      "block_bbox": [
+        519,
+        23,
+        2337,
+        260
+      ],
+      "block_id": 1,
+      "block_order": 1,
+      "group_id": 1,
+      "block_polygon_points": [
+        [
+          519.0,
+          23.0
+        ],
+        [
+          2337.0,
+          23.0
+        ],
+        [
+          2337.0,
+          260.0
+        ],
+        [
+          519.0,
+          260.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Dr. Ravikant Bhushan\nDermatologist & Cosmetologist\nHair Transplant Surgeon\nMBBS, MD (Gold Medalist)\nRegd. No MC1-21511",
+      "block_bbox": [
+        120,
+        278,
+        739,
+        608
+      ],
+      "block_id": 2,
+      "block_order": 2,
+      "group_id": 2,
+      "block_polygon_points": [
+        [
+          120.0,
+          278.0
+        ],
+        [
+          739.0,
+          278.0
+        ],
+        [
+          739.0,
+          608.0
+        ],
+        [
+          120.0,
+          608.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Dr. Aanchal Sehwawat\nDermatologist & Cosmetologist\nHair Transplant Surgeon\nMBBS, DNB, DDVL\nRegd. No: MCI-09-34041",
+      "block_bbox": [
+        1708,
+        284,
+        2293,
+        609
+      ],
+      "block_id": 3,
+      "block_order": 3,
+      "group_id": 3,
+      "block_polygon_points": [
+        [
+          1708.0,
+          284.0
+        ],
+        [
+          2293.0,
+          284.0
+        ],
+        [
+          2293.0,
+          609.0
+        ],
+        [
+          1708.0,
+          609.0
+        ]
+      ]
+    },
+    {
+      "block_label": "paragraph_title",
+      "block_content": "FACILITIES AVAILABLE:",
+      "block_bbox": [
+        139,
+        664,
+        686,
+        868
+      ],
+      "block_id": 4,
+      "block_order": 4,
+      "group_id": 4,
+      "block_polygon_points": [
+        [
+          139.0,
+          664.0
+        ],
+        [
+          686.0,
+          664.0
+        ],
+        [
+          686.0,
+          868.0
+        ],
+        [
+          139.0,
+          868.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "\u2022 Hair Transplant",
+      "block_bbox": [
+        94,
+        927,
+        469,
+        998
+      ],
+      "block_id": 5,
+      "block_order": 5,
+      "group_id": 5,
+      "block_polygon_points": [
+        [
+          94.0,
+          927.0
+        ],
+        [
+          469.0,
+          927.0
+        ],
+        [
+          469.0,
+          998.0
+        ],
+        [
+          94.0,
+          998.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Treatment of all types of Skin Diseases\nProcedures/Surgeries",
+      "block_bbox": [
+        91,
+        1000,
+        630,
+        1207
+      ],
+      "block_id": 6,
+      "block_order": 6,
+      "group_id": 6,
+      "block_polygon_points": [
+        [
+          91.0,
+          1000.0
+        ],
+        [
+          630.0,
+          1000.0
+        ],
+        [
+          630.0,
+          1207.0
+        ],
+        [
+          91.0,
+          1207.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Chemical Peeling",
+      "block_bbox": [
+        88,
+        1210,
+        495,
+        1286
+      ],
+      "block_id": 7,
+      "block_order": 7,
+      "group_id": 7,
+      "block_polygon_points": [
+        [
+          88.0,
+          1210.0
+        ],
+        [
+          495.0,
+          1210.0
+        ],
+        [
+          495.0,
+          1286.0
+        ],
+        [
+          88.0,
+          1286.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Microneedling",
+      "block_bbox": [
+        86,
+        1282,
+        437,
+        1354
+      ],
+      "block_id": 8,
+      "block_order": 8,
+      "group_id": 8,
+      "block_polygon_points": [
+        [
+          86.0,
+          1282.0
+        ],
+        [
+          437.0,
+          1282.0
+        ],
+        [
+          437.0,
+          1354.0
+        ],
+        [
+          86.0,
+          1354.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "\u2022 Platelet Rich Plasma Therapy for Hair Loss and Skin Rejuvenation",
+      "block_bbox": [
+        85,
+        1352,
+        589,
+        1567
+      ],
+      "block_id": 9,
+      "block_order": 9,
+      "group_id": 9,
+      "block_polygon_points": [
+        [
+          85.0,
+          1352.0
+        ],
+        [
+          589.0,
+          1352.0
+        ],
+        [
+          589.0,
+          1567.0
+        ],
+        [
+          85.0,
+          1567.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Mole/Skin Tag/Wart Removal",
+      "block_bbox": [
+        82,
+        1638,
+        716,
+        1711
+      ],
+      "block_id": 10,
+      "block_order": 10,
+      "group_id": 10,
+      "block_polygon_points": [
+        [
+          82.0,
+          1638.0
+        ],
+        [
+          716.0,
+          1638.0
+        ],
+        [
+          716.0,
+          1711.0
+        ],
+        [
+          82.0,
+          1711.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "\u2022 Vitiligo Surgery",
+      "block_bbox": [
+        83,
+        1566,
+        460,
+        1640
+      ],
+      "block_id": 11,
+      "block_order": 11,
+      "group_id": 11,
+      "block_polygon_points": [
+        [
+          83.0,
+          1566.0
+        ],
+        [
+          460.0,
+          1566.0
+        ],
+        [
+          460.0,
+          1640.0
+        ],
+        [
+          83.0,
+          1640.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Botox & Fillers",
+      "block_bbox": [
+        81,
+        1711,
+        454,
+        1777
+      ],
+      "block_id": 12,
+      "block_order": 12,
+      "group_id": 12,
+      "block_polygon_points": [
+        [
+          81.0,
+          1711.0
+        ],
+        [
+          454.0,
+          1711.0
+        ],
+        [
+          454.0,
+          1777.0
+        ],
+        [
+          81.0,
+          1777.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "\u25cf Thread Lift",
+      "block_bbox": [
+        81,
+        1779,
+        377,
+        1851
+      ],
+      "block_id": 13,
+      "block_order": 13,
+      "group_id": 13,
+      "block_polygon_points": [
+        [
+          81.0,
+          1779.0
+        ],
+        [
+          377.0,
+          1779.0
+        ],
+        [
+          377.0,
+          1851.0
+        ],
+        [
+          81.0,
+          1851.0
+        ]
+      ]
+    },
+    {
+      "block_label": "paragraph_title",
+      "block_content": "LASER",
+      "block_bbox": [
+        111,
+        1960,
+        413,
+        2057
+      ],
+      "block_id": 14,
+      "block_order": 14,
+      "group_id": 14,
+      "block_polygon_points": [
+        [
+          111.0,
+          1960.0
+        ],
+        [
+          413.0,
+          1960.0
+        ],
+        [
+          413.0,
+          2057.0
+        ],
+        [
+          111.0,
+          2057.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "\u2022 Hair Removal Treatment",
+      "block_bbox": [
+        76,
+        2107,
+        632,
+        2180
+      ],
+      "block_id": 15,
+      "block_order": 15,
+      "group_id": 15,
+      "block_polygon_points": [
+        [
+          76.0,
+          2107.0
+        ],
+        [
+          632.0,
+          2107.0
+        ],
+        [
+          632.0,
+          2180.0
+        ],
+        [
+          76.0,
+          2180.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "\u2022 Tattoo Removal",
+      "block_bbox": [
+        78,
+        2185,
+        449,
+        2250
+      ],
+      "block_id": 16,
+      "block_order": 16,
+      "group_id": 16,
+      "block_polygon_points": [
+        [
+          78.0,
+          2185.0
+        ],
+        [
+          449.0,
+          2185.0
+        ],
+        [
+          449.0,
+          2250.0
+        ],
+        [
+          78.0,
+          2250.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "\u2022 Hydra Facial Laser",
+      "block_bbox": [
+        80,
+        2255,
+        518,
+        2325
+      ],
+      "block_id": 17,
+      "block_order": 17,
+      "group_id": 17,
+      "block_polygon_points": [
+        [
+          80.0,
+          2255.0
+        ],
+        [
+          518.0,
+          2255.0
+        ],
+        [
+          518.0,
+          2325.0
+        ],
+        [
+          80.0,
+          2325.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "\u2022 Carbon Facial\nNo Downtime/No Side Effect\nVirtually Pain Free Procedure",
+      "block_bbox": [
+        78,
+        2325,
+        723,
+        2542
+      ],
+      "block_id": 18,
+      "block_order": 18,
+      "group_id": 18,
+      "block_polygon_points": [
+        [
+          78.0,
+          2325.0
+        ],
+        [
+          723.0,
+          2325.0
+        ],
+        [
+          723.0,
+          2542.0
+        ],
+        [
+          78.0,
+          2542.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "CO2/Fractional Laser",
+      "block_bbox": [
+        79,
+        2538,
+        556,
+        2612
+      ],
+      "block_id": 19,
+      "block_order": 19,
+      "group_id": 19,
+      "block_polygon_points": [
+        [
+          79.0,
+          2538.0
+        ],
+        [
+          556.0,
+          2538.0
+        ],
+        [
+          556.0,
+          2612.0
+        ],
+        [
+          79.0,
+          2612.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "\u2022 Skin Toning Laser",
+      "block_bbox": [
+        80,
+        2611,
+        500,
+        2691
+      ],
+      "block_id": 20,
+      "block_order": 20,
+      "group_id": 20,
+      "block_polygon_points": [
+        [
+          80.0,
+          2611.0
+        ],
+        [
+          500.0,
+          2611.0
+        ],
+        [
+          500.0,
+          2691.0
+        ],
+        [
+          80.0,
+          2691.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "LAB Facilities Available:",
+      "block_bbox": [
+        83,
+        2784,
+        700,
+        2997
+      ],
+      "block_id": 21,
+      "block_order": 21,
+      "group_id": 21,
+      "block_polygon_points": [
+        [
+          83.0,
+          2784.0
+        ],
+        [
+          700.0,
+          2784.0
+        ],
+        [
+          700.0,
+          2997.0
+        ],
+        [
+          83.0,
+          2997.0
+        ]
+      ]
+    },
+    {
+      "block_label": "paragraph_title",
+      "block_content": "Name:",
+      "block_bbox": [
+        798,
+        647,
+        984,
+        725
+      ],
+      "block_id": 22,
+      "block_order": 22,
+      "group_id": 22,
+      "block_polygon_points": [
+        [
+          798.0,
+          647.0
+        ],
+        [
+          984.0,
+          647.0
+        ],
+        [
+          984.0,
+          725.0
+        ],
+        [
+          798.0,
+          725.0
+        ]
+      ]
+    },
+    {
+      "block_label": "paragraph_title",
+      "block_content": "Date:",
+      "block_bbox": [
+        1928,
+        656,
+        2083,
+        727
+      ],
+      "block_id": 23,
+      "block_order": 23,
+      "group_id": 23,
+      "block_polygon_points": [
+        [
+          1928.0,
+          656.0
+        ],
+        [
+          2083.0,
+          656.0
+        ],
+        [
+          2083.0,
+          727.0
+        ],
+        [
+          1928.0,
+          727.0
+        ]
+      ]
+    },
+    {
+      "block_label": "paragraph_title",
+      "block_content": "Rx",
+      "block_bbox": [
+        796,
+        745,
+        905,
+        884
+      ],
+      "block_id": 24,
+      "block_order": 24,
+      "group_id": 24,
+      "block_polygon_points": [
+        [
+          796.0,
+          745.0
+        ],
+        [
+          905.0,
+          745.0
+        ],
+        [
+          905.0,
+          884.0
+        ],
+        [
+          796.0,
+          884.0
+        ]
+      ]
+    },
+    {
+      "block_label": "paragraph_title",
+      "block_content": "Age/Sex:",
+      "block_bbox": [
+        1367,
+        647,
+        1611,
+        729
+      ],
+      "block_id": 25,
+      "block_order": 25,
+      "group_id": 25,
+      "block_polygon_points": [
+        [
+          1367.0,
+          647.0
+        ],
+        [
+          1611.0,
+          647.0
+        ],
+        [
+          1611.0,
+          729.0
+        ],
+        [
+          1367.0,
+          729.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Sangeeta\n51y 1F,",
+      "block_bbox": [
+        774,
+        989,
+        1255,
+        1302
+      ],
+      "block_id": 26,
+      "block_order": 26,
+      "group_id": 26,
+      "block_polygon_points": [
+        [
+          774.0,
+          989.0
+        ],
+        [
+          1255.0,
+          989.0
+        ],
+        [
+          1255.0,
+          1302.0
+        ],
+        [
+          774.0,
+          1302.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "6/10/26",
+      "block_bbox": [
+        1788,
+        792,
+        2116,
+        967
+      ],
+      "block_id": 27,
+      "block_order": 27,
+      "group_id": 27,
+      "block_polygon_points": [
+        [
+          1788.0,
+          792.0
+        ],
+        [
+          2116.0,
+          792.0
+        ],
+        [
+          2116.0,
+          967.0
+        ],
+        [
+          1788.0,
+          967.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Eczema",
+      "block_bbox": [
+        756,
+        1389,
+        1091,
+        1543
+      ],
+      "block_id": 28,
+      "block_order": 28,
+      "group_id": 28,
+      "block_polygon_points": [
+        [
+          740.0424194335938,
+          1423.622802734375
+        ],
+        [
+          1086.8568115234375,
+          1369.03173828125
+        ],
+        [
+          1107.14208984375,
+          1497.903564453125
+        ],
+        [
+          760.3277587890625,
+          1552.49462890625
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Hyperet 80 pluc\nLichen planus",
+      "block_bbox": [
+        1415,
+        1299,
+        2141,
+        1573
+      ],
+      "block_id": 29,
+      "block_order": 29,
+      "group_id": 29,
+      "block_polygon_points": [
+        [
+          1415.0,
+          1299.0
+        ],
+        [
+          2141.0,
+          1299.0
+        ],
+        [
+          2141.0,
+          1573.0
+        ],
+        [
+          1415.0,
+          1573.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Doctor's tape",
+      "block_bbox": [
+        764,
+        1519,
+        1261,
+        1797
+      ],
+      "block_id": 30,
+      "block_order": 30,
+      "group_id": 30,
+      "block_polygon_points": [
+        [
+          727.7409057617188,
+          1612.935302734375
+        ],
+        [
+          1247.225830078125,
+          1510.042236328125
+        ],
+        [
+          1286.58056640625,
+          1708.7353515625
+        ],
+        [
+          767.0955810546875,
+          1811.62841796875
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Knee! Topical 6% omtment\nLAOD",
+      "block_bbox": [
+        1205,
+        1605,
+        2362,
+        1881
+      ],
+      "block_id": 31,
+      "block_order": 31,
+      "group_id": 31,
+      "block_polygon_points": [
+        [
+          2361.0,
+          1622.0
+        ],
+        [
+          2350.0,
+          1605.0
+        ],
+        [
+          1408.0,
+          1622.0
+        ],
+        [
+          1265.0,
+          1654.0
+        ],
+        [
+          1252.0,
+          1638.0
+        ],
+        [
+          1229.0,
+          1638.0
+        ],
+        [
+          1205.0,
+          1703.0
+        ],
+        [
+          1205.0,
+          1832.0
+        ],
+        [
+          1217.0,
+          1848.0
+        ],
+        [
+          1337.0,
+          1864.0
+        ],
+        [
+          1456.0,
+          1880.0
+        ],
+        [
+          1896.0,
+          1880.0
+        ],
+        [
+          2338.0,
+          1848.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Pecornut oil\n2. Moisture Soft Cream LAw body\n3-Tab Mountain LC 00-0-(30s)",
+      "block_bbox": [
+        746,
+        1850,
+        1073,
+        2170
+      ],
+      "block_id": 32,
+      "block_order": 32,
+      "group_id": 32,
+      "block_polygon_points": [
+        [
+          1072.0,
+          1850.0
+        ],
+        [
+          992.0,
+          1850.0
+        ],
+        [
+          945.0,
+          1868.0
+        ],
+        [
+          910.0,
+          1886.0
+        ],
+        [
+          875.0,
+          1904.0
+        ],
+        [
+          840.0,
+          1922.0
+        ],
+        [
+          758.0,
+          1939.0
+        ],
+        [
+          746.0,
+          1957.0
+        ],
+        [
+          746.0,
+          2063.0
+        ],
+        [
+          758.0,
+          2116.0
+        ],
+        [
+          770.0,
+          2169.0
+        ],
+        [
+          874.0,
+          2169.0
+        ],
+        [
+          932.0,
+          2152.0
+        ],
+        [
+          991.0,
+          2134.0
+        ],
+        [
+          1002.0,
+          2116.0
+        ],
+        [
+          1037.0,
+          2098.0
+        ],
+        [
+          1049.0,
+          2081.0
+        ],
+        [
+          1061.0,
+          2063.0
+        ],
+        [
+          1072.0,
+          1956.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "",
+      "block_bbox": [
+        1198,
+        1901,
+        2270,
+        2422
+      ],
+      "block_id": 33,
+      "block_order": 33,
+      "group_id": 32,
+      "block_polygon_points": [
+        [
+          1198.0,
+          1901.0
+        ],
+        [
+          2270.0,
+          1901.0
+        ],
+        [
+          2270.0,
+          2422.0
+        ],
+        [
+          1198.0,
+          2422.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Queens\n4. Flute bact cream\n\u221a 1000",
+      "block_bbox": [
+        753,
+        2242,
+        1012,
+        2442
+      ],
+      "block_id": 34,
+      "block_order": 34,
+      "group_id": 34,
+      "block_polygon_points": [
+        [
+          711.5638427734375,
+          2352.37255859375
+        ],
+        [
+          990.6075439453125,
+          2221.91064453125
+        ],
+        [
+          1046.7525634765625,
+          2341.99853515625
+        ],
+        [
+          767.7088623046875,
+          2472.46044921875
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "",
+      "block_bbox": [
+        1244,
+        2431,
+        2281,
+        2671
+      ],
+      "block_id": 35,
+      "block_order": 35,
+      "group_id": 34,
+      "block_polygon_points": [
+        [
+          1244.0,
+          2431.0
+        ],
+        [
+          2281.0,
+          2431.0
+        ],
+        [
+          2281.0,
+          2671.0
+        ],
+        [
+          1244.0,
+          2671.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": " $ \\frac{1}{6110126} $",
+      "block_bbox": [
+        1715,
+        2666,
+        2156,
+        2944
+      ],
+      "block_id": 36,
+      "block_order": 36,
+      "group_id": 36,
+      "block_polygon_points": [
+        [
+          1715.0,
+          2666.0
+        ],
+        [
+          2156.0,
+          2666.0
+        ],
+        [
+          2156.0,
+          2944.0
+        ],
+        [
+          1715.0,
+          2944.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "NOT FOR MEDICO LEGAL PURPOSE\nOPD Timings:\nMorning - 10:00 AM TO 2:00 PM\nEvening - 5:00 PM To 8:00 PM",
+      "block_bbox": [
+        1289,
+        2932,
+        1853,
+        3102
+      ],
+      "block_id": 37,
+      "block_order": 37,
+      "group_id": 37,
+      "block_polygon_points": [
+        [
+          1289.0,
+          2932.0
+        ],
+        [
+          1853.0,
+          2932.0
+        ],
+        [
+          1853.0,
+          3102.0
+        ],
+        [
+          1289.0,
+          3102.0
+        ]
+      ]
+    },
+    {
+      "block_label": "footer",
+      "block_content": "Is Applicable For 3 Days Only",
+      "block_bbox": [
+        74,
+        3220,
+        718,
+        3296
+      ],
+      "block_id": 38,
+      "block_order": null,
+      "group_id": 38,
+      "block_polygon_points": [
+        [
+          74.0,
+          3220.0
+        ],
+        [
+          718.0,
+          3220.0
+        ],
+        [
+          718.0,
+          3296.0
+        ],
+        [
+          74.0,
+          3296.0
+        ]
+      ]
+    },
+    {
+      "block_label": "footer",
+      "block_content": "Address: Plot No. 130P, Sector-38, Gurugram Mob.: 9910901473, 7988642225. Landline No. 01243163401\nEmail: ownderma.plus@gmail.com",
+      "block_bbox": [
+        795,
+        3138,
+        2310,
+        3353
+      ],
+      "block_id": 39,
+      "block_order": null,
+      "group_id": 39,
+      "block_polygon_points": [
+        [
+          795.0,
+          3138.0
+        ],
+        [
+          2310.0,
+          3138.0
+        ],
+        [
+          2310.0,
+          3353.0
+        ],
+        [
+          795.0,
+          3353.0
+        ]
+      ]
+    }
+  ],
+  "layout_det_res": {
+    "input_path": null,
+    "page_index": null,
+    "boxes": [
+      {
+        "cls_id": 14,
+        "label": "image",
+        "score": 0.7963536977767944,
+        "coordinate": [
+          111,
+          17,
+          502,
+          248
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            111.0,
+            17.0
+          ],
+          [
+            502.0,
+            17.0
+          ],
+          [
+            502.0,
+            248.0
+          ],
+          [
+            111.0,
+            248.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 6,
+        "label": "doc_title",
+        "score": 0.6729891896247864,
+        "coordinate": [
+          519,
+          23,
+          2337,
+          260
+        ],
+        "order": 1,
+        "polygon_points": [
+          [
+            519.0,
+            23.0
+          ],
+          [
+            2337.0,
+            23.0
+          ],
+          [
+            2337.0,
+            260.0
+          ],
+          [
+            519.0,
+            260.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.8697277903556824,
+        "coordinate": [
+          120,
+          278,
+          739,
+          608
+        ],
+        "order": 2,
+        "polygon_points": [
+          [
+            120.0,
+            278.0
+          ],
+          [
+            739.0,
+            278.0
+          ],
+          [
+            739.0,
+            608.0
+          ],
+          [
+            120.0,
+            608.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.3188578486442566,
+        "coordinate": [
+          1706,
+          281,
+          2280,
+          354
+        ],
+        "order": 3,
+        "polygon_points": [
+          [
+            1706.0,
+            281.0
+          ],
+          [
+            2280.0,
+            281.0
+          ],
+          [
+            2280.0,
+            354.0
+          ],
+          [
+            1706.0,
+            354.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.6920256614685059,
+        "coordinate": [
+          1708,
+          284,
+          2293,
+          609
+        ],
+        "order": 4,
+        "polygon_points": [
+          [
+            1708.0,
+            284.0
+          ],
+          [
+            2293.0,
+            284.0
+          ],
+          [
+            2293.0,
+            609.0
+          ],
+          [
+            1708.0,
+            609.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 17,
+        "label": "paragraph_title",
+        "score": 0.828670859336853,
+        "coordinate": [
+          139,
+          664,
+          686,
+          868
+        ],
+        "order": 5,
+        "polygon_points": [
+          [
+            139.0,
+            664.0
+          ],
+          [
+            686.0,
+            664.0
+          ],
+          [
+            686.0,
+            868.0
+          ],
+          [
+            139.0,
+            868.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.74129718542099,
+        "coordinate": [
+          94,
+          927,
+          469,
+          998
+        ],
+        "order": 6,
+        "polygon_points": [
+          [
+            94.0,
+            927.0
+          ],
+          [
+            469.0,
+            927.0
+          ],
+          [
+            469.0,
+            998.0
+          ],
+          [
+            94.0,
+            998.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.8526380062103271,
+        "coordinate": [
+          91,
+          1000,
+          630,
+          1207
+        ],
+        "order": 7,
+        "polygon_points": [
+          [
+            91.0,
+            1000.0
+          ],
+          [
+            630.0,
+            1000.0
+          ],
+          [
+            630.0,
+            1207.0
+          ],
+          [
+            91.0,
+            1207.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.793433427810669,
+        "coordinate": [
+          88,
+          1210,
+          495,
+          1286
+        ],
+        "order": 8,
+        "polygon_points": [
+          [
+            88.0,
+            1210.0
+          ],
+          [
+            495.0,
+            1210.0
+          ],
+          [
+            495.0,
+            1286.0
+          ],
+          [
+            88.0,
+            1286.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.7890084981918335,
+        "coordinate": [
+          86,
+          1282,
+          437,
+          1354
+        ],
+        "order": 9,
+        "polygon_points": [
+          [
+            86.0,
+            1282.0
+          ],
+          [
+            437.0,
+            1282.0
+          ],
+          [
+            437.0,
+            1354.0
+          ],
+          [
+            86.0,
+            1354.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.8975047469139099,
+        "coordinate": [
+          85,
+          1352,
+          589,
+          1567
+        ],
+        "order": 10,
+        "polygon_points": [
+          [
+            85.0,
+            1352.0
+          ],
+          [
+            589.0,
+            1352.0
+          ],
+          [
+            589.0,
+            1567.0
+          ],
+          [
+            85.0,
+            1567.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.7997872233390808,
+        "coordinate": [
+          82,
+          1638,
+          716,
+          1711
+        ],
+        "order": 11,
+        "polygon_points": [
+          [
+            82.0,
+            1638.0
+          ],
+          [
+            716.0,
+            1638.0
+          ],
+          [
+            716.0,
+            1711.0
+          ],
+          [
+            82.0,
+            1711.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.7875639200210571,
+        "coordinate": [
+          83,
+          1566,
+          460,
+          1640
+        ],
+        "order": 12,
+        "polygon_points": [
+          [
+            83.0,
+            1566.0
+          ],
+          [
+            460.0,
+            1566.0
+          ],
+          [
+            460.0,
+            1640.0
+          ],
+          [
+            83.0,
+            1640.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.7760847806930542,
+        "coordinate": [
+          81,
+          1711,
+          454,
+          1777
+        ],
+        "order": 13,
+        "polygon_points": [
+          [
+            81.0,
+            1711.0
+          ],
+          [
+            454.0,
+            1711.0
+          ],
+          [
+            454.0,
+            1777.0
+          ],
+          [
+            81.0,
+            1777.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.7495434284210205,
+        "coordinate": [
+          81,
+          1779,
+          377,
+          1851
+        ],
+        "order": 14,
+        "polygon_points": [
+          [
+            81.0,
+            1779.0
+          ],
+          [
+            377.0,
+            1779.0
+          ],
+          [
+            377.0,
+            1851.0
+          ],
+          [
+            81.0,
+            1851.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 17,
+        "label": "paragraph_title",
+        "score": 0.8253947496414185,
+        "coordinate": [
+          111,
+          1960,
+          413,
+          2057
+        ],
+        "order": 15,
+        "polygon_points": [
+          [
+            111.0,
+            1960.0
+          ],
+          [
+            413.0,
+            1960.0
+          ],
+          [
+            413.0,
+            2057.0
+          ],
+          [
+            111.0,
+            2057.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.8201932907104492,
+        "coordinate": [
+          76,
+          2107,
+          632,
+          2180
+        ],
+        "order": 16,
+        "polygon_points": [
+          [
+            76.0,
+            2107.0
+          ],
+          [
+            632.0,
+            2107.0
+          ],
+          [
+            632.0,
+            2180.0
+          ],
+          [
+            76.0,
+            2180.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.7726403474807739,
+        "coordinate": [
+          78,
+          2185,
+          449,
+          2250
+        ],
+        "order": 17,
+        "polygon_points": [
+          [
+            78.0,
+            2185.0
+          ],
+          [
+            449.0,
+            2185.0
+          ],
+          [
+            449.0,
+            2250.0
+          ],
+          [
+            78.0,
+            2250.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.78094482421875,
+        "coordinate": [
+          80,
+          2255,
+          518,
+          2325
+        ],
+        "order": 18,
+        "polygon_points": [
+          [
+            80.0,
+            2255.0
+          ],
+          [
+            518.0,
+            2255.0
+          ],
+          [
+            518.0,
+            2325.0
+          ],
+          [
+            80.0,
+            2325.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.884373128414154,
+        "coordinate": [
+          78,
+          2325,
+          723,
+          2542
+        ],
+        "order": 19,
+        "polygon_points": [
+          [
+            78.0,
+            2325.0
+          ],
+          [
+            723.0,
+            2325.0
+          ],
+          [
+            723.0,
+            2542.0
+          ],
+          [
+            78.0,
+            2542.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.7960940599441528,
+        "coordinate": [
+          79,
+          2538,
+          556,
+          2612
+        ],
+        "order": 20,
+        "polygon_points": [
+          [
+            79.0,
+            2538.0
+          ],
+          [
+            556.0,
+            2538.0
+          ],
+          [
+            556.0,
+            2612.0
+          ],
+          [
+            79.0,
+            2612.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.7668291330337524,
+        "coordinate": [
+          80,
+          2611,
+          500,
+          2691
+        ],
+        "order": 21,
+        "polygon_points": [
+          [
+            80.0,
+            2611.0
+          ],
+          [
+            500.0,
+            2611.0
+          ],
+          [
+            500.0,
+            2691.0
+          ],
+          [
+            80.0,
+            2691.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.639594316482544,
+        "coordinate": [
+          83,
+          2784,
+          700,
+          2997
+        ],
+        "order": 22,
+        "polygon_points": [
+          [
+            83.0,
+            2784.0
+          ],
+          [
+            700.0,
+            2784.0
+          ],
+          [
+            700.0,
+            2997.0
+          ],
+          [
+            83.0,
+            2997.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 17,
+        "label": "paragraph_title",
+        "score": 0.7105684876441956,
+        "coordinate": [
+          798,
+          647,
+          984,
+          725
+        ],
+        "order": 23,
+        "polygon_points": [
+          [
+            798.0,
+            647.0
+          ],
+          [
+            984.0,
+            647.0
+          ],
+          [
+            984.0,
+            725.0
+          ],
+          [
+            798.0,
+            725.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 17,
+        "label": "paragraph_title",
+        "score": 0.6683251261711121,
+        "coordinate": [
+          1928,
+          656,
+          2083,
+          727
+        ],
+        "order": 24,
+        "polygon_points": [
+          [
+            1928.0,
+            656.0
+          ],
+          [
+            2083.0,
+            656.0
+          ],
+          [
+            2083.0,
+            727.0
+          ],
+          [
+            1928.0,
+            727.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 17,
+        "label": "paragraph_title",
+        "score": 0.5037081837654114,
+        "coordinate": [
+          796,
+          745,
+          905,
+          884
+        ],
+        "order": 25,
+        "polygon_points": [
+          [
+            796.0,
+            745.0
+          ],
+          [
+            905.0,
+            745.0
+          ],
+          [
+            905.0,
+            884.0
+          ],
+          [
+            796.0,
+            884.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 17,
+        "label": "paragraph_title",
+        "score": 0.6470420956611633,
+        "coordinate": [
+          1367,
+          647,
+          1611,
+          729
+        ],
+        "order": 26,
+        "polygon_points": [
+          [
+            1367.0,
+            647.0
+          ],
+          [
+            1611.0,
+            647.0
+          ],
+          [
+            1611.0,
+            729.0
+          ],
+          [
+            1367.0,
+            729.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.6541476249694824,
+        "coordinate": [
+          774,
+          989,
+          1255,
+          1302
+        ],
+        "order": 27,
+        "polygon_points": [
+          [
+            774.0,
+            989.0
+          ],
+          [
+            1255.0,
+            989.0
+          ],
+          [
+            1255.0,
+            1302.0
+          ],
+          [
+            774.0,
+            1302.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.533013641834259,
+        "coordinate": [
+          1788,
+          792,
+          2116,
+          967
+        ],
+        "order": 28,
+        "polygon_points": [
+          [
+            1788.0,
+            792.0
+          ],
+          [
+            2116.0,
+            792.0
+          ],
+          [
+            2116.0,
+            967.0
+          ],
+          [
+            1788.0,
+            967.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.5562589168548584,
+        "coordinate": [
+          756,
+          1389,
+          1091,
+          1543
+        ],
+        "order": 29,
+        "polygon_points": [
+          [
+            740.0424194335938,
+            1423.622802734375
+          ],
+          [
+            1086.8568115234375,
+            1369.03173828125
+          ],
+          [
+            1107.14208984375,
+            1497.903564453125
+          ],
+          [
+            760.3277587890625,
+            1552.49462890625
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.5933889746665955,
+        "coordinate": [
+          1415,
+          1299,
+          2141,
+          1573
+        ],
+        "order": 30,
+        "polygon_points": [
+          [
+            1415.0,
+            1299.0
+          ],
+          [
+            2141.0,
+            1299.0
+          ],
+          [
+            2141.0,
+            1573.0
+          ],
+          [
+            1415.0,
+            1573.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.6412748694419861,
+        "coordinate": [
+          764,
+          1519,
+          1261,
+          1797
+        ],
+        "order": 31,
+        "polygon_points": [
+          [
+            727.7409057617188,
+            1612.935302734375
+          ],
+          [
+            1247.225830078125,
+            1510.042236328125
+          ],
+          [
+            1286.58056640625,
+            1708.7353515625
+          ],
+          [
+            767.0955810546875,
+            1811.62841796875
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.5329805016517639,
+        "coordinate": [
+          1205,
+          1605,
+          2362,
+          1881
+        ],
+        "order": 32,
+        "polygon_points": [
+          [
+            2361.0,
+            1622.0
+          ],
+          [
+            2350.0,
+            1605.0
+          ],
+          [
+            1408.0,
+            1622.0
+          ],
+          [
+            1265.0,
+            1654.0
+          ],
+          [
+            1252.0,
+            1638.0
+          ],
+          [
+            1229.0,
+            1638.0
+          ],
+          [
+            1205.0,
+            1703.0
+          ],
+          [
+            1205.0,
+            1832.0
+          ],
+          [
+            1217.0,
+            1848.0
+          ],
+          [
+            1337.0,
+            1864.0
+          ],
+          [
+            1456.0,
+            1880.0
+          ],
+          [
+            1896.0,
+            1880.0
+          ],
+          [
+            2338.0,
+            1848.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.44051897525787354,
+        "coordinate": [
+          746,
+          1850,
+          1073,
+          2170
+        ],
+        "order": 33,
+        "polygon_points": [
+          [
+            1072.0,
+            1850.0
+          ],
+          [
+            992.0,
+            1850.0
+          ],
+          [
+            945.0,
+            1868.0
+          ],
+          [
+            910.0,
+            1886.0
+          ],
+          [
+            875.0,
+            1904.0
+          ],
+          [
+            840.0,
+            1922.0
+          ],
+          [
+            758.0,
+            1939.0
+          ],
+          [
+            746.0,
+            1957.0
+          ],
+          [
+            746.0,
+            2063.0
+          ],
+          [
+            758.0,
+            2116.0
+          ],
+          [
+            770.0,
+            2169.0
+          ],
+          [
+            874.0,
+            2169.0
+          ],
+          [
+            932.0,
+            2152.0
+          ],
+          [
+            991.0,
+            2134.0
+          ],
+          [
+            1002.0,
+            2116.0
+          ],
+          [
+            1037.0,
+            2098.0
+          ],
+          [
+            1049.0,
+            2081.0
+          ],
+          [
+            1061.0,
+            2063.0
+          ],
+          [
+            1072.0,
+            1956.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.524476170539856,
+        "coordinate": [
+          1198,
+          1901,
+          2270,
+          2422
+        ],
+        "order": 34,
+        "polygon_points": [
+          [
+            1198.0,
+            1901.0
+          ],
+          [
+            2270.0,
+            1901.0
+          ],
+          [
+            2270.0,
+            2422.0
+          ],
+          [
+            1198.0,
+            2422.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.5963130593299866,
+        "coordinate": [
+          753,
+          2242,
+          1012,
+          2442
+        ],
+        "order": 35,
+        "polygon_points": [
+          [
+            711.5638427734375,
+            2352.37255859375
+          ],
+          [
+            990.6075439453125,
+            2221.91064453125
+          ],
+          [
+            1046.7525634765625,
+            2341.99853515625
+          ],
+          [
+            767.7088623046875,
+            2472.46044921875
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.43358761072158813,
+        "coordinate": [
+          1244,
+          2431,
+          2281,
+          2671
+        ],
+        "order": 36,
+        "polygon_points": [
+          [
+            1244.0,
+            2431.0
+          ],
+          [
+            2281.0,
+            2431.0
+          ],
+          [
+            2281.0,
+            2671.0
+          ],
+          [
+            1244.0,
+            2671.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.435192734003067,
+        "coordinate": [
+          1715,
+          2666,
+          2156,
+          2944
+        ],
+        "order": 37,
+        "polygon_points": [
+          [
+            1715.0,
+            2666.0
+          ],
+          [
+            2156.0,
+            2666.0
+          ],
+          [
+            2156.0,
+            2944.0
+          ],
+          [
+            1715.0,
+            2944.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.4894554615020752,
+        "coordinate": [
+          1289,
+          2932,
+          1853,
+          3102
+        ],
+        "order": 38,
+        "polygon_points": [
+          [
+            1289.0,
+            2932.0
+          ],
+          [
+            1853.0,
+            2932.0
+          ],
+          [
+            1853.0,
+            3102.0
+          ],
+          [
+            1289.0,
+            3102.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 8,
+        "label": "footer",
+        "score": 0.5428383946418762,
+        "coordinate": [
+          74,
+          3220,
+          718,
+          3296
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            74.0,
+            3220.0
+          ],
+          [
+            718.0,
+            3220.0
+          ],
+          [
+            718.0,
+            3296.0
+          ],
+          [
+            74.0,
+            3296.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 8,
+        "label": "footer",
+        "score": 0.5119433403015137,
+        "coordinate": [
+          978,
+          3140,
+          2147,
+          3211
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            978.0,
+            3140.0
+          ],
+          [
+            2147.0,
+            3140.0
+          ],
+          [
+            2147.0,
+            3211.0
+          ],
+          [
+            978.0,
+            3211.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 8,
+        "label": "footer",
+        "score": 0.3014802932739258,
+        "coordinate": [
+          795,
+          3138,
+          2310,
+          3353
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            795.0,
+            3138.0
+          ],
+          [
+            2310.0,
+            3138.0
+          ],
+          [
+            2310.0,
+            3353.0
+          ],
+          [
+            795.0,
+            3353.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 8,
+        "label": "footer",
+        "score": 0.449305921792984,
+        "coordinate": [
+          794,
+          3206,
+          2180,
+          3276
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            794.0,
+            3206.0
+          ],
+          [
+            2180.0,
+            3206.0
+          ],
+          [
+            2180.0,
+            3276.0
+          ],
+          [
+            794.0,
+            3276.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 8,
+        "label": "footer",
+        "score": 0.48626065254211426,
+        "coordinate": [
+          1108,
+          3275,
+          2003,
+          3345
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            1108.0,
+            3275.0
+          ],
+          [
+            2003.0,
+            3275.0
+          ],
+          [
+            2003.0,
+            3345.0
+          ],
+          [
+            1108.0,
+            3345.0
+          ]
+        ]
+      }
+    ]
+  }
+}

@@ -65,6 +65,7 @@ class Block:
     lines: list[Line] = field(default_factory=list)
     style: TextStyle | None = None
     fill: Color | None = None      # background panel behind the block, if not the page's
+    fill_bbox: BBox | None = None  # the panel's own extent when measured (else the block box)
     tabular: bool = False          # rows of separate cells: each line keeps its own text
     table: object | None = None    # table_layout.TableLayout when rebuilt as a grid
 

@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0",
+  "input_path": "Vehicle_RC_Altroz_1946_Papers_Page_09.jpg",
+  "width": 2364.0,
+  "height": 3191.0,
+  "blocks": [
+    {
+      "id": 0,
+      "label": "figure_title",
+      "content": "Tax Invoice",
+      "bbox": [
+        953.0,
+        366.0,
+        1166.0,
+        413.0
+      ],
+      "polygon": [
+        [
+          953.0,
+          366.0
+        ],
+        [
+          1166.0,
+          366.0
+        ],
+        [
+          1166.0,
+          413.0
+        ],
+        [
+          953.0,
+          413.0
+        ]
+      ]
+    },
+    {
+      "id": 1,
+      "label": "table",
+      "content": "<table><tr><td rowspan=\"3\" colspan=\"2\">Sagar Motors [NOIDA]\nB-123, Sector-5, Noida 201301\n| C-1, Sector-8, Noida 201301\nGSTIN/UIN: 09ACVFS4777R1ZK\nState Name : Uttar Pradesh, Code : 09\nE-Mail : crmsales@sagarmotors.co.in</td><td colspan=\"2\">Invoice No.\nISGND63242500922</td><td>Dated\n29-Jun-24</td></tr><tr><td colspan=\"3\">Hypothecation : HDFC BANK LTD</td></tr><tr><td colspan=\"3\">Purchase Order No. :\nDate :</td></tr><tr><td colspan=\"2\">Buyer (Bill to)\nPIYUSH KUMAR\nLM-516, SUPERTECH ECOCITI, SECTOR-137, NOIDA\nGAUTAM BUDDHA NAGAR UP-201305\n9661257878\nPAN/IT No : JUCPK1324N\nState Name : Uttar Pradesh, Code : 09</td><td colspan=\"3\">Consignee (Ship to)\nPIYUSH KUMAR\nLM-516, SUPERTECH ECOCITI, SECTOR-137, NOIDA\nGAUTAM BUDDHA NAGAR UP-201305\n9661257878\nState Name : Uttar Pradesh, Code : 09</td></tr><tr><td>SI\nNo.</td><td>Particulars</td><td>HSN/SAC</td><td>Quantity</td><td>Amount</td></tr><tr><td>1</td><td>One Unit of TATA Vehicle (as per the below details)\nChassis Number : MAT632287RLD03767\nEngine Number : REVTRN20DVXM71764\nModel : Altroz\nVariant : Altroz XM+ 1.2 P\nColor : ARCADE_GREY\nFuel Type : Petrol\nEmission : BS6PH2</td><td>87032299</td><td>1 NOS</td><td>5,89,069.76</td></tr><tr><td rowspan=\"4\"></td><td rowspan=\"4\">Less :Concession\nPrice after Concession\nOutput SGST @ 14%\nOutput CGST @ 14%\nOUTPUT GST CESS 1%\nTotal GST &amp; Cess\nPrice after GST</td><td rowspan=\"4\"></td><td rowspan=\"4\"></td><td>(-)32,164.33\n5,56,905.43</td></tr><tr><td>77,966.76\n77,966.76\n5,569.05</td></tr><tr><td>1,61,502.57</td></tr><tr><td>7,18,408.00</td></tr><tr><td></td><td>Grand Total</td><td>1 NOS</td><td colspan=\"2\">₹ 7,18,408.00</td></tr><tr><td colspan=\"2\">Amount (in words)\nINR Seven Lakh Eighteen Thousand Four\nHundred Eight Only</td><td colspan=\"3\">E &amp; O.E</td></tr></table>",
+      "bbox": [
+        216.0,
+        407.0,
+        1938.0,
+        3020.0
+      ],
+      "polygon": [
+        [
+          216.0,
+          407.0
+        ],
+        [
+          1938.0,
+          407.0
+        ],
+        [
+          1938.0,
+          3020.0
+        ],
+        [
+          216.0,
+          3020.0
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "label": "seal",
+      "content": "",
+      "bbox": [
+        1639.0,
+        2631.0,
+        1954.0,
+        2868.0
+      ],
+      "polygon": [
+        [
+          1639.0,
+          2631.0
+        ],
+        [
+          1954.0,
+          2631.0
+        ],
+        [
+          1954.0,
+          2868.0
+        ],
+        [
+          1639.0,
+          2868.0
+        ]
+      ]
+    },
+    {
+      "id": 3,
+      "label": "footer",
+      "content": "This is a Computer Generated Invoice",
+      "bbox": [
+        796.0,
+        3053.0,
+        1276.0,
+        3093.0
+      ],
+      "polygon": [
+        [
+          796.0,
+          3053.0
+        ],
+        [
+          1276.0,
+          3053.0
+        ],
+        [
+          1276.0,
+          3093.0
+        ],
+        [
+          796.0,
+          3093.0
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1839 @@
+{
+  "input_path": "Vehicle_RC_Altroz_1946_Papers_Page_11_flat.png",
+  "page_index": null,
+  "page_count": null,
+  "width": 2166,
+  "height": 3205,
+  "model_settings": {
+    "use_doc_preprocessor": false,
+    "use_layout_detection": true,
+    "use_chart_recognition": false,
+    "use_seal_recognition": false,
+    "use_ocr_for_image_block": false,
+    "format_block_content": false,
+    "merge_layout_blocks": true,
+    "markdown_ignore_labels": [
+      "number",
+      "footnote",
+      "header",
+      "header_image",
+      "footer",
+      "footer_image",
+      "aside_text"
+    ],
+    "return_layout_polygon_points": true
+  },
+  "parsing_res_list": [
+    {
+      "block_label": "text",
+      "block_content": "Tata AIG General Insurance Co. Ltd.",
+      "block_bbox": [
+        414,
+        226,
+        1066,
+        280
+      ],
+      "block_id": 0,
+      "block_order": 1,
+      "group_id": 0,
+      "block_polygon_points": [
+        [
+          414.0,
+          226.0
+        ],
+        [
+          1066.0,
+          226.0
+        ],
+        [
+          1066.0,
+          280.0
+        ],
+        [
+          414.0,
+          280.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Servicing Office of Insurer : Plot No E-1, 1st & 2nd Floor, Sector-8,",
+      "block_bbox": [
+        412,
+        284,
+        1291,
+        332
+      ],
+      "block_id": 1,
+      "block_order": 2,
+      "group_id": 1,
+      "block_polygon_points": [
+        [
+          412.0,
+          284.0
+        ],
+        [
+          1291.0,
+          284.0
+        ],
+        [
+          1291.0,
+          332.0
+        ],
+        [
+          412.0,
+          332.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Noida, District Gautam Budh Nagar, Noida - 201301..Uttar Pradesh",
+      "block_bbox": [
+        413,
+        329,
+        1315,
+        376
+      ],
+      "block_id": 2,
+      "block_order": 3,
+      "group_id": 2,
+      "block_polygon_points": [
+        [
+          413.0,
+          329.0
+        ],
+        [
+          1315.0,
+          329.0
+        ],
+        [
+          1315.0,
+          376.0
+        ],
+        [
+          413.0,
+          376.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": ",,,, Noida, Uttar Pradesh (State Code:09) -201301, PH--1800 266 7780 Website :",
+      "block_bbox": [
+        413,
+        374,
+        1496,
+        419
+      ],
+      "block_id": 3,
+      "block_order": 4,
+      "group_id": 3,
+      "block_polygon_points": [
+        [
+          413.0,
+          374.0
+        ],
+        [
+          1496.0,
+          374.0
+        ],
+        [
+          1496.0,
+          419.0
+        ],
+        [
+          413.0,
+          419.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "www.tataaig.com",
+      "block_bbox": [
+        415,
+        409,
+        662,
+        448
+      ],
+      "block_id": 4,
+      "block_order": 5,
+      "group_id": 4,
+      "block_polygon_points": [
+        [
+          415.0,
+          409.0
+        ],
+        [
+          662.0,
+          409.0
+        ],
+        [
+          662.0,
+          448.0
+        ],
+        [
+          415.0,
+          448.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "PAN : AABCT3518Q. GSTIN: 09AABCT3518Q1ZU Insurer's IRDA Registration Number: 108",
+      "block_bbox": [
+        415,
+        452,
+        1610,
+        503
+      ],
+      "block_id": 5,
+      "block_order": 6,
+      "group_id": 5,
+      "block_polygon_points": [
+        [
+          415.0,
+          452.0
+        ],
+        [
+          1610.0,
+          452.0
+        ],
+        [
+          1610.0,
+          503.0
+        ],
+        [
+          415.0,
+          503.0
+        ]
+      ]
+    },
+    {
+      "block_label": "header_image",
+      "block_content": "",
+      "block_bbox": [
+        1729,
+        268,
+        1893,
+        447
+      ],
+      "block_id": 6,
+      "block_order": null,
+      "group_id": 6,
+      "block_polygon_points": [
+        [
+          1729.0,
+          268.0
+        ],
+        [
+          1893.0,
+          268.0
+        ],
+        [
+          1893.0,
+          447.0
+        ],
+        [
+          1729.0,
+          447.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Tollfree Helpline : 9999999999 Email: customersupport@tataaig.com CIN :",
+      "block_bbox": [
+        414,
+        502,
+        1429,
+        545
+      ],
+      "block_id": 7,
+      "block_order": 7,
+      "group_id": 7,
+      "block_polygon_points": [
+        [
+          414.0,
+          502.0
+        ],
+        [
+          1429.0,
+          502.0
+        ],
+        [
+          1429.0,
+          545.0
+        ],
+        [
+          414.0,
+          545.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "U85110MH2000PLC128425",
+      "block_bbox": [
+        419,
+        533,
+        799,
+        574
+      ],
+      "block_id": 8,
+      "block_order": 8,
+      "group_id": 8,
+      "block_polygon_points": [
+        [
+          419.0,
+          533.0
+        ],
+        [
+          419.0,
+          573.0
+        ],
+        [
+          788.0,
+          573.0
+        ],
+        [
+          788.0,
+          547.0
+        ],
+        [
+          777.0,
+          533.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Bundled Auto Secure - Private Car Policy (1 Year Term for Own Damage and 3 Years for Third Party) (UIN-IRDAN108RP0006V02201819) CUM RECEIPT",
+      "block_bbox": [
+        109,
+        603,
+        1674,
+        687
+      ],
+      "block_id": 9,
+      "block_order": 9,
+      "group_id": 9,
+      "block_polygon_points": [
+        [
+          109.0,
+          603.0
+        ],
+        [
+          1674.0,
+          603.0
+        ],
+        [
+          1674.0,
+          687.0
+        ],
+        [
+          109.0,
+          687.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "(FORM 51 OF THE CENTRAL MOTOR VEHICLE RULES, 1989)",
+      "block_bbox": [
+        104,
+        689,
+        875,
+        733
+      ],
+      "block_id": 10,
+      "block_order": 10,
+      "group_id": 10,
+      "block_polygon_points": [
+        [
+          104.0,
+          689.0
+        ],
+        [
+          875.0,
+          689.0
+        ],
+        [
+          875.0,
+          733.0
+        ],
+        [
+          104.0,
+          733.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Policy No. : 0148135809",
+      "block_bbox": [
+        104,
+        742,
+        584,
+        787
+      ],
+      "block_id": 11,
+      "block_order": 11,
+      "group_id": 11,
+      "block_polygon_points": [
+        [
+          104.0,
+          742.0
+        ],
+        [
+          584.0,
+          742.0
+        ],
+        [
+          584.0,
+          787.0
+        ],
+        [
+          104.0,
+          787.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Insured Name : MR. PIYUSH KUMAR",
+      "block_bbox": [
+        104,
+        802,
+        699,
+        847
+      ],
+      "block_id": 12,
+      "block_order": 12,
+      "group_id": 12,
+      "block_polygon_points": [
+        [
+          104.0,
+          802.0
+        ],
+        [
+          699.0,
+          802.0
+        ],
+        [
+          699.0,
+          847.0
+        ],
+        [
+          104.0,
+          847.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Policy Issued On : 29-JUN-2024 (10:56)",
+      "block_bbox": [
+        1071,
+        753,
+        1679,
+        800
+      ],
+      "block_id": 13,
+      "block_order": 13,
+      "group_id": 13,
+      "block_polygon_points": [
+        [
+          1071.0,
+          753.0
+        ],
+        [
+          1679.0,
+          753.0
+        ],
+        [
+          1679.0,
+          800.0
+        ],
+        [
+          1071.0,
+          800.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Own Damage Period : 29-JUN-2024(10:56) To 28-JUN-2025(Midnight)\nMotor Liability Period : 29-JUN-2024(10:56) To 28-JUN-2027(Midnight)",
+      "block_bbox": [
+        106,
+        854,
+        1044,
+        903
+      ],
+      "block_id": 14,
+      "block_order": 14,
+      "group_id": 14,
+      "block_polygon_points": [
+        [
+          106.0,
+          854.0
+        ],
+        [
+          1044.0,
+          854.0
+        ],
+        [
+          1044.0,
+          903.0
+        ],
+        [
+          106.0,
+          903.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "",
+      "block_bbox": [
+        1070,
+        859,
+        2024,
+        904
+      ],
+      "block_id": 15,
+      "block_order": 15,
+      "group_id": 14,
+      "block_polygon_points": [
+        [
+          1070.0,
+          859.0
+        ],
+        [
+          2024.0,
+          859.0
+        ],
+        [
+          2024.0,
+          904.0
+        ],
+        [
+          1070.0,
+          904.0
+        ]
+      ]
+    },
+    {
+      "block_label": "paragraph_title",
+      "block_content": "SCHEDULE OF PREMIUM (AMOUNT IN RS.)",
+      "block_bbox": [
+        702,
+        990,
+        1453,
+        1040
+      ],
+      "block_id": 16,
+      "block_order": 16,
+      "group_id": 16,
+      "block_polygon_points": [
+        [
+          702.0,
+          990.0
+        ],
+        [
+          1453.0,
+          990.0
+        ],
+        [
+          1453.0,
+          1040.0
+        ],
+        [
+          702.0,
+          1040.0
+        ]
+      ]
+    },
+    {
+      "block_label": "table",
+      "block_content": "<table><tr><td colspan=\"4\">Own Damage Premium (A)</td></tr><tr><td colspan=\"2\">Basic Premium</td><td colspan=\"2\">Deductibles</td></tr><tr><td>Vehicle</td><td>6,681</td><td>Voluntary Deductibles (0) (IMT-22A)</td><td>0</td></tr><tr><td>Non-Elec. Accessories</td><td>0</td><td>Anti Theft Device (IMT-10)</td><td>0</td></tr><tr><td>Elec. Accessories (IMT-24)</td><td>0</td><td>AA Membership (IMT-8)</td><td>0</td></tr><tr><td>CNG/LPG Kit (IMT-25)</td><td>0</td><td>No Claim Bonus (0%)</td><td>0</td></tr><tr><td>Sub Total (Basic Premium)</td><td>6,681</td><td>Handicapped Discount (0%)</td><td>0</td></tr><tr><td>Geographical Area Extension (IMT-1)</td><td>0</td><td>Sub Total (Deductibles)</td><td>0</td></tr><tr><td>IMT 23 Premium</td><td>0</td><td></td><td></td></tr><tr><td>Add On Coverages (Refer Note 5)</td><td>3950</td><td></td><td></td></tr><tr><td>Sub Total-Addition</td><td>10,631</td><td>Net Own Damage Premium (A)</td><td>10,631</td></tr><tr><td colspan=\"4\">Liability Premium (B)</td></tr><tr><td>Basic Third Party Liability</td><td>10640</td><td>PA Cover For 5 Persons of Rs. 100000 Each (IMT-16)</td><td>750</td></tr><tr><td>Third Party Liability For Bi-Fuel Kit</td><td>0</td><td>PA cover for Paid Driver of Rs 2,00,000 (IMT-17)</td><td>0</td></tr><tr><td>Third Party Liability For Geographical Area Extension</td><td>0</td><td>Legal Liability For Paid Driver (IMT-28)</td><td>150</td></tr><tr><td>PA Cover For Owner Driver Of Rs. 1500000 (IMT-15)</td><td>1425</td><td>Legal Liability for Employees (for 0 persons) (IMT-29)</td><td>0</td></tr><tr><td></td><td></td><td>Net Liability Premium (B)</td><td>12965</td></tr><tr><td colspan=\"2\">Note: Warning that in case of dishonour of the premium cheque, this document stands automatically cancelled &#x27;ab-initio&#x27;</td><td>Total Premium (A+B)</td><td>23596</td></tr><tr><td colspan=\"2\">&gt; Consolidated stamp duty paid to state exchequer.*</td><td>CGST (9%)</td><td>2124</td></tr><tr><td colspan=\"2\">&gt; The policy is subject to compulsory deductible of Rs. 1000 (IMT-22)</td><td>SGST (9%)</td><td>2124</td></tr><tr><td colspan=\"2\">&gt; The insurance company will display terms &amp; conditions on its website www.tataaig.com which can be accessed by you online.</td><td></td><td></td></tr><tr><td colspan=\"2\">&gt;Addon Opted: Add on Gold Cover,CORAL MID SIZE, *Subject to IMT Endt. Nos.&amp; Memorandum:7,22,16,28 EX-SHOWROOM PRICE: 759900</td><td>Gross Premium Paid</td><td>27844</td></tr></table>",
+      "block_bbox": [
+        116,
+        1042,
+        2053,
+        2338
+      ],
+      "block_id": 17,
+      "block_order": null,
+      "group_id": 17,
+      "block_polygon_points": [
+        [
+          116.0,
+          1042.0
+        ],
+        [
+          2053.0,
+          1042.0
+        ],
+        [
+          2053.0,
+          2338.0
+        ],
+        [
+          116.0,
+          2338.0
+        ]
+      ]
+    },
+    {
+      "block_label": "table",
+      "block_content": "<table><tr><td colspan=\"2\">Addon Unique Identification Number (UIN) Details</td><td>Add On Premium</td></tr><tr><td>Key Replacements</td><td>IRDAN108RP0006V02201819/A0036V01201819</td><td>367</td></tr><tr><td>Emergency Transport and Hotel Expense</td><td>IRDAN108RP0006V02201819/A0035V01201819</td><td>167</td></tr><tr><td>Personal Belonging</td><td>IRDAN108RP0006V02201819/A0034V01201819</td><td>167</td></tr><tr><td>Consumables</td><td>IRDAN108RP0006V02201819/A0040V01201819</td><td>1083</td></tr><tr><td>Nil Depreciation</td><td>IRDAN108RP0006V02201819/A0029V01201819</td><td>2166</td></tr></table>",
+      "block_bbox": [
+        111,
+        2382,
+        2033,
+        2657
+      ],
+      "block_id": 18,
+      "block_order": null,
+      "group_id": 18,
+      "block_polygon_points": [
+        [
+          111.0,
+          2382.0
+        ],
+        [
+          2033.0,
+          2382.0
+        ],
+        [
+          2033.0,
+          2657.0
+        ],
+        [
+          111.0,
+          2657.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Hypothecation Details: HDFC BANK LTD. - NOIDA - NOIDA",
+      "block_bbox": [
+        110,
+        2657,
+        890,
+        2698
+      ],
+      "block_id": 19,
+      "block_order": 17,
+      "group_id": 19,
+      "block_polygon_points": [
+        [
+          110.0,
+          2657.0
+        ],
+        [
+          890.0,
+          2657.0
+        ],
+        [
+          890.0,
+          2698.0
+        ],
+        [
+          110.0,
+          2698.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "MISP Name: SAGAR MOTORS, MISP PAN No: ACVFS4777R, MISP Code: TMIBASL/MISP/ACVFS4777R\nSAC:997134, Description of Service:Motor Vehicle Insurance Services, Place of Supply:UTTAR PRADESH(State Code:09), Receipt No/Invoice No:0148135809",
+      "block_bbox": [
+        108,
+        2704,
+        1270,
+        2746
+      ],
+      "block_id": 20,
+      "block_order": 18,
+      "group_id": 20,
+      "block_polygon_points": [
+        [
+          108.0,
+          2704.0
+        ],
+        [
+          1270.0,
+          2704.0
+        ],
+        [
+          1270.0,
+          2746.0
+        ],
+        [
+          108.0,
+          2746.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "",
+      "block_bbox": [
+        108,
+        2754,
+        1813,
+        2800
+      ],
+      "block_id": 21,
+      "block_order": 19,
+      "group_id": 20,
+      "block_polygon_points": [
+        [
+          108.0,
+          2754.0
+        ],
+        [
+          1813.0,
+          2754.0
+        ],
+        [
+          1813.0,
+          2800.0
+        ],
+        [
+          108.0,
+          2800.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "For & On Behalf of Tata AIG General Insurance Co. Ltd.",
+      "block_bbox": [
+        1306,
+        2922,
+        2029,
+        2969
+      ],
+      "block_id": 22,
+      "block_order": 20,
+      "group_id": 22,
+      "block_polygon_points": [
+        [
+          1306.0,
+          2922.0
+        ],
+        [
+          2029.0,
+          2922.0
+        ],
+        [
+          2029.0,
+          2969.0
+        ],
+        [
+          1306.0,
+          2969.0
+        ]
+      ]
+    },
+    {
+      "block_label": "seal",
+      "block_content": "",
+      "block_bbox": [
+        1695,
+        2741,
+        2025,
+        3052
+      ],
+      "block_id": 23,
+      "block_order": 21,
+      "group_id": 23,
+      "block_polygon_points": [
+        [
+          1695.0,
+          2741.0
+        ],
+        [
+          2025.0,
+          2741.0
+        ],
+        [
+          2025.0,
+          3052.0
+        ],
+        [
+          1695.0,
+          3052.0
+        ]
+      ]
+    },
+    {
+      "block_label": "footer",
+      "block_content": "Dealer Code : SAGAR MOTORS NOIDA - 300623006",
+      "block_bbox": [
+        119,
+        2982,
+        776,
+        3024
+      ],
+      "block_id": 24,
+      "block_order": null,
+      "group_id": 24,
+      "block_polygon_points": [
+        [
+          119.0,
+          2982.0
+        ],
+        [
+          776.0,
+          2982.0
+        ],
+        [
+          776.0,
+          3024.0
+        ],
+        [
+          119.0,
+          3024.0
+        ]
+      ]
+    },
+    {
+      "block_label": "footer",
+      "block_content": "Authorized Signatory",
+      "block_bbox": [
+        1731,
+        3082,
+        2025,
+        3117
+      ],
+      "block_id": 25,
+      "block_order": null,
+      "group_id": 25,
+      "block_polygon_points": [
+        [
+          1731.0,
+          3082.0
+        ],
+        [
+          2025.0,
+          3082.0
+        ],
+        [
+          2025.0,
+          3117.0
+        ],
+        [
+          1731.0,
+          3117.0
+        ]
+      ]
+    },
+    {
+      "block_label": "footer",
+      "block_content": "In case of any claim or assistance required please contact our help line at 1800 209 0060 and you may also reach us at support@tmibasl.com",
+      "block_bbox": [
+        169,
+        3144,
+        1989,
+        3192
+      ],
+      "block_id": 26,
+      "block_order": null,
+      "group_id": 26,
+      "block_polygon_points": [
+        [
+          169.0,
+          3144.0
+        ],
+        [
+          1989.0,
+          3144.0
+        ],
+        [
+          1989.0,
+          3192.0
+        ],
+        [
+          169.0,
+          3192.0
+        ]
+      ]
+    }
+  ],
+  "layout_det_res": {
+    "input_path": null,
+    "page_index": null,
+    "boxes": [
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.6362420320510864,
+        "coordinate": [
+          414,
+          226,
+          1066,
+          280
+        ],
+        "order": 1,
+        "polygon_points": [
+          [
+            414.0,
+            226.0
+          ],
+          [
+            1066.0,
+            226.0
+          ],
+          [
+            1066.0,
+            280.0
+          ],
+          [
+            414.0,
+            280.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.7156715989112854,
+        "coordinate": [
+          412,
+          284,
+          1291,
+          332
+        ],
+        "order": 2,
+        "polygon_points": [
+          [
+            412.0,
+            284.0
+          ],
+          [
+            1291.0,
+            284.0
+          ],
+          [
+            1291.0,
+            332.0
+          ],
+          [
+            412.0,
+            332.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.6427188515663147,
+        "coordinate": [
+          413,
+          329,
+          1315,
+          376
+        ],
+        "order": 3,
+        "polygon_points": [
+          [
+            413.0,
+            329.0
+          ],
+          [
+            1315.0,
+            329.0
+          ],
+          [
+            1315.0,
+            376.0
+          ],
+          [
+            413.0,
+            376.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.7097823619842529,
+        "coordinate": [
+          413,
+          374,
+          1496,
+          419
+        ],
+        "order": 4,
+        "polygon_points": [
+          [
+            413.0,
+            374.0
+          ],
+          [
+            1496.0,
+            374.0
+          ],
+          [
+            1496.0,
+            419.0
+          ],
+          [
+            413.0,
+            419.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.5816724896430969,
+        "coordinate": [
+          415,
+          409,
+          662,
+          448
+        ],
+        "order": 5,
+        "polygon_points": [
+          [
+            415.0,
+            409.0
+          ],
+          [
+            662.0,
+            409.0
+          ],
+          [
+            662.0,
+            448.0
+          ],
+          [
+            415.0,
+            448.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.6363765597343445,
+        "coordinate": [
+          415,
+          452,
+          1610,
+          503
+        ],
+        "order": 6,
+        "polygon_points": [
+          [
+            415.0,
+            452.0
+          ],
+          [
+            1610.0,
+            452.0
+          ],
+          [
+            1610.0,
+            503.0
+          ],
+          [
+            415.0,
+            503.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 13,
+        "label": "header_image",
+        "score": 0.5848017334938049,
+        "coordinate": [
+          1729,
+          268,
+          1893,
+          447
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            1729.0,
+            268.0
+          ],
+          [
+            1893.0,
+            268.0
+          ],
+          [
+            1893.0,
+            447.0
+          ],
+          [
+            1729.0,
+            447.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.6206684112548828,
+        "coordinate": [
+          414,
+          502,
+          1429,
+          545
+        ],
+        "order": 7,
+        "polygon_points": [
+          [
+            414.0,
+            502.0
+          ],
+          [
+            1429.0,
+            502.0
+          ],
+          [
+            1429.0,
+            545.0
+          ],
+          [
+            414.0,
+            545.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.643198549747467,
+        "coordinate": [
+          419,
+          533,
+          799,
+          574
+        ],
+        "order": 8,
+        "polygon_points": [
+          [
+            419.0,
+            533.0
+          ],
+          [
+            419.0,
+            573.0
+          ],
+          [
+            788.0,
+            573.0
+          ],
+          [
+            788.0,
+            547.0
+          ],
+          [
+            777.0,
+            533.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.5090863108634949,
+        "coordinate": [
+          109,
+          603,
+          1674,
+          687
+        ],
+        "order": 9,
+        "polygon_points": [
+          [
+            109.0,
+            603.0
+          ],
+          [
+            1674.0,
+            603.0
+          ],
+          [
+            1674.0,
+            687.0
+          ],
+          [
+            109.0,
+            687.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.7386574745178223,
+        "coordinate": [
+          104,
+          689,
+          875,
+          733
+        ],
+        "order": 10,
+        "polygon_points": [
+          [
+            104.0,
+            689.0
+          ],
+          [
+            875.0,
+            689.0
+          ],
+          [
+            875.0,
+            733.0
+          ],
+          [
+            104.0,
+            733.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.7218231558799744,
+        "coordinate": [
+          104,
+          742,
+          584,
+          787
+        ],
+        "order": 11,
+        "polygon_points": [
+          [
+            104.0,
+            742.0
+          ],
+          [
+            584.0,
+            742.0
+          ],
+          [
+            584.0,
+            787.0
+          ],
+          [
+            104.0,
+            787.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.7686684727668762,
+        "coordinate": [
+          104,
+          802,
+          699,
+          847
+        ],
+        "order": 12,
+        "polygon_points": [
+          [
+            104.0,
+            802.0
+          ],
+          [
+            699.0,
+            802.0
+          ],
+          [
+            699.0,
+            847.0
+          ],
+          [
+            104.0,
+            847.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.7477577924728394,
+        "coordinate": [
+          1071,
+          753,
+          1679,
+          800
+        ],
+        "order": 13,
+        "polygon_points": [
+          [
+            1071.0,
+            753.0
+          ],
+          [
+            1679.0,
+            753.0
+          ],
+          [
+            1679.0,
+            800.0
+          ],
+          [
+            1071.0,
+            800.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.7825641632080078,
+        "coordinate": [
+          106,
+          854,
+          1044,
+          903
+        ],
+        "order": 14,
+        "polygon_points": [
+          [
+            106.0,
+            854.0
+          ],
+          [
+            1044.0,
+            854.0
+          ],
+          [
+            1044.0,
+            903.0
+          ],
+          [
+            106.0,
+            903.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.7223472595214844,
+        "coordinate": [
+          1070,
+          859,
+          2024,
+          904
+        ],
+        "order": 15,
+        "polygon_points": [
+          [
+            1070.0,
+            859.0
+          ],
+          [
+            2024.0,
+            859.0
+          ],
+          [
+            2024.0,
+            904.0
+          ],
+          [
+            1070.0,
+            904.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 17,
+        "label": "paragraph_title",
+        "score": 0.5497696399688721,
+        "coordinate": [
+          702,
+          990,
+          1453,
+          1040
+        ],
+        "order": 16,
+        "polygon_points": [
+          [
+            702.0,
+            990.0
+          ],
+          [
+            1453.0,
+            990.0
+          ],
+          [
+            1453.0,
+            1040.0
+          ],
+          [
+            702.0,
+            1040.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 21,
+        "label": "table",
+        "score": 0.8712393641471863,
+        "coordinate": [
+          116,
+          1042,
+          2053,
+          2338
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            116.0,
+            1042.0
+          ],
+          [
+            2053.0,
+            1042.0
+          ],
+          [
+            2053.0,
+            2338.0
+          ],
+          [
+            116.0,
+            2338.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 24,
+        "label": "vision_footnote",
+        "score": 0.40084144473075867,
+        "coordinate": [
+          142,
+          2074,
+          588,
+          2110
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            142.0,
+            2074.0
+          ],
+          [
+            588.0,
+            2074.0
+          ],
+          [
+            588.0,
+            2110.0
+          ],
+          [
+            142.0,
+            2110.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 24,
+        "label": "vision_footnote",
+        "score": 0.35533666610717773,
+        "coordinate": [
+          138,
+          2115,
+          734,
+          2150
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            138.0,
+            2115.0
+          ],
+          [
+            734.0,
+            2115.0
+          ],
+          [
+            734.0,
+            2150.0
+          ],
+          [
+            138.0,
+            2150.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.3249554932117462,
+        "coordinate": [
+          137,
+          2173,
+          1026,
+          2230
+        ],
+        "order": 17,
+        "polygon_points": [
+          [
+            137.0,
+            2173.0
+          ],
+          [
+            874.0,
+            2173.0
+          ],
+          [
+            874.0,
+            2229.0
+          ],
+          [
+            137.0,
+            2229.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.32447338104248047,
+        "coordinate": [
+          140,
+          2234,
+          376,
+          2260
+        ],
+        "order": 18,
+        "polygon_points": [
+          [
+            140.0,
+            2234.0
+          ],
+          [
+            376.0,
+            2234.0
+          ],
+          [
+            376.0,
+            2260.0
+          ],
+          [
+            140.0,
+            2260.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.41014376282691956,
+        "coordinate": [
+          141,
+          2305,
+          451,
+          2334
+        ],
+        "order": 19,
+        "polygon_points": [
+          [
+            141.0,
+            2305.0
+          ],
+          [
+            451.0,
+            2305.0
+          ],
+          [
+            451.0,
+            2334.0
+          ],
+          [
+            141.0,
+            2334.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 21,
+        "label": "table",
+        "score": 0.8782873749732971,
+        "coordinate": [
+          111,
+          2382,
+          2033,
+          2657
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            111.0,
+            2382.0
+          ],
+          [
+            2033.0,
+            2382.0
+          ],
+          [
+            2033.0,
+            2657.0
+          ],
+          [
+            111.0,
+            2657.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.4139690697193146,
+        "coordinate": [
+          110,
+          2657,
+          890,
+          2698
+        ],
+        "order": 20,
+        "polygon_points": [
+          [
+            110.0,
+            2657.0
+          ],
+          [
+            890.0,
+            2657.0
+          ],
+          [
+            890.0,
+            2698.0
+          ],
+          [
+            110.0,
+            2698.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.5652042031288147,
+        "coordinate": [
+          108,
+          2704,
+          1270,
+          2746
+        ],
+        "order": 21,
+        "polygon_points": [
+          [
+            108.0,
+            2704.0
+          ],
+          [
+            1270.0,
+            2704.0
+          ],
+          [
+            1270.0,
+            2746.0
+          ],
+          [
+            108.0,
+            2746.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.6387243866920471,
+        "coordinate": [
+          108,
+          2754,
+          1813,
+          2800
+        ],
+        "order": 22,
+        "polygon_points": [
+          [
+            108.0,
+            2754.0
+          ],
+          [
+            1813.0,
+            2754.0
+          ],
+          [
+            1813.0,
+            2800.0
+          ],
+          [
+            108.0,
+            2800.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.7419447302818298,
+        "coordinate": [
+          1306,
+          2922,
+          2029,
+          2969
+        ],
+        "order": 23,
+        "polygon_points": [
+          [
+            1306.0,
+            2922.0
+          ],
+          [
+            2029.0,
+            2922.0
+          ],
+          [
+            2029.0,
+            2969.0
+          ],
+          [
+            1306.0,
+            2969.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 20,
+        "label": "seal",
+        "score": 0.7103484272956848,
+        "coordinate": [
+          1695,
+          2741,
+          2025,
+          3052
+        ],
+        "order": 24,
+        "polygon_points": [
+          [
+            1695.0,
+            2741.0
+          ],
+          [
+            2025.0,
+            2741.0
+          ],
+          [
+            2025.0,
+            3052.0
+          ],
+          [
+            1695.0,
+            3052.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 8,
+        "label": "footer",
+        "score": 0.605883777141571,
+        "coordinate": [
+          119,
+          2982,
+          776,
+          3024
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            119.0,
+            2982.0
+          ],
+          [
+            776.0,
+            2982.0
+          ],
+          [
+            776.0,
+            3024.0
+          ],
+          [
+            119.0,
+            3024.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 8,
+        "label": "footer",
+        "score": 0.6282433271408081,
+        "coordinate": [
+          1731,
+          3082,
+          2025,
+          3117
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            1731.0,
+            3082.0
+          ],
+          [
+            2025.0,
+            3082.0
+          ],
+          [
+            2025.0,
+            3117.0
+          ],
+          [
+            1731.0,
+            3117.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 8,
+        "label": "footer",
+        "score": 0.7692937254905701,
+        "coordinate": [
+          169,
+          3144,
+          1989,
+          3192
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            169.0,
+            3144.0
+          ],
+          [
+            1989.0,
+            3144.0
+          ],
+          [
+            1989.0,
+            3192.0
+          ],
+          [
+            169.0,
+            3192.0
+          ]
+        ]
+      }
+    ]
+  }
+}

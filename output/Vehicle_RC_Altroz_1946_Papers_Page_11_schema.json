@@ -1,0 +1,795 @@
+{
+  "schema_version": "1.0",
+  "input_path": "Vehicle_RC_Altroz_1946_Papers_Page_11_flat.png",
+  "width": 2166.0,
+  "height": 3205.0,
+  "blocks": [
+    {
+      "id": 0,
+      "label": "text",
+      "content": "Tata AIG General Insurance Co. Ltd.",
+      "bbox": [
+        414.0,
+        226.0,
+        1066.0,
+        280.0
+      ],
+      "polygon": [
+        [
+          414.0,
+          226.0
+        ],
+        [
+          1066.0,
+          226.0
+        ],
+        [
+          1066.0,
+          280.0
+        ],
+        [
+          414.0,
+          280.0
+        ]
+      ]
+    },
+    {
+      "id": 1,
+      "label": "text",
+      "content": "Servicing Office of Insurer : Plot No E-1, 1st & 2nd Floor, Sector-8,",
+      "bbox": [
+        412.0,
+        284.0,
+        1291.0,
+        332.0
+      ],
+      "polygon": [
+        [
+          412.0,
+          284.0
+        ],
+        [
+          1291.0,
+          284.0
+        ],
+        [
+          1291.0,
+          332.0
+        ],
+        [
+          412.0,
+          332.0
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "label": "text",
+      "content": "Noida, District Gautam Budh Nagar, Noida - 201301..Uttar Pradesh",
+      "bbox": [
+        413.0,
+        329.0,
+        1315.0,
+        376.0
+      ],
+      "polygon": [
+        [
+          413.0,
+          329.0
+        ],
+        [
+          1315.0,
+          329.0
+        ],
+        [
+          1315.0,
+          376.0
+        ],
+        [
+          413.0,
+          376.0
+        ]
+      ]
+    },
+    {
+      "id": 3,
+      "label": "text",
+      "content": ",,,, Noida, Uttar Pradesh (State Code:09) -201301, PH--1800 266 7780 Website :",
+      "bbox": [
+        413.0,
+        374.0,
+        1496.0,
+        419.0
+      ],
+      "polygon": [
+        [
+          413.0,
+          374.0
+        ],
+        [
+          1496.0,
+          374.0
+        ],
+        [
+          1496.0,
+          419.0
+        ],
+        [
+          413.0,
+          419.0
+        ]
+      ]
+    },
+    {
+      "id": 4,
+      "label": "text",
+      "content": "www.tataaig.com",
+      "bbox": [
+        415.0,
+        409.0,
+        662.0,
+        448.0
+      ],
+      "polygon": [
+        [
+          415.0,
+          409.0
+        ],
+        [
+          662.0,
+          409.0
+        ],
+        [
+          662.0,
+          448.0
+        ],
+        [
+          415.0,
+          448.0
+        ]
+      ]
+    },
+    {
+      "id": 5,
+      "label": "text",
+      "content": "PAN : AABCT3518Q. GSTIN: 09AABCT3518Q1ZU Insurer's IRDA Registration Number: 108",
+      "bbox": [
+        415.0,
+        452.0,
+        1610.0,
+        503.0
+      ],
+      "polygon": [
+        [
+          415.0,
+          452.0
+        ],
+        [
+          1610.0,
+          452.0
+        ],
+        [
+          1610.0,
+          503.0
+        ],
+        [
+          415.0,
+          503.0
+        ]
+      ]
+    },
+    {
+      "id": 6,
+      "label": "header_image",
+      "content": "",
+      "bbox": [
+        1729.0,
+        268.0,
+        1893.0,
+        447.0
+      ],
+      "polygon": [
+        [
+          1729.0,
+          268.0
+        ],
+        [
+          1893.0,
+          268.0
+        ],
+        [
+          1893.0,
+          447.0
+        ],
+        [
+          1729.0,
+          447.0
+        ]
+      ]
+    },
+    {
+      "id": 7,
+      "label": "text",
+      "content": "Tollfree Helpline : 9999999999 Email: customersupport@tataaig.com CIN :",
+      "bbox": [
+        414.0,
+        502.0,
+        1429.0,
+        545.0
+      ],
+      "polygon": [
+        [
+          414.0,
+          502.0
+        ],
+        [
+          1429.0,
+          502.0
+        ],
+        [
+          1429.0,
+          545.0
+        ],
+        [
+          414.0,
+          545.0
+        ]
+      ]
+    },
+    {
+      "id": 8,
+      "label": "text",
+      "content": "U85110MH2000PLC128425",
+      "bbox": [
+        419.0,
+        533.0,
+        799.0,
+        574.0
+      ],
+      "polygon": [
+        [
+          419.0,
+          533.0
+        ],
+        [
+          419.0,
+          573.0
+        ],
+        [
+          788.0,
+          573.0
+        ],
+        [
+          788.0,
+          547.0
+        ],
+        [
+          777.0,
+          533.0
+        ]
+      ]
+    },
+    {
+      "id": 9,
+      "label": "text",
+      "content": "Bundled Auto Secure - Private Car Policy (1 Year Term for Own Damage and 3 Years for Third Party) (UIN-IRDAN108RP0006V02201819) CUM RECEIPT",
+      "bbox": [
+        109.0,
+        603.0,
+        1674.0,
+        687.0
+      ],
+      "polygon": [
+        [
+          109.0,
+          603.0
+        ],
+        [
+          1674.0,
+          603.0
+        ],
+        [
+          1674.0,
+          687.0
+        ],
+        [
+          109.0,
+          687.0
+        ]
+      ]
+    },
+    {
+      "id": 10,
+      "label": "text",
+      "content": "(FORM 51 OF THE CENTRAL MOTOR VEHICLE RULES, 1989)",
+      "bbox": [
+        104.0,
+        689.0,
+        875.0,
+        733.0
+      ],
+      "polygon": [
+        [
+          104.0,
+          689.0
+        ],
+        [
+          875.0,
+          689.0
+        ],
+        [
+          875.0,
+          733.0
+        ],
+        [
+          104.0,
+          733.0
+        ]
+      ]
+    },
+    {
+      "id": 11,
+      "label": "text",
+      "content": "Policy No. : 0148135809",
+      "bbox": [
+        104.0,
+        742.0,
+        584.0,
+        787.0
+      ],
+      "polygon": [
+        [
+          104.0,
+          742.0
+        ],
+        [
+          584.0,
+          742.0
+        ],
+        [
+          584.0,
+          787.0
+        ],
+        [
+          104.0,
+          787.0
+        ]
+      ]
+    },
+    {
+      "id": 12,
+      "label": "text",
+      "content": "Insured Name : MR. PIYUSH KUMAR",
+      "bbox": [
+        104.0,
+        802.0,
+        699.0,
+        847.0
+      ],
+      "polygon": [
+        [
+          104.0,
+          802.0
+        ],
+        [
+          699.0,
+          802.0
+        ],
+        [
+          699.0,
+          847.0
+        ],
+        [
+          104.0,
+          847.0
+        ]
+      ]
+    },
+    {
+      "id": 13,
+      "label": "text",
+      "content": "Policy Issued On : 29-JUN-2024 (10:56)",
+      "bbox": [
+        1071.0,
+        753.0,
+        1679.0,
+        800.0
+      ],
+      "polygon": [
+        [
+          1071.0,
+          753.0
+        ],
+        [
+          1679.0,
+          753.0
+        ],
+        [
+          1679.0,
+          800.0
+        ],
+        [
+          1071.0,
+          800.0
+        ]
+      ]
+    },
+    {
+      "id": 14,
+      "label": "text",
+      "content": "Own Damage Period : 29-JUN-2024(10:56) To 28-JUN-2025(Midnight)\nMotor Liability Period : 29-JUN-2024(10:56) To 28-JUN-2027(Midnight)",
+      "bbox": [
+        106.0,
+        854.0,
+        1044.0,
+        903.0
+      ],
+      "polygon": [
+        [
+          106.0,
+          854.0
+        ],
+        [
+          1044.0,
+          854.0
+        ],
+        [
+          1044.0,
+          903.0
+        ],
+        [
+          106.0,
+          903.0
+        ]
+      ]
+    },
+    {
+      "id": 15,
+      "label": "text",
+      "content": "",
+      "bbox": [
+        1070.0,
+        859.0,
+        2024.0,
+        904.0
+      ],
+      "polygon": [
+        [
+          1070.0,
+          859.0
+        ],
+        [
+          2024.0,
+          859.0
+        ],
+        [
+          2024.0,
+          904.0
+        ],
+        [
+          1070.0,
+          904.0
+        ]
+      ]
+    },
+    {
+      "id": 16,
+      "label": "paragraph_title",
+      "content": "SCHEDULE OF PREMIUM (AMOUNT IN RS.)",
+      "bbox": [
+        702.0,
+        990.0,
+        1453.0,
+        1040.0
+      ],
+      "polygon": [
+        [
+          702.0,
+          990.0
+        ],
+        [
+          1453.0,
+          990.0
+        ],
+        [
+          1453.0,
+          1040.0
+        ],
+        [
+          702.0,
+          1040.0
+        ]
+      ]
+    },
+    {
+      "id": 17,
+      "label": "table",
+      "content": "<table><tr><td colspan=\"4\">Own Damage Premium (A)</td></tr><tr><td colspan=\"2\">Basic Premium</td><td colspan=\"2\">Deductibles</td></tr><tr><td>Vehicle</td><td>6,681</td><td>Voluntary Deductibles (0) (IMT-22A)</td><td>0</td></tr><tr><td>Non-Elec. Accessories</td><td>0</td><td>Anti Theft Device (IMT-10)</td><td>0</td></tr><tr><td>Elec. Accessories (IMT-24)</td><td>0</td><td>AA Membership (IMT-8)</td><td>0</td></tr><tr><td>CNG/LPG Kit (IMT-25)</td><td>0</td><td>No Claim Bonus (0%)</td><td>0</td></tr><tr><td>Sub Total (Basic Premium)</td><td>6,681</td><td>Handicapped Discount (0%)</td><td>0</td></tr><tr><td>Geographical Area Extension (IMT-1)</td><td>0</td><td>Sub Total (Deductibles)</td><td>0</td></tr><tr><td>IMT 23 Premium</td><td>0</td><td></td><td></td></tr><tr><td>Add On Coverages (Refer Note 5)</td><td>3950</td><td></td><td></td></tr><tr><td>Sub Total-Addition</td><td>10,631</td><td>Net Own Damage Premium (A)</td><td>10,631</td></tr><tr><td colspan=\"4\">Liability Premium (B)</td></tr><tr><td>Basic Third Party Liability</td><td>10640</td><td>PA Cover For 5 Persons of Rs. 100000 Each (IMT-16)</td><td>750</td></tr><tr><td>Third Party Liability For Bi-Fuel Kit</td><td>0</td><td>PA cover for Paid Driver of Rs 2,00,000 (IMT-17)</td><td>0</td></tr><tr><td>Third Party Liability For Geographical Area Extension</td><td>0</td><td>Legal Liability For Paid Driver (IMT-28)</td><td>150</td></tr><tr><td>PA Cover For Owner Driver Of Rs. 1500000 (IMT-15)</td><td>1425</td><td>Legal Liability for Employees (for 0 persons) (IMT-29)</td><td>0</td></tr><tr><td></td><td></td><td>Net Liability Premium (B)</td><td>12965</td></tr><tr><td colspan=\"2\">Note: Warning that in case of dishonour of the premium cheque, this document stands automatically cancelled &#x27;ab-initio&#x27;</td><td>Total Premium (A+B)</td><td>23596</td></tr><tr><td colspan=\"2\">&gt; Consolidated stamp duty paid to state exchequer.*</td><td>CGST (9%)</td><td>2124</td></tr><tr><td colspan=\"2\">&gt; The policy is subject to compulsory deductible of Rs. 1000 (IMT-22)</td><td>SGST (9%)</td><td>2124</td></tr><tr><td colspan=\"2\">&gt; The insurance company will display terms &amp; conditions on its website www.tataaig.com which can be accessed by you online.</td><td></td><td></td></tr><tr><td colspan=\"2\">&gt;Addon Opted: Add on Gold Cover,CORAL MID SIZE, *Subject to IMT Endt. Nos.&amp; Memorandum:7,22,16,28 EX-SHOWROOM PRICE: 759900</td><td>Gross Premium Paid</td><td>27844</td></tr></table>",
+      "bbox": [
+        116.0,
+        1042.0,
+        2053.0,
+        2338.0
+      ],
+      "polygon": [
+        [
+          116.0,
+          1042.0
+        ],
+        [
+          2053.0,
+          1042.0
+        ],
+        [
+          2053.0,
+          2338.0
+        ],
+        [
+          116.0,
+          2338.0
+        ]
+      ]
+    },
+    {
+      "id": 18,
+      "label": "table",
+      "content": "<table><tr><td colspan=\"2\">Addon Unique Identification Number (UIN) Details</td><td>Add On Premium</td></tr><tr><td>Key Replacements</td><td>IRDAN108RP0006V02201819/A0036V01201819</td><td>367</td></tr><tr><td>Emergency Transport and Hotel Expense</td><td>IRDAN108RP0006V02201819/A0035V01201819</td><td>167</td></tr><tr><td>Personal Belonging</td><td>IRDAN108RP0006V02201819/A0034V01201819</td><td>167</td></tr><tr><td>Consumables</td><td>IRDAN108RP0006V02201819/A0040V01201819</td><td>1083</td></tr><tr><td>Nil Depreciation</td><td>IRDAN108RP0006V02201819/A0029V01201819</td><td>2166</td></tr></table>",
+      "bbox": [
+        111.0,
+        2382.0,
+        2033.0,
+        2657.0
+      ],
+      "polygon": [
+        [
+          111.0,
+          2382.0
+        ],
+        [
+          2033.0,
+          2382.0
+        ],
+        [
+          2033.0,
+          2657.0
+        ],
+        [
+          111.0,
+          2657.0
+        ]
+      ]
+    },
+    {
+      "id": 19,
+      "label": "text",
+      "content": "Hypothecation Details: HDFC BANK LTD. - NOIDA - NOIDA",
+      "bbox": [
+        110.0,
+        2657.0,
+        890.0,
+        2698.0
+      ],
+      "polygon": [
+        [
+          110.0,
+          2657.0
+        ],
+        [
+          890.0,
+          2657.0
+        ],
+        [
+          890.0,
+          2698.0
+        ],
+        [
+          110.0,
+          2698.0
+        ]
+      ]
+    },
+    {
+      "id": 20,
+      "label": "text",
+      "content": "MISP Name: SAGAR MOTORS, MISP PAN No: ACVFS4777R, MISP Code: TMIBASL/MISP/ACVFS4777R\nSAC:997134, Description of Service:Motor Vehicle Insurance Services, Place of Supply:UTTAR PRADESH(State Code:09), Receipt No/Invoice No:0148135809",
+      "bbox": [
+        108.0,
+        2704.0,
+        1270.0,
+        2746.0
+      ],
+      "polygon": [
+        [
+          108.0,
+          2704.0
+        ],
+        [
+          1270.0,
+          2704.0
+        ],
+        [
+          1270.0,
+          2746.0
+        ],
+        [
+          108.0,
+          2746.0
+        ]
+      ]
+    },
+    {
+      "id": 21,
+      "label": "text",
+      "content": "",
+      "bbox": [
+        108.0,
+        2754.0,
+        1813.0,
+        2800.0
+      ],
+      "polygon": [
+        [
+          108.0,
+          2754.0
+        ],
+        [
+          1813.0,
+          2754.0
+        ],
+        [
+          1813.0,
+          2800.0
+        ],
+        [
+          108.0,
+          2800.0
+        ]
+      ]
+    },
+    {
+      "id": 22,
+      "label": "text",
+      "content": "For & On Behalf of Tata AIG General Insurance Co. Ltd.",
+      "bbox": [
+        1306.0,
+        2922.0,
+        2029.0,
+        2969.0
+      ],
+      "polygon": [
+        [
+          1306.0,
+          2922.0
+        ],
+        [
+          2029.0,
+          2922.0
+        ],
+        [
+          2029.0,
+          2969.0
+        ],
+        [
+          1306.0,
+          2969.0
+        ]
+      ]
+    },
+    {
+      "id": 23,
+      "label": "seal",
+      "content": "",
+      "bbox": [
+        1695.0,
+        2741.0,
+        2025.0,
+        3052.0
+      ],
+      "polygon": [
+        [
+          1695.0,
+          2741.0
+        ],
+        [
+          2025.0,
+          2741.0
+        ],
+        [
+          2025.0,
+          3052.0
+        ],
+        [
+          1695.0,
+          3052.0
+        ]
+      ]
+    },
+    {
+      "id": 24,
+      "label": "footer",
+      "content": "Dealer Code : SAGAR MOTORS NOIDA - 300623006",
+      "bbox": [
+        119.0,
+        2982.0,
+        776.0,
+        3024.0
+      ],
+      "polygon": [
+        [
+          119.0,
+          2982.0
+        ],
+        [
+          776.0,
+          2982.0
+        ],
+        [
+          776.0,
+          3024.0
+        ],
+        [
+          119.0,
+          3024.0
+        ]
+      ]
+    },
+    {
+      "id": 25,
+      "label": "footer",
+      "content": "Authorized Signatory",
+      "bbox": [
+        1731.0,
+        3082.0,
+        2025.0,
+        3117.0
+      ],
+      "polygon": [
+        [
+          1731.0,
+          3082.0
+        ],
+        [
+          2025.0,
+          3082.0
+        ],
+        [
+          2025.0,
+          3117.0
+        ],
+        [
+          1731.0,
+          3117.0
+        ]
+      ]
+    },
+    {
+      "id": 26,
+      "label": "footer",
+      "content": "In case of any claim or assistance required please contact our help line at 1800 209 0060 and you may also reach us at support@tmibasl.com",
+      "bbox": [
+        169.0,
+        3144.0,
+        1989.0,
+        3192.0
+      ],
+      "polygon": [
+        [
+          169.0,
+          3144.0
+        ],
+        [
+          1989.0,
+          3144.0
+        ],
+        [
+          1989.0,
+          3192.0
+        ],
+        [
+          169.0,
+          3192.0
+        ]
+      ]
+    }
+  ]
+}

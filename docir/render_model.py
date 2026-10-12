@@ -216,7 +216,10 @@ def render_page_model(page: Page, output_path: str, source_image: Image.Image | 
         c.rect(0, 0, geo.page_w, geo.page_h, fill=1, stroke=0)
     for block in page.blocks:
         if block.fill is not None:
-            _fill_rect(c, geo, block.bbox, block.fill, FILL_PAD_PX)
+            if block.fill_bbox is not None:
+                _fill_rect(c, geo, block.fill_bbox, block.fill)
+            else:
+                _fill_rect(c, geo, block.bbox, block.fill, FILL_PAD_PX)
     c.setLineCap(1)
     for g in page.graphics:
         if g.kind == "rule" and len(g.points) == 2:

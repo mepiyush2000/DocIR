@@ -1,0 +1,703 @@
+{
+  "schema_version": "1.0",
+  "input_path": "Vehicle_RC_Altroz_1946_Papers_Page_04_flat.png",
+  "width": 2189.0,
+  "height": 3345.0,
+  "blocks": [
+    {
+      "id": 0,
+      "label": "header",
+      "content": "Mobile No: 9661257878",
+      "bbox": [
+        726.0,
+        76.0,
+        1135.0,
+        129.0
+      ],
+      "polygon": [
+        [
+          726.0,
+          76.0
+        ],
+        [
+          1135.0,
+          76.0
+        ],
+        [
+          1135.0,
+          129.0
+        ],
+        [
+          726.0,
+          129.0
+        ]
+      ]
+    },
+    {
+      "id": 1,
+      "label": "header",
+      "content": "Chassis: MAT632287RLD03767",
+      "bbox": [
+        1340.0,
+        88.0,
+        1879.0,
+        142.0
+      ],
+      "polygon": [
+        [
+          1340.0,
+          88.0
+        ],
+        [
+          1879.0,
+          88.0
+        ],
+        [
+          1879.0,
+          142.0
+        ],
+        [
+          1340.0,
+          142.0
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "label": "text",
+      "content": "in the engine\nen weight(kgs)\nParticulars of Previous Registration and Registered Number(if any)\n28. Colour or colours of body wings and front end :\n29. Model Manufactured Location :\nPETROL\n1033\nARCADE GREY\nManufactured in India",
+      "bbox": [
+        86.0,
+        145.0,
+        1504.0,
+        441.0
+      ],
+      "polygon": [
+        [
+          86.0,
+          145.0
+        ],
+        [
+          1504.0,
+          145.0
+        ],
+        [
+          1504.0,
+          441.0
+        ],
+        [
+          86.0,
+          441.0
+        ]
+      ]
+    },
+    {
+      "id": 3,
+      "label": "text",
+      "content": "I hereby declare that the Motor vehicle has not been registered in any state in India. Additional particulars to be completed only in the case of transport vehicles other than motor",
+      "bbox": [
+        108.0,
+        421.0,
+        1960.0,
+        562.0
+      ],
+      "polygon": [
+        [
+          108.0,
+          421.0
+        ],
+        [
+          108.0,
+          514.0
+        ],
+        [
+          1303.0,
+          561.0
+        ],
+        [
+          1959.0,
+          561.0
+        ],
+        [
+          1959.0,
+          453.0
+        ],
+        [
+          919.0,
+          453.0
+        ]
+      ]
+    },
+    {
+      "id": 4,
+      "label": "text",
+      "content": "30. Number Description size and ply rating of tyres, as declared by the manufacturer\na) Front axle\nb) Rear axle\nc) Any Other axle\nd) Tandem axle",
+      "bbox": [
+        115.0,
+        539.0,
+        1595.0,
+        778.0
+      ],
+      "polygon": [
+        [
+          115.0,
+          539.0
+        ],
+        [
+          1595.0,
+          539.0
+        ],
+        [
+          1595.0,
+          778.0
+        ],
+        [
+          115.0,
+          778.0
+        ]
+      ]
+    },
+    {
+      "id": 5,
+      "label": "text",
+      "content": "31. Gross vehicle\na) As certified by\nmanufacturer\nb) To be registered",
+      "bbox": [
+        119.0,
+        765.0,
+        707.0,
+        946.0
+      ],
+      "polygon": [
+        [
+          119.0,
+          765.0
+        ],
+        [
+          707.0,
+          765.0
+        ],
+        [
+          707.0,
+          946.0
+        ],
+        [
+          119.0,
+          946.0
+        ]
+      ]
+    },
+    {
+      "id": 6,
+      "label": "text",
+      "content": "32. Maximum axle weight in (Kg.)\na) Front axle\nb) Rear axle\nc) Any Other axle\nd) Tandem axle",
+      "bbox": [
+        126.0,
+        951.0,
+        758.0,
+        1187.0
+      ],
+      "polygon": [
+        [
+          126.0,
+          951.0
+        ],
+        [
+          758.0,
+          951.0
+        ],
+        [
+          758.0,
+          1187.0
+        ],
+        [
+          126.0,
+          1187.0
+        ]
+      ]
+    },
+    {
+      "id": 7,
+      "label": "text",
+      "content": "33. a) Overall length\nb) Overall width:\nc) Overall height:\nd) Over hang:",
+      "bbox": [
+        137.0,
+        1186.0,
+        718.0,
+        1379.0
+      ],
+      "polygon": [
+        [
+          137.0,
+          1186.0
+        ],
+        [
+          718.0,
+          1186.0
+        ],
+        [
+          718.0,
+          1379.0
+        ],
+        [
+          137.0,
+          1379.0
+        ]
+      ]
+    },
+    {
+      "id": 8,
+      "label": "text",
+      "content": "The above particulars are to be filled in for a rigid frame motor vehicle of two or more axles for an articulated vehicle of three or more axles, or to the extend applicable for trailer, where a second semi-trailer or additional semi-trailer are to be registered with an articulated motor vehicle",
+      "bbox": [
+        141.0,
+        1398.0,
+        1956.0,
+        1550.0
+      ],
+      "polygon": [
+        [
+          141.0,
+          1398.0
+        ],
+        [
+          1956.0,
+          1398.0
+        ],
+        [
+          1956.0,
+          1550.0
+        ],
+        [
+          141.0,
+          1550.0
+        ]
+      ]
+    },
+    {
+      "id": 9,
+      "label": "text",
+      "content": "The following particulars are to be furnished for each semi-trailer",
+      "bbox": [
+        148.0,
+        1585.0,
+        1232.0,
+        1643.0
+      ],
+      "polygon": [
+        [
+          148.0,
+          1585.0
+        ],
+        [
+          1232.0,
+          1585.0
+        ],
+        [
+          1232.0,
+          1643.0
+        ],
+        [
+          148.0,
+          1643.0
+        ]
+      ]
+    },
+    {
+      "id": 10,
+      "label": "text",
+      "content": "34. Type of body",
+      "bbox": [
+        154.0,
+        1655.0,
+        1061.0,
+        1713.0
+      ],
+      "polygon": [
+        [
+          154.0,
+          1655.0
+        ],
+        [
+          1061.0,
+          1655.0
+        ],
+        [
+          1061.0,
+          1713.0
+        ],
+        [
+          154.0,
+          1713.0
+        ]
+      ]
+    },
+    {
+      "id": 11,
+      "label": "text",
+      "content": "35. Unläden weight :",
+      "bbox": [
+        156.0,
+        1701.0,
+        1066.0,
+        1753.0
+      ],
+      "polygon": [
+        [
+          156.0,
+          1701.0
+        ],
+        [
+          1066.0,
+          1701.0
+        ],
+        [
+          1066.0,
+          1753.0
+        ],
+        [
+          156.0,
+          1753.0
+        ]
+      ]
+    },
+    {
+      "id": 12,
+      "label": "text",
+      "content": "36. Number, description and size of tyres on each axle\na) Front axle\nb) Rear axle\nc) Any Other axle\nd) Tandem axle",
+      "bbox": [
+        156.0,
+        1748.0,
+        1124.0,
+        1971.0
+      ],
+      "polygon": [
+        [
+          156.0,
+          1748.0
+        ],
+        [
+          1124.0,
+          1748.0
+        ],
+        [
+          1124.0,
+          1971.0
+        ],
+        [
+          156.0,
+          1971.0
+        ]
+      ]
+    },
+    {
+      "id": 13,
+      "label": "text",
+      "content": "37. Maximum axle weight in (Kg.)\na) Front axle :\nb) Rear axle :\nc) Any Other axle :\nd) Tandem axle :",
+      "bbox": [
+        163.0,
+        1972.0,
+        787.0,
+        2222.0
+      ],
+      "polygon": [
+        [
+          163.0,
+          1972.0
+        ],
+        [
+          787.0,
+          1972.0
+        ],
+        [
+          787.0,
+          2222.0
+        ],
+        [
+          163.0,
+          2222.0
+        ]
+      ]
+    },
+    {
+      "id": 14,
+      "label": "text",
+      "content": "39. Gross Vehicle Weight(kgs)",
+      "bbox": [
+        169.0,
+        2250.0,
+        745.0,
+        2301.0
+      ],
+      "polygon": [
+        [
+          169.0,
+          2250.0
+        ],
+        [
+          745.0,
+          2250.0
+        ],
+        [
+          745.0,
+          2301.0
+        ],
+        [
+          169.0,
+          2301.0
+        ]
+      ]
+    },
+    {
+      "id": 15,
+      "label": "text",
+      "content": "40. The vehicle is covered by a valid certificate of Insurance under Chapter XI of the Act : TATA AIG GENERAL INSURANCE CO. LTD.. Covernote No.-0148135809, Valid From 29-Jun-2024 To 28-Jun-2027",
+      "bbox": [
+        175.0,
+        2297.0,
+        1975.0,
+        2424.0
+      ],
+      "polygon": [
+        [
+          175.0,
+          2297.0
+        ],
+        [
+          1975.0,
+          2297.0
+        ],
+        [
+          1975.0,
+          2424.0
+        ],
+        [
+          175.0,
+          2424.0
+        ]
+      ]
+    },
+    {
+      "id": 16,
+      "label": "text",
+      "content": "1459\nTATA AIG GENERAL INSURANCE CO. LTD..\nCovernote No.-0148135809, Valid From 29-Jun-2024 To 28-Jun-2027",
+      "bbox": [
+        1160.0,
+        2199.0,
+        1969.0,
+        2431.0
+      ],
+      "polygon": [
+        [
+          1160.0,
+          2299.0
+        ],
+        [
+          1171.0,
+          2430.0
+        ],
+        [
+          1968.0,
+          2430.0
+        ],
+        [
+          1968.0,
+          2233.0
+        ],
+        [
+          1903.0,
+          2216.0
+        ],
+        [
+          1379.0,
+          2216.0
+        ],
+        [
+          1323.0,
+          2216.0
+        ],
+        [
+          1281.0,
+          2216.0
+        ],
+        [
+          1182.0,
+          2249.0
+        ]
+      ]
+    },
+    {
+      "id": 17,
+      "label": "text",
+      "content": "41. The vehicle is exempted from Insurance.\nThe relevant order is enclosed.",
+      "bbox": [
+        175.0,
+        2430.0,
+        1075.0,
+        2527.0
+      ],
+      "polygon": [
+        [
+          175.0,
+          2430.0
+        ],
+        [
+          1075.0,
+          2430.0
+        ],
+        [
+          1075.0,
+          2527.0
+        ],
+        [
+          175.0,
+          2527.0
+        ]
+      ]
+    },
+    {
+      "id": 18,
+      "label": "text",
+      "content": "42. I have paid the prescribed fee of :\nrupees.....",
+      "bbox": [
+        176.0,
+        2526.0,
+        1081.0,
+        2623.0
+      ],
+      "polygon": [
+        [
+          176.0,
+          2526.0
+        ],
+        [
+          1081.0,
+          2526.0
+        ],
+        [
+          1081.0,
+          2623.0
+        ],
+        [
+          176.0,
+          2623.0
+        ]
+      ]
+    },
+    {
+      "id": 19,
+      "label": "text",
+      "content": "Date:.....",
+      "bbox": [
+        183.0,
+        2845.0,
+        540.0,
+        2899.0
+      ],
+      "polygon": [
+        [
+          183.0,
+          2845.0
+        ],
+        [
+          540.0,
+          2845.0
+        ],
+        [
+          540.0,
+          2899.0
+        ],
+        [
+          183.0,
+          2899.0
+        ]
+      ]
+    },
+    {
+      "id": 20,
+      "label": "text",
+      "content": "Signature or thumb impression of the dealer",
+      "bbox": [
+        1272.0,
+        2732.0,
+        2011.0,
+        2811.0
+      ],
+      "polygon": [
+        [
+          1272.0,
+          2732.0
+        ],
+        [
+          2011.0,
+          2732.0
+        ],
+        [
+          2011.0,
+          2811.0
+        ],
+        [
+          1272.0,
+          2811.0
+        ]
+      ]
+    },
+    {
+      "id": 21,
+      "label": "seal",
+      "content": "",
+      "bbox": [
+        1654.0,
+        2616.0,
+        1969.0,
+        2946.0
+      ],
+      "polygon": [
+        [
+          1654.0,
+          2616.0
+        ],
+        [
+          1969.0,
+          2616.0
+        ],
+        [
+          1969.0,
+          2946.0
+        ],
+        [
+          1654.0,
+          2946.0
+        ]
+      ]
+    },
+    {
+      "id": 22,
+      "label": "text",
+      "content": "Signature or thumb impression of the owner.",
+      "bbox": [
+        1271.0,
+        2875.0,
+        2004.0,
+        2932.0
+      ],
+      "polygon": [
+        [
+          1271.0,
+          2875.0
+        ],
+        [
+          2004.0,
+          2875.0
+        ],
+        [
+          2004.0,
+          2932.0
+        ],
+        [
+          1271.0,
+          2932.0
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,876 @@
+{
+  "schema_version": "1.0",
+  "input_path": "Vehicle_RC_Altroz_1946_Papers_Page_05_flat.png",
+  "width": 2488.0,
+  "height": 3161.0,
+  "blocks": [
+    {
+      "id": 0,
+      "label": "header",
+      "content": "Mobile No: 9661257878",
+      "bbox": [
+        886.0,
+        82.0,
+        1355.0,
+        137.0
+      ],
+      "polygon": [
+        [
+          886.0,
+          82.0
+        ],
+        [
+          1355.0,
+          82.0
+        ],
+        [
+          1355.0,
+          137.0
+        ],
+        [
+          886.0,
+          137.0
+        ]
+      ]
+    },
+    {
+      "id": 1,
+      "label": "header",
+      "content": "Chassis: MAT632287RLD03767",
+      "bbox": [
+        1584.0,
+        99.0,
+        2195.0,
+        155.0
+      ],
+      "polygon": [
+        [
+          1584.0,
+          99.0
+        ],
+        [
+          2195.0,
+          99.0
+        ],
+        [
+          2195.0,
+          155.0
+        ],
+        [
+          1584.0,
+          155.0
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "label": "text",
+      "content": "above described is :",
+      "bbox": [
+        527.0,
+        147.0,
+        840.0,
+        188.0
+      ],
+      "polygon": [
+        [
+          527.0,
+          147.0
+        ],
+        [
+          840.0,
+          147.0
+        ],
+        [
+          840.0,
+          188.0
+        ],
+        [
+          527.0,
+          188.0
+        ]
+      ]
+    },
+    {
+      "id": 3,
+      "label": "text",
+      "content": "Subject to Hire-Purchase agreement/Lease agreement with",
+      "bbox": [
+        354.0,
+        188.0,
+        1220.0,
+        255.0
+      ],
+      "polygon": [
+        [
+          354.0,
+          188.0
+        ],
+        [
+          1220.0,
+          188.0
+        ],
+        [
+          1220.0,
+          255.0
+        ],
+        [
+          354.0,
+          255.0
+        ]
+      ]
+    },
+    {
+      "id": 4,
+      "label": "text",
+      "content": "Subject to Hypothecation in favour of",
+      "bbox": [
+        338.0,
+        226.0,
+        905.0,
+        276.0
+      ],
+      "polygon": [
+        [
+          338.0,
+          226.0
+        ],
+        [
+          905.0,
+          226.0
+        ],
+        [
+          905.0,
+          276.0
+        ],
+        [
+          338.0,
+          276.0
+        ]
+      ]
+    },
+    {
+      "id": 5,
+      "label": "text",
+      "content": "iii. Not held under Hire-Purchase agreement or Lease agreement or subject to Hypothetical",
+      "bbox": [
+        285.0,
+        262.0,
+        1759.0,
+        346.0
+      ],
+      "polygon": [
+        [
+          298.0,
+          262.0
+        ],
+        [
+          298.0,
+          312.0
+        ],
+        [
+          784.0,
+          312.0
+        ],
+        [
+          785.0,
+          329.0
+        ],
+        [
+          1147.0,
+          345.0
+        ],
+        [
+          1571.0,
+          345.0
+        ],
+        [
+          1584.0,
+          329.0
+        ],
+        [
+          1596.0,
+          279.0
+        ],
+        [
+          1446.0,
+          262.0
+        ],
+        [
+          1397.0,
+          262.0
+        ],
+        [
+          1221.0,
+          262.0
+        ]
+      ]
+    },
+    {
+      "id": 6,
+      "label": "text",
+      "content": "Hypothecation Details: (1) Hypothecation Type :HT, Financier's Name :HDFC BANK LTD\nStrike out whatever is inapplicable. If the vehicle is subject to any such agreement the signature of the Financier with whom such agreement has been entered into is to be obtained.\nSignature of the financier with whom an Agreement of Hire-purchase,\nLease or Hypothecation has been entered into",
+      "bbox": [
+        181.0,
+        328.0,
+        2237.0,
+        495.0
+      ],
+      "polygon": [
+        [
+          181.0,
+          328.0
+        ],
+        [
+          2237.0,
+          328.0
+        ],
+        [
+          2237.0,
+          495.0
+        ],
+        [
+          181.0,
+          495.0
+        ]
+      ]
+    },
+    {
+      "id": 7,
+      "label": "text",
+      "content": "",
+      "bbox": [
+        181.0,
+        550.0,
+        1515.0,
+        672.0
+      ],
+      "polygon": [
+        [
+          181.0,
+          550.0
+        ],
+        [
+          181.0,
+          641.0
+        ],
+        [
+          1514.0,
+          671.0
+        ],
+        [
+          1502.0,
+          566.0
+        ]
+      ]
+    },
+    {
+      "id": 8,
+      "label": "text",
+      "content": "",
+      "bbox": [
+        1841.0,
+        503.0,
+        2276.0,
+        593.0
+      ],
+      "polygon": [
+        [
+          1841.0,
+          503.0
+        ],
+        [
+          2276.0,
+          503.0
+        ],
+        [
+          2276.0,
+          593.0
+        ],
+        [
+          1841.0,
+          593.0
+        ]
+      ]
+    },
+    {
+      "id": 9,
+      "label": "seal",
+      "content": "",
+      "bbox": [
+        1450.0,
+        266.0,
+        1781.0,
+        566.0
+      ],
+      "polygon": [
+        [
+          1450.0,
+          266.0
+        ],
+        [
+          1781.0,
+          266.0
+        ],
+        [
+          1781.0,
+          566.0
+        ],
+        [
+          1450.0,
+          566.0
+        ]
+      ]
+    },
+    {
+      "id": 10,
+      "label": "text",
+      "content": "Signature or thumb impression of. the registered owner",
+      "bbox": [
+        1627.0,
+        579.0,
+        2286.0,
+        681.0
+      ],
+      "polygon": [
+        [
+          1627.0,
+          579.0
+        ],
+        [
+          2286.0,
+          579.0
+        ],
+        [
+          2286.0,
+          681.0
+        ],
+        [
+          1627.0,
+          681.0
+        ]
+      ]
+    },
+    {
+      "id": 11,
+      "label": "paragraph_title",
+      "content": "CERTIFICATE OF INSPECTION OF MOTOR VEHICLE WHOSE BODY HAS BEEN FABRICATED SEPARATELY TO THE PURCHASED CHASSIS",
+      "bbox": [
+        281.0,
+        668.0,
+        2192.0,
+        808.0
+      ],
+      "polygon": [
+        [
+          281.0,
+          668.0
+        ],
+        [
+          294.0,
+          776.0
+        ],
+        [
+          393.0,
+          776.0
+        ],
+        [
+          556.0,
+          792.0
+        ],
+        [
+          906.0,
+          807.0
+        ],
+        [
+          2191.0,
+          792.0
+        ],
+        [
+          2191.0,
+          700.0
+        ],
+        [
+          1967.0,
+          684.0
+        ],
+        [
+          1318.0,
+          700.0
+        ]
+      ]
+    },
+    {
+      "id": 12,
+      "label": "text",
+      "content": "Certified that the particulars contained in the application are true and that the vehicle complies with the requirement of the Motor Vehicle Act and the Rules made there under.",
+      "bbox": [
+        185.0,
+        790.0,
+        2165.0,
+        906.0
+      ],
+      "polygon": [
+        [
+          185.0,
+          790.0
+        ],
+        [
+          185.0,
+          889.0
+        ],
+        [
+          2164.0,
+          889.0
+        ],
+        [
+          2164.0,
+          824.0
+        ],
+        [
+          1866.0,
+          807.0
+        ]
+      ]
+    },
+    {
+      "id": 13,
+      "label": "text",
+      "content": "Date:..........\nRef.No.....",
+      "bbox": [
+        195.0,
+        1150.0,
+        633.0,
+        1255.0
+      ],
+      "polygon": [
+        [
+          195.0,
+          1150.0
+        ],
+        [
+          633.0,
+          1150.0
+        ],
+        [
+          633.0,
+          1255.0
+        ],
+        [
+          195.0,
+          1255.0
+        ]
+      ]
+    },
+    {
+      "id": 14,
+      "label": "paragraph_title",
+      "content": "(FOR OFFICE ENDORSEMENT)",
+      "bbox": [
+        940.0,
+        1282.0,
+        1574.0,
+        1345.0
+      ],
+      "polygon": [
+        [
+          940.0,
+          1282.0
+        ],
+        [
+          1574.0,
+          1282.0
+        ],
+        [
+          1574.0,
+          1345.0
+        ],
+        [
+          940.0,
+          1345.0
+        ]
+      ]
+    },
+    {
+      "id": 15,
+      "label": "text",
+      "content": "The above said motor vehicle has been assigned the Registration number NEW. and registered in the name of the applicant and the vehicle subject to an agreement of Hire-purchase/ Lease/ Hypothecation with the Financier referred above.",
+      "bbox": [
+        199.0,
+        1502.0,
+        2146.0,
+        1600.0
+      ],
+      "polygon": [
+        [
+          199.0,
+          1502.0
+        ],
+        [
+          2146.0,
+          1502.0
+        ],
+        [
+          2146.0,
+          1600.0
+        ],
+        [
+          199.0,
+          1600.0
+        ]
+      ]
+    },
+    {
+      "id": 16,
+      "label": "text",
+      "content": "Date:..........",
+      "bbox": [
+        208.0,
+        1677.0,
+        618.0,
+        1735.0
+      ],
+      "polygon": [
+        [
+          208.0,
+          1677.0
+        ],
+        [
+          618.0,
+          1677.0
+        ],
+        [
+          618.0,
+          1735.0
+        ],
+        [
+          208.0,
+          1735.0
+        ]
+      ]
+    },
+    {
+      "id": 17,
+      "label": "text",
+      "content": "Signature of the Registering Authorit",
+      "bbox": [
+        1562.0,
+        1677.0,
+        2246.0,
+        1740.0
+      ],
+      "polygon": [
+        [
+          1562.0,
+          1677.0
+        ],
+        [
+          2246.0,
+          1677.0
+        ],
+        [
+          2246.0,
+          1740.0
+        ],
+        [
+          1562.0,
+          1740.0
+        ]
+      ]
+    },
+    {
+      "id": 18,
+      "label": "paragraph_title",
+      "content": "(TO BE SENT BY REGISTERED POST ACKNOWLEDGMENT DUE)",
+      "bbox": [
+        603.0,
+        1914.0,
+        1925.0,
+        1975.0
+      ],
+      "polygon": [
+        [
+          603.0,
+          1914.0
+        ],
+        [
+          1925.0,
+          1914.0
+        ],
+        [
+          1925.0,
+          1975.0
+        ],
+        [
+          603.0,
+          1975.0
+        ]
+      ]
+    },
+    {
+      "id": 19,
+      "label": "text",
+      "content": "Specimen signature or thumb-impression of the person to be registered as Registered Owner and Financier are to be obtained in original application for affixing and attestation by the Registering Authority with office seal in Forms 23 and 24 in such a manner that the part of impression of seal or a stamp and attestation shall fall upon each signature.",
+      "bbox": [
+        213.0,
+        1983.0,
+        2276.0,
+        2117.0
+      ],
+      "polygon": [
+        [
+          213.0,
+          1983.0
+        ],
+        [
+          2276.0,
+          1983.0
+        ],
+        [
+          2276.0,
+          2117.0
+        ],
+        [
+          213.0,
+          2117.0
+        ]
+      ]
+    },
+    {
+      "id": 20,
+      "label": "text",
+      "content": "Specimen signature of the Financier",
+      "bbox": [
+        220.0,
+        2196.0,
+        924.0,
+        2249.0
+      ],
+      "polygon": [
+        [
+          220.0,
+          2196.0
+        ],
+        [
+          924.0,
+          2196.0
+        ],
+        [
+          924.0,
+          2249.0
+        ],
+        [
+          220.0,
+          2249.0
+        ]
+      ]
+    },
+    {
+      "id": 21,
+      "label": "text",
+      "content": "(1).....",
+      "bbox": [
+        222.0,
+        2251.0,
+        1186.0,
+        2300.0
+      ],
+      "polygon": [
+        [
+          222.0,
+          2251.0
+        ],
+        [
+          1186.0,
+          2251.0
+        ],
+        [
+          1186.0,
+          2300.0
+        ],
+        [
+          222.0,
+          2300.0
+        ]
+      ]
+    },
+    {
+      "id": 22,
+      "label": "text",
+      "content": "Ripash Kumar",
+      "bbox": [
+        1961.0,
+        2106.0,
+        2429.0,
+        2205.0
+      ],
+      "polygon": [
+        [
+          1961.0,
+          2106.0
+        ],
+        [
+          2429.0,
+          2106.0
+        ],
+        [
+          2429.0,
+          2205.0
+        ],
+        [
+          1961.0,
+          2205.0
+        ]
+      ]
+    },
+    {
+      "id": 23,
+      "label": "text",
+      "content": "(2).....\nSpecimen signature of the Registered Owner",
+      "bbox": [
+        223.0,
+        2294.0,
+        1184.0,
+        2347.0
+      ],
+      "polygon": [
+        [
+          223.0,
+          2294.0
+        ],
+        [
+          1184.0,
+          2294.0
+        ],
+        [
+          1184.0,
+          2347.0
+        ],
+        [
+          223.0,
+          2347.0
+        ]
+      ]
+    },
+    {
+      "id": 24,
+      "label": "text",
+      "content": "",
+      "bbox": [
+        1432.0,
+        2194.0,
+        2283.0,
+        2248.0
+      ],
+      "polygon": [
+        [
+          1432.0,
+          2194.0
+        ],
+        [
+          2283.0,
+          2194.0
+        ],
+        [
+          2283.0,
+          2248.0
+        ],
+        [
+          1432.0,
+          2248.0
+        ]
+      ]
+    },
+    {
+      "id": 25,
+      "label": "text",
+      "content": "(1).....\n(2).....",
+      "bbox": [
+        1338.0,
+        2245.0,
+        2298.0,
+        2324.0
+      ],
+      "polygon": [
+        [
+          1338.0,
+          2245.0
+        ],
+        [
+          2298.0,
+          2245.0
+        ],
+        [
+          2298.0,
+          2324.0
+        ],
+        [
+          1338.0,
+          2324.0
+        ]
+      ]
+    },
+    {
+      "id": 26,
+      "label": "text",
+      "content": "(2).....",
+      "bbox": [
+        1332.0,
+        2283.0,
+        2279.0,
+        2339.0
+      ],
+      "polygon": [
+        [
+          1332.0,
+          2297.0
+        ],
+        [
+          1332.0,
+          2338.0
+        ],
+        [
+          2278.0,
+          2338.0
+        ],
+        [
+          2278.0,
+          2311.0
+        ],
+        [
+          2254.0,
+          2297.0
+        ]
+      ]
+    },
+    {
+      "id": 27,
+      "label": "footer_image",
+      "content": "",
+      "bbox": [
+        1990.0,
+        2620.0,
+        2429.0,
+        2745.0
+      ],
+      "polygon": [
+        [
+          1990.0,
+          2620.0
+        ],
+        [
+          2429.0,
+          2620.0
+        ],
+        [
+          2429.0,
+          2745.0
+        ],
+        [
+          1990.0,
+          2745.0
+        ]
+      ]
+    }
+  ]
+}

@@ -64,3 +64,6 @@ def test_form_markup_and_blanks_are_cleaned_but_currency_stays():
     assert clean_vl_text("Company: ___ Date: _____") == "Company: Date:"
     assert clean_vl_text("a gift of more than $100 in value") == "a gift of more than $100 in value"
     assert clean_vl_text("file_name stays") == "file_name stays"
+    assert clean_vl_text(" $ a_{x} $") == "ax"
+    assert clean_vl_text(" $ \\frac{1}{6110126} $") == "1/6110126"
+    assert clean_vl_text("costs $5 or {x} $6") == "costs $5 or {x} $6"

@@ -24,7 +24,7 @@ from .labels import TABLE_LABELS
 from .line_geometry import measure_glyph, measure_line, ordered_quad, pixel_lines, quad_height
 from .line_fit import refit_page
 from .page_model import Block, Line, Page, Picture
-from .reconcile import LinePlacement, order_lines, reconcile, split_text_to_lines, vl_wording
+from .reconcile import MIN_ORPHAN_SCORE, LinePlacement, order_lines, reconcile, split_text_to_lines, vl_wording
 from .render_model import TARGET_PAGE_WIDTH_PT as PAGE_WIDTH_PT
 from .schemas import PageLayout, PageLines, TextLine
 from .straighten import straighten_page
@@ -34,7 +34,6 @@ logger = logging.getLogger(__name__)
 
 MERGED_PITCH_RATIO = 1.7         # a quad this many pitches tall holds several lines
 MIN_PIXEL_LINE_HEIGHT_RATIO = 0.75  # of the block's typical line height
-MIN_ORPHAN_SCORE = 0.8
 FALLBACK_BASELINE_FRAC = 0.78    # of a quad's height, when its ink can't be measured
 FALLBACK_X_HEIGHT_FRAC = 0.42
 DROP_CAP_HEIGHT_RATIO = 2.2      # a drop cap's quad vs the block's typical line quad
@@ -268,18 +267,21 @@ def build_page(layout: PageLayout, image: Image.Image, page_lines: PageLines | N
     next_id = max((b.id for b in layout.blocks), default=0) + 1
     first_orphan_id = next_id
     contents = [b.content for b in layout.blocks if b.content]
-    drawn = ["".join(" ".join(l.text for l in b.lines).split()).lower() for b in page.blocks]
+    drawn = [(b.bbox, "".join(" ".join(l.text for l in b.lines).split()).lower()) for b in page.blocks]
     for orphan in (rec.orphans if rec is not None else []):
         text = orphan.text.strip()
         if orphan.score < MIN_ORPHAN_SCORE or len(text) < 2:
             continue
         text = vl_wording(text, contents)
         key = "".join(text.split()).lower()
-        # a line bending out of its block's box: its words are already drawn
-        if any(key in d for d in drawn):
-            continue
         xs, ys = [p[0] for p in orphan.polygon], [p[1] for p in orphan.polygon]
         box = (min(xs), min(ys), max(xs), max(ys))
+        # a line bending out of its block's box: its words are already drawn
+        # there (the same words elsewhere on the page are a separate print)
+        h = box[3] - box[1]
+        near = (box[0] - h, box[1] - h, box[2] + h, box[3] + h)
+        if any(key in d for bb, d in drawn if _overlaps(bb, near, 1e-6)):
+            continue
         # a quad narrower than it is tall is not a horizontal text line
         if box[2] - box[0] < box[3] - box[1]:
             continue

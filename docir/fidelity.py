@@ -11,7 +11,8 @@ resampling) and compared ink-to-ink per text block:
 "Near" is a tolerance of ~0.3 x-height, so a faithful re-typeset in a close
 substitute font scores ~1 while misplaced lines, wrong sizes, or wrong line
 breaks do not. Picture blocks are masked out; rendered ink outside every
-text block ("stray" ink) also counts against page precision.
+text block where the source has none ("stray" ink) also counts against
+page precision.
 """
 
 from __future__ import annotations
@@ -31,6 +32,7 @@ TOLERANCE_X_HEIGHT_FRAC = 0.3
 MIN_TOLERANCE_PX = 1
 BLOCK_PAD_FRAC = 0.25       # of the block's x-height (or height); catches slight overflow
 STRAY_INK_DELTA = 80        # gray levels darker than the page background counted as ink
+STRAY_TOLERANCE_PX = 3      # rendered ink this close to dark source pixels is not stray
 
 
 @dataclass
@@ -181,7 +183,10 @@ def _compare(layout: PageLayout, source: Image.Image, rendered: Image.Image) -> 
 
     gray = np.asarray(rendered.convert("L"), dtype=np.int16)
     background = int(np.median(gray))
-    stray = (background - gray > STRAY_INK_DELTA) & ~covered & ~pictures
+    src_gray = np.asarray(source.convert("L"), dtype=np.int16)
+    # rules, panels and bars printed outside text blocks are matched, not stray
+    src_dark = _dilate(int(np.median(src_gray)) - src_gray > STRAY_INK_DELTA, STRAY_TOLERANCE_PX)
+    stray = (background - gray > STRAY_INK_DELTA) & ~src_dark & ~covered & ~pictures
     return _Comparison(src_all, ren_all, m_src, m_ren, covered, stray, scores)
 
 

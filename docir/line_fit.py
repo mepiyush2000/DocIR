@@ -23,6 +23,8 @@ from .page_model import Block
 OVERFLOW_TRIGGER_LOG = math.log(1.15)
 UNDERFILL_TRIGGER_LOG = math.log(0.55)  # a slot left mostly empty (stray word)
 OVERFLOW_WEIGHT = 4.0            # overflow collides with neighbours; slack only spaces out
+SIZE_CLASS_RATIO = 1.25          # a line whose x-height is this much larger is set in a larger size
+SIZE_CLASS_MAX_RATIO = 1.6       # ... beyond this it is a mis-measurement (lines merged), not a size
 
 
 def _pieces(texts: list[str]) -> tuple[list[str], list[bool]]:
@@ -53,6 +55,19 @@ def _join(words: list[str], spaced: list[bool]) -> str:
     return out
 
 
+def _targets(lines) -> list[float]:
+    """Each slot's width in block-size text: a line printed clearly larger
+    than the block's typical line holds proportionally fewer characters
+    per pixel."""
+    med = float(np.median([l.x_height for l in lines]))
+    out = []
+    for l in lines:
+        r = l.x_height / med if med > 0 else 1.0
+        scaled = SIZE_CLASS_RATIO <= r <= SIZE_CLASS_MAX_RATIO
+        out.append(l.length / r if scaled else l.length)
+    return out
+
+
 def refit_block(block: Block) -> bool:
     """Re-flow the block's words through its slots if some line misfits
     and the re-flow fits better. Returns whether it changed anything."""
@@ -67,7 +82,8 @@ def refit_block(block: Block) -> bool:
         return font_catalog.string_width(text, face.name, size) * hz
 
     current = [natural(l.text) for l in lines]
-    ratios = [math.log(max(n, 1e-6) / max(l.length, 1e-6)) for n, l in zip(current, lines)]
+    targets = _targets(lines)
+    ratios = [math.log(max(n, 1e-6) / max(t, 1e-6)) for n, t in zip(current, targets)]
     # the last line of a paragraph is legitimately short
     if not any(r > OVERFLOW_TRIGGER_LOG for r in ratios) and \
             not any(r < UNDERFILL_TRIGGER_LOG for r in ratios[:-1]):
@@ -92,7 +108,7 @@ def refit_block(block: Block) -> bool:
     back = np.zeros((n + 1, m + 1), dtype=int)
     best[0][0] = 0.0
     for k in range(1, n + 1):
-        target = lines[k - 1].length
+        target = targets[k - 1]
         for j in range(k, m - (n - k) + 1):
             for i in range(k - 1, j):
                 if best[k - 1][i] == inf:
@@ -102,7 +118,7 @@ def refit_block(block: Block) -> bool:
                     best[k][j], back[k][j] = c, i
     if best[n][m] == inf:
         return False
-    old = sum(_line_cost(c, l.length) for c, l in zip(current, lines))
+    old = sum(_line_cost(c, t) for c, t in zip(current, targets))
     if best[n][m] >= old:
         return False
     cuts, j = [], m

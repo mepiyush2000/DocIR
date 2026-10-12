@@ -61,6 +61,13 @@ def test_picture_regions_are_ignored_and_stray_ink_counts():
     assert report.precision < 0.9
 
 
+def test_ink_printed_in_the_source_is_not_stray():
+    src = _page([(50, 50)])
+    ImageDraw.Draw(src).rectangle((10, 200, 390, 260), fill=(10, 30, 120))   # a footer bar
+    report = score_images(_layout([TEXT]), src, src.copy())
+    assert report.stray_ink == 0
+
+
 def test_mismatched_sizes_rejected():
     with pytest.raises(ValueError):
         score_images(_layout([TEXT]), _page([]), Image.new("RGB", (W + 1, H), "white"))

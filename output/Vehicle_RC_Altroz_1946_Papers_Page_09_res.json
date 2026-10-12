@@ -1,0 +1,278 @@
+{
+  "input_path": "Vehicle_RC_Altroz_1946_Papers_Page_09.jpg",
+  "page_index": null,
+  "page_count": null,
+  "width": 2364,
+  "height": 3191,
+  "model_settings": {
+    "use_doc_preprocessor": false,
+    "use_layout_detection": true,
+    "use_chart_recognition": false,
+    "use_seal_recognition": false,
+    "use_ocr_for_image_block": false,
+    "format_block_content": false,
+    "merge_layout_blocks": true,
+    "markdown_ignore_labels": [
+      "number",
+      "footnote",
+      "header",
+      "header_image",
+      "footer",
+      "footer_image",
+      "aside_text"
+    ],
+    "return_layout_polygon_points": true
+  },
+  "parsing_res_list": [
+    {
+      "block_label": "figure_title",
+      "block_content": "Tax Invoice",
+      "block_bbox": [
+        953,
+        366,
+        1166,
+        413
+      ],
+      "block_id": 0,
+      "block_order": null,
+      "group_id": 0,
+      "block_polygon_points": [
+        [
+          953.0,
+          366.0
+        ],
+        [
+          1166.0,
+          366.0
+        ],
+        [
+          1166.0,
+          413.0
+        ],
+        [
+          953.0,
+          413.0
+        ]
+      ]
+    },
+    {
+      "block_label": "table",
+      "block_content": "<table><tr><td rowspan=\"3\" colspan=\"2\">Sagar Motors [NOIDA]\nB-123, Sector-5, Noida 201301\n| C-1, Sector-8, Noida 201301\nGSTIN/UIN: 09ACVFS4777R1ZK\nState Name : Uttar Pradesh, Code : 09\nE-Mail : crmsales@sagarmotors.co.in</td><td colspan=\"2\">Invoice No.\nISGND63242500922</td><td>Dated\n29-Jun-24</td></tr><tr><td colspan=\"3\">Hypothecation : HDFC BANK LTD</td></tr><tr><td colspan=\"3\">Purchase Order No. :\nDate :</td></tr><tr><td colspan=\"2\">Buyer (Bill to)\nPIYUSH KUMAR\nLM-516, SUPERTECH ECOCITI, SECTOR-137, NOIDA\nGAUTAM BUDDHA NAGAR UP-201305\n9661257878\nPAN/IT No : JUCPK1324N\nState Name : Uttar Pradesh, Code : 09</td><td colspan=\"3\">Consignee (Ship to)\nPIYUSH KUMAR\nLM-516, SUPERTECH ECOCITI, SECTOR-137, NOIDA\nGAUTAM BUDDHA NAGAR UP-201305\n9661257878\nState Name : Uttar Pradesh, Code : 09</td></tr><tr><td>SI\nNo.</td><td>Particulars</td><td>HSN/SAC</td><td>Quantity</td><td>Amount</td></tr><tr><td>1</td><td>One Unit of TATA Vehicle (as per the below details)\nChassis Number : MAT632287RLD03767\nEngine Number : REVTRN20DVXM71764\nModel : Altroz\nVariant : Altroz XM+ 1.2 P\nColor : ARCADE_GREY\nFuel Type : Petrol\nEmission : BS6PH2</td><td>87032299</td><td>1 NOS</td><td>5,89,069.76</td></tr><tr><td rowspan=\"4\"></td><td rowspan=\"4\">Less :Concession\nPrice after Concession\nOutput SGST @ 14%\nOutput CGST @ 14%\nOUTPUT GST CESS 1%\nTotal GST &amp; Cess\nPrice after GST</td><td rowspan=\"4\"></td><td rowspan=\"4\"></td><td>(-)32,164.33\n5,56,905.43</td></tr><tr><td>77,966.76\n77,966.76\n5,569.05</td></tr><tr><td>1,61,502.57</td></tr><tr><td>7,18,408.00</td></tr><tr><td></td><td>Grand Total</td><td>1 NOS</td><td colspan=\"2\">\u20b9 7,18,408.00</td></tr><tr><td colspan=\"2\">Amount (in words)\nINR Seven Lakh Eighteen Thousand Four\nHundred Eight Only</td><td colspan=\"3\">E &amp; O.E</td></tr></table>",
+      "block_bbox": [
+        216,
+        407,
+        1938,
+        3020
+      ],
+      "block_id": 1,
+      "block_order": null,
+      "group_id": 1,
+      "block_polygon_points": [
+        [
+          216.0,
+          407.0
+        ],
+        [
+          1938.0,
+          407.0
+        ],
+        [
+          1938.0,
+          3020.0
+        ],
+        [
+          216.0,
+          3020.0
+        ]
+      ]
+    },
+    {
+      "block_label": "seal",
+      "block_content": "",
+      "block_bbox": [
+        1639,
+        2631,
+        1954,
+        2868
+      ],
+      "block_id": 2,
+      "block_order": 1,
+      "group_id": 2,
+      "block_polygon_points": [
+        [
+          1639.0,
+          2631.0
+        ],
+        [
+          1954.0,
+          2631.0
+        ],
+        [
+          1954.0,
+          2868.0
+        ],
+        [
+          1639.0,
+          2868.0
+        ]
+      ]
+    },
+    {
+      "block_label": "footer",
+      "block_content": "This is a Computer Generated Invoice",
+      "block_bbox": [
+        796,
+        3053,
+        1276,
+        3093
+      ],
+      "block_id": 3,
+      "block_order": null,
+      "group_id": 3,
+      "block_polygon_points": [
+        [
+          796.0,
+          3053.0
+        ],
+        [
+          1276.0,
+          3053.0
+        ],
+        [
+          1276.0,
+          3093.0
+        ],
+        [
+          796.0,
+          3093.0
+        ]
+      ]
+    }
+  ],
+  "layout_det_res": {
+    "input_path": null,
+    "page_index": null,
+    "boxes": [
+      {
+        "cls_id": 7,
+        "label": "figure_title",
+        "score": 0.48817023634910583,
+        "coordinate": [
+          953,
+          366,
+          1166,
+          413
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            953.0,
+            366.0
+          ],
+          [
+            1166.0,
+            366.0
+          ],
+          [
+            1166.0,
+            413.0
+          ],
+          [
+            953.0,
+            413.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 21,
+        "label": "table",
+        "score": 0.9601563811302185,
+        "coordinate": [
+          216,
+          407,
+          1938,
+          3020
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            216.0,
+            407.0
+          ],
+          [
+            1938.0,
+            407.0
+          ],
+          [
+            1938.0,
+            3020.0
+          ],
+          [
+            216.0,
+            3020.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 20,
+        "label": "seal",
+        "score": 0.6793997883796692,
+        "coordinate": [
+          1639,
+          2631,
+          1954,
+          2868
+        ],
+        "order": 1,
+        "polygon_points": [
+          [
+            1639.0,
+            2631.0
+          ],
+          [
+            1954.0,
+            2631.0
+          ],
+          [
+            1954.0,
+            2868.0
+          ],
+          [
+            1639.0,
+            2868.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 8,
+        "label": "footer",
+        "score": 0.6574909687042236,
+        "coordinate": [
+          796,
+          3053,
+          1276,
+          3093
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            796.0,
+            3053.0
+          ],
+          [
+            1276.0,
+            3053.0
+          ],
+          [
+            1276.0,
+            3093.0
+          ],
+          [
+            796.0,
+            3093.0
+          ]
+        ]
+      }
+    ]
+  }
+}

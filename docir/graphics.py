@@ -30,6 +30,8 @@ SEGMENT_FRAC = 0.12           # long rules are fitted in pieces this long (page 
 DASH_GAP_FRAC = 0.006         # gaps this short (page width) between dashes are bridged
 RULE_MIN_DARKNESS = 0.5       # a rule is at least half as dark as the page's text (vs paper)
 INK_PERCENTILE = 10           # of the page's dark pixels: its text ink
+TEXTURE_BAND_THICK = 3        # side bands checked for texture, in max rule thicknesses
+TEXTURE_SIDE_INK = 0.2        # inked share of both side bands: a stroke inside hatching
 ADAPTIVE_BLOCK_FRAC = 0.02
 ADAPTIVE_C = 12
 
@@ -120,6 +122,18 @@ def _plausible_rule(page: Page, bbox, w: int, h: int) -> bool:
     return True
 
 
+def _in_texture(ink: np.ndarray, x: int, y: int, bw: int, bh: int, horizontal: bool, band: int) -> bool:
+    """Ink on both sides of a stroke: one stroke of hatching or a pencil
+    rubbing that closing joined into a long line, not a printed rule (which
+    has paper on at least one side)."""
+    h, w = ink.shape
+    if horizontal:
+        sides = [ink[max(0, y - band):y, x:x + bw], ink[y + bh:min(h, y + bh + band), x:x + bw]]
+    else:
+        sides = [ink[y:y + bh, max(0, x - band):x], ink[y:y + bh, x + bw:min(w, x + bw + band)]]
+    return all(s.size and s.mean() >= TEXTURE_SIDE_INK for s in sides)
+
+
 def _paper_and_ink(gray: np.ndarray) -> tuple[float, float]:
     """The page's paper and text-ink grey levels. Ink is the dark end of the
     Otsu dark class: grey patterns and shading fill the rest of it."""
@@ -155,6 +169,8 @@ def detect_rules(page: Page, image: Image.Image) -> list[Graphic]:
             if extent < length or area / extent > max_thick or extent * extent / area < MIN_RULE_ASPECT:
                 continue
             if not _plausible_rule(page, (x, y, x + bw, y + bh), w, h):
+                continue
+            if _in_texture(ink, x, y, bw, bh, horizontal, TEXTURE_BAND_THICK * max_thick):
                 continue
             comp = labels[y:y + bh, x:x + bw] == i
             # faint lines (security patterns, show-through) aren't drawn

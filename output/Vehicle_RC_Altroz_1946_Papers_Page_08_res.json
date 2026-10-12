@@ -1,0 +1,379 @@
+{
+  "input_path": "Vehicle_RC_Altroz_1946_Papers_Page_08_flat.png",
+  "page_index": null,
+  "page_count": null,
+  "width": 2232,
+  "height": 3019,
+  "model_settings": {
+    "use_doc_preprocessor": false,
+    "use_layout_detection": true,
+    "use_chart_recognition": false,
+    "use_seal_recognition": false,
+    "use_ocr_for_image_block": false,
+    "format_block_content": false,
+    "merge_layout_blocks": true,
+    "markdown_ignore_labels": [
+      "number",
+      "footnote",
+      "header",
+      "header_image",
+      "footer",
+      "footer_image",
+      "aside_text"
+    ],
+    "return_layout_polygon_points": true
+  },
+  "parsing_res_list": [
+    {
+      "block_label": "text",
+      "block_content": "TRIPPLICATE FOR SUPPLIER",
+      "block_bbox": [
+        1433,
+        1,
+        1948,
+        50
+      ],
+      "block_id": 0,
+      "block_order": 1,
+      "group_id": 0,
+      "block_polygon_points": [
+        [
+          1433.0,
+          1.0
+        ],
+        [
+          1948.0,
+          1.0
+        ],
+        [
+          1948.0,
+          50.0
+        ],
+        [
+          1433.0,
+          50.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Tax Payable under Reverse Charge basis = No\nI confirm having taken delivery of vehicle mentioned above for\ndelivering the same to BAGAR MOTORS against GC note no ___\nand transporter name TRANSPORT CORPORATION OF INDIA LIMITED and transporter code: 165721\nShip no: 8178746 Delivery No: 8082584161 Truck No:\nTerms Of Sale: On product covered in this invoice, if payment has not been made\nfor any reason, the Company, till the payment is made, will have the lien of an unpaid seller as provided by law.",
+      "block_bbox": [
+        247,
+        2261,
+        1840,
+        2592
+      ],
+      "block_id": 1,
+      "block_order": 2,
+      "group_id": 1,
+      "block_polygon_points": [
+        [
+          245.86228942871094,
+          2277.043212890625
+        ],
+        [
+          1833.294677734375,
+          2216.760986328125
+        ],
+        [
+          1845.21875,
+          2530.763916015625
+        ],
+        [
+          257.786376953125,
+          2591.046142578125
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "This document is digitally signed",
+      "block_bbox": [
+        1477,
+        2581,
+        1926,
+        2632
+      ],
+      "block_id": 2,
+      "block_order": 3,
+      "group_id": 2,
+      "block_polygon_points": [
+        [
+          1477.0,
+          2581.0
+        ],
+        [
+          1926.0,
+          2581.0
+        ],
+        [
+          1926.0,
+          2632.0
+        ],
+        [
+          1477.0,
+          2632.0
+        ]
+      ]
+    },
+    {
+      "block_label": "text",
+      "block_content": "Office Floor 3 4 Plot 18 Nanavati Mahalaya Mudhana Shetty Marq BSE Fort Mumbai - 400 001",
+      "block_bbox": [
+        406,
+        2928,
+        2057,
+        3018
+      ],
+      "block_id": 3,
+      "block_order": 4,
+      "group_id": 3,
+      "block_polygon_points": [
+        [
+          2056.0,
+          2928.0
+        ],
+        [
+          1065.0,
+          2973.0
+        ],
+        [
+          752.0,
+          2988.0
+        ],
+        [
+          462.0,
+          3003.0
+        ],
+        [
+          462.0,
+          3017.0
+        ],
+        [
+          1343.0,
+          3017.0
+        ],
+        [
+          1344.0,
+          3002.0
+        ],
+        [
+          1978.0,
+          2972.0
+        ],
+        [
+          2056.0,
+          2957.0
+        ]
+      ]
+    },
+    {
+      "block_label": "aside_text",
+      "block_content": "1",
+      "block_bbox": [
+        2117,
+        2093,
+        2152,
+        2189
+      ],
+      "block_id": 4,
+      "block_order": null,
+      "group_id": 4,
+      "block_polygon_points": [
+        [
+          2117.0,
+          2093.0
+        ],
+        [
+          2152.0,
+          2093.0
+        ],
+        [
+          2152.0,
+          2189.0
+        ],
+        [
+          2117.0,
+          2189.0
+        ]
+      ]
+    }
+  ],
+  "layout_det_res": {
+    "input_path": null,
+    "page_index": null,
+    "boxes": [
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.3834092915058136,
+        "coordinate": [
+          1433,
+          1,
+          1948,
+          50
+        ],
+        "order": 1,
+        "polygon_points": [
+          [
+            1433.0,
+            1.0
+          ],
+          [
+            1948.0,
+            1.0
+          ],
+          [
+            1948.0,
+            50.0
+          ],
+          [
+            1433.0,
+            50.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.3334765136241913,
+        "coordinate": [
+          247,
+          2261,
+          1840,
+          2592
+        ],
+        "order": 2,
+        "polygon_points": [
+          [
+            245.86228942871094,
+            2277.043212890625
+          ],
+          [
+            1833.294677734375,
+            2216.760986328125
+          ],
+          [
+            1845.21875,
+            2530.763916015625
+          ],
+          [
+            257.786376953125,
+            2591.046142578125
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.3005582392215729,
+        "coordinate": [
+          1477,
+          2581,
+          1926,
+          2632
+        ],
+        "order": 3,
+        "polygon_points": [
+          [
+            1477.0,
+            2581.0
+          ],
+          [
+            1926.0,
+            2581.0
+          ],
+          [
+            1926.0,
+            2632.0
+          ],
+          [
+            1477.0,
+            2632.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 22,
+        "label": "text",
+        "score": 0.3035687804222107,
+        "coordinate": [
+          406,
+          2928,
+          2057,
+          3018
+        ],
+        "order": 4,
+        "polygon_points": [
+          [
+            2056.0,
+            2928.0
+          ],
+          [
+            1065.0,
+            2973.0
+          ],
+          [
+            752.0,
+            2988.0
+          ],
+          [
+            462.0,
+            3003.0
+          ],
+          [
+            462.0,
+            3017.0
+          ],
+          [
+            1343.0,
+            3017.0
+          ],
+          [
+            1344.0,
+            3002.0
+          ],
+          [
+            1978.0,
+            2972.0
+          ],
+          [
+            2056.0,
+            2957.0
+          ]
+        ]
+      },
+      {
+        "cls_id": 2,
+        "label": "aside_text",
+        "score": 0.332954466342926,
+        "coordinate": [
+          2117,
+          2093,
+          2152,
+          2189
+        ],
+        "order": null,
+        "polygon_points": [
+          [
+            2117.0,
+            2093.0
+          ],
+          [
+            2152.0,
+            2093.0
+          ],
+          [
+            2152.0,
+            2189.0
+          ],
+          [
+            2117.0,
+            2189.0
+          ]
+        ]
+      }
+    ]
+  }
+}

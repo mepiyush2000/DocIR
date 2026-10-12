@@ -40,9 +40,35 @@ def _bbox(poly):
     return min(xs), min(ys), max(xs), max(ys)
 
 
+def _text_angle(polygons: list) -> float:
+    """Median direction (radians) of quadrilateral line polygons (tl, tr,
+    br, bl), weighted by length; 0 when the polygons are not quads."""
+    angles, weights = [], []
+    for p in polygons:
+        if len(p) != 4:
+            return 0.0
+        lx, ly = (p[0][0] + p[3][0]) / 2, (p[0][1] + p[3][1]) / 2
+        rx, ry = (p[1][0] + p[2][0]) / 2, (p[1][1] + p[2][1]) / 2
+        if rx - lx <= 0:
+            continue
+        angles.append(np.arctan2(ry - ly, rx - lx))
+        weights.append(rx - lx)
+    if not angles:
+        return 0.0
+    order = np.argsort(angles)
+    cum = np.cumsum(np.asarray(weights)[order])
+    return float(np.asarray(angles)[order][np.searchsorted(cum, cum[-1] / 2)])
+
+
 def group_rows(polygons: list) -> list[list[int]]:
-    """Indices of `polygons` grouped into rows (top to bottom, left to right)."""
-    boxes = [_bbox(p) for p in polygons]
+    """Indices of `polygons` grouped into rows (top to bottom, left to right).
+
+    Rows are found in a frame aligned with the text direction: on a slightly
+    tilted page a long line's axis-aligned box is taller than the gap to
+    the next line, which would merge consecutive lines into one row."""
+    a = _text_angle(polygons)
+    c, s = np.cos(-a), np.sin(-a)
+    boxes = [_bbox([(x * c - y * s, x * s + y * c) for x, y in p]) for p in polygons]
     order = sorted(range(len(boxes)), key=lambda i: (boxes[i][1] + boxes[i][3]) / 2)
     rows: list[list[int]] = []
     for i in order:

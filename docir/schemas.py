@@ -16,8 +16,10 @@ SCHEMA_VERSION = "1.0"
 # VL writes some glyphs as markup: a footnote star as `$ ^{*} $` (attached
 # to the word before it), and in-cell line breaks as a literal backslash-n
 _INLINE_SCRIPT = re.compile(r"[ \t]*\$\s*[\^_]\s*\{+\s*([^{}$]{1,8}?)\s*\}+\s*\$")
-# other inline math holding formatting commands, e.g. `$ \underline{\text{PO Box 1}} $`
-_INLINE_MATH = re.compile(r"\$([^$]*\\[A-Za-z]+[^$]*)\$")
+# other inline math holding commands or braced scripts, e.g. `$ \underline{\text{PO Box 1}} $`,
+# `$ a_{x} $`, `$ \frac{1}{6} $` (handwriting the VL model read as a formula)
+_INLINE_MATH = re.compile(r"\$\s([^$]*[\\{][^$]*)\$")
+_FRACTION = re.compile(r"\\[dt]?frac\s*\{([^{}]*)\}\s*\{([^{}]*)\}")
 _TEX_COMMAND = re.compile(r"\\[A-Za-z]+\*?")
 # fill-in blanks: VL writes a form's empty lines as runs of underscores (the
 # lines themselves are drawn as graphics)
@@ -25,7 +27,9 @@ _BLANK = re.compile(r"_{2,}")
 
 
 def _math_text(m: re.Match) -> str:
-    return " ".join(re.sub(r"[{}]", "", _TEX_COMMAND.sub("", m.group(1))).split())
+    text = _FRACTION.sub(r"\1/\2", m.group(1))
+    text = re.sub(r"[\^_](?=\s*\{)", "", _TEX_COMMAND.sub("", text))
+    return " ".join(re.sub(r"[{}]", "", text).split())
 
 
 def clean_vl_text(text: str) -> str:

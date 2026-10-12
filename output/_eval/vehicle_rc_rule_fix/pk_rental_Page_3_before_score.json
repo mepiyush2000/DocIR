@@ -1,0 +1,198 @@
+{
+  "precision": 0.9555,
+  "recall": 0.8934,
+  "f1": 0.9234,
+  "stray_ink": 33,
+  "blocks": [
+    {
+      "block_id": 0,
+      "label": "text",
+      "precision": 0.8682,
+      "recall": 0.8345,
+      "f1": 0.851,
+      "source_ink": 40607,
+      "rendered_ink": 32700,
+      "tolerance_px": 7
+    },
+    {
+      "block_id": 1,
+      "label": "text",
+      "precision": 0.954,
+      "recall": 0.9797,
+      "f1": 0.9666,
+      "source_ink": 52019,
+      "rendered_ink": 52438,
+      "tolerance_px": 9
+    },
+    {
+      "block_id": 2,
+      "label": "text",
+      "precision": 0.9606,
+      "recall": 0.8455,
+      "f1": 0.8994,
+      "source_ink": 17053,
+      "rendered_ink": 11574,
+      "tolerance_px": 6
+    },
+    {
+      "block_id": 3,
+      "label": "text",
+      "precision": 0.9402,
+      "recall": 0.8471,
+      "f1": 0.8912,
+      "source_ink": 11828,
+      "rendered_ink": 8056,
+      "tolerance_px": 6
+    },
+    {
+      "block_id": 4,
+      "label": "text",
+      "precision": 0.9361,
+      "recall": 0.8777,
+      "f1": 0.9059,
+      "source_ink": 14670,
+      "rendered_ink": 10712,
+      "tolerance_px": 6
+    },
+    {
+      "block_id": 5,
+      "label": "text",
+      "precision": 0.9471,
+      "recall": 0.8938,
+      "f1": 0.9197,
+      "source_ink": 28899,
+      "rendered_ink": 20961,
+      "tolerance_px": 6
+    },
+    {
+      "block_id": 6,
+      "label": "text",
+      "precision": 0.9446,
+      "recall": 0.881,
+      "f1": 0.9117,
+      "source_ink": 43409,
+      "rendered_ink": 30812,
+      "tolerance_px": 6
+    },
+    {
+      "block_id": 7,
+      "label": "text",
+      "precision": 0.955,
+      "recall": 0.8598,
+      "f1": 0.9049,
+      "source_ink": 58882,
+      "rendered_ink": 40471,
+      "tolerance_px": 6
+    },
+    {
+      "block_id": 8,
+      "label": "text",
+      "precision": 0.9992,
+      "recall": 0.9801,
+      "f1": 0.9896,
+      "source_ink": 8793,
+      "rendered_ink": 6393,
+      "tolerance_px": 6
+    },
+    {
+      "block_id": 9,
+      "label": "text",
+      "precision": 0.9815,
+      "recall": 0.8906,
+      "f1": 0.9339,
+      "source_ink": 30416,
+      "rendered_ink": 21194,
+      "tolerance_px": 6
+    },
+    {
+      "block_id": 10,
+      "label": "text",
+      "precision": 0.9976,
+      "recall": 0.9638,
+      "f1": 0.9804,
+      "source_ink": 15961,
+      "rendered_ink": 11220,
+      "tolerance_px": 6
+    },
+    {
+      "block_id": 11,
+      "label": "text",
+      "precision": 0.9873,
+      "recall": 0.921,
+      "f1": 0.953,
+      "source_ink": 22536,
+      "rendered_ink": 15729,
+      "tolerance_px": 6
+    },
+    {
+      "block_id": 12,
+      "label": "text",
+      "precision": 0.9718,
+      "recall": 0.9027,
+      "f1": 0.936,
+      "source_ink": 29168,
+      "rendered_ink": 20140,
+      "tolerance_px": 6
+    },
+    {
+      "block_id": 13,
+      "label": "text",
+      "precision": 0.988,
+      "recall": 0.9072,
+      "f1": 0.9459,
+      "source_ink": 18362,
+      "rendered_ink": 12219,
+      "tolerance_px": 6
+    },
+    {
+      "block_id": 14,
+      "label": "text",
+      "precision": 0.995,
+      "recall": 0.9345,
+      "f1": 0.9638,
+      "source_ink": 23875,
+      "rendered_ink": 15981,
+      "tolerance_px": 6
+    },
+    {
+      "block_id": 15,
+      "label": "text",
+      "precision": 0.9869,
+      "recall": 0.871,
+      "f1": 0.9254,
+      "source_ink": 18013,
+      "rendered_ink": 12024,
+      "tolerance_px": 6
+    },
+    {
+      "block_id": 16,
+      "label": "text",
+      "precision": 0.9887,
+      "recall": 0.8451,
+      "f1": 0.9113,
+      "source_ink": 24520,
+      "rendered_ink": 12781,
+      "tolerance_px": 6
+    },
+    {
+      "block_id": 19,
+      "label": "text",
+      "precision": 0.871,
+      "recall": 0.6377,
+      "f1": 0.7363,
+      "source_ink": 2716,
+      "rendered_ink": 1651,
+      "tolerance_px": 5
+    },
+    {
+      "block_id": 20,
+      "label": "text",
+      "precision": 0.8828,
+      "recall": 0.6418,
+      "f1": 0.7433,
+      "source_ink": 4576,
+      "rendered_ink": 2458,
+      "tolerance_px": 9
+    }
+  ]
+}
