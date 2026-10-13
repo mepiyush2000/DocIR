@@ -194,6 +194,7 @@ def component_boxes(mask: np.ndarray) -> list[tuple[int, int, int, int]]:
 # ---------- text-line geometry ----------
 
 LINE_CORE_FRAC = 0.45  # rows above this fraction of the peak row count are x-height core
+LINE_BRIDGE_FRAC = 0.15  # bands never thinner than this between them are one line's top and bottom
 MIN_STRIP_WIDTH_PX = 60
 MAX_STRIPS = 8
 RULE_RUN_FRAC = 0.3   # an unbroken row of ink this share of a block's width is a rule
@@ -220,7 +221,10 @@ def line_cores(profile: np.ndarray) -> list[tuple[int, int]]:
     max_h = max(e - s for s, e in cores)
     merged = [list(cores[0])]
     for s, e in cores[1:]:
-        if s - merged[-1][1] <= max(1, 0.2 * max_h):
+        # capitals and slab serifs ink a line's top and bottom densely and its
+        # middle thinly; only between lines does the profile (nearly) empty
+        if s - merged[-1][1] <= max(1, 0.2 * max_h) or \
+                profile[merged[-1][1]:s].min() >= LINE_BRIDGE_FRAC * peak:
             merged[-1][1] = e
         else:
             merged.append([s, e])

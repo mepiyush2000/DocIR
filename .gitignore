@@ -6,6 +6,7 @@ __pycache__/
 .eggs/
 build/
 dist/
+.tmp_
 
 # Virtual environment
 .docir_env/
@@ -22,3 +23,4 @@ venv/
 
 # Editor
 .vscode/
+output/

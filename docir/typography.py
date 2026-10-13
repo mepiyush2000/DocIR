@@ -247,7 +247,7 @@ def assign_styles(page: Page, image: Image.Image | None) -> None:
     page_mono = pitch.looks_monospaced(blocks)
     for role, t in traits.items():
         r = pitch.pitch_ratio([b for b in blocks if b.role == role])
-        if (r[0] < pitch.MONO_RATIO) if r else page_mono:
+        if (r[0] < pitch.MONO_RATIO or (page_mono and r[0] < pitch.MONO_AGREE_RATIO)) if r else page_mono:
             traits[role] = RoleTraits(t.bold, t.italic, "monospace")
 
     # the body family: fitted on the role cluster with the most text

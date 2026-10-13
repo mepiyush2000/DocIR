@@ -54,3 +54,20 @@ def test_component_boxes_finds_separate_and_diagonal_components():
     mask[6:9, 6:8] = True
     boxes = sorted(component_boxes(mask))
     assert boxes == [(1, 4, 1, 4), (6, 9, 6, 8)]
+
+
+def _slab_caps_line(y: int, mask: np.ndarray) -> None:
+    """Typewriter capitals: dense serif bars at top and bottom, thin stems between."""
+    for x in range(10, 590, 24):
+        mask[y:y + 3, x:x + 14] = True          # top serifs
+        mask[y + 17:y + 20, x:x + 14] = True    # bottom serifs
+        mask[y:y + 20, x + 2:x + 4] = True      # stems
+        mask[y:y + 20, x + 10:x + 12] = True
+
+
+def test_serif_capitals_are_one_line_each():
+    mask = np.zeros((90, 600), dtype=bool)
+    _slab_caps_line(10, mask)
+    _slab_caps_line(50, mask)
+    stats = measure_text_lines(mask)
+    assert stats.n_lines == 2

@@ -17,6 +17,7 @@ from .page_model import Block
 MIN_CHARS = 12          # shorter lines are too noisy to judge pitch
 MIN_LINES = 6           # pooled lines needed before deciding
 MONO_RATIO = 0.35       # monospace fits this much better than proportional: typewriter
+MONO_AGREE_RATIO = 1.0  # on a typewriter page, a role where monospace still fits better is typed too
 
 
 def pitch_ratio(blocks: list[Block]) -> tuple[float, int] | None:
