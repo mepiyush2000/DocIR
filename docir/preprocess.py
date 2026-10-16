@@ -20,6 +20,7 @@ from functools import lru_cache
 import numpy as np
 from PIL import Image
 
+from .config import paddle_device_kwargs
 from .dewarp import dewarp
 from .ink import binarize_region, estimate_skew
 
@@ -90,14 +91,14 @@ def measure_distortion(image: Image.Image) -> Distortion | None:
 def _orientation_model():
     from paddleocr import DocImgOrientationClassification  # optional dependency
 
-    return DocImgOrientationClassification(model_name="PP-LCNet_x1_0_doc_ori")
+    return DocImgOrientationClassification(model_name="PP-LCNet_x1_0_doc_ori", **paddle_device_kwargs())
 
 
 @lru_cache(maxsize=1)
 def _unwarp_model():
     from paddleocr import TextImageUnwarping  # optional dependency
 
-    return TextImageUnwarping(model_name="UVDoc")
+    return TextImageUnwarping(model_name="UVDoc", **paddle_device_kwargs())
 
 
 def detect_orientation(image_path: str) -> int:

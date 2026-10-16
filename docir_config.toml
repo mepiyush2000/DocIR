@@ -29,3 +29,9 @@ font_size_offset_pt = 0.0
 # Added to every measured font size, in percent of that size (applied with
 # the point offset above). -10 = text 10% smaller than measured.
 font_size_offset_pct = -10.0
+
+[runtime]
+# Device for the Paddle models (layout, line OCR, orientation, unwarping):
+# "auto" uses a GPU when paddlepaddle-gpu finds one, else the CPU;
+# or pin one explicitly, e.g. "gpu:0", "gpu:1", "cpu".
+device = "auto"

@@ -19,6 +19,7 @@ _DEFAULTS: dict = {
     "lines": {"enabled": True},
     "render": {"mode": "lines", "straighten_max_deg": 5.0, "font_size_offset_pt": -1.0,
                "font_size_offset_pct": 0.0},
+    "runtime": {"device": "auto"},
 }
 
 
@@ -72,3 +73,10 @@ def font_size_offset_pt() -> float:
 
 def font_size_offset_pct() -> float:
     return float(load_config()["render"]["font_size_offset_pct"])
+
+
+def paddle_device_kwargs() -> dict:
+    """`device=` for Paddle models ("gpu:0", "cpu", ...); empty for "auto",
+    which lets Paddle use a GPU whenever its CUDA build finds one."""
+    device = str(load_config()["runtime"].get("device", "auto")).strip()
+    return {} if device in ("", "auto") else {"device": device}

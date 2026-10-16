@@ -31,7 +31,9 @@ class PaddleOcrVlEngine:
         if self._pipeline is None:
             from paddleocr import PaddleOCRVL  # optional dependency
 
-            self._pipeline = PaddleOCRVL(pipeline_version=self._pipeline_version)
+            from .config import paddle_device_kwargs
+
+            self._pipeline = PaddleOCRVL(pipeline_version=self._pipeline_version, **paddle_device_kwargs())
         return self._pipeline
 
     def analyze(self, image_path: str) -> PageLayout:
@@ -91,6 +93,8 @@ class PaddleLineOcrEngine:
         if self._pipeline is None:
             from paddleocr import PaddleOCR  # optional dependency
 
+            from .config import paddle_device_kwargs
+
             self._pipeline = PaddleOCR(
                 use_doc_orientation_classify=False, use_doc_unwarping=False,
                 use_textline_orientation=False,
@@ -98,6 +102,7 @@ class PaddleLineOcrEngine:
                 text_recognition_model_name=self._rec_model,
                 # resizing is done here, by text size, not by PaddleX's side limits
                 text_det_limit_side_len=32, text_det_limit_type="min",
+                **paddle_device_kwargs(),
             )
         return self._pipeline
 
