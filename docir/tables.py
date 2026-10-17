@@ -27,10 +27,13 @@ from .labels import TABLE_LABELS
 MIN_TABULAR_ROWS = 2             # rows made of 2+ cells needed to call a block tabular
 MIN_TABULAR_ROW_FRAC = 0.3       # ... and at least this share of its rows
 ROW_OVERLAP_FRAC = 0.5           # fragments sharing this much height are one row
+TALL_BOX_RATIO = 1.6             # boxes taller than this many median line heights span rows
 MAX_CELL_WORDS = 14
 MIN_CELL_MATCH = 0.45            # below this similarity a cell keeps its OCR reading
 SKIP_WORD_COST = 0.05            # small price for leaving a VL word unused
 ROW_BASELINE_TOLERANCE = 1.2     # of the x-height: baselines this close are one row
+CROP_RATIO = 1.5                 # VL text this much longer than a box's reading is cropped to it
+CROP_MIN_CHARS = 3               # ... when the reading is long enough to align
 
 
 # ---------- structure ----------
@@ -69,18 +72,35 @@ def group_rows(polygons: list) -> list[list[int]]:
     a = _text_angle(polygons)
     c, s = np.cos(-a), np.sin(-a)
     boxes = [_bbox([(x * c - y * s, x * s + y * c) for x, y in p]) for p in polygons]
-    order = sorted(range(len(boxes)), key=lambda i: (boxes[i][1] + boxes[i][3]) / 2)
+    if not boxes:
+        return []
+    # a box spanning several rows (a column of tick marks read as one) would
+    # chain them into one row: it joins the row it overlaps most instead
+    line_h = float(np.median([b[3] - b[1] for b in boxes]))
+    tall = {i for i, b in enumerate(boxes) if b[3] - b[1] > TALL_BOX_RATIO * line_h}
+    order = sorted((i for i in range(len(boxes)) if i not in tall), key=lambda i: (boxes[i][1] + boxes[i][3]) / 2)
     rows: list[list[int]] = []
     for i in order:
-        _, y0, _, y1 = boxes[i]
+        x0, y0, x1, y1 = boxes[i]
         if rows:
             r = rows[-1]
             ry0 = min(boxes[j][1] for j in r)
             ry1 = max(boxes[j][3] for j in r)
-            if min(y1, ry1) - max(y0, ry0) >= ROW_OVERLAP_FRAC * min(y1 - y0, ry1 - ry0):
+            # a box under one already in the row is that cell's next line
+            stacked = any(min(x1, boxes[j][2]) - max(x0, boxes[j][0]) > 0 for j in r)
+            if not stacked and min(y1, ry1) - max(y0, ry0) >= ROW_OVERLAP_FRAC * min(y1 - y0, ry1 - ry0):
                 r.append(i)
                 continue
         rows.append([i])
+    for i in sorted(tall, key=lambda i: boxes[i][1]):
+        _, y0, _, y1 = boxes[i]
+        spans = [(min(boxes[j][1] for j in r), max(boxes[j][3] for j in r)) for r in rows]
+        ov = [min(y1, b) - max(y0, a) for a, b in spans]
+        if ov and max(ov) > 0:
+            rows[int(np.argmax(ov))].append(i)
+        else:
+            rows.append([i])
+    rows.sort(key=lambda r: min(boxes[j][1] for j in r))
     return [sorted(r, key=lambda j: boxes[j][0]) for r in rows]
 
 
@@ -282,6 +302,33 @@ def assign_cell_text(cell_ocr: list[str], words: list[str]) -> list[str]:
             continue
         k -= 1
         if kind == "take":
-            out[k] = " ".join(words[prev:j])
+            out[k] = " ".join(_trim_run(cell_ocr[k], words[prev:j]))
         j = prev
     return [t.strip() for t in out]
+
+
+def _trim_run(ocr: str, run: list[str]) -> list[str]:
+    """A cell's VL run without end words that aren't in its reading: taking
+    a neighbour's word costs the DP less than skipping it."""
+    while len(run) > 1:
+        s = _similarity(ocr, " ".join(run))
+        if _similarity(ocr, " ".join(run[1:])) > s:
+            run = run[1:]
+        elif _similarity(ocr, " ".join(run[:-1])) > s:
+            run = run[:-1]
+        else:
+            break
+    return _crop_to_reading(ocr, " ".join(run)).split()
+
+
+def _crop_to_reading(ocr: str, text: str) -> str:
+    """The part of `text` the box's reading covers, when the box holds only
+    part of it (the detector cut a printed line the VL read as one word)."""
+    if len(_norm(ocr)) < CROP_MIN_CHARS or len(_norm(text)) <= CROP_RATIO * len(_norm(ocr)):
+        return text
+    blocks = [b for b in difflib.SequenceMatcher(None, text, ocr, autojunk=False).get_matching_blocks() if b.size]
+    if not blocks:
+        return text
+    start = max(0, blocks[0].a - blocks[0].b)
+    end = min(len(text), blocks[-1].a + blocks[-1].size + len(ocr) - blocks[-1].b - blocks[-1].size)
+    return text[start:end].strip() or text

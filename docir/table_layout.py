@@ -54,6 +54,12 @@ RULE_MIN_DARK_COVER = 0.6     # ... along this much of its length
 RULE_PROJECTION_COVER = 0.45  # a broken vertical rule is inked along this share of the height
 LOOSE_MIN_CHARS = 3           # shorter unmatched fragments are cell parts, not captions
 WRAP_PART_SIM = 0.8           # a fragment this much contained in a cell is one of its lines
+WRAP_ROW_SHARE = 0.5          # a visual row whose text is this much a row's cells wraps that row
+SIZE_GAP_RATIO = 1.15         # sorted text heights jumping by this much start another size
+MAX_MERGED_CELLS = 4          # a detector box may run across this many adjacent cells
+SPLIT_MIN_SIM = 0.75          # ... when it reads as their joined text this well
+SPLIT_GAIN = 0.2              # ... and this much better than as any single cell
+SPLIT_WINDOW_FRAC = 0.15      # a cut moves to the blank gap within this share of the box width
 PAGE_MARGIN_XH = 1.0          # an unruled table's last value stops this far from the page edge
 CAP_HEIGHT_EM = 0.72          # baseline offset below a text line's top, in font sizes
 DESCENT_EM = 0.22             # descenders below the last baseline, in font sizes
@@ -179,14 +185,27 @@ def match_rows(grid: TableGrid, vrows: list[_VRow]) -> dict[int, list[int]]:
 
 def absorb_wrapped_rows(grid: TableGrid, vrows: list[_VRow], matched: dict[int, list[int]]) -> None:
     """Give a matched HTML row the unmatched visual rows next to it whose
-    every fragment is part of that row's cells (the other lines of a
-    wrapped header or label), so they're typeset with it, not as loose text."""
+    text is mostly part of that row's cells (the other lines of a wrapped
+    header or label), so they're typeset with it, not as loose text. OCR
+    specks and text the HTML left out don't block this: such fragments
+    stay loose (see `analyze_table`)."""
     owner = {k: r for r, idx in matched.items() for k in idx}
 
     def part_of(r: int, k: int) -> bool:
         texts = [c.text for c in grid.at(r) if _norm(c.text)]
-        return bool(texts) and all(max(_frag_sim(t, c) for c in texts) >= WRAP_PART_SIM
-                                   for _, t in vrows[k].frags)
+        if not texts:
+            return False
+        frags = [_norm(t) for _, t in vrows[k].frags]
+        # text of its own under the row's first entry starts the next record
+        # (one the HTML left out), however much of it repeats this one's
+        lead_box, _ = min((f for i in matched[r] for f in vrows[i].frags), key=lambda f: f[0][0])
+        lead = min((c for c in grid.at(r) if _norm(c.text)), key=lambda c: c.col).text
+        for (box, _), f in zip(vrows[k].frags, frags):
+            if f and box[0] < lead_box[2] and box[2] > lead_box[0] and _frag_sim(f, lead) < WRAP_PART_SIM:
+                return False
+        inside = sum(len(f) for f in frags if len(f) >= LOOSE_MIN_CHARS
+                     and max(_frag_sim(f, c) for c in texts) >= WRAP_PART_SIM)
+        return inside > 0 and inside >= WRAP_ROW_SHARE * sum(len(f) for f in frags)
 
     changed = True
     while changed:
@@ -228,8 +247,9 @@ def _cell_lefts(grid: TableGrid, r: int, rows: list[_VRow]) -> dict[int, float]:
                 best[i + 1][j], back[i + 1][j] = cur, (i, j, False)
             if i < n and j < m:
                 s = _sim(cells[i].text, frags[j][1])
-                if s > 0.4 and cur + s > best[i + 1][j + 1]:
-                    best[i + 1][j + 1], back[i + 1][j + 1] = cur + s, (i, j, True)
+                # equally good fragments (a wrapped cell's lines): the cell starts at the leftmost
+                if s > 0.4 and cur + s - 1e-6 * j > best[i + 1][j + 1]:
+                    best[i + 1][j + 1], back[i + 1][j + 1] = cur + s - 1e-6 * j, (i, j, True)
     i, j, out = n, max(range(m + 1), key=lambda t: best[n][t]), {}
     while i > 0 or j > 0:
         step = back[i][j]
@@ -314,6 +334,71 @@ def _projected_verticals(ink: np.ndarray, X0: int, Y0: int, x_height: float):
     return segs if len(segs) >= 2 else []
 
 
+def _gap_near(gray: np.ndarray, box, x: float, window: float) -> float | None:
+    """Centre of the widest blank column run of `box` within `window` of x,
+    with ink on both sides (the space between two cells' text), else None."""
+    x0, y0, x1, y1 = (int(round(v)) for v in box)
+    crop = gray[max(0, y0):y1, max(0, x0):x1]
+    if crop.size == 0 or int(crop.max()) - int(crop.min()) < 40:
+        return None
+    t, _ = cv2.threshold(crop, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+    inked = (crop < t).sum(axis=0) > 0
+    lo, hi = int(max(0, x - window - x0)), int(min(len(inked), x + window - x0))
+    runs = [(lo + s, lo + e) for s, e in _runs(~inked[lo:hi])]
+    runs = [(s, e) for s, e in runs if inked[:s].any() and inked[e:].any()]
+    if not runs:
+        return None
+    s, e = max(runs, key=lambda r: r[1] - r[0])
+    return x0 + (s + e) / 2
+
+
+def split_merged_frags(grid: TableGrid, vrows: list[_VRow], matched: dict[int, list[int]],
+                       gray: np.ndarray) -> None:
+    """The detector often boxes adjacent cells as one line ("01/13/25" and
+    "13:22:26" as "01/13/2513:22:26"), which would collapse their columns:
+    a fragment that reads as several consecutive cells of its row far better
+    than as any one of them is cut at the blank gaps between them."""
+    for r, idx in matched.items():
+        cells = sorted((c for c in grid.at(r) if _norm(c.text)), key=lambda c: c.col)
+        if len(cells) < 2:
+            continue
+        for k in idx:
+            frags = []
+            for box, text in vrows[k].frags:
+                frags += _split_frag(box, text, cells, gray)
+            vrows[k].frags = sorted(frags, key=lambda f: f[0][0])
+
+
+def _split_frag(box, text: str, cells, gray: np.ndarray) -> list[tuple]:
+    if len(_norm(text)) < 2 * LOOSE_MIN_CHARS:
+        return [(box, text)]
+    single = max(_sim(c.text, text) for c in cells)
+    best = None
+    for i in range(len(cells)):
+        for n in range(2, MAX_MERGED_CELLS + 1):
+            group = cells[i:i + n]
+            if len(group) < n:
+                break
+            s = _sim("".join(c.text for c in group), text)
+            if s >= SPLIT_MIN_SIM and s >= single + SPLIT_GAIN and (best is None or s > best[0]):
+                best = (s, group)
+    if best is None:
+        return [(box, text)]
+    group = best[1]
+    x0, y0, x1, y1 = box
+    lengths = [len(_norm(c.text)) for c in group]
+    total, acc, edges = sum(lengths), 0, [x0]
+    for n in lengths[:-1]:
+        acc += n
+        gap = _gap_near(gray, box, x0 + (x1 - x0) * acc / total, SPLIT_WINDOW_FRAC * (x1 - x0))
+        if gap is None:
+            return [(box, text)]
+        edges.append(gap)
+    edges.append(x1)
+    return [((edges[i], y0, edges[i + 1], y1), c.text) for i, c in enumerate(group)
+            if edges[i + 1] > edges[i]]
+
+
 def _runs(mask: np.ndarray) -> list[tuple[int, int]]:
     padded = np.concatenate([[False], mask, [False]]).astype(np.int8)
     d = np.diff(padded)
@@ -377,6 +462,7 @@ def analyze_table(grid: TableGrid, bbox, placements, gray: np.ndarray, x_height:
     matched = match_rows(grid, vrows)
     grid = absorb_punctuation(grid, {r: [t for k in idx for _, t in vrows[k].frags] for r, idx in matched.items()})
     absorb_wrapped_rows(grid, vrows, matched)
+    split_merged_frags(grid, vrows, matched, gray)
     tops: list[float | None] = [None] * grid.n_rows
     bots: list[float | None] = [None] * grid.n_rows
     lefts: dict[int, list[float]] = {}
@@ -628,14 +714,22 @@ def _size_scales(layout: TableLayout):
     values = sorted(v for v, _ in layout.frag_xh.values())
     if not values:
         return lambda xh: 1.0
+    # sizes are separated by a gap in the measured heights; a continuous
+    # spread is one size measured noisily
     classes = [[values[0]]]
-    for v in values[1:]:
-        if v / classes[-1][0] > SIZE_CLASS_RATIO:
+    for prev, v in zip(values, values[1:]):
+        if v / prev > SIZE_GAP_RATIO:
             classes.append([v])
         else:
             classes[-1].append(v)
+    merged = [classes[0]]
+    for c in classes[1:]:
+        if np.median(c) / np.median(merged[-1]) < SIZE_CLASS_RATIO:
+            merged[-1] = merged[-1] + c
+        else:
+            merged.append(c)
     # a class needs a few lines to be a size of its own (not a stray stamp)
-    classes = [c for c in classes if len(c) >= SIZE_CLASS_MIN_LINES]
+    classes = [c for c in merged if len(c) >= SIZE_CLASS_MIN_LINES]
     if len(classes) < 2:
         return lambda xh: 1.0
     # the table's own size was measured on its lines of a few characters

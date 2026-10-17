@@ -16,7 +16,7 @@ from PIL import Image
 
 from . import table_layout, tables, vertical
 from .color import assign_colors
-from .config import font_size_offset_pct, font_size_offset_pt, straighten_max_deg
+from .config import font_size_offset_pct, font_size_offset_pt, straighten_max_deg, table_mode
 from .graphics import detect_graphics
 from .ink import binarize_region, measure_text_lines
 from .labels import PICTURE_LABELS as IMAGE_LABELS
@@ -28,7 +28,7 @@ from .reconcile import MIN_ORPHAN_SCORE, LinePlacement, order_lines, reconcile, 
 from .render_model import TARGET_PAGE_WIDTH_PT as PAGE_WIDTH_PT
 from .schemas import PageLayout, PageLines, TextLine
 from .straighten import straighten_page
-from .typography import assign_styles, line_x_height, offset_sizes
+from .typography import assign_styles, line_x_height, offset_sizes, size_table_cells
 
 logger = logging.getLogger(__name__)
 
@@ -152,7 +152,7 @@ def _block_lines(block, placements: list[LinePlacement], image: Image.Image,
         drop_line = Line(text=content[0], baseline_start=start, baseline_end=end, x_height=ink_h,
                          cap_top=ink_h, drop_cap=True)
         content = content[1:].lstrip()
-    if block.role in TABLE_LABELS and tables.is_html_table(content) and \
+    if block.role in TABLE_LABELS and table_mode() == "grid" and tables.is_html_table(content) and \
             (grid := tables.parse_html_table(content)) is not None:
         return _html_table_lines(block, grid, own + extra, gray)
     if tables.is_tabular(block.role, [l.polygon for l in own]):
@@ -204,9 +204,14 @@ def _table_lines(content: str, cells: list[LinePlacement], gray: np.ndarray) -> 
     """One line per detected cell, row by row, each with its own wording."""
     rows = tables.group_rows([c.polygon for c in cells])
     ordered = [(r, cells[i]) for r, row in enumerate(rows) for i in row]
-    texts = tables.assign_cell_text([c.ocr_text for _, c in ordered], tables.vl_tokens(content))
+    words = tables.vl_tokens(content)
+    texts = tables.assign_cell_text([c.ocr_text for _, c in ordered], words)
+    vl_words = set(words)
     out = []
     for (r, c), t in zip(ordered, texts):
+        # a lone character the VL text never has as a word: a rule or speck OCR read as text
+        if words and len(t.strip()) == 1 and t.strip() not in vl_words:
+            continue
         if t:
             line = _measured_line(gray, c.polygon, t, "detector", c.continuation)
             line.row = r
@@ -304,6 +309,7 @@ def build_page(layout: PageLayout, image: Image.Image, page_lines: PageLines | N
     assign_styles(page, image)
     offset = font_size_offset_pt() if size_offset_pt is None else size_offset_pt
     offset_sizes(page.blocks, offset * image.width / PAGE_WIDTH_PT, font_size_offset_pct())
+    size_table_cells(page.blocks)
     refitted = refit_page(page.blocks)
     assign_colors(page, image)
     for block in page.blocks:

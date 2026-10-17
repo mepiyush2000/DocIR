@@ -18,7 +18,7 @@ _DEFAULTS: dict = {
     "preprocess": {"mode": "auto"},
     "lines": {"enabled": True},
     "render": {"mode": "lines", "straighten_max_deg": 5.0, "font_size_offset_pt": -1.0,
-               "font_size_offset_pct": 0.0},
+               "font_size_offset_pct": 0.0, "table_mode": "measured"},
     "runtime": {"device": "auto"},
 }
 
@@ -73,6 +73,10 @@ def font_size_offset_pt() -> float:
 
 def font_size_offset_pct() -> float:
     return float(load_config()["render"]["font_size_offset_pct"])
+
+
+def table_mode() -> str:
+    return str(load_config()["render"].get("table_mode", "measured"))
 
 
 def paddle_device_kwargs() -> dict:

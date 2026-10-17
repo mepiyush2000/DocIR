@@ -29,6 +29,10 @@ font_size_offset_pt = 0.0
 # Added to every measured font size, in percent of that size (applied with
 # the point offset above). -10 = text 10% smaller than measured.
 font_size_offset_pct = -10.0
+# Tables: "measured" draws each cell's text where it was printed, with
+# the layout model's wording; "grid" rebuilds the table from the layout
+# model's HTML structure (clean grid, but only as good as that structure).
+table_mode = "measured"
 
 [runtime]
 # Device for the Paddle models (layout, line OCR, orientation, unwarping):

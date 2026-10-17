@@ -19,6 +19,7 @@ MIN_RULE_FRAC = 0.06          # of the page width (horizontal) / height (vertica
 MIN_RULE_ASPECT = 25          # length / thickness
 EDGE_MARGIN_FRAC = 0.03       # rules this close to the page edge are scan shadows
 PICTURE_EDGE_FRAC = 0.015     # rules this close to a picture are its border
+PICTURE_BORDER_SHARE = 0.5    # ... when at least this much of their length lies along it
 TABLE_GRID_MIN_SPAN = 0.25    # of a table's width/height: shorter strokes inside it are glyphs
 FILL_MIN_DARKENING = 40       # gray levels below the table's paper that count as shading
 FILL_ROW_PERCENTILE = 30      # a shaded row is dark at this percentile; a text row is still paper
@@ -94,12 +95,17 @@ def _plausible_rule(page: Page, bbox, w: int, h: int) -> bool:
     # a full-width table's border legitimately runs close to the page edge
     if not in_table and (x0 < mx or y0 < my or x1 > w - mx or y1 > h - my):
         return False
-    # a picture's own border (photo edges) is part of the picture
+    # a picture's own border (photo edges) is part of the picture; a rule
+    # that merely runs into one (a table rule under a stamp) is not
     pad = PICTURE_EDGE_FRAC * w
+    horizontal = (x1 - x0) >= (y1 - y0)
     for p in page.pictures:
         px0, py0, px1, py1 = p.bbox
         if px0 - pad <= x1 and x0 <= px1 + pad and py0 - pad <= y1 and y0 <= py1 + pad:
-            return False
+            a0, a1, p0, p1 = (x0, x1, px0, px1) if horizontal else (y0, y1, py0, py1)
+            inside = min(a1, p1 + pad) - max(a0, p0 - pad)
+            if inside >= PICTURE_BORDER_SHARE * (a1 - a0):
+                return False
     # nor may it run through a text line (strike-through artefacts)
     for b in page.blocks:
         for l in b.lines:

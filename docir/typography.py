@@ -52,6 +52,9 @@ CAPS_MAX_SHORT_FRAC = 0.5        # fewer x-band-only letters than this: the line
 CAPS_MAX_RISE = 1.25             # ... confirmed by ink barely rising above the measured band
 XH_PER_CAP = 0.74                # typical x-height / cap height, before a family is chosen
 MIN_OFFSET_SCALE = 0.8           # a size offset never shrinks text below this share of its size
+CELL_SIZE_RATIO = 1.5            # a table cell this far off its block's x-height keeps its own size
+CELL_SIZE_MIN_CHARS = 2          # ... when it has enough text to measure
+CELL_SIZE_CLAMP = (0.5, 2.5)
 
 
 @dataclass(frozen=True)
@@ -318,6 +321,26 @@ def offset_sizes(blocks: list[Block], delta_px: float, delta_pct: float = 0.0) -
             continue
         seen.add(id(s))
         s.size_px = max(s.size_px * (1 + delta_pct / 100) + delta_px, MIN_OFFSET_SCALE * s.size_px)
+
+
+def size_table_cells(blocks: list[Block]) -> None:
+    """A table's cells can be printed at different sizes (small printed
+    labels beside large handwritten entries): a cell line whose measured
+    x-height is clearly off its block's keeps its own size, relative to the
+    block's (already offset) style size."""
+    for b in blocks:
+        if not b.tabular or b.table is not None or b.style is None:
+            continue
+        lines = [l for l in b.lines if not l.drop_cap and l.size_px is None]
+        if len(lines) < 2:
+            continue
+        base = lines_x_height(lines)
+        for l in lines:
+            if len(l.text.strip()) < CELL_SIZE_MIN_CHARS:
+                continue
+            r = line_x_height(l) / max(base, 1e-6)
+            if abs(math.log(r)) > math.log(CELL_SIZE_RATIO):
+                l.size_px = b.style.size_px * float(np.clip(r, *CELL_SIZE_CLAMP))
 
 def _style_groups(blocks: list[Block]) -> list[tuple[TextStyle, list[Block], int]]:
     """Distinct styles in use, with their blocks and amount of text."""
