@@ -77,3 +77,18 @@ def test_a_cell_printed_much_larger_than_its_table_keeps_its_own_size():
     size_table_cells([block])
     assert all(l.size_px is None for l in labels)
     assert entry.size_px is not None and entry.size_px > 1.5 * block.style.size_px
+
+
+def test_similarity_pruning_preserves_all_qualifying_matches():
+    from docir.tables import MIN_CELL_MATCH, _similarity
+
+    words = ["", " A B ", "ababa", "babab"] + [
+        "".join(chars) for size in range(1, 4) for chars in itertools.product("ab", repeat=size)]
+    for a, b in itertools.product(words, repeat=2):
+        expected = _similarity(a, b)
+        actual = _similarity(a, b, minimum=MIN_CELL_MATCH)
+        if expected >= MIN_CELL_MATCH:
+            assert actual == expected
+        else:
+            assert actual < MIN_CELL_MATCH
+import itertools

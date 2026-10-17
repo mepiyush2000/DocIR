@@ -254,9 +254,12 @@ def _norm(text: str) -> str:
     return re.sub(r"\s+", "", text).lower()
 
 
-def _similarity(a: str, b: str) -> float:
+def _similarity(a: str, b: str, minimum: float = 0.0) -> float:
     a, b = _norm(a), _norm(b)
     if not a or not b:
+        return 0.0
+    # SequenceMatcher's ratio cannot exceed this length-only upper bound.
+    if 2 * min(len(a), len(b)) / (len(a) + len(b)) < minimum:
         return 0.0
     return difflib.SequenceMatcher(None, a, b, autojunk=False).ratio()
 
@@ -284,7 +287,7 @@ def assign_cell_text(cell_ocr: list[str], words: list[str]) -> list[str]:
             if cur > best[k + 1][j]:
                 best[k + 1][j], back[k + 1][j] = cur, ("empty", j)
             for e in range(j + 1, min(m, j + MAX_CELL_WORDS) + 1):
-                s = _similarity(cell_ocr[k], " ".join(words[j:e]))
+                s = _similarity(cell_ocr[k], " ".join(words[j:e]), minimum=MIN_CELL_MATCH)
                 if s < MIN_CELL_MATCH:
                     continue
                 if cur + s > best[k + 1][e]:

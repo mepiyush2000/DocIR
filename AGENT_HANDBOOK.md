@@ -83,6 +83,7 @@ docir lines   <res.json> [--source-image img] [--refresh]
 docir flatten <image> [out] [--mode auto|force]
 ```
 - `analyze` runs the full pipeline. It runs the models, which takes a few minutes per page on CPU, writes `<name>_res.json`, and also writes and caches line OCR to `<name>_lines.json`.
+- Successful conversions log total, preprocessing, layout OCR, line OCR/JSON, and rendering times. These include lazy model initialization on the first page; compare subsequent pages to measure warm latency. The CLI and Streamlit use the same timing log.
 - `render` re-renders from cached JSON. It is fast, and it's what you use when iterating on code.
 - When `render` is given `--score`, it prints `page P=… R=… F1=… stray_ink=…`.
 

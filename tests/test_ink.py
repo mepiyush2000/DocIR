@@ -71,3 +71,22 @@ def test_serif_capitals_are_one_line_each():
     _slab_caps_line(50, mask)
     stats = measure_text_lines(mask)
     assert stats.n_lines == 2
+
+
+@pytest.mark.parametrize("max_deg", [8.0, 24.0])
+@pytest.mark.parametrize("angle", [-6.0, 0.0, 3.5])
+def test_skew_matches_uncached_projection_search(max_deg, angle):
+    mask = np.zeros((90, 600), dtype=bool)
+    _slab_caps_line(10, mask)
+    _slab_caps_line(50, mask)
+    mask = rotate_mask(mask, angle)
+
+    def energy(a):
+        p = rotate_mask(mask, a).sum(axis=1).astype(np.float64)
+        return float((p * p).sum())
+
+    expected = max(np.arange(-max_deg, max_deg + 1e-6, 2.0), key=energy)
+    for step in (0.5, 0.25):
+        span = step * 3
+        expected = max(np.arange(expected - span, expected + span + 1e-6, step), key=energy)
+    assert estimate_skew(mask, max_deg=max_deg) == expected

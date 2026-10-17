@@ -45,7 +45,10 @@ def flat_field(rgb: np.ndarray) -> np.ndarray:
     h, w = rgb.shape[:2]
     k = max(5, int(w * 0.02) | 1)
     closed = cv2.morphologyEx(rgb, cv2.MORPH_CLOSE, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (k, k)))
-    illum = cv2.GaussianBlur(closed.astype(np.float32), (0, 0), max(w, h) * ILLUMINATION_SIGMA_FRAC)
+    sigma = max(w, h) * ILLUMINATION_SIGMA_FRAC
+    # Match GaussianBlur's float kernel, using FFT filtering for its large support.
+    kernel = cv2.getGaussianKernel(int(round(sigma * 8 + 1)) | 1, sigma, cv2.CV_32F)
+    illum = cv2.filter2D(cv2.filter2D(closed.astype(np.float32), -1, kernel.T), -1, kernel)
     lum = illum.mean(axis=2)
     if np.percentile(lum, 90) - np.percentile(lum, 10) < UNEVEN_LIGHT_RANGE:
         return rgb

@@ -17,7 +17,10 @@ def test_analyze_image_uses_injected_fake_engine(fixture_layout):
     assert result is fixture_layout
 
 
-def test_process_image_end_to_end_with_fake_engine(tmp_path, fixture_layout):
+def test_process_image_end_to_end_with_fake_engine(tmp_path, fixture_layout, caplog):
+    import logging
+
+    caplog.set_level(logging.INFO, logger="docir.pipeline")
     engine = FakeOcrEngine(fixture_layout)
     output_pdf = tmp_path / "out.pdf"
     output_json = tmp_path / "out.json"
@@ -32,6 +35,9 @@ def test_process_image_end_to_end_with_fake_engine(tmp_path, fixture_layout):
     assert os.path.getsize(output_pdf) > 1000
     assert os.path.isfile(output_json)
     assert os.path.isfile(lines_json_path(str(output_json)))
+    assert "total=" in caplog.text
+    assert all(f"{stage}=" in caplog.text for stage in
+               ("preprocess", "layout", "lines_and_json", "render"))
 
 
 def test_render_json_file_legacy_entry_point(tmp_path):

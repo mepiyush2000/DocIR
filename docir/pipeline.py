@@ -7,6 +7,7 @@ import json
 import logging
 import os
 import statistics
+import time
 
 from PIL import Image
 
@@ -171,10 +172,13 @@ def process_image(
     is given, PaddleOCR-VL's raw result is saved there as-is, our schema
     next to it (`_schema.json`), and the text lines as `_lines.json`.
     """
+    started = time.perf_counter()
     prep = flatten_page(image_path, mode=preprocess or preprocess_mode())
+    preprocessed = time.perf_counter()
     page_path = prep.image_path
     engine = engine or PaddleOcrVlEngine()
     layout = engine.analyze(page_path)
+    analyzed = time.perf_counter()
     if output_json:
         raw = getattr(engine, "last_raw", None)
         if raw is not None:
@@ -187,8 +191,16 @@ def process_image(
                 f.write(layout.model_dump_json(indent=2))
     lines = detect_lines(layout, page_path, lines_json_path(output_json) if output_json else None,
                          engine=line_engine)
+    detected = time.perf_counter()
     output_pdf = output_pdf or _default_output_path(image_path, ".pdf")
-    return render_pdf_from_layout(layout, output_pdf, source_image_path=page_path, page_lines=lines)
+    result = render_pdf_from_layout(layout, output_pdf, source_image_path=page_path, page_lines=lines)
+    finished = time.perf_counter()
+    logger.info(
+        "pipeline %s: total=%.3fs preprocess=%.3fs layout=%.3fs lines_and_json=%.3fs render=%.3fs",
+        image_path, finished - started, preprocessed - started, analyzed - preprocessed,
+        detected - analyzed, finished - detected,
+    )
+    return result
 
 
 def _locate_legacy_source_image(json_path: str, input_path: str | None) -> str | None:

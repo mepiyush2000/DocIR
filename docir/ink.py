@@ -119,9 +119,16 @@ def estimate_skew(mask: np.ndarray, max_deg: float = 24.0) -> float:
     if not mask.any():
         return 0.0
 
+    image = Image.fromarray(mask.astype(np.uint8) * 255)
+    energies: dict[float, float] = {}
+
     def energy(a):
-        p = rotate_mask(mask, a).sum(axis=1).astype(np.float64)
-        return float((p * p).sum())
+        if a not in energies:
+            rotated = mask if a == 0 else np.asarray(
+                image.rotate(a, resample=Image.NEAREST, expand=True, fillcolor=0)) > 127
+            p = rotated.sum(axis=1).astype(np.float64)
+            energies[a] = float((p * p).sum())
+        return energies[a]
 
     best = max(np.arange(-max_deg, max_deg + 1e-6, 2.0), key=energy)
     for step in (0.5, 0.25):
