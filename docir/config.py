@@ -10,6 +10,7 @@ from __future__ import annotations
 import tomllib
 from functools import lru_cache
 from pathlib import Path
+from urllib.parse import urlsplit
 
 CONFIG_FILENAME = "docir_config.toml"
 
@@ -20,6 +21,12 @@ _DEFAULTS: dict = {
     "render": {"mode": "lines", "straighten_max_deg": 5.0, "font_size_offset_pt": -1.0,
                "font_size_offset_pct": 0.0, "table_mode": "measured"},
     "runtime": {"device": "auto"},
+    "vlm": {
+        "backend": "native",
+        "server_url": "http://127.0.0.1:8001/v1",
+        "api_model_name": "PaddleOCR-VL-1.6-0.9B",
+        "max_concurrency": 8,
+    },
 }
 
 
@@ -84,3 +91,31 @@ def paddle_device_kwargs() -> dict:
     which lets Paddle use a GPU whenever its CUDA build finds one."""
     device = str(load_config()["runtime"].get("device", "auto")).strip()
     return {} if device in ("", "auto") else {"device": device}
+
+
+def vlm_backend_kwargs() -> dict:
+    """PaddleOCR-VL recognition backend; Paddle still handles page layout."""
+    config = load_config()["vlm"]
+    backend = config["backend"]
+    if backend == "native":
+        return {"vl_rec_backend": "native"}
+    if backend != "vllm-server":
+        raise ValueError("[vlm] backend must be 'native' or 'vllm-server'")
+    url = config["server_url"]
+    if not isinstance(url, str):
+        raise ValueError("[vlm] server_url must be an HTTP(S) URL")
+    parsed = urlsplit(url)
+    if parsed.scheme not in ("http", "https") or not parsed.hostname or parsed.query or parsed.fragment:
+        raise ValueError("[vlm] server_url must be an HTTP(S) base URL without query or fragment")
+    model = config["api_model_name"]
+    if not isinstance(model, str) or not model.strip():
+        raise ValueError("[vlm] api_model_name must be a nonempty string")
+    concurrency = config["max_concurrency"]
+    if isinstance(concurrency, bool) or not isinstance(concurrency, int) or concurrency < 1:
+        raise ValueError("[vlm] max_concurrency must be a positive integer")
+    return {
+        "vl_rec_backend": backend,
+        "vl_rec_server_url": url.rstrip("/"),
+        "vl_rec_api_model_name": model,
+        "vl_rec_max_concurrency": concurrency,
+    }

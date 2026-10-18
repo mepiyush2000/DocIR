@@ -101,6 +101,90 @@ docir flatten <image> [out] [--mode auto|force]
 - Run with `.docir_env/bin/python -m pytest -q`. Currently 105 tests pass, in about 75 s.
 - Fixtures use `output/vl1_6_10_res.json` + `vl1_6_10.png` (`tests/conftest.py`).
 
+### Local vLLM backend
+
+Keep vLLM separate from Paddle to avoid dependency conflicts:
+Triton also requires a C compiler and development headers for the selected
+Python (for example, Ubuntu's `python3.12-dev`).
+```bash
+.docir_env/bin/python -m pip install -e ".[vlm-client]"
+uv venv --python .docir_env/bin/python .vllm_env
+uv pip install --python .vllm_env/bin/python -r requirements-vllm.txt
+```
+The launcher serves the cached `~/.paddlex/official_models/PaddleOCR-VL-1.6`
+checkpoint locally in BF16, reserving 35% of GPU memory so Paddle can share
+the card. It trusts PaddleX's per-request image-processing parameters and
+therefore binds only to loopback; do not expose this server to untrusted clients.
+`DOCIR_VLLM_MODEL`, `DOCIR_VLLM_ENV`, `DOCIR_VLLM_PORT`, and
+`DOCIR_VLLM_GPU_MEMORY_UTILIZATION` override those defaults. Additional
+vLLM CLI arguments can be passed to the script.
+
+Set `[vlm] backend = "vllm-server"` in `docir_config.toml` after the server
+is healthy, then restart Streamlit. CLI and app use the same settings.
+The model name and base URL must match the server. Only VL recognition moves
+to vLLM; page preprocessing, layout detection, line OCR, rendering and scoring
+are unchanged. Unavailable servers raise errors; there is no silent native
+fallback. Set `backend = "native"` and restart the app to roll back.
+Compare warm timings and fidelity scores before adopting another backend;
+equivalent model weights do not guarantee identical generated text.
+
+#### How to run Streamlit with vLLM
+
+After the one-time setup above, start vLLM first in terminal 1:
+```bash
+cd /home/colligo/DocIR
+bash scripts/serve_vllm.sh
+```
+
+In terminal 2, check readiness and start Streamlit:
+```bash
+curl --fail http://127.0.0.1:8001/health &&
+cd /home/colligo/DocIR &&
+.docir_env/bin/python -m streamlit run app.py \
+  --server.address 0.0.0.0 --server.port 8000
+```
+If the health check fails, wait for vLLM startup to finish and retry.
+Keep both processes running. Stopping vLLM while the app uses
+`backend = "vllm-server"` causes VLM worker connection errors.
+The sidebar should display `VLM: vllm-server`.
+Use your own repository path if it differs from `/home/colligo/DocIR`.
+
+To keep vLLM running after disconnecting the terminal, use `tmux` if installed.
+Run this instead of terminal 1's foreground command:
+```bash
+tmux new-session -d -s docir-vllm \
+  'cd /home/colligo/DocIR && bash scripts/serve_vllm.sh'
+```
+View its console with `tmux attach -t docir-vllm`; detach without stopping
+it by pressing Ctrl+B, then D. This survives terminal disconnection, not
+a machine restart. Streamlit's foreground terminal must also remain open.
+Before starting another vLLM instance, check
+`curl --fail http://127.0.0.1:8001/health`; a healthy instance can be reused.
+
+#### Benchmarking backends
+
+Benchmark each backend on the same input PDFs or JPG/PNG page images using unique output directories:
+```bash
+.docir_env/bin/python scripts/benchmark_vlm.py CCTNS.STATE.CAS.pdf car_np.pdf \
+  --backend native --output-dir /tmp/docir-native-benchmark
+.docir_env/bin/python scripts/benchmark_vlm.py CCTNS.STATE.CAS.pdf car_np.pdf \
+  --backend vllm-server --output-dir /tmp/docir-vllm-benchmark
+```
+The first round warms models; the next two rounds measure uncached conversion.
+`summary.json` reports median conversion time, layout/VLM time, fidelity F1
+and end-to-end time including input copy/PDF rasterization and scoring.
+`results.json` includes every stage and precision/recall. Each page and round
+uses an isolated input copy and fresh OCR output, preserving originals and
+preventing cache reuse. End-to-end time excludes Python/service startup,
+input enumeration and benchmark report writing; warm-up timings are recorded
+separately. Benchmark overrides affect only that process.
+
+On the A100 80 GB, vLLM 0.31.0 with the same VL 1.6 BF16 checkpoint and
+200-DPI inputs reduced warm conversion medians from 19.37 to 6.13 seconds
+(CCTNS) and 22.51 to 7.83 seconds (car document). Ink F1 was 0.8086 to
+0.8097 and 0.7759 to 0.7762 respectively. These are two warm runs per page,
+not a general accuracy guarantee; cold model startup and scoring are excluded.
+
 ### Re-render and score every page
 ```bash
 for j in output/*_res.json; do n=$(basename $j _res.json); [ "$n" = "vl1_6_3" ] && continue

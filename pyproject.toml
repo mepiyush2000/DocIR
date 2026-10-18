@@ -16,6 +16,7 @@ dependencies = [
 ocr = ["paddleocr>=3.7", "paddlepaddle>=3.3", "paddlex[ocr]>=3.7"]
 eval = ["pypdfium2>=4"]
 app = ["streamlit>=1.36", "pypdfium2>=4"]
+vlm-client = ["paddlex[genai-client]>=3.7"]
 dev = ["pytest>=8", "pypdfium2>=4"]
 
 [project.scripts]

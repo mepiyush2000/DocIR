@@ -1,0 +1,2 @@
+# Install only in the separate .vllm_env, not the Paddle .docir_env.
+vllm==0.31.0

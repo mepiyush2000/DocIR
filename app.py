@@ -22,7 +22,7 @@ from pathlib import Path
 import streamlit as st
 from PIL import Image
 
-from docir.config import line_ocr_enabled, paddle_device_kwargs, preprocess_mode
+from docir.config import line_ocr_enabled, paddle_device_kwargs, preprocess_mode, vlm_backend_kwargs
 from docir.pipeline import process_image, score_pdf_file
 
 IMAGE_TYPES = ["jpg", "jpeg", "png", "tif", "tiff", "bmp", "webp"]
@@ -175,6 +175,9 @@ def main() -> None:
     st.title("DocIR: scanned page to faithful PDF")
     with st.sidebar:
         st.caption(_device_summary())
+        vlm = vlm_backend_kwargs()
+        st.caption(f"VLM: {vlm['vl_rec_backend']}"
+                   + (f" ({vlm['vl_rec_server_url']})" if "vl_rec_server_url" in vlm else ""))
         modes = ["auto", "off", "force"]
         preprocess = st.selectbox("Page straightening", modes, index=modes.index(preprocess_mode()),
                                   help="auto: rotate/deskew/unwarp only when detected; off: as-is; force: always unwarp")

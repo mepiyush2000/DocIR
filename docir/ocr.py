@@ -31,9 +31,12 @@ class PaddleOcrVlEngine:
         if self._pipeline is None:
             from paddleocr import PaddleOCRVL  # optional dependency
 
-            from .config import paddle_device_kwargs
+            from .config import paddle_device_kwargs, vlm_backend_kwargs
 
-            self._pipeline = PaddleOCRVL(pipeline_version=self._pipeline_version, **paddle_device_kwargs())
+            self._pipeline = PaddleOCRVL(
+                pipeline_version=self._pipeline_version,
+                **paddle_device_kwargs(), **vlm_backend_kwargs(),
+            )
         return self._pipeline
 
     def analyze(self, image_path: str) -> PageLayout:

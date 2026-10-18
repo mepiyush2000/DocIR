@@ -10,6 +10,7 @@ dist/
 
 # Virtual environment
 .docir_env/
+.vllm_env/
 .venv/
 venv/
 
