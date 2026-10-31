@@ -3,6 +3,7 @@ PDF rendering (and scoring)."""
 
 from __future__ import annotations
 
+import contextlib
 import json
 import logging
 import os
@@ -12,6 +13,7 @@ import time
 from PIL import Image
 
 from .config import line_ocr_enabled, preprocess_mode, render_mode
+from .document import image_page_pdf, is_pdf, merge_pdfs, pdf_page_images
 from .ink import binarize_region, measure_text_lines
 from .labels import PICTURE_LABELS as IMAGE_LABELS
 from .ocr import LineOcrEngine, OcrEngine, PaddleLineOcrEngine, PaddleOcrVlEngine
@@ -163,6 +165,7 @@ def process_image(
     engine: OcrEngine | None = None,
     line_engine: LineOcrEngine | None = None,
     preprocess: str | None = None,
+    model_lock=None,
 ) -> str:
     """End-to-end: raw image -> flat page -> layout + lines (+ optional
     JSON) -> PDF.
@@ -171,13 +174,18 @@ def process_image(
     uses the flat image, so all coordinates refer to it. When `output_json`
     is given, PaddleOCR-VL's raw result is saved there as-is, our schema
     next to it (`_schema.json`), and the text lines as `_lines.json`.
+    `model_lock` (if given) is held only while models run, not while the
+    CPU-bound page model is built and rendered.
     """
+    lock = model_lock or contextlib.nullcontext()
     started = time.perf_counter()
-    prep = flatten_page(image_path, mode=preprocess or preprocess_mode())
+    with lock:
+        prep = flatten_page(image_path, mode=preprocess or preprocess_mode())
     preprocessed = time.perf_counter()
     page_path = prep.image_path
     engine = engine or PaddleOcrVlEngine()
-    layout = engine.analyze(page_path)
+    with lock:
+        layout = engine.analyze(page_path)
     analyzed = time.perf_counter()
     if output_json:
         raw = getattr(engine, "last_raw", None)
@@ -189,8 +197,9 @@ def process_image(
         else:
             with open(output_json, "w") as f:
                 f.write(layout.model_dump_json(indent=2))
-    lines = detect_lines(layout, page_path, lines_json_path(output_json) if output_json else None,
-                         engine=line_engine)
+    with lock:
+        lines = detect_lines(layout, page_path, lines_json_path(output_json) if output_json else None,
+                             engine=line_engine)
     detected = time.perf_counter()
     output_pdf = output_pdf or _default_output_path(image_path, ".pdf")
     result = render_pdf_from_layout(layout, output_pdf, source_image_path=page_path, page_lines=lines)
@@ -201,6 +210,42 @@ def process_image(
         detected - analyzed, finished - detected,
     )
     return result
+
+
+def document_pages(input_path: str, work_dir: str, max_pages: int | None = None) -> list[str]:
+    """Page images of an input: every page of a PDF, or the image itself."""
+    return pdf_page_images(input_path, work_dir, max_pages) if is_pdf(input_path) else [input_path]
+
+
+def convert_page(image_path: str, work_dir: str, engine: OcrEngine | None = None,
+                 line_engine: LineOcrEngine | None = None, preprocess: str | None = None,
+                 model_lock=None) -> dict:
+    """One page to `<work_dir>/<stem>.pdf`. A page that fails is replaced by its
+    scan, so a document never loses a page; the error is reported in the row."""
+    stem = os.path.splitext(os.path.basename(image_path))[0]
+    pdf, js = os.path.join(work_dir, f"{stem}.pdf"), os.path.join(work_dir, f"{stem}_res.json")
+    row = {"image": image_path, "pdf": pdf, "json": js, "error": ""}
+    try:
+        process_image(image_path, output_pdf=pdf, output_json=js, engine=engine,
+                      line_engine=line_engine, preprocess=preprocess, model_lock=model_lock)
+    except Exception as e:  # keep the document whole; the page falls back to the scan
+        logger.exception("page %s failed; using the scan instead", image_path)
+        row["error"] = f"{type(e).__name__}: {e}"
+        image_page_pdf(image_path, pdf)
+    return row
+
+
+def process_document(input_path: str, output_pdf: str, work_dir: str, engine: OcrEngine | None = None,
+                     line_engine: LineOcrEngine | None = None, preprocess: str | None = None) -> list[dict]:
+    """A scanned PDF or a page image in, one vector PDF with every page out."""
+    os.makedirs(work_dir, exist_ok=True)
+    engine = engine or PaddleOcrVlEngine()
+    if line_engine is None and line_ocr_enabled():
+        line_engine = PaddleLineOcrEngine()
+    rows = [convert_page(p, work_dir, engine, line_engine, preprocess)
+            for p in document_pages(input_path, work_dir)]
+    merge_pdfs([r["pdf"] for r in rows], output_pdf)
+    return rows
 
 
 def _locate_legacy_source_image(json_path: str, input_path: str | None) -> str | None:

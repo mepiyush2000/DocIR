@@ -73,14 +73,17 @@ def rasterize_pdf(pdf_path: str, width_px: int, height_px: int) -> Image.Image:
     """Render page 1 of `pdf_path` so its width is `width_px`, then crop/pad
     (white) to exactly `height_px` rows -- the output page may be taller
     than the content when its canvas snapped to a standard paper ratio."""
-    import pypdfium2 as pdfium  # optional `eval` extra
+    import pypdfium2 as pdfium
 
-    pdf = pdfium.PdfDocument(pdf_path)
-    try:
-        page = pdf[0]
-        img = page.render(scale=width_px / page.get_width()).to_pil().convert("RGB")
-    finally:
-        pdf.close()
+    from .document import PDFIUM_LOCK
+
+    with PDFIUM_LOCK:
+        pdf = pdfium.PdfDocument(pdf_path)
+        try:
+            page = pdf[0]
+            img = page.render(scale=width_px / page.get_width()).to_pil().convert("RGB")
+        finally:
+            pdf.close()
     if img.width != width_px:
         img = img.resize((width_px, round(img.height * width_px / img.width)), Image.LANCZOS)
     canvas = Image.new("RGB", (width_px, height_px), "white")

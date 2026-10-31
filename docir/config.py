@@ -21,6 +21,9 @@ _DEFAULTS: dict = {
     "render": {"mode": "lines", "straighten_max_deg": 5.0, "font_size_offset_pt": -1.0,
                "font_size_offset_pct": 0.0, "table_mode": "measured"},
     "runtime": {"device": "auto"},
+    # public=true hides the server-folder tab and server details in the web app;
+    # keep_runs_hours>0 deletes uploads/outputs older than that; 0 keeps everything
+    "app": {"public": False, "keep_runs_hours": 0, "max_pages_per_document": 50},
     "vlm": {
         "backend": "native",
         "server_url": "http://127.0.0.1:8001/v1",
@@ -84,6 +87,18 @@ def font_size_offset_pct() -> float:
 
 def table_mode() -> str:
     return str(load_config()["render"].get("table_mode", "measured"))
+
+
+def app_public() -> bool:
+    return bool(load_config()["app"]["public"])
+
+
+def keep_runs_hours() -> float:
+    return float(load_config()["app"]["keep_runs_hours"])
+
+
+def max_pages_per_document() -> int:
+    return int(load_config()["app"]["max_pages_per_document"])
 
 
 def paddle_device_kwargs() -> dict:

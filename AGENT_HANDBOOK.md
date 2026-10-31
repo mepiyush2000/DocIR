@@ -76,7 +76,7 @@ These came from the user over many iterations. Violating them caused reverts.
 
 ### CLI (`docir/cli.py`)
 ```
-docir analyze <image> [out.pdf] [--json res.json] [--preprocess auto|off|force]
+docir analyze <image|scan.pdf> [out.pdf] [--json res.json] [--preprocess auto|off|force]
 docir render  <res.json> [out.pdf] [--source-image img] [--mode lines|paragraph] [--score]
 docir score   <res.json> <out.pdf> [--source-image img] [--diff d.png] [--report] [--worst]
 docir lines   <res.json> [--source-image img] [--refresh]
@@ -95,7 +95,19 @@ docir flatten <image> [out] [--mode auto|force]
 [render]     mode = "lines"           # lines | paragraph (legacy)
              straighten_max_deg = 5.0
              font_size_offset_pt = -1.0
+[app]        public = false           # true: no server-folder tab, no server details
+             keep_runs_hours = 0      # >0 deletes app uploads/results older than this
+             max_pages_per_document = 50
 ```
+- **PDF input.** `analyze` on a PDF rasterises every page at 200 dpi (`document.py`),
+  converts each page (`pipeline.convert_page`; a failing page is replaced by its scan)
+  and merges them into `<name>_docir.pdf`. The app takes PDFs too (one output per upload).
+- **EXIF.** Phone photos stored sideways with an EXIF rotation tag are rewritten upright
+  by `flatten_page` (`load_upright`), even with `--preprocess off`; PIL ignores the tag
+  while OpenCV/Paddle apply it, so skipping this mismatches every coordinate.
+- **Threads.** pdfium is not thread-safe: all pdfium calls go through
+  `document.PDFIUM_LOCK`. `process_image(model_lock=...)` holds the app's model lock
+  only around model inference, so rendering overlaps with other sessions' inference.
 
 ### Tests
 - Run with `.docir_env/bin/python -m pytest -q`. Currently 105 tests pass, in about 75 s.
@@ -186,6 +198,17 @@ On the A100 80 GB, vLLM 0.31.0 with the same VL 1.6 BF16 checkpoint and
 not a general accuracy guarantee; cold model startup and scoring are excluded.
 
 ### Re-render and score every page
+Whole corpus in parallel (eval set + resume/report/scientific caches; about an hour
+on 8 CPU workers), then side-by-side sheets for chosen pages:
+```bash
+.docir_env/bin/python scripts/eval_corpus.py output/_eval/corpus_baseline [--only eval resume report scientific]
+.docir_env/bin/python scripts/compare_pages.py output/_eval/corpus_baseline/scores.csv <name> ...
+```
+`scores.csv` has one row per page, `blocks.csv` one row per scored block; re-running
+some categories keeps the others' rows. Baseline on 2026-10-31 (592 pages): mean F1
+eval 0.892, resume 0.906, report 0.888, scientific 0.898; 7 pages below 0.7.
+
+Single pages, the old way:
 ```bash
 for j in output/*_res.json; do n=$(basename $j _res.json); [ "$n" = "vl1_6_3" ] && continue
   src=$(.docir_env/bin/python -c "import json;print(json.load(open('$j'))['input_path'])")
@@ -238,8 +261,9 @@ image ──► preprocess (orientation, unwarp/dewarp, deskew) ──► *_flat
 |---|---|
 | `cli.py` | argparse CLI (§3). |
 | `config.py` | Loads `docir_config.toml`, with defaults and getters (`straighten_max_deg()`, `font_size_offset_pt()`, …). |
-| `pipeline.py` | Entry points: `process_image`, `render_json_file`, `render_pdf_from_layout`, `detect_lines` (cached), `score_pdf_file`, `lines_json_path`, `match_layout_space`. |
-| `preprocess.py` | `measure_distortion` (3×4 tiles), then `flatten_page`: orientation, then curved → `dewarp` (fallback UVDoc), then skew → rotate. |
+| `pipeline.py` | Entry points: `process_image`, `process_document` (PDF or image -> one merged PDF), `convert_page` (scan fallback), `document_pages`, `render_json_file`, `render_pdf_from_layout`, `detect_lines` (cached), `score_pdf_file`, `lines_json_path`, `match_layout_space`. |
+| `document.py` | PDF input: `pdf_page_images` (200 dpi, page limit), `merge_pdfs`, `image_page_pdf` (scan as a page), `PDFIUM_LOCK`. |
+| `preprocess.py` | `load_upright` (EXIF), `measure_distortion` (3×4 tiles), then `flatten_page`: orientation, then curved → `dewarp` (fallback UVDoc), then skew → rotate. |
 | `dewarp.py` | Text-line slope field, then a smooth vertical remap. |
 | `ocr.py` | `PaddleLineOcrEngine`, `FakeLineOcrEngine`. |
 | `schemas.py` | Pydantic `PageLayout`, `Block`, `PageLines`, `TextLine`. **Adapter boundary**: `clean_vl_text` resolves VL markup (§6.9). |

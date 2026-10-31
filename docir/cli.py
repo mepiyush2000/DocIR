@@ -1,6 +1,6 @@
 """Command-line entry point.
 
-    docir analyze <image>            # raw image -> OCR/layout -> PDF
+    docir analyze <image|pdf>        # raw image or scanned PDF -> OCR/layout -> PDF
     docir render  <layout.json>       # legacy layout JSON -> PDF
     docir score   <layout.json> <pdf> # ink fidelity of a PDF vs. the scan
     docir lines   <layout.json>       # detect + cache text lines, show matching
@@ -11,10 +11,12 @@ from __future__ import annotations
 
 import argparse
 import logging
+import os
 import sys
 
 from .config import is_debug_logging_enabled
-from .pipeline import detect_lines_for_json, process_image, render_json_file, score_pdf_file
+from .document import is_pdf
+from .pipeline import detect_lines_for_json, process_document, process_image, render_json_file, score_pdf_file
 
 
 def _build_parser() -> argparse.ArgumentParser:
@@ -27,10 +29,10 @@ def _build_parser() -> argparse.ArgumentParser:
     p_analyze = sub.add_parser(
         "analyze", help="Run OCR/layout detection on a raw image and render a PDF.",
     )
-    p_analyze.add_argument("image_path", help="Path to the source page image.")
+    p_analyze.add_argument("image_path", help="Path to the source page image or scanned PDF.")
     p_analyze.add_argument(
         "output_pdf", nargs="?", default=None,
-        help="Path to write the output PDF (default: <image_path> with .pdf extension).",
+        help="Path to write the output PDF (default: <input> with .pdf extension; <input>_docir.pdf for a PDF).",
     )
     p_analyze.add_argument(
         "--json", dest="output_json", default=None,
@@ -108,7 +110,14 @@ def main(argv: list[str] | None = None) -> int:
     logging.basicConfig(level=level, format="%(levelname)s: %(message)s")
     args = _build_parser().parse_args(argv)
 
-    if args.command == "analyze":
+    if args.command == "analyze" and is_pdf(args.image_path):
+        stem = os.path.splitext(args.image_path)[0]
+        result_path = args.output_pdf or f"{stem}_docir.pdf"
+        rows = process_document(args.image_path, result_path, f"{stem}_docir", preprocess=args.preprocess)
+        for i, r in enumerate(rows, 1):
+            if r["error"]:
+                print(f"page {i}: kept as scan ({r['error']})", file=sys.stderr)
+    elif args.command == "analyze":
         result_path = process_image(
             args.image_path, output_pdf=args.output_pdf, output_json=args.output_json,
             preprocess=args.preprocess,

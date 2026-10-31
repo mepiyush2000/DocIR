@@ -10,6 +10,8 @@ dependencies = [
     "numpy>=1.26",
     # same distribution PaddleX installs -- a second OpenCV wheel would clash
     "opencv-contrib-python>=4.8",
+    # scanned-PDF input, page merging and scoring
+    "pypdfium2>=4",
 ]
 
 [project.optional-dependencies]

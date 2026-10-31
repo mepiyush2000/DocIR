@@ -48,3 +48,12 @@ backend = "vllm-server"
 server_url = "http://127.0.0.1:8001/v1"
 api_model_name = "PaddleOCR-VL-1.6-0.9B"
 max_concurrency = 8
+
+[app]
+# public = true for an internet-facing deployment: hides the "Folder on this
+# server" tab (it reads and writes server folders) and server details.
+public = false
+# Delete uploads and results older than this many hours (0 keeps everything).
+keep_runs_hours = 0
+# Larger PDFs are refused before any page is processed.
+max_pages_per_document = 50

@@ -18,7 +18,7 @@ from dataclasses import dataclass
 from functools import lru_cache
 
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageOps
 
 from .config import paddle_device_kwargs
 from .dewarp import dewarp
@@ -126,17 +126,32 @@ def flat_image_path(image_path: str) -> str:
     return f"{stem}_flat.png"
 
 
+def load_upright(image_path: str) -> tuple[Image.Image, bool]:
+    """The page as viewers and the OCR models (OpenCV) show it: phone photos are
+    often stored sideways with an EXIF rotation tag that PIL ignores. Returns the
+    RGB image and whether a tag had to be applied."""
+    raw = Image.open(image_path)
+    tagged = raw.getexif().get(0x0112, 1) not in (0, 1)
+    image = ImageOps.exif_transpose(raw) if tagged else raw
+    return image.convert("RGB"), tagged
+
+
 def flatten_page(image_path: str, output_path: str | None = None, mode: str = "auto") -> PreprocessResult:
     """Return the page image downstream steps should use.
 
     mode: "auto" fixes only what is detected, "off" never changes the page,
     "force" always unwarps. A changed page is written to `output_path`
     (default `<image>_flat.png`); an untouched page keeps its own path.
+    A page whose upright view depends on an EXIF tag is always rewritten,
+    so every later reader sees the same pixels.
     """
-    if mode == "off":
-        return PreprocessResult(image_path, False, 0, False, 0.0, None)
     output_path = output_path or flat_image_path(image_path)
-    image = Image.open(image_path).convert("RGB")
+    image, exif_rotated = load_upright(image_path)
+    if mode == "off":
+        if exif_rotated:
+            image.save(output_path)
+            return PreprocessResult(output_path, True, 0, False, 0.0, None)
+        return PreprocessResult(image_path, False, 0, False, 0.0, None)
     work_path = image_path
 
     rotation = detect_orientation(image_path)
@@ -165,7 +180,7 @@ def flatten_page(image_path: str, output_path: str | None = None, mode: str = "a
     if deskew:
         image = image.rotate(deskew, resample=Image.BICUBIC, fillcolor=_border_color(image))
 
-    changed = bool(rotation or unwarped or deskew)
+    changed = bool(rotation or unwarped or deskew or exif_rotated)
     if changed:
         image.save(output_path)
     logger.info("preprocess %s: %s rotation=%d unwarped=%s deskew=%.2f distortion=%s",
