@@ -118,15 +118,20 @@ docir flatten <image> [out] [--mode auto|force]
 Keep vLLM separate from Paddle to avoid dependency conflicts:
 Triton also requires a C compiler and development headers for the selected
 Python (for example, Ubuntu's `python3.12-dev`).
-```bash
-.docir_env/bin/python -m pip install -e ".[vlm-client]"
-uv venv --python .docir_env/bin/python .vllm_env
-uv pip install --python .vllm_env/bin/python -r requirements-vllm.txt
-```
+After running `setup.sh`, run `bash setup_vllm.sh` to install the vLLM client
+extra, create/update `.vllm_env`, fetch the PaddleOCR-VL 1.6 checkpoint if
+needed, and start the server in the foreground. This requires Linux, an
+available NVIDIA GPU, and `nvidia-smi`. The first run downloads large packages
+and model files. Use `bash setup_vllm.sh --setup-only` to provision without
+starting the server.
+
 The launcher serves the cached `~/.paddlex/official_models/PaddleOCR-VL-1.6`
 checkpoint locally in BF16, reserving 35% of GPU memory so Paddle can share
 the card. It trusts PaddleX's per-request image-processing parameters and
 therefore binds only to loopback; do not expose this server to untrusted clients.
+On CUDA toolkits older than 12.8, the launcher disables vLLM's FlashInfer
+sampler because its JIT compiler uses a newer nvcc flag; set
+`VLLM_USE_FLASHINFER_SAMPLER=1` to override this fallback if desired.
 `DOCIR_VLLM_MODEL`, `DOCIR_VLLM_ENV`, `DOCIR_VLLM_PORT`, and
 `DOCIR_VLLM_GPU_MEMORY_UTILIZATION` override those defaults. Additional
 vLLM CLI arguments can be passed to the script.
@@ -142,10 +147,10 @@ equivalent model weights do not guarantee identical generated text.
 
 #### How to run Streamlit with vLLM
 
-After the one-time setup above, start vLLM first in terminal 1:
+Start the server in terminal 1:
 ```bash
 cd /home/colligo/DocIR
-bash scripts/serve_vllm.sh
+bash setup_vllm.sh
 ```
 
 In terminal 2, check readiness and start Streamlit:
