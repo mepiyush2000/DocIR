@@ -13,6 +13,9 @@ import statistics
 from .ink import binarize_region, measure_text_lines
 
 BOLD_RELATIVE_FACTOR = 1.15  # a label's median ratio above (doc median * this) is bold
+# one block this much heavier than the body is bold even when its role is not
+# (bold questions or lead-ins inside regular text); all-caps text measures light, never heavy
+BLOCK_BOLD_FACTOR = 1.3
 
 
 def measure_stroke_ratio(source_image, bbox) -> float | None:
@@ -38,19 +41,30 @@ def measure_stroke_ratio(source_image, bbox) -> float | None:
     return float(binary.sum() / num_runs) / stats.x_height
 
 
+def baseline_ratio(ratios_by_label: dict[str, list[float]], baseline_label: str | None = None) -> float | None:
+    """The document's regular-weight stroke ratio: the body label's median when
+    given (headings can outnumber paragraphs), else the median of all blocks."""
+    all_ratios = [r for ratios in ratios_by_label.values() for r in ratios]
+    if not all_ratios:
+        return None
+    base = ratios_by_label.get(baseline_label) if baseline_label else None
+    return statistics.median(base or all_ratios)
+
+
 def classify_bold_by_label(ratios_by_label: dict[str, list[float]],
                            baseline_label: str | None = None) -> dict[str, bool]:
     """Collapse per-block stroke ratios into one bold/regular verdict per
-    label, relative to this document's own baseline: the body-text label's
-    median when given (headings can outnumber paragraphs), else the median
-    of all blocks (so a role like "paragraph_title" is either bold or not
-    throughout the doc)."""
-    all_ratios = [r for ratios in ratios_by_label.values() for r in ratios]
-    if not all_ratios:
+    label, relative to this document's own baseline (so a role like
+    "paragraph_title" is either bold or not throughout the doc)."""
+    base = baseline_ratio(ratios_by_label, baseline_label)
+    if base is None:
         return {}
-    base = ratios_by_label.get(baseline_label) if baseline_label else None
-    threshold = statistics.median(base or all_ratios) * BOLD_RELATIVE_FACTOR
+    threshold = base * BOLD_RELATIVE_FACTOR
     return {
         label: bool(statistics.median(ratios) > threshold)
         for label, ratios in ratios_by_label.items()
     }
+
+
+def is_bold_outlier(ratio: float | None, baseline: float | None) -> bool:
+    return ratio is not None and baseline is not None and ratio > baseline * BLOCK_BOLD_FACTOR

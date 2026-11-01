@@ -21,23 +21,48 @@ _INLINE_SCRIPT = re.compile(r"[ \t]*\$\s*[\^_]\s*\{+\s*([^{}$]{1,8}?)\s*\}+\s*\$
 _INLINE_MATH = re.compile(r"\$\s([^$]*[\\{][^$]*)\$")
 _FRACTION = re.compile(r"\\[dt]?frac\s*\{([^{}]*)\}\s*\{([^{}]*)\}")
 _TEX_COMMAND = re.compile(r"\\[A-Za-z]+\*?")
+_TEX_ESCAPE = re.compile(r"\\([%$&#_{}])")
+_TEX_SYMBOL = re.compile(r"\\([A-Za-z]+)")
+# math commands that stand for a printed character (the rest are formatting and are dropped)
+TEX_SYMBOLS = {
+    "pm": "±", "mp": "∓", "times": "×", "div": "÷", "cdot": "·", "bullet": "•",
+    "leq": "≤", "le": "≤", "geq": "≥", "ge": "≥", "neq": "≠", "ne": "≠",
+    "approx": "≈", "sim": "~", "simeq": "≃", "equiv": "≡", "propto": "∝",
+    "ll": "≪", "gg": "≫", "infty": "∞", "circ": "°", "degree": "°", "prime": "′",
+    "to": "→", "rightarrow": "→", "leftarrow": "←", "Rightarrow": "⇒", "Leftarrow": "⇐",
+    "leftrightarrow": "↔", "uparrow": "↑", "downarrow": "↓",
+    "ldots": "…", "cdots": "⋯", "dots": "…", "partial": "∂", "nabla": "∇",
+    "sum": "∑", "prod": "∏", "int": "∫", "sqrt": "√", "in": "∈", "notin": "∉",
+    "subset": "⊂", "subseteq": "⊆", "cup": "∪", "cap": "∩", "forall": "∀", "exists": "∃",
+    "alpha": "α", "beta": "β", "gamma": "γ", "delta": "δ", "epsilon": "ε", "varepsilon": "ε",
+    "zeta": "ζ", "eta": "η", "theta": "θ", "kappa": "κ", "lambda": "λ", "mu": "μ", "nu": "ν",
+    "xi": "ξ", "pi": "π", "rho": "ρ", "sigma": "σ", "tau": "τ", "phi": "φ", "varphi": "φ",
+    "chi": "χ", "psi": "ψ", "omega": "ω", "Gamma": "Γ", "Delta": "Δ", "Theta": "Θ",
+    "Lambda": "Λ", "Pi": "Π", "Sigma": "Σ", "Phi": "Φ", "Psi": "Ψ", "Omega": "Ω",
+}
 # fill-in blanks: VL writes a form's empty lines as runs of underscores (the
 # lines themselves are drawn as graphics)
 _BLANK = re.compile(r"_{2,}")
 
 
+def _tex_symbols(text: str) -> str:
+    """Escaped specials (`\\%`) and symbol commands (`\\pm`) as the characters they print."""
+    text = _TEX_ESCAPE.sub(r"\1", text)
+    return _TEX_SYMBOL.sub(lambda m: TEX_SYMBOLS.get(m.group(1), m.group(0)), text)
+
+
 def _math_text(m: re.Match) -> str:
-    text = _FRACTION.sub(r"\1/\2", m.group(1))
+    text = _tex_symbols(_FRACTION.sub(r"\1/\2", m.group(1)))
     text = re.sub(r"[\^_](?=\s*\{)", "", _TEX_COMMAND.sub("", text))
     return " ".join(re.sub(r"[{}]", "", text).split())
 
 
 def clean_vl_text(text: str) -> str:
     """VL block text as printed: markup for super/subscripts, formatting
-    commands, fill-in blanks and escaped line breaks resolved (a bare `$` is
-    currency and stays)."""
+    commands, math symbols, fill-in blanks and escaped line breaks resolved
+    (a bare `$` is currency and stays)."""
     text = text.replace("\\n", "\n")
-    text = _INLINE_SCRIPT.sub(r"\1", text)
+    text = _INLINE_SCRIPT.sub(lambda m: _tex_symbols(m.group(1)), text)
     text = _INLINE_MATH.sub(_math_text, text)
     text = _BLANK.sub(" ", text)
     return "\n".join(" ".join(line.split()) for line in text.split("\n")).strip()

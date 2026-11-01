@@ -67,3 +67,12 @@ def test_form_markup_and_blanks_are_cleaned_but_currency_stays():
     assert clean_vl_text(" $ a_{x} $") == "ax"
     assert clean_vl_text(" $ \\frac{1}{6110126} $") == "1/6110126"
     assert clean_vl_text("costs $5 or {x} $6") == "costs $5 or {x} $6"
+
+
+def test_math_symbols_print_as_characters_not_markup():
+    assert clean_vl_text("<td>$ \\pm5\\% $</td>") == "<td>±5%</td>"
+    assert clean_vl_text("on our  $ 16 \\times 16 $ grids") == "on our 16 × 16 grids"
+    assert clean_vl_text("GT Diff $ \\leq 10\\% $") == "GT Diff ≤ 10%"
+    assert clean_vl_text("25 $ ^{\\circ} $C") == "25°C"
+    assert clean_vl_text("$ \\alpha = 0.05 $, $ \\mathrm{p} < 10^{-3} $") == "α = 0.05, p < 10-3"
+    assert clean_vl_text("C:\\temp\\pm stays outside math") == "C:\\temp\\pm stays outside math"

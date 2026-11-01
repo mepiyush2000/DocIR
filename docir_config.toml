@@ -44,7 +44,7 @@ device = "auto"
 # "native" runs VL recognition inside Paddle. "vllm-server" uses a local
 # OpenAI-compatible server; layout detection and line OCR stay in Paddle.
 # Restart Streamlit after changing backend settings (models are cached).
-backend = "vllm-server"
+backend = "vllm-server" # Change to "native" where vllm server is not launched
 server_url = "http://127.0.0.1:8001/v1"
 api_model_name = "PaddleOCR-VL-1.6-0.9B"
 max_concurrency = 8

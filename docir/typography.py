@@ -17,14 +17,14 @@ from __future__ import annotations
 
 import logging
 import math
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from functools import lru_cache
 
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
 from . import font_catalog, pitch
-from .bold import classify_bold_by_label, measure_stroke_ratio
+from .bold import baseline_ratio, classify_bold_by_label, is_bold_outlier, measure_stroke_ratio
 from .fonts import classify_word_samples, collect_word_samples
 from .italic import classify_italic_by_label, measure_slant_angle
 from .line_geometry import measure_line
@@ -66,13 +66,18 @@ class RoleTraits:
 
 # ---------- bold / italic / category per role ----------
 
-def classify_roles(items: list[tuple[str, tuple, str]], image: Image.Image | None) -> dict[str, RoleTraits]:
-    """`items`: (role, bbox, content) per text block."""
+def classify_roles(items: list[tuple[str, tuple, str]], image: Image.Image | None
+                   ) -> tuple[dict[str, RoleTraits], list[bool]]:
+    """`items`: (role, bbox, content) per text block. Returns the traits per role
+    and, per item, whether that block alone is clearly bold."""
     strokes: dict[str, list[float]] = {}
+    item_strokes: list[float | None] = []
     slants: dict[str, list[float]] = {}
     samples: dict[str, list] = {}
     for role, bbox, content in items:
-        if (r := measure_stroke_ratio(image, bbox)) is not None:
+        r = measure_stroke_ratio(image, bbox)
+        item_strokes.append(r)
+        if r is not None:
             strokes.setdefault(role, []).append(r)
         if (a := measure_slant_angle(image, bbox)) is not None:
             slants.setdefault(role, []).append(a)
@@ -98,7 +103,8 @@ def classify_roles(items: list[tuple[str, tuple, str]], image: Image.Image | Non
             category = doc_category
         traits[role] = RoleTraits(bold.get(role, False), italic.get(role, False), category)
     logger.debug("role traits: %s (document category %s, margin %.3f)", traits, doc_category, doc_margin)
-    return traits
+    base = baseline_ratio(strokes, baseline_label=body_role)
+    return traits, [is_bold_outlier(r, base) for r in item_strokes]
 
 
 # ---------- measured x-height -> font size ----------
@@ -245,7 +251,7 @@ def assign_styles(page: Page, image: Image.Image | None) -> None:
     blocks = [b for b in page.text_blocks() if b.lines]
     if not blocks:
         return
-    traits = classify_roles([(b.role, b.bbox, b.content) for b in blocks], image)
+    traits, heavy = classify_roles([(b.role, b.bbox, b.content) for b in blocks], image)
     # typewriter text: judged from line lengths, which survive blur better than glyph shapes
     page_mono = pitch.looks_monospaced(blocks)
     for role, t in traits.items():
@@ -303,6 +309,10 @@ def assign_styles(page: Page, image: Image.Image | None) -> None:
         face = font_catalog.face(family, t.bold, t.italic)
         b.style = TextStyle(font_family=family, category=t.category, bold=t.bold, italic=t.italic,
                             size_px=size_for_x_height(lines_x_height(b.lines, face.path), face.path))
+
+    for b, is_heavy in zip(blocks, heavy):
+        if is_heavy and not b.style.bold:
+            b.style = replace(b.style, bold=True)
 
     harmonize_styles(blocks)
 
